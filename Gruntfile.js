@@ -258,13 +258,17 @@ module.exports = function (grunt) {
                 }
             }
         },
-        grunticon: {
+        grunticonsass: {
             options: {
-            	src: "<%= yeoman.app %>/styles/dist/icons/",
-            	dest: "<%= yeoman.app %>/styles/icons/"    
+            	src: "<%= yeoman.app %>/images/icons_source/",
+            	dest: "<%= yeoman.app %>/styles/icons-dist/" , 
+            	iconslistscss:"../icons.list.scss"	,
+            	pngfolder:"<%= yeoman.app %>/images/icons_pngs"
+            		
             	
             }
         }
+        
     });
 
     grunt.renameTask('regarde', 'watch');
@@ -299,14 +303,13 @@ module.exports = function (grunt) {
         'clean:dist',
         'coffee',
         'jst',
-        'grunticon',
+        'grunticonsass',
         'compass:dist',
         'useminPrepare',
         'requirejs',
         'imagemin',
         'htmlmin',
         'concat',
-        'cssmin',
         'uglify',
         'copy',
         'usemin'
