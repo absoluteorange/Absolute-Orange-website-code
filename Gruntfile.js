@@ -148,6 +148,13 @@ module.exports = function (grunt) {
                 importPath: 'app/components',
                 relativeAssets: true
             },
+            grunticon:{
+            	   options: {
+            	  sassDir: '<%= yeoman.app %>/icons/dist',
+                  cssDir: '<%= yeoman.dist %>/styles',
+                  environment: 'production'
+                	  }
+            },
             dist: {},
             server: {
                 options: {
@@ -241,6 +248,17 @@ module.exports = function (grunt) {
                         'images/{,*/}*.{webp,gif}'
                     ]
                 }]
+            },
+            grunticon: {
+                files: [{
+                	expand: true,
+                    dot: true,
+                    cwd: '<%= yeoman.app %>/icons/dist/icons/',
+                    dest: '<%= yeoman.dist %>/styles/icons',
+                    src: [
+                        '{,*/}*.png'
+                    ]
+                }]
             }
         },
         bower: {
@@ -260,10 +278,10 @@ module.exports = function (grunt) {
         },
         grunticonsass: {
             options: {
-            	src: "<%= yeoman.app %>/images/icons_source/",
-            	dest: "<%= yeoman.app %>/styles/icons-dist/" , 
-            	iconslistscss:"../icons.list.scss"	,
-            	pngfolder:"<%= yeoman.app %>/images/icons_pngs"
+            	src: "<%= yeoman.app %>/icons/svgs/",
+            	dest: "<%= yeoman.app %>/icons/dist/" , 
+            	iconslistscss:"../icons.scss"	,
+            	pngfolder:'icons/'
             		
             	
             }
@@ -305,11 +323,15 @@ module.exports = function (grunt) {
         'jst',
         'grunticonsass',
         'compass:dist',
+
+        'compass:grunticon',
+        'copy:grunticon',
         'useminPrepare',
         'requirejs',
         'imagemin',
         'htmlmin',
         'concat',
+        'cssmin',
         'uglify',
         'copy',
         'usemin'

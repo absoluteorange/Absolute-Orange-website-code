@@ -10,7 +10,7 @@ body {
 }
 
 /* line 10, ../../app/styles/main.scss */
-.icon-phone {
+.icon-phone, .ape {
   background-size: cover;
   width: 200px;
   height: 200px;
