@@ -1,6 +1,6 @@
 /* line 1, ../../app/styles/main.scss */
 body {
-  background: #fafafa;
+  background: #fdfafa;
 }
 
 /* line 5, ../../app/styles/main.scss */
@@ -10,7 +10,7 @@ body {
 }
 
 /* line 10, ../../app/styles/main.scss */
-.icon-phone, .ape {
+.icon-phone, .ape2 {
   background-size: cover;
   width: 200px;
   height: 200px;

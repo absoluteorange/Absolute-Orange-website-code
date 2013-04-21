@@ -148,13 +148,6 @@ module.exports = function (grunt) {
                 importPath: 'app/components',
                 relativeAssets: true
             },
-            grunticon:{
-            	   options: {
-            	  sassDir: '<%= yeoman.app %>/icons/dist',
-                  cssDir: '<%= yeoman.dist %>/styles',
-                  environment: 'production'
-                	  }
-            },
             dist: {},
             server: {
                 options: {
@@ -208,11 +201,18 @@ module.exports = function (grunt) {
             dist: {
                 files: {
                     '<%= yeoman.dist %>/styles/main.css': [
-                        '.tmp/styles/{,*/}*.css',
+                        '.tmp/styles/*.css',
                         '<%= yeoman.app %>/styles/{,*/}*.css'
                     ]
                 }
-            }
+            },
+            grunticon: {
+                expand: true,
+                cwd: '.tmp/styles/icons',
+                src: ['*.css'],
+                dest: '<%= yeoman.dist %>/styles/icons'
+              }
+        
         },
         htmlmin: {
             dist: {
@@ -248,17 +248,6 @@ module.exports = function (grunt) {
                         'images/{,*/}*.{webp,gif}'
                     ]
                 }]
-            },
-            grunticon: {
-                files: [{
-                	expand: true,
-                    dot: true,
-                    cwd: '<%= yeoman.app %>/icons/dist/icons/',
-                    dest: '<%= yeoman.dist %>/styles/icons',
-                    src: [
-                        '{,*/}*.png'
-                    ]
-                }]
             }
         },
         bower: {
@@ -278,10 +267,10 @@ module.exports = function (grunt) {
         },
         grunticonsass: {
             options: {
-            	src: "<%= yeoman.app %>/icons/svgs/",
-            	dest: "<%= yeoman.app %>/icons/dist/" , 
-            	iconslistscss:"../icons.scss"	,
-            	pngfolder:'icons/'
+            	src: "<%= yeoman.app %>/styles/icons/svgs/",
+            	dest: "<%= yeoman.app %>/styles/icons" , 
+            	iconslistscss:"../_icons.scss"	,
+            	pngfolder:'../../images/icons/'
             		
             	
             }
@@ -323,15 +312,13 @@ module.exports = function (grunt) {
         'jst',
         'grunticonsass',
         'compass:dist',
-
-        'compass:grunticon',
-        'copy:grunticon',
         'useminPrepare',
         'requirejs',
         'imagemin',
         'htmlmin',
         'concat',
         'cssmin',
+        'cssmin:grunticon',
         'uglify',
         'copy',
         'usemin'
