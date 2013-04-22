@@ -1,14 +1,7 @@
-body {
-    background: #fdfafa;
-}
+@import 'reset.sass';
 
-.hero-unit {
-    margin: 50px auto 0 auto;
-    width: 300px;
-}
-
-.icon-phone,.ape2{
-	background-size:cover;
-	width:200px;
-	height:200px;
-}
+@import "bourbon/bourbon";
+@import 'layout.scss';
+@import 'base.scss';
+@import 'themes.scss';
+@import 'modules.scss';

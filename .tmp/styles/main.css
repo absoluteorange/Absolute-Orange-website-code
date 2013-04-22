@@ -1,17 +1,648 @@
-/* line 1, ../../app/styles/main.scss */
+/* http://meyerweb.com/eric/tools/css/reset/
+ * v2.0 | 20110126
+ * License: none (public domain) */
+/* line 5, ../../app/styles/_reset.sass */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+/* line 26, ../../app/styles/_reset.sass */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* line 30, ../../app/styles/_reset.sass */
 body {
-  background: #fdfafa;
+  line-height: 1;
 }
 
-/* line 5, ../../app/styles/main.scss */
-.hero-unit {
-  margin: 50px auto 0 auto;
-  width: 300px;
+/* line 33, ../../app/styles/_reset.sass */
+ol, ul {
+  list-style: none;
 }
 
-/* line 10, ../../app/styles/main.scss */
-.icon-phone, .ape2 {
-  background-size: cover;
-  width: 200px;
-  height: 200px;
+/* line 36, ../../app/styles/_reset.sass */
+blockquote, q {
+  quotes: none;
+}
+
+/* line 39, ../../app/styles/_reset.sass */
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+/* line 44, ../../app/styles/_reset.sass */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 2, ../../app/styles/neat/grid/_grid.scss */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 11, ../../app/styles/neat/grid/_visual-grid.scss */
+body:before {
+  content: '';
+  display: inline-block;
+  background-image: deprecated-webkit-gradient(linear, left top, left bottom, rgba(0, 0, 0, 0) 0, #eeeeee 0, #eeeeee 2.5641%, rgba(0, 0, 0, 0) 2.5641%, rgba(0, 0, 0, 0) 5.12821%, #eeeeee 5.12821%, #eeeeee 7.69231%, rgba(0, 0, 0, 0) 7.69231%, rgba(0, 0, 0, 0) 10.25641%, #eeeeee 10.25641%, #eeeeee 12.82051%, rgba(0, 0, 0, 0) 12.82051%, rgba(0, 0, 0, 0) 15.38462%, #eeeeee 15.38462%, #eeeeee 17.94872%, rgba(0, 0, 0, 0) 17.94872%, rgba(0, 0, 0, 0) 20.51282%, #eeeeee 20.51282%, #eeeeee 23.07692%, rgba(0, 0, 0, 0) 23.07692%, rgba(0, 0, 0, 0) 25.64103%, #eeeeee 25.64103%, #eeeeee 28.20513%, rgba(0, 0, 0, 0) 28.20513%, rgba(0, 0, 0, 0) 30.76923%, #eeeeee 30.76923%, #eeeeee 33.33333%, rgba(0, 0, 0, 0) 33.33333%, rgba(0, 0, 0, 0) 35.89744%, #eeeeee 35.89744%, #eeeeee 38.46154%, rgba(0, 0, 0, 0) 38.46154%, rgba(0, 0, 0, 0) 41.02564%, #eeeeee 41.02564%, #eeeeee 43.58974%, rgba(0, 0, 0, 0) 43.58974%, rgba(0, 0, 0, 0) 46.15385%, #eeeeee 46.15385%, #eeeeee 48.71795%, rgba(0, 0, 0, 0) 48.71795%, rgba(0, 0, 0, 0) 51.28205%, #eeeeee 51.28205%, #eeeeee 53.84615%, rgba(0, 0, 0, 0) 53.84615%, rgba(0, 0, 0, 0) 56.41026%, #eeeeee 56.41026%, #eeeeee 58.97436%, rgba(0, 0, 0, 0) 58.97436%, rgba(0, 0, 0, 0) 61.53846%, #eeeeee 61.53846%, #eeeeee 64.10256%, rgba(0, 0, 0, 0) 64.10256%, rgba(0, 0, 0, 0) 66.66667%, #eeeeee 66.66667%, #eeeeee 69.23077%, rgba(0, 0, 0, 0) 69.23077%, rgba(0, 0, 0, 0) 71.79487%, #eeeeee 71.79487%, #eeeeee 74.35897%, rgba(0, 0, 0, 0) 74.35897%, rgba(0, 0, 0, 0) 76.92308%, #eeeeee 76.92308%, #eeeeee 79.48718%, rgba(0, 0, 0, 0) 79.48718%, rgba(0, 0, 0, 0) 82.05128%, #eeeeee 82.05128%, #eeeeee 84.61538%, rgba(0, 0, 0, 0) 84.61538%, rgba(0, 0, 0, 0) 87.17949%, #eeeeee 87.17949%, #eeeeee 89.74359%, rgba(0, 0, 0, 0) 89.74359%, rgba(0, 0, 0, 0) 92.30769%, #eeeeee 92.30769%, #eeeeee 94.87179%, rgba(0, 0, 0, 0) 94.87179%, rgba(0, 0, 0, 0) 97.4359%, #eeeeee 97.4359%, #eeeeee 100.0%, rgba(0, 0, 0, 0) 100.0%);
+  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0, #eeeeee 0, #eeeeee 2.5641%, rgba(0, 0, 0, 0) 2.5641%, rgba(0, 0, 0, 0) 5.12821%, #eeeeee 5.12821%, #eeeeee 7.69231%, rgba(0, 0, 0, 0) 7.69231%, rgba(0, 0, 0, 0) 10.25641%, #eeeeee 10.25641%, #eeeeee 12.82051%, rgba(0, 0, 0, 0) 12.82051%, rgba(0, 0, 0, 0) 15.38462%, #eeeeee 15.38462%, #eeeeee 17.94872%, rgba(0, 0, 0, 0) 17.94872%, rgba(0, 0, 0, 0) 20.51282%, #eeeeee 20.51282%, #eeeeee 23.07692%, rgba(0, 0, 0, 0) 23.07692%, rgba(0, 0, 0, 0) 25.64103%, #eeeeee 25.64103%, #eeeeee 28.20513%, rgba(0, 0, 0, 0) 28.20513%, rgba(0, 0, 0, 0) 30.76923%, #eeeeee 30.76923%, #eeeeee 33.33333%, rgba(0, 0, 0, 0) 33.33333%, rgba(0, 0, 0, 0) 35.89744%, #eeeeee 35.89744%, #eeeeee 38.46154%, rgba(0, 0, 0, 0) 38.46154%, rgba(0, 0, 0, 0) 41.02564%, #eeeeee 41.02564%, #eeeeee 43.58974%, rgba(0, 0, 0, 0) 43.58974%, rgba(0, 0, 0, 0) 46.15385%, #eeeeee 46.15385%, #eeeeee 48.71795%, rgba(0, 0, 0, 0) 48.71795%, rgba(0, 0, 0, 0) 51.28205%, #eeeeee 51.28205%, #eeeeee 53.84615%, rgba(0, 0, 0, 0) 53.84615%, rgba(0, 0, 0, 0) 56.41026%, #eeeeee 56.41026%, #eeeeee 58.97436%, rgba(0, 0, 0, 0) 58.97436%, rgba(0, 0, 0, 0) 61.53846%, #eeeeee 61.53846%, #eeeeee 64.10256%, rgba(0, 0, 0, 0) 64.10256%, rgba(0, 0, 0, 0) 66.66667%, #eeeeee 66.66667%, #eeeeee 69.23077%, rgba(0, 0, 0, 0) 69.23077%, rgba(0, 0, 0, 0) 71.79487%, #eeeeee 71.79487%, #eeeeee 74.35897%, rgba(0, 0, 0, 0) 74.35897%, rgba(0, 0, 0, 0) 76.92308%, #eeeeee 76.92308%, #eeeeee 79.48718%, rgba(0, 0, 0, 0) 79.48718%, rgba(0, 0, 0, 0) 82.05128%, #eeeeee 82.05128%, #eeeeee 84.61538%, rgba(0, 0, 0, 0) 84.61538%, rgba(0, 0, 0, 0) 87.17949%, #eeeeee 87.17949%, #eeeeee 89.74359%, rgba(0, 0, 0, 0) 89.74359%, rgba(0, 0, 0, 0) 92.30769%, #eeeeee 92.30769%, #eeeeee 94.87179%, rgba(0, 0, 0, 0) 94.87179%, rgba(0, 0, 0, 0) 97.4359%, #eeeeee 97.4359%, #eeeeee 100.0%, rgba(0, 0, 0, 0) 100.0%);
+  background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0) 0, #eeeeee 0, #eeeeee 2.5641%, rgba(0, 0, 0, 0) 2.5641%, rgba(0, 0, 0, 0) 5.12821%, #eeeeee 5.12821%, #eeeeee 7.69231%, rgba(0, 0, 0, 0) 7.69231%, rgba(0, 0, 0, 0) 10.25641%, #eeeeee 10.25641%, #eeeeee 12.82051%, rgba(0, 0, 0, 0) 12.82051%, rgba(0, 0, 0, 0) 15.38462%, #eeeeee 15.38462%, #eeeeee 17.94872%, rgba(0, 0, 0, 0) 17.94872%, rgba(0, 0, 0, 0) 20.51282%, #eeeeee 20.51282%, #eeeeee 23.07692%, rgba(0, 0, 0, 0) 23.07692%, rgba(0, 0, 0, 0) 25.64103%, #eeeeee 25.64103%, #eeeeee 28.20513%, rgba(0, 0, 0, 0) 28.20513%, rgba(0, 0, 0, 0) 30.76923%, #eeeeee 30.76923%, #eeeeee 33.33333%, rgba(0, 0, 0, 0) 33.33333%, rgba(0, 0, 0, 0) 35.89744%, #eeeeee 35.89744%, #eeeeee 38.46154%, rgba(0, 0, 0, 0) 38.46154%, rgba(0, 0, 0, 0) 41.02564%, #eeeeee 41.02564%, #eeeeee 43.58974%, rgba(0, 0, 0, 0) 43.58974%, rgba(0, 0, 0, 0) 46.15385%, #eeeeee 46.15385%, #eeeeee 48.71795%, rgba(0, 0, 0, 0) 48.71795%, rgba(0, 0, 0, 0) 51.28205%, #eeeeee 51.28205%, #eeeeee 53.84615%, rgba(0, 0, 0, 0) 53.84615%, rgba(0, 0, 0, 0) 56.41026%, #eeeeee 56.41026%, #eeeeee 58.97436%, rgba(0, 0, 0, 0) 58.97436%, rgba(0, 0, 0, 0) 61.53846%, #eeeeee 61.53846%, #eeeeee 64.10256%, rgba(0, 0, 0, 0) 64.10256%, rgba(0, 0, 0, 0) 66.66667%, #eeeeee 66.66667%, #eeeeee 69.23077%, rgba(0, 0, 0, 0) 69.23077%, rgba(0, 0, 0, 0) 71.79487%, #eeeeee 71.79487%, #eeeeee 74.35897%, rgba(0, 0, 0, 0) 74.35897%, rgba(0, 0, 0, 0) 76.92308%, #eeeeee 76.92308%, #eeeeee 79.48718%, rgba(0, 0, 0, 0) 79.48718%, rgba(0, 0, 0, 0) 82.05128%, #eeeeee 82.05128%, #eeeeee 84.61538%, rgba(0, 0, 0, 0) 84.61538%, rgba(0, 0, 0, 0) 87.17949%, #eeeeee 87.17949%, #eeeeee 89.74359%, rgba(0, 0, 0, 0) 89.74359%, rgba(0, 0, 0, 0) 92.30769%, #eeeeee 92.30769%, #eeeeee 94.87179%, rgba(0, 0, 0, 0) 94.87179%, rgba(0, 0, 0, 0) 97.4359%, #eeeeee 97.4359%, #eeeeee 100.0%, rgba(0, 0, 0, 0) 100.0%);
+  background-image: -ms-linear-gradient(left, rgba(0, 0, 0, 0) 0, #eeeeee 0, #eeeeee 2.5641%, rgba(0, 0, 0, 0) 2.5641%, rgba(0, 0, 0, 0) 5.12821%, #eeeeee 5.12821%, #eeeeee 7.69231%, rgba(0, 0, 0, 0) 7.69231%, rgba(0, 0, 0, 0) 10.25641%, #eeeeee 10.25641%, #eeeeee 12.82051%, rgba(0, 0, 0, 0) 12.82051%, rgba(0, 0, 0, 0) 15.38462%, #eeeeee 15.38462%, #eeeeee 17.94872%, rgba(0, 0, 0, 0) 17.94872%, rgba(0, 0, 0, 0) 20.51282%, #eeeeee 20.51282%, #eeeeee 23.07692%, rgba(0, 0, 0, 0) 23.07692%, rgba(0, 0, 0, 0) 25.64103%, #eeeeee 25.64103%, #eeeeee 28.20513%, rgba(0, 0, 0, 0) 28.20513%, rgba(0, 0, 0, 0) 30.76923%, #eeeeee 30.76923%, #eeeeee 33.33333%, rgba(0, 0, 0, 0) 33.33333%, rgba(0, 0, 0, 0) 35.89744%, #eeeeee 35.89744%, #eeeeee 38.46154%, rgba(0, 0, 0, 0) 38.46154%, rgba(0, 0, 0, 0) 41.02564%, #eeeeee 41.02564%, #eeeeee 43.58974%, rgba(0, 0, 0, 0) 43.58974%, rgba(0, 0, 0, 0) 46.15385%, #eeeeee 46.15385%, #eeeeee 48.71795%, rgba(0, 0, 0, 0) 48.71795%, rgba(0, 0, 0, 0) 51.28205%, #eeeeee 51.28205%, #eeeeee 53.84615%, rgba(0, 0, 0, 0) 53.84615%, rgba(0, 0, 0, 0) 56.41026%, #eeeeee 56.41026%, #eeeeee 58.97436%, rgba(0, 0, 0, 0) 58.97436%, rgba(0, 0, 0, 0) 61.53846%, #eeeeee 61.53846%, #eeeeee 64.10256%, rgba(0, 0, 0, 0) 64.10256%, rgba(0, 0, 0, 0) 66.66667%, #eeeeee 66.66667%, #eeeeee 69.23077%, rgba(0, 0, 0, 0) 69.23077%, rgba(0, 0, 0, 0) 71.79487%, #eeeeee 71.79487%, #eeeeee 74.35897%, rgba(0, 0, 0, 0) 74.35897%, rgba(0, 0, 0, 0) 76.92308%, #eeeeee 76.92308%, #eeeeee 79.48718%, rgba(0, 0, 0, 0) 79.48718%, rgba(0, 0, 0, 0) 82.05128%, #eeeeee 82.05128%, #eeeeee 84.61538%, rgba(0, 0, 0, 0) 84.61538%, rgba(0, 0, 0, 0) 87.17949%, #eeeeee 87.17949%, #eeeeee 89.74359%, rgba(0, 0, 0, 0) 89.74359%, rgba(0, 0, 0, 0) 92.30769%, #eeeeee 92.30769%, #eeeeee 94.87179%, rgba(0, 0, 0, 0) 94.87179%, rgba(0, 0, 0, 0) 97.4359%, #eeeeee 97.4359%, #eeeeee 100.0%, rgba(0, 0, 0, 0) 100.0%);
+  background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0) 0, #eeeeee 0, #eeeeee 2.5641%, rgba(0, 0, 0, 0) 2.5641%, rgba(0, 0, 0, 0) 5.12821%, #eeeeee 5.12821%, #eeeeee 7.69231%, rgba(0, 0, 0, 0) 7.69231%, rgba(0, 0, 0, 0) 10.25641%, #eeeeee 10.25641%, #eeeeee 12.82051%, rgba(0, 0, 0, 0) 12.82051%, rgba(0, 0, 0, 0) 15.38462%, #eeeeee 15.38462%, #eeeeee 17.94872%, rgba(0, 0, 0, 0) 17.94872%, rgba(0, 0, 0, 0) 20.51282%, #eeeeee 20.51282%, #eeeeee 23.07692%, rgba(0, 0, 0, 0) 23.07692%, rgba(0, 0, 0, 0) 25.64103%, #eeeeee 25.64103%, #eeeeee 28.20513%, rgba(0, 0, 0, 0) 28.20513%, rgba(0, 0, 0, 0) 30.76923%, #eeeeee 30.76923%, #eeeeee 33.33333%, rgba(0, 0, 0, 0) 33.33333%, rgba(0, 0, 0, 0) 35.89744%, #eeeeee 35.89744%, #eeeeee 38.46154%, rgba(0, 0, 0, 0) 38.46154%, rgba(0, 0, 0, 0) 41.02564%, #eeeeee 41.02564%, #eeeeee 43.58974%, rgba(0, 0, 0, 0) 43.58974%, rgba(0, 0, 0, 0) 46.15385%, #eeeeee 46.15385%, #eeeeee 48.71795%, rgba(0, 0, 0, 0) 48.71795%, rgba(0, 0, 0, 0) 51.28205%, #eeeeee 51.28205%, #eeeeee 53.84615%, rgba(0, 0, 0, 0) 53.84615%, rgba(0, 0, 0, 0) 56.41026%, #eeeeee 56.41026%, #eeeeee 58.97436%, rgba(0, 0, 0, 0) 58.97436%, rgba(0, 0, 0, 0) 61.53846%, #eeeeee 61.53846%, #eeeeee 64.10256%, rgba(0, 0, 0, 0) 64.10256%, rgba(0, 0, 0, 0) 66.66667%, #eeeeee 66.66667%, #eeeeee 69.23077%, rgba(0, 0, 0, 0) 69.23077%, rgba(0, 0, 0, 0) 71.79487%, #eeeeee 71.79487%, #eeeeee 74.35897%, rgba(0, 0, 0, 0) 74.35897%, rgba(0, 0, 0, 0) 76.92308%, #eeeeee 76.92308%, #eeeeee 79.48718%, rgba(0, 0, 0, 0) 79.48718%, rgba(0, 0, 0, 0) 82.05128%, #eeeeee 82.05128%, #eeeeee 84.61538%, rgba(0, 0, 0, 0) 84.61538%, rgba(0, 0, 0, 0) 87.17949%, #eeeeee 87.17949%, #eeeeee 89.74359%, rgba(0, 0, 0, 0) 89.74359%, rgba(0, 0, 0, 0) 92.30769%, #eeeeee 92.30769%, #eeeeee 94.87179%, rgba(0, 0, 0, 0) 94.87179%, rgba(0, 0, 0, 0) 97.4359%, #eeeeee 97.4359%, #eeeeee 100.0%, rgba(0, 0, 0, 0) 100.0%);
+  background-image: linear-gradient(left, rgba(0, 0, 0, 0) 0, #eeeeee 0, #eeeeee 2.5641%, rgba(0, 0, 0, 0) 2.5641%, rgba(0, 0, 0, 0) 5.12821%, #eeeeee 5.12821%, #eeeeee 7.69231%, rgba(0, 0, 0, 0) 7.69231%, rgba(0, 0, 0, 0) 10.25641%, #eeeeee 10.25641%, #eeeeee 12.82051%, rgba(0, 0, 0, 0) 12.82051%, rgba(0, 0, 0, 0) 15.38462%, #eeeeee 15.38462%, #eeeeee 17.94872%, rgba(0, 0, 0, 0) 17.94872%, rgba(0, 0, 0, 0) 20.51282%, #eeeeee 20.51282%, #eeeeee 23.07692%, rgba(0, 0, 0, 0) 23.07692%, rgba(0, 0, 0, 0) 25.64103%, #eeeeee 25.64103%, #eeeeee 28.20513%, rgba(0, 0, 0, 0) 28.20513%, rgba(0, 0, 0, 0) 30.76923%, #eeeeee 30.76923%, #eeeeee 33.33333%, rgba(0, 0, 0, 0) 33.33333%, rgba(0, 0, 0, 0) 35.89744%, #eeeeee 35.89744%, #eeeeee 38.46154%, rgba(0, 0, 0, 0) 38.46154%, rgba(0, 0, 0, 0) 41.02564%, #eeeeee 41.02564%, #eeeeee 43.58974%, rgba(0, 0, 0, 0) 43.58974%, rgba(0, 0, 0, 0) 46.15385%, #eeeeee 46.15385%, #eeeeee 48.71795%, rgba(0, 0, 0, 0) 48.71795%, rgba(0, 0, 0, 0) 51.28205%, #eeeeee 51.28205%, #eeeeee 53.84615%, rgba(0, 0, 0, 0) 53.84615%, rgba(0, 0, 0, 0) 56.41026%, #eeeeee 56.41026%, #eeeeee 58.97436%, rgba(0, 0, 0, 0) 58.97436%, rgba(0, 0, 0, 0) 61.53846%, #eeeeee 61.53846%, #eeeeee 64.10256%, rgba(0, 0, 0, 0) 64.10256%, rgba(0, 0, 0, 0) 66.66667%, #eeeeee 66.66667%, #eeeeee 69.23077%, rgba(0, 0, 0, 0) 69.23077%, rgba(0, 0, 0, 0) 71.79487%, #eeeeee 71.79487%, #eeeeee 74.35897%, rgba(0, 0, 0, 0) 74.35897%, rgba(0, 0, 0, 0) 76.92308%, #eeeeee 76.92308%, #eeeeee 79.48718%, rgba(0, 0, 0, 0) 79.48718%, rgba(0, 0, 0, 0) 82.05128%, #eeeeee 82.05128%, #eeeeee 84.61538%, rgba(0, 0, 0, 0) 84.61538%, rgba(0, 0, 0, 0) 87.17949%, #eeeeee 87.17949%, #eeeeee 89.74359%, rgba(0, 0, 0, 0) 89.74359%, rgba(0, 0, 0, 0) 92.30769%, #eeeeee 92.30769%, #eeeeee 94.87179%, rgba(0, 0, 0, 0) 94.87179%, rgba(0, 0, 0, 0) 97.4359%, #eeeeee 97.4359%, #eeeeee 100.0%, rgba(0, 0, 0, 0) 100.0%);
+  height: 100%;
+  left: 0;
+  margin: 0 auto;
+  max-width: px(480);
+  opacity: 0.4;
+  position: fixed;
+  right: 0;
+  width: 100%;
+  z-index: -1;
+}
+@media screen and (max-width: 240px) {
+  /* line 11, ../../app/styles/neat/grid/_visual-grid.scss */
+  body:before {
+    background-image: deprecated-webkit-gradient(linear, left top, left bottom, rgba(0, 0, 0, 0) 0, #eeeeee 0, #eeeeee 3.44828%, rgba(0, 0, 0, 0) 3.44828%, rgba(0, 0, 0, 0) 6.89655%, #eeeeee 6.89655%, #eeeeee 10.34483%, rgba(0, 0, 0, 0) 10.34483%, rgba(0, 0, 0, 0) 13.7931%, #eeeeee 13.7931%, #eeeeee 17.24138%, rgba(0, 0, 0, 0) 17.24138%, rgba(0, 0, 0, 0) 20.68966%, #eeeeee 20.68966%, #eeeeee 24.13793%, rgba(0, 0, 0, 0) 24.13793%, rgba(0, 0, 0, 0) 27.58621%, #eeeeee 27.58621%, #eeeeee 31.03448%, rgba(0, 0, 0, 0) 31.03448%, rgba(0, 0, 0, 0) 34.48276%, #eeeeee 34.48276%, #eeeeee 37.93103%, rgba(0, 0, 0, 0) 37.93103%, rgba(0, 0, 0, 0) 41.37931%, #eeeeee 41.37931%, #eeeeee 44.82759%, rgba(0, 0, 0, 0) 44.82759%, rgba(0, 0, 0, 0) 48.27586%, #eeeeee 48.27586%, #eeeeee 51.72414%, rgba(0, 0, 0, 0) 51.72414%, rgba(0, 0, 0, 0) 55.17241%, #eeeeee 55.17241%, #eeeeee 58.62069%, rgba(0, 0, 0, 0) 58.62069%, rgba(0, 0, 0, 0) 62.06897%, #eeeeee 62.06897%, #eeeeee 65.51724%, rgba(0, 0, 0, 0) 65.51724%, rgba(0, 0, 0, 0) 68.96552%, #eeeeee 68.96552%, #eeeeee 72.41379%, rgba(0, 0, 0, 0) 72.41379%, rgba(0, 0, 0, 0) 75.86207%, #eeeeee 75.86207%, #eeeeee 79.31034%, rgba(0, 0, 0, 0) 79.31034%, rgba(0, 0, 0, 0) 82.75862%, #eeeeee 82.75862%, #eeeeee 86.2069%, rgba(0, 0, 0, 0) 86.2069%, rgba(0, 0, 0, 0) 89.65517%, #eeeeee 89.65517%, #eeeeee 93.10345%, rgba(0, 0, 0, 0) 93.10345%, rgba(0, 0, 0, 0) 96.55172%, #eeeeee 96.55172%, #eeeeee 100.0%, rgba(0, 0, 0, 0) 100.0%);
+    background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0, #eeeeee 0, #eeeeee 3.44828%, rgba(0, 0, 0, 0) 3.44828%, rgba(0, 0, 0, 0) 6.89655%, #eeeeee 6.89655%, #eeeeee 10.34483%, rgba(0, 0, 0, 0) 10.34483%, rgba(0, 0, 0, 0) 13.7931%, #eeeeee 13.7931%, #eeeeee 17.24138%, rgba(0, 0, 0, 0) 17.24138%, rgba(0, 0, 0, 0) 20.68966%, #eeeeee 20.68966%, #eeeeee 24.13793%, rgba(0, 0, 0, 0) 24.13793%, rgba(0, 0, 0, 0) 27.58621%, #eeeeee 27.58621%, #eeeeee 31.03448%, rgba(0, 0, 0, 0) 31.03448%, rgba(0, 0, 0, 0) 34.48276%, #eeeeee 34.48276%, #eeeeee 37.93103%, rgba(0, 0, 0, 0) 37.93103%, rgba(0, 0, 0, 0) 41.37931%, #eeeeee 41.37931%, #eeeeee 44.82759%, rgba(0, 0, 0, 0) 44.82759%, rgba(0, 0, 0, 0) 48.27586%, #eeeeee 48.27586%, #eeeeee 51.72414%, rgba(0, 0, 0, 0) 51.72414%, rgba(0, 0, 0, 0) 55.17241%, #eeeeee 55.17241%, #eeeeee 58.62069%, rgba(0, 0, 0, 0) 58.62069%, rgba(0, 0, 0, 0) 62.06897%, #eeeeee 62.06897%, #eeeeee 65.51724%, rgba(0, 0, 0, 0) 65.51724%, rgba(0, 0, 0, 0) 68.96552%, #eeeeee 68.96552%, #eeeeee 72.41379%, rgba(0, 0, 0, 0) 72.41379%, rgba(0, 0, 0, 0) 75.86207%, #eeeeee 75.86207%, #eeeeee 79.31034%, rgba(0, 0, 0, 0) 79.31034%, rgba(0, 0, 0, 0) 82.75862%, #eeeeee 82.75862%, #eeeeee 86.2069%, rgba(0, 0, 0, 0) 86.2069%, rgba(0, 0, 0, 0) 89.65517%, #eeeeee 89.65517%, #eeeeee 93.10345%, rgba(0, 0, 0, 0) 93.10345%, rgba(0, 0, 0, 0) 96.55172%, #eeeeee 96.55172%, #eeeeee 100.0%, rgba(0, 0, 0, 0) 100.0%);
+    background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0) 0, #eeeeee 0, #eeeeee 3.44828%, rgba(0, 0, 0, 0) 3.44828%, rgba(0, 0, 0, 0) 6.89655%, #eeeeee 6.89655%, #eeeeee 10.34483%, rgba(0, 0, 0, 0) 10.34483%, rgba(0, 0, 0, 0) 13.7931%, #eeeeee 13.7931%, #eeeeee 17.24138%, rgba(0, 0, 0, 0) 17.24138%, rgba(0, 0, 0, 0) 20.68966%, #eeeeee 20.68966%, #eeeeee 24.13793%, rgba(0, 0, 0, 0) 24.13793%, rgba(0, 0, 0, 0) 27.58621%, #eeeeee 27.58621%, #eeeeee 31.03448%, rgba(0, 0, 0, 0) 31.03448%, rgba(0, 0, 0, 0) 34.48276%, #eeeeee 34.48276%, #eeeeee 37.93103%, rgba(0, 0, 0, 0) 37.93103%, rgba(0, 0, 0, 0) 41.37931%, #eeeeee 41.37931%, #eeeeee 44.82759%, rgba(0, 0, 0, 0) 44.82759%, rgba(0, 0, 0, 0) 48.27586%, #eeeeee 48.27586%, #eeeeee 51.72414%, rgba(0, 0, 0, 0) 51.72414%, rgba(0, 0, 0, 0) 55.17241%, #eeeeee 55.17241%, #eeeeee 58.62069%, rgba(0, 0, 0, 0) 58.62069%, rgba(0, 0, 0, 0) 62.06897%, #eeeeee 62.06897%, #eeeeee 65.51724%, rgba(0, 0, 0, 0) 65.51724%, rgba(0, 0, 0, 0) 68.96552%, #eeeeee 68.96552%, #eeeeee 72.41379%, rgba(0, 0, 0, 0) 72.41379%, rgba(0, 0, 0, 0) 75.86207%, #eeeeee 75.86207%, #eeeeee 79.31034%, rgba(0, 0, 0, 0) 79.31034%, rgba(0, 0, 0, 0) 82.75862%, #eeeeee 82.75862%, #eeeeee 86.2069%, rgba(0, 0, 0, 0) 86.2069%, rgba(0, 0, 0, 0) 89.65517%, #eeeeee 89.65517%, #eeeeee 93.10345%, rgba(0, 0, 0, 0) 93.10345%, rgba(0, 0, 0, 0) 96.55172%, #eeeeee 96.55172%, #eeeeee 100.0%, rgba(0, 0, 0, 0) 100.0%);
+    background-image: -ms-linear-gradient(left, rgba(0, 0, 0, 0) 0, #eeeeee 0, #eeeeee 3.44828%, rgba(0, 0, 0, 0) 3.44828%, rgba(0, 0, 0, 0) 6.89655%, #eeeeee 6.89655%, #eeeeee 10.34483%, rgba(0, 0, 0, 0) 10.34483%, rgba(0, 0, 0, 0) 13.7931%, #eeeeee 13.7931%, #eeeeee 17.24138%, rgba(0, 0, 0, 0) 17.24138%, rgba(0, 0, 0, 0) 20.68966%, #eeeeee 20.68966%, #eeeeee 24.13793%, rgba(0, 0, 0, 0) 24.13793%, rgba(0, 0, 0, 0) 27.58621%, #eeeeee 27.58621%, #eeeeee 31.03448%, rgba(0, 0, 0, 0) 31.03448%, rgba(0, 0, 0, 0) 34.48276%, #eeeeee 34.48276%, #eeeeee 37.93103%, rgba(0, 0, 0, 0) 37.93103%, rgba(0, 0, 0, 0) 41.37931%, #eeeeee 41.37931%, #eeeeee 44.82759%, rgba(0, 0, 0, 0) 44.82759%, rgba(0, 0, 0, 0) 48.27586%, #eeeeee 48.27586%, #eeeeee 51.72414%, rgba(0, 0, 0, 0) 51.72414%, rgba(0, 0, 0, 0) 55.17241%, #eeeeee 55.17241%, #eeeeee 58.62069%, rgba(0, 0, 0, 0) 58.62069%, rgba(0, 0, 0, 0) 62.06897%, #eeeeee 62.06897%, #eeeeee 65.51724%, rgba(0, 0, 0, 0) 65.51724%, rgba(0, 0, 0, 0) 68.96552%, #eeeeee 68.96552%, #eeeeee 72.41379%, rgba(0, 0, 0, 0) 72.41379%, rgba(0, 0, 0, 0) 75.86207%, #eeeeee 75.86207%, #eeeeee 79.31034%, rgba(0, 0, 0, 0) 79.31034%, rgba(0, 0, 0, 0) 82.75862%, #eeeeee 82.75862%, #eeeeee 86.2069%, rgba(0, 0, 0, 0) 86.2069%, rgba(0, 0, 0, 0) 89.65517%, #eeeeee 89.65517%, #eeeeee 93.10345%, rgba(0, 0, 0, 0) 93.10345%, rgba(0, 0, 0, 0) 96.55172%, #eeeeee 96.55172%, #eeeeee 100.0%, rgba(0, 0, 0, 0) 100.0%);
+    background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0) 0, #eeeeee 0, #eeeeee 3.44828%, rgba(0, 0, 0, 0) 3.44828%, rgba(0, 0, 0, 0) 6.89655%, #eeeeee 6.89655%, #eeeeee 10.34483%, rgba(0, 0, 0, 0) 10.34483%, rgba(0, 0, 0, 0) 13.7931%, #eeeeee 13.7931%, #eeeeee 17.24138%, rgba(0, 0, 0, 0) 17.24138%, rgba(0, 0, 0, 0) 20.68966%, #eeeeee 20.68966%, #eeeeee 24.13793%, rgba(0, 0, 0, 0) 24.13793%, rgba(0, 0, 0, 0) 27.58621%, #eeeeee 27.58621%, #eeeeee 31.03448%, rgba(0, 0, 0, 0) 31.03448%, rgba(0, 0, 0, 0) 34.48276%, #eeeeee 34.48276%, #eeeeee 37.93103%, rgba(0, 0, 0, 0) 37.93103%, rgba(0, 0, 0, 0) 41.37931%, #eeeeee 41.37931%, #eeeeee 44.82759%, rgba(0, 0, 0, 0) 44.82759%, rgba(0, 0, 0, 0) 48.27586%, #eeeeee 48.27586%, #eeeeee 51.72414%, rgba(0, 0, 0, 0) 51.72414%, rgba(0, 0, 0, 0) 55.17241%, #eeeeee 55.17241%, #eeeeee 58.62069%, rgba(0, 0, 0, 0) 58.62069%, rgba(0, 0, 0, 0) 62.06897%, #eeeeee 62.06897%, #eeeeee 65.51724%, rgba(0, 0, 0, 0) 65.51724%, rgba(0, 0, 0, 0) 68.96552%, #eeeeee 68.96552%, #eeeeee 72.41379%, rgba(0, 0, 0, 0) 72.41379%, rgba(0, 0, 0, 0) 75.86207%, #eeeeee 75.86207%, #eeeeee 79.31034%, rgba(0, 0, 0, 0) 79.31034%, rgba(0, 0, 0, 0) 82.75862%, #eeeeee 82.75862%, #eeeeee 86.2069%, rgba(0, 0, 0, 0) 86.2069%, rgba(0, 0, 0, 0) 89.65517%, #eeeeee 89.65517%, #eeeeee 93.10345%, rgba(0, 0, 0, 0) 93.10345%, rgba(0, 0, 0, 0) 96.55172%, #eeeeee 96.55172%, #eeeeee 100.0%, rgba(0, 0, 0, 0) 100.0%);
+    background-image: linear-gradient(left, rgba(0, 0, 0, 0) 0, #eeeeee 0, #eeeeee 3.44828%, rgba(0, 0, 0, 0) 3.44828%, rgba(0, 0, 0, 0) 6.89655%, #eeeeee 6.89655%, #eeeeee 10.34483%, rgba(0, 0, 0, 0) 10.34483%, rgba(0, 0, 0, 0) 13.7931%, #eeeeee 13.7931%, #eeeeee 17.24138%, rgba(0, 0, 0, 0) 17.24138%, rgba(0, 0, 0, 0) 20.68966%, #eeeeee 20.68966%, #eeeeee 24.13793%, rgba(0, 0, 0, 0) 24.13793%, rgba(0, 0, 0, 0) 27.58621%, #eeeeee 27.58621%, #eeeeee 31.03448%, rgba(0, 0, 0, 0) 31.03448%, rgba(0, 0, 0, 0) 34.48276%, #eeeeee 34.48276%, #eeeeee 37.93103%, rgba(0, 0, 0, 0) 37.93103%, rgba(0, 0, 0, 0) 41.37931%, #eeeeee 41.37931%, #eeeeee 44.82759%, rgba(0, 0, 0, 0) 44.82759%, rgba(0, 0, 0, 0) 48.27586%, #eeeeee 48.27586%, #eeeeee 51.72414%, rgba(0, 0, 0, 0) 51.72414%, rgba(0, 0, 0, 0) 55.17241%, #eeeeee 55.17241%, #eeeeee 58.62069%, rgba(0, 0, 0, 0) 58.62069%, rgba(0, 0, 0, 0) 62.06897%, #eeeeee 62.06897%, #eeeeee 65.51724%, rgba(0, 0, 0, 0) 65.51724%, rgba(0, 0, 0, 0) 68.96552%, #eeeeee 68.96552%, #eeeeee 72.41379%, rgba(0, 0, 0, 0) 72.41379%, rgba(0, 0, 0, 0) 75.86207%, #eeeeee 75.86207%, #eeeeee 79.31034%, rgba(0, 0, 0, 0) 79.31034%, rgba(0, 0, 0, 0) 82.75862%, #eeeeee 82.75862%, #eeeeee 86.2069%, rgba(0, 0, 0, 0) 86.2069%, rgba(0, 0, 0, 0) 89.65517%, #eeeeee 89.65517%, #eeeeee 93.10345%, rgba(0, 0, 0, 0) 93.10345%, rgba(0, 0, 0, 0) 96.55172%, #eeeeee 96.55172%, #eeeeee 100.0%, rgba(0, 0, 0, 0) 100.0%);
+  }
+}
+
+/* line 4, ../../app/styles/_layout.scss */
+#page {
+  *zoom: 1;
+  max-width: px(480);
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 18, ../../app/styles/bourbon/addons/_clearfix.scss */
+#page:before, #page:after {
+  content: " ";
+  display: table;
+}
+/* line 23, ../../app/styles/bourbon/addons/_clearfix.scss */
+#page:after {
+  clear: both;
+}
+
+/* line 1, ../../app/styles/_base.scss */
+* {
+  line-height: 16px;
+}
+
+/* line 5, ../../app/styles/_base.scss */
+h1, h2, h3, h4, h5 {
+  font-family: 'gothicBold', Helvetica, Arial, sans-serif;
+  font-size: 2em;
+  color: #535353;
+}
+@media screen and (max-width: 240px) {
+  /* line 5, ../../app/styles/_base.scss */
+  h1, h2, h3, h4, h5 {
+    font-size: 1.5em;
+  }
+}
+
+/* line 14, ../../app/styles/_base.scss */
+h2 {
+  font-size: 2.5em;
+}
+@media screen and (max-width: 240px) {
+  /* line 14, ../../app/styles/_base.scss */
+  h2 {
+    font-size: 1.4em;
+  }
+}
+
+/* line 20, ../../app/styles/_base.scss */
+h3 {
+  font-size: 2em;
+}
+@media screen and (max-width: 240px) {
+  /* line 20, ../../app/styles/_base.scss */
+  h3 {
+    font-size: 1.3em;
+  }
+}
+
+/* line 26, ../../app/styles/_base.scss */
+h4 {
+  font-size: 1.5em;
+}
+@media screen and (max-width: 240px) {
+  /* line 26, ../../app/styles/_base.scss */
+  h4 {
+    font-size: 1.2em;
+  }
+}
+
+/* line 33, ../../app/styles/_base.scss */
+h5 {
+  font-size: 1.3em;
+}
+@media screen and (max-width: 240px) {
+  /* line 33, ../../app/styles/_base.scss */
+  h5 {
+    font-size: 1.1em;
+  }
+}
+
+/* line 40, ../../app/styles/_base.scss */
+p, a, button, select, li {
+  font-family: Helvetica, Arial, sans-serif;
+  color: #535353;
+}
+
+/* line 45, ../../app/styles/_base.scss */
+button, select {
+  font-size: 1.077em;
+  color: #535353;
+}
+@media screen and (max-width: 240px) {
+  /* line 45, ../../app/styles/_base.scss */
+  button, select {
+    font-size: 0.8em;
+  }
+}
+
+/* line 53, ../../app/styles/_base.scss */
+p {
+  font-size: 1.077em;
+}
+@media screen and (max-width: 240px) {
+  /* line 53, ../../app/styles/_base.scss */
+  p {
+    font-size: 0.8em;
+  }
+}
+
+/* line 60, ../../app/styles/_base.scss */
+p, h1, h2, h3, h4, li {
+  margin: 0 0 18px;
+}
+
+/* line 64, ../../app/styles/_base.scss */
+strong {
+  font-weight: bold;
+}
+
+/* line 68, ../../app/styles/_base.scss */
+a {
+  font-size: 1em;
+}
+@media screen and (max-width: 240px) {
+  /* line 68, ../../app/styles/_base.scss */
+  a {
+    font-size: 0.8em;
+  }
+}
+/* line 73, ../../app/styles/_base.scss */
+a:link, a:visited, a:active {
+  color: #535353;
+  text-decoration: none;
+}
+/* line 77, ../../app/styles/_base.scss */
+a:hover {
+  text-decoration: none;
+  color: #ff7c27;
+}
+
+/* line 83, ../../app/styles/_base.scss */
+p a, a p {
+  font-size: 1em;
+}
+
+/* line 85, ../../app/styles/_base.scss */
+img {
+  border: 1px solid #535353;
+  margin: 0.5em 0;
+}
+
+@font-face {
+  font-family: 'gothicBold';
+  src: url("../fonts/centuryGothic/GOTHICB.TTF") format("truetype");
+}
+
+@font-face {
+  font-family: 'gothic';
+  src: url("../fonts/centuryGothic/GOTHIC.TTF") format("truetype");
+}
+
+/* line 13, ../../app/styles/_themes.scss */
+#page {
+  border: solid 8px #a7a7a7;
+  background-color: #535353;
+}
+
+/* line 18, ../../app/styles/_themes.scss */
+.drop-shadow, .list-toggle-style-a, section.toggle-list-section .content-wrapper li.detail-list, .list-toggle-style-b, section.toggle-list-section-style-b .content-wrapper li.detail-list, header, nav, .tweets, section.page-section {
+  padding-bottom: 0.5em;
+  background: #424242 url("../images/bg/drop_shadow.gif") repeat-x left bottom;
+}
+@media screen and (max-width: 240px) {
+  /* line 18, ../../app/styles/_themes.scss */
+  .drop-shadow, .list-toggle-style-a, section.toggle-list-section .content-wrapper li.detail-list, .list-toggle-style-b, section.toggle-list-section-style-b .content-wrapper li.detail-list, header, nav, .tweets, section.page-section {
+    padding-bottom: 0.2em;
+  }
+}
+
+/* line 26, ../../app/styles/_themes.scss */
+.texture1, header .wrapper, .tweets .text-wrapper {
+  background: #424242 url("../images/bg/texture1.gif") repeat;
+}
+
+/* line 30, ../../app/styles/_themes.scss */
+.texture2, nav .wrapper {
+  background: #424242 url("../images/bg/texture2.jpg") repeat;
+  /*@include background(
+  	radial-gradient(
+  	rgba(0,0,0,0.1) 10px, 
+  	rgba(0,0,0,0.5)),
+  	image-url('../images/bg/texture2.jpg')
+  );*/
+}
+
+/* line 40, ../../app/styles/_themes.scss */
+.texture3, .list-toggle-style-a .image-wrapper, section.toggle-list-section .content-wrapper li.detail-list .image-wrapper, .toggle-widget-style-a, .list-toggle-style-a, section.toggle-list-section .content-wrapper li.detail-list {
+  background: #424242 url("../images/bg/texture3.jpg") repeat;
+}
+
+/* line 44, ../../app/styles/_themes.scss */
+.extend-nested-margins-padding, .content-style-a, section.page-section .major-text-wrapper, section.page-section .text-wrapper, .extend-toggle-widget .text-wrapper, .toggle-widget-style-a .text-wrapper, .list-toggle-style-a .text-wrapper, section.toggle-list-section .content-wrapper li.detail-list .text-wrapper, .toggle-widget-style-b .text-wrapper, .list-toggle-style-b .text-wrapper, section.toggle-list-section-style-b .content-wrapper li.detail-list .text-wrapper, footer .wrapper .text-wrapper, footer .copy-wrapper, .tweets .text-wrapper .nested-wrapper, section.toggle-list-section .major-text-wrapper, section.toggle-list-section-style-b .major-text-wrapper {
+  margin: 0 0.3em;
+  padding: 0.5em;
+}
+@media screen and (max-width: 240px) {
+  /* line 44, ../../app/styles/_themes.scss */
+  .extend-nested-margins-padding, .content-style-a, section.page-section .major-text-wrapper, section.page-section .text-wrapper, .extend-toggle-widget .text-wrapper, .toggle-widget-style-a .text-wrapper, .list-toggle-style-a .text-wrapper, section.toggle-list-section .content-wrapper li.detail-list .text-wrapper, .toggle-widget-style-b .text-wrapper, .list-toggle-style-b .text-wrapper, section.toggle-list-section-style-b .content-wrapper li.detail-list .text-wrapper, footer .wrapper .text-wrapper, footer .copy-wrapper, .tweets .text-wrapper .nested-wrapper, section.toggle-list-section .major-text-wrapper, section.toggle-list-section-style-b .major-text-wrapper {
+    margin: 0 0.2em;
+    padding: 0.2em;
+  }
+}
+/* line 51, ../../app/styles/_themes.scss */
+.extend-nested-margins-padding .nested-wrapper, .content-style-a .nested-wrapper, section.page-section .major-text-wrapper .nested-wrapper, section.page-section .text-wrapper .nested-wrapper, .extend-toggle-widget .text-wrapper .nested-wrapper, .toggle-widget-style-a .text-wrapper .nested-wrapper, .list-toggle-style-a .text-wrapper .nested-wrapper, section.toggle-list-section .content-wrapper li.detail-list .text-wrapper .nested-wrapper, .toggle-widget-style-b .text-wrapper .nested-wrapper, .list-toggle-style-b .text-wrapper .nested-wrapper, section.toggle-list-section-style-b .content-wrapper li.detail-list .text-wrapper .nested-wrapper, footer .wrapper .text-wrapper .nested-wrapper, footer .copy-wrapper .nested-wrapper, .tweets .text-wrapper .nested-wrapper .nested-wrapper, section.toggle-list-section .major-text-wrapper .nested-wrapper, section.toggle-list-section-style-b .major-text-wrapper .nested-wrapper {
+  margin: 0 0.3em;
+  padding: 0 0.5em;
+}
+@media screen and (max-width: 240px) {
+  /* line 51, ../../app/styles/_themes.scss */
+  .extend-nested-margins-padding .nested-wrapper, .content-style-a .nested-wrapper, section.page-section .major-text-wrapper .nested-wrapper, section.page-section .text-wrapper .nested-wrapper, .extend-toggle-widget .text-wrapper .nested-wrapper, .toggle-widget-style-a .text-wrapper .nested-wrapper, .list-toggle-style-a .text-wrapper .nested-wrapper, section.toggle-list-section .content-wrapper li.detail-list .text-wrapper .nested-wrapper, .toggle-widget-style-b .text-wrapper .nested-wrapper, .list-toggle-style-b .text-wrapper .nested-wrapper, section.toggle-list-section-style-b .content-wrapper li.detail-list .text-wrapper .nested-wrapper, footer .wrapper .text-wrapper .nested-wrapper, footer .copy-wrapper .nested-wrapper, .tweets .text-wrapper .nested-wrapper .nested-wrapper, section.toggle-list-section .major-text-wrapper .nested-wrapper, section.toggle-list-section-style-b .major-text-wrapper .nested-wrapper {
+    margin: 0 0.2em;
+    padding: 0.2em;
+  }
+}
+
+/* line 61, ../../app/styles/_themes.scss */
+.content-style-a, section.page-section .major-text-wrapper, section.page-section .text-wrapper {
+  background-color: #e2dfe2;
+}
+
+/* line 66, ../../app/styles/_themes.scss */
+.heading-border-bottom-margin-padding, .heading-bottom-border-style-a, .heading-bottom-border-style-b, .text-wrapper-style-b h5.wrapper-head, .toggle-widget-style-a .widget-detail h5.wrapper-head, .list-toggle-style-a .widget-detail h5.wrapper-head, section.toggle-list-section .content-wrapper li.detail-list .widget-detail h5.wrapper-head, section.page-section .major-text-wrapper h5.wrapper-head, section.page-section .text-wrapper h5.wrapper-head, .text-wrapper-style-c h5.wrapper-head, .toggle-widget-style-b .widget-detail h5.wrapper-head, .list-toggle-style-b .widget-detail h5.wrapper-head, section.toggle-list-section-style-b .content-wrapper li.detail-list .widget-detail h5.wrapper-head, section.toggle-list-section .content-wrapper li.detail-list h5, .heading-bottom-border-style-c, .text-wrapper-style-a h4.wrapper-head, .toggle-widget-style-b .widget-summary h4.wrapper-head, .list-toggle-style-b .widget-summary h4.wrapper-head, section.toggle-list-section-style-b .content-wrapper li.detail-list .widget-summary h4.wrapper-head, footer .wrapper .text-wrapper h4.wrapper-head, .tweets .text-wrapper .nested-wrapper h4.wrapper-head {
+  padding-bottom: 0.5em;
+  margin-bottom: 0.3em;
+}
+
+/* line 71, ../../app/styles/_themes.scss */
+.heading-bottom-border-style-a {
+  border-bottom: 1px solid #19a388;
+}
+
+/* line 76, ../../app/styles/_themes.scss */
+.heading-bottom-border-style-b, .text-wrapper-style-b h5.wrapper-head, .toggle-widget-style-a .widget-detail h5.wrapper-head, .list-toggle-style-a .widget-detail h5.wrapper-head, section.toggle-list-section .content-wrapper li.detail-list .widget-detail h5.wrapper-head, section.page-section .major-text-wrapper h5.wrapper-head, section.page-section .text-wrapper h5.wrapper-head, .text-wrapper-style-c h5.wrapper-head, .toggle-widget-style-b .widget-detail h5.wrapper-head, .list-toggle-style-b .widget-detail h5.wrapper-head, section.toggle-list-section-style-b .content-wrapper li.detail-list .widget-detail h5.wrapper-head, section.toggle-list-section .content-wrapper li.detail-list h5 {
+  border-bottom: 1px solid #535353;
+}
+
+/* line 81, ../../app/styles/_themes.scss */
+.heading-bottom-border-style-c, .text-wrapper-style-a h4.wrapper-head, .toggle-widget-style-b .widget-summary h4.wrapper-head, .list-toggle-style-b .widget-summary h4.wrapper-head, section.toggle-list-section-style-b .content-wrapper li.detail-list .widget-summary h4.wrapper-head, footer .wrapper .text-wrapper h4.wrapper-head, .tweets .text-wrapper .nested-wrapper h4.wrapper-head {
+  border-bottom: 1px solid #ff7c27;
+}
+
+/* line 86, ../../app/styles/_themes.scss */
+.extend-image-wrapper, .extend-toggle-widget .image-wrapper, .toggle-widget-style-a .image-wrapper, .list-toggle-style-a .image-wrapper, section.toggle-list-section .content-wrapper li.detail-list .image-wrapper, .toggle-widget-style-b .image-wrapper, .list-toggle-style-b .image-wrapper, section.toggle-list-section-style-b .content-wrapper li.detail-list .image-wrapper {
+  background: none;
+  text-align: center;
+}
+
+/* line 92, ../../app/styles/_themes.scss */
+.text-wrapper-style-a a.wrapper-body, .toggle-widget-style-b .widget-summary a.wrapper-body, .list-toggle-style-b .widget-summary a.wrapper-body, section.toggle-list-section-style-b .content-wrapper li.detail-list .widget-summary a.wrapper-body, footer .wrapper .text-wrapper a.wrapper-body, .tweets .text-wrapper .nested-wrapper a.wrapper-body, .text-wrapper-style-a p.wrapper-body, .toggle-widget-style-b .widget-summary p.wrapper-body, .list-toggle-style-b .widget-summary p.wrapper-body, section.toggle-list-section-style-b .content-wrapper li.detail-list .widget-summary p.wrapper-body, footer .wrapper .text-wrapper p.wrapper-body, .tweets .text-wrapper .nested-wrapper p.wrapper-body {
+  color: #e2dfe2;
+}
+/* line 95, ../../app/styles/_themes.scss */
+.text-wrapper-style-a h4.wrapper-head, .toggle-widget-style-b .widget-summary h4.wrapper-head, .list-toggle-style-b .widget-summary h4.wrapper-head, section.toggle-list-section-style-b .content-wrapper li.detail-list .widget-summary h4.wrapper-head, footer .wrapper .text-wrapper h4.wrapper-head, .tweets .text-wrapper .nested-wrapper h4.wrapper-head {
+  color: #ff7c27;
+}
+
+/* line 103, ../../app/styles/_themes.scss */
+.text-wrapper-style-b h4.wrapper-head, .toggle-widget-style-a .widget-detail h4.wrapper-head, .list-toggle-style-a .widget-detail h4.wrapper-head, section.toggle-list-section .content-wrapper li.detail-list .widget-detail h4.wrapper-head, section.page-section .major-text-wrapper h4.wrapper-head, section.page-section .text-wrapper h4.wrapper-head {
+  color: #19a388;
+}
+
+/* line 115, ../../app/styles/_themes.scss */
+.text-wrapper-style-c p.wrapper-body, .toggle-widget-style-b .widget-detail p.wrapper-body, .list-toggle-style-b .widget-detail p.wrapper-body, section.toggle-list-section-style-b .content-wrapper li.detail-list .widget-detail p.wrapper-body {
+  color: #e2dfe2;
+}
+/* line 118, ../../app/styles/_themes.scss */
+.text-wrapper-style-c a.wrapper-body, .toggle-widget-style-b .widget-detail a.wrapper-body, .list-toggle-style-b .widget-detail a.wrapper-body, section.toggle-list-section-style-b .content-wrapper li.detail-list .widget-detail a.wrapper-body {
+  color: #19a388;
+}
+/* line 121, ../../app/styles/_themes.scss */
+.text-wrapper-style-c h4.wrapper-head, .toggle-widget-style-b .widget-detail h4.wrapper-head, .list-toggle-style-b .widget-detail h4.wrapper-head, section.toggle-list-section-style-b .content-wrapper li.detail-list .widget-detail h4.wrapper-head {
+  color: #19a388;
+}
+
+/* line 130, ../../app/styles/_themes.scss */
+.list-touch li.touch-list, .text-wrapper-style-a li.touch-list, .toggle-widget-style-b .widget-summary li.touch-list, .list-toggle-style-b .widget-summary li.touch-list, section.toggle-list-section-style-b .content-wrapper li.detail-list .widget-summary li.touch-list, footer .wrapper .text-wrapper li.touch-list, .tweets .text-wrapper .nested-wrapper li.touch-list, nav li.touch-list {
+  min-height: 2em;
+  margin-bottom: 0;
+}
+/* line 132, ../../app/styles/_themes.scss */
+.list-touch li.touch-list a.wrapper-body, .text-wrapper-style-a li.touch-list a.wrapper-body, .toggle-widget-style-b .widget-summary li.touch-list a.wrapper-body, .list-toggle-style-b .widget-summary li.touch-list a.wrapper-body, section.toggle-list-section-style-b .content-wrapper li.detail-list .widget-summary li.touch-list a.wrapper-body, footer .wrapper .text-wrapper li.touch-list a.wrapper-body, .tweets .text-wrapper .nested-wrapper li.touch-list a.wrapper-body, nav li.touch-list a.wrapper-body {
+  height: 2em;
+  display: block;
+}
+/* line 136, ../../app/styles/_themes.scss */
+.list-touch li.touch-list a.wrapper-body.selected, .text-wrapper-style-a li.touch-list a.wrapper-body.selected, .toggle-widget-style-b .widget-summary li.touch-list a.wrapper-body.selected, .list-toggle-style-b .widget-summary li.touch-list a.wrapper-body.selected, section.toggle-list-section-style-b .content-wrapper li.detail-list .widget-summary li.touch-list a.wrapper-body.selected, footer .wrapper .text-wrapper li.touch-list a.wrapper-body.selected, .tweets .text-wrapper .nested-wrapper li.touch-list a.wrapper-body.selected, nav li.touch-list a.wrapper-body.selected {
+  margin-top: 2px;
+  border-top: 2px solid #ff7c27;
+}
+
+/* line 144, ../../app/styles/_themes.scss */
+.list-toggle-style-a, section.toggle-list-section .content-wrapper li.detail-list {
+  border-top: 5px solid #19a388;
+  margin: 0;
+}
+/* line 147, ../../app/styles/_themes.scss */
+.list-toggle-style-a .image-wrapper, section.toggle-list-section .content-wrapper li.detail-list .image-wrapper {
+  text-align: center;
+  border-bottom: 1px solid #e2dfe2;
+}
+
+/* line 156, ../../app/styles/_themes.scss */
+.list-toggle-style-b, section.toggle-list-section-style-b .content-wrapper li.detail-list {
+  border-top: 5px solid #ff7c27;
+  margin: 0;
+}
+/* line 159, ../../app/styles/_themes.scss */
+.list-toggle-style-b .image-wrapper, section.toggle-list-section-style-b .content-wrapper li.detail-list .image-wrapper {
+  background-color: #2b2b2b;
+  text-align: center;
+  border-bottom: 1px solid #656464;
+}
+
+/* line 171, ../../app/styles/_themes.scss */
+.toggle-widget-style-a .widget-summary, .list-toggle-style-a .widget-summary, section.toggle-list-section .content-wrapper li.detail-list .widget-summary {
+  background-color: #e2dfe2;
+}
+/* line 175, ../../app/styles/_themes.scss */
+.toggle-widget-style-a .widget-summary .text-wrapper p.wrapper-body, .list-toggle-style-a .widget-summary .text-wrapper p.wrapper-body, section.toggle-list-section .content-wrapper li.detail-list .widget-summary .text-wrapper p.wrapper-body {
+  margin-bottom: 8px;
+}
+/* line 180, ../../app/styles/_themes.scss */
+.toggle-widget-style-a .widget-detail, .list-toggle-style-a .widget-detail, section.toggle-list-section .content-wrapper li.detail-list .widget-detail {
+  background-color: #e2dfe2;
+}
+/* line 184, ../../app/styles/_themes.scss */
+.toggle-widget-style-a .widget-detail .text-wrapper, .list-toggle-style-a .widget-detail .text-wrapper, section.toggle-list-section .content-wrapper li.detail-list .widget-detail .text-wrapper {
+  border-top: 1px solid #19a388;
+}
+/* line 186, ../../app/styles/_themes.scss */
+.toggle-widget-style-a .widget-detail .text-wrapper a, .list-toggle-style-a .widget-detail .text-wrapper a, section.toggle-list-section .content-wrapper li.detail-list .widget-detail .text-wrapper a {
+  color: #19a388;
+}
+
+/* line 193, ../../app/styles/_themes.scss */
+.toggle-widget-style-b, .list-toggle-style-b, section.toggle-list-section-style-b .content-wrapper li.detail-list {
+  background-color: #2b2b2b;
+}
+/* line 199, ../../app/styles/_themes.scss */
+.toggle-widget-style-b .widget-summary .text-wrapper, .list-toggle-style-b .widget-summary .text-wrapper, section.toggle-list-section-style-b .content-wrapper li.detail-list .widget-summary .text-wrapper {
+  padding-bottom: 0;
+}
+/* line 206, ../../app/styles/_themes.scss */
+.toggle-widget-style-b .widget-detail .text-wrapper, .list-toggle-style-b .widget-detail .text-wrapper, section.toggle-list-section-style-b .content-wrapper li.detail-list .widget-detail .text-wrapper {
+  padding-top: 0;
+}
+
+/* line 213, ../../app/styles/_themes.scss */
+.extend-toggle-widget a.widget-body, .toggle-widget-style-a a.widget-body, .list-toggle-style-a a.widget-body, section.toggle-list-section .content-wrapper li.detail-list a.widget-body, .toggle-widget-style-b a.widget-body, .list-toggle-style-b a.widget-body, section.toggle-list-section-style-b .content-wrapper li.detail-list a.widget-body {
+  height: auto;
+}
+
+/* line 224, ../../app/styles/_themes.scss */
+.extend-toggle-widget-summary, .toggle-widget-style-a .widget-summary, .list-toggle-style-a .widget-summary, section.toggle-list-section .content-wrapper li.detail-list .widget-summary, .toggle-widget-style-b .widget-summary, .list-toggle-style-b .widget-summary, section.toggle-list-section-style-b .content-wrapper li.detail-list .widget-summary {
+  margin-top: 0.1em;
+}
+
+/* line 228, ../../app/styles/_themes.scss */
+.extend-toggle-widget-detail .image-wrapper, .toggle-widget-style-b .widget-detail .image-wrapper, .list-toggle-style-b .widget-detail .image-wrapper, section.toggle-list-section-style-b .content-wrapper li.detail-list .widget-detail .image-wrapper {
+  border-bottom: none;
+}
+
+/**** FORMS *****/
+/* line 236, ../../app/styles/_themes.scss */
+.extend-form-style-a form, .toggle-widget-style-a .widget-detail form, .list-toggle-style-a .widget-detail form, section.toggle-list-section .content-wrapper li.detail-list .widget-detail form {
+  margin: 1em 0;
+}
+/* line 238, ../../app/styles/_themes.scss */
+.extend-form-style-a form button.btn, .toggle-widget-style-a .widget-detail form button.btn, .list-toggle-style-a .widget-detail form button.btn, section.toggle-list-section .content-wrapper li.detail-list .widget-detail form button.btn {
+  border: none;
+  min-height: 2em;
+  background-color: #19a388;
+  color: #e2dfe2;
+  font-weight: bold;
+}
+
+/* line 251, ../../app/styles/_themes.scss */
+.extend-select-styled-a, .extend-form-style-a form .styled-select, .toggle-widget-style-a .widget-detail form .styled-select, .list-toggle-style-a .widget-detail form .styled-select, section.toggle-list-section .content-wrapper li.detail-list .widget-detail form .styled-select {
+  display: inline-block;
+  width: 4em;
+  overflow: hidden;
+  background: url(new_arrow.png) no-repeat right #dddddd;
+  border: 1px solid #535353;
+  vertical-align: bottom;
+}
+/* line 258, ../../app/styles/_themes.scss */
+.extend-select-styled-a select, .extend-form-style-a form .styled-select select, .toggle-widget-style-a .widget-detail form .styled-select select, .list-toggle-style-a .widget-detail form .styled-select select, section.toggle-list-section .content-wrapper li.detail-list .widget-detail form .styled-select select {
+  background: transparent;
+  width: 268px;
+  padding: 0.3em;
+  border: 0;
+  border-radius: 0;
+  -webkit-appearance: none;
+}
+
+/**** LISTS *****/
+/* line 271, ../../app/styles/_themes.scss */
+.extend-styled-list-a ol.styled-list li, .text-wrapper-style-b ul.styled-list ol.styled-list li, .toggle-widget-style-a .widget-detail ul.styled-list ol.styled-list li, .list-toggle-style-a .widget-detail ul.styled-list ol.styled-list li, section.toggle-list-section .content-wrapper li.detail-list .widget-detail ul.styled-list ol.styled-list li, section.page-section .major-text-wrapper ul.styled-list ol.styled-list li, section.page-section .text-wrapper ul.styled-list ol.styled-list li, .text-wrapper-style-b ol.styled-list ol.styled-list li, .toggle-widget-style-a .widget-detail ol.styled-list ol.styled-list li, .list-toggle-style-a .widget-detail ol.styled-list ol.styled-list li, section.toggle-list-section .content-wrapper li.detail-list .widget-detail ol.styled-list ol.styled-list li, section.page-section .major-text-wrapper ol.styled-list ol.styled-list li, section.page-section .text-wrapper ol.styled-list ol.styled-list li, section.toggle-list-section .content-wrapper ol.styled-list li, .extend-styled-list-a ul.styled-list li, .text-wrapper-style-b ul.styled-list ul.styled-list li, .toggle-widget-style-a .widget-detail ul.styled-list ul.styled-list li, .list-toggle-style-a .widget-detail ul.styled-list ul.styled-list li, section.toggle-list-section .content-wrapper li.detail-list .widget-detail ul.styled-list ul.styled-list li, section.page-section .major-text-wrapper ul.styled-list ul.styled-list li, section.page-section .text-wrapper ul.styled-list ul.styled-list li, .text-wrapper-style-b ol.styled-list ul.styled-list li, .toggle-widget-style-a .widget-detail ol.styled-list ul.styled-list li, .list-toggle-style-a .widget-detail ol.styled-list ul.styled-list li, section.toggle-list-section .content-wrapper li.detail-list .widget-detail ol.styled-list ul.styled-list li, section.page-section .major-text-wrapper ol.styled-list ul.styled-list li, section.page-section .text-wrapper ol.styled-list ul.styled-list li, section.toggle-list-section .content-wrapper ul.styled-list li {
+  list-style-type: disc;
+  list-style-position: inside;
+}
+
+/* line 1, ../../app/styles/_modules.scss */
+header {
+  border-top: 1px solid #ff7c27;
+}
+/* line 4, ../../app/styles/_modules.scss */
+header .wrapper {
+  border-bottom: 1px solid #000;
+  padding: 0.5em;
+}
+@media screen and (max-width: 240px) {
+  /* line 4, ../../app/styles/_modules.scss */
+  header .wrapper {
+    padding: 0.2em;
+  }
+}
+/* line 11, ../../app/styles/_modules.scss */
+header .wrapper h1.wrapper-head, header .wrapper p.wrapper-body {
+  color: #ff7c27;
+}
+/* line 14, ../../app/styles/_modules.scss */
+header .wrapper h1.wrapper-head {
+  margin-bottom: 0;
+}
+/* line 17, ../../app/styles/_modules.scss */
+header .wrapper p.wrapper-body {
+  margin: 0;
+}
+
+/* line 29, ../../app/styles/_modules.scss */
+nav li {
+  border-top: 1px solid #e2dfe2;
+}
+/* line 31, ../../app/styles/_modules.scss */
+nav li a.wrapper-body {
+  padding: 0.5em;
+  color: #e2dfe2;
+}
+/* line 35, ../../app/styles/_modules.scss */
+nav li a:hover {
+  color: #ff7c27;
+}
+
+/* line 41, ../../app/styles/_modules.scss */
+footer {
+  border-top: 1px solid #000;
+  margin-bottom: 0.2em;
+}
+/* line 44, ../../app/styles/_modules.scss */
+footer .wrapper {
+  border-top: 1px solid #e2dfe2;
+}
+/* line 51, ../../app/styles/_modules.scss */
+footer .copy-wrapper {
+  text-align: center;
+}
+/* line 54, ../../app/styles/_modules.scss */
+footer .copy-wrapper p.wrapper-body {
+  font-size: 0.9em;
+  color: #ff7c27;
+  margin: 0;
+}
+@media screen and (max-width: 240px) {
+  /* line 54, ../../app/styles/_modules.scss */
+  footer .copy-wrapper p.wrapper-body {
+    font-size: 0.5em;
+  }
+}
+
+/* line 65, ../../app/styles/_modules.scss */
+.tweets {
+  border-top: 5px solid #ff7c27;
+  padding-bottom: 0.5em;
+}
+/* line 78, ../../app/styles/_modules.scss */
+.tweets li p {
+  min-height: 2em;
+  color: #e2dfe2;
+}
+/* line 82, ../../app/styles/_modules.scss */
+.tweets li a {
+  height: 2em;
+}
+/* line 85, ../../app/styles/_modules.scss */
+.tweets li a {
+  color: #ff7c27;
+}
+/* line 88, ../../app/styles/_modules.scss */
+.tweets li a.selected {
+  margin-top: 2px;
+  border-top: 2px solid #ff7c27;
+}
+
+/* line 96, ../../app/styles/_modules.scss */
+section.toggle-list-section .major-text-wrapper {
+  border-top: 1px solid #ff7c27;
+}
+/* line 99, ../../app/styles/_modules.scss */
+section.toggle-list-section .major-text-wrapper h2.wrapper-head {
+  color: #e2dfe2;
+}
+/* line 103, ../../app/styles/_modules.scss */
+section.toggle-list-section .content-wrapper {
+  margin: 0 0.3em;
+}
+/* line 107, ../../app/styles/_modules.scss */
+section.toggle-list-section .content-wrapper li.detail-list h4 {
+  color: #19a388;
+}
+
+/* line 119, ../../app/styles/_modules.scss */
+section.toggle-list-section-style-b .major-text-wrapper {
+  border-top: 1px solid #ff7c27;
+}
+/* line 122, ../../app/styles/_modules.scss */
+section.toggle-list-section-style-b .major-text-wrapper h2.wrapper-head {
+  color: #e2dfe2;
+}
+/* line 126, ../../app/styles/_modules.scss */
+section.toggle-list-section-style-b .content-wrapper {
+  margin: 0 0.3em;
+}
+/* line 131, ../../app/styles/_modules.scss */
+section.toggle-list-section-style-b .content-wrapper p, section.toggle-list-section-style-b .content-wrapper h4, section.toggle-list-section-style-b .content-wrapper h5, section.toggle-list-section-style-b .content-wrapper li {
+  color: #e2dfe2;
+}
+/* line 134, ../../app/styles/_modules.scss */
+section.toggle-list-section-style-b .content-wrapper a {
+  color: #19a388;
+}
+
+/* line 142, ../../app/styles/_modules.scss */
+section.page-section .major-text-wrapper {
+  border-top: 1px solid #ff7c27;
+}
+/* line 147, ../../app/styles/_modules.scss */
+section.page-section .text-wrapper {
+  border-top: 5px solid #19a388;
 }
