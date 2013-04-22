@@ -1,0 +1,75 @@
+<div class="widget-detail">
+	<div class="text-wrapper">
+		<div>
+			<p class="wrapper-body"><strong>Owner: </strong><span>{{owner}}</span></p>
+			<p class="wrapper-body"><strong>Contracted by: </strong><span>{{contractor}}</span></p>
+			<p class="wrapper-body"><strong>Developer: </strong><span>{{developer.employee_name}}</span></p>
+		</div>
+		<div>
+			{{#link}}
+				<p class="wrapper-body"><strong>Link: </strong>
+					<span><a href="{{link}}" title="{{title}}">{{title}}</a></span>
+				</p>
+			{{/link}}
+		</div>
+		<div>
+			<h4 class="wrapper-head">Description</h4>
+				<div class="nested-wrapper">
+			{{{description}}}
+			</div>
+		</div>
+		{{#images.0}}
+			<div>
+				<h4 class="wrapper-head">Screenshots</h4>
+				<div class="nested-wrapper">
+					<ol>
+						{{#images}}
+							<li>
+								<div class="image-wrapper">
+									<a href="../images/showcase/med/{{image_url}}">
+										<img class="wrapper-body" src="../images/showcase/thumbnails/small/{{image_url}}" title="{{image_alt}}" />
+									</a>
+								</div>
+							</li>
+						{{/images}}
+					</ol>
+				</div>
+			</div>
+		{{/images.0}}
+		{{#technical}}
+		<div>
+			<h4 class="wrapper-head">Technologies</h4>
+			{{#programs.0}}
+			<div class="nested-wrapper">
+				<h5 class="wrapper-head">Programs:</h5>
+				<ul>
+					{{#programs}}
+						<li>{{name}}</li>
+					{{/programs}}
+				</ul>
+			</div>
+			{{/programs.0}}
+			{{#software.0}}
+			<div class="nested-wrapper">
+				<h5 class="wrapper-head">Software:</h5>
+				<ul>
+					{{#software}}
+						<li>{{name}}</li>
+					{{/software}}
+				</ul>
+			</div>
+			{{/software.0}}
+			{{#frameworks.0}}
+			<div class="nested-wrapper">
+				<h5 class="wrapper-head">Frameworks:</h5>
+				<ul>
+					{{#frameworks}}
+						<li>{{name}}</li>
+					{{/frameworks}}
+				</ul>
+			</div>
+			{{/frameworks.0}}
+		</div>
+		{{/technical}}
+	</div>
+</div>

@@ -1,0 +1,7 @@
+@import "grid-settings";
+@import "neat/neat";
+
+#page {
+	$visual-grid: true; 
+	@include outer-container; 
+}

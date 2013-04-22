@@ -1,0 +1,92 @@
+<div class="widget-detail">
+	<div class="text-wrapper">
+		{{#skillset.0}}
+			<div>
+				<h4 class="wrapper-head">Skillset</h4>
+				<div class="nested-wrapper">
+					<ol>
+						{{#skillset}}
+							<li>
+								<p class="wrapper-body"><strong>{{heading}}:</strong>{{content}}</p>
+							</li>
+						{{/skillset}}
+					</ol>
+				</div>
+			</div>
+		{{/skillset.0}}
+		{{#cv.0}}
+			<div>
+				{{#cv}}
+					<form class="form-horizontal" method="post" action="/downloadCV">
+						<input type="hidden" value="{{employeeId}}" name="id" />
+						<fieldset>
+							<div class="control-group">
+								<div class="input-append">
+									<button class="btn" type="submit">Download CV</button>
+									<div class="styled-select">
+										<select name="format">
+											<option value="pdf">.pdf</option>
+											<option value="doc">.doc</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</fieldset>
+					</form>
+				{{/cv}}
+			</div>
+		{{/cv.0}}
+		{{#technical}}
+			<div>
+				<h4 class="wrapper-head">Technical skills and technologies</h4>
+				{{#programs.0}}
+					<div class="nested-wrapper">
+						<h5 class="wrapper-head">Programs</h5>
+						<ul>
+						{{#programs}}
+							<li class="wrapper-list">{{name}}</li>
+						{{/programs}}
+						</ul>
+					</div>
+				{{/programs.0}}
+				{{#software.0}}
+					<div class="nested-wrapper">
+						<h5 class="wrapper-head">Software</h5>
+						<ul>
+						{{#software}}
+							<li class="wrapper-list">{{name}}</li>
+						{{/software}}
+						</ul>
+					</div>
+				{{/software.0}}
+				{{#frameworks.0}}
+					<div class="nested-wrapper">
+						<h5 class="wrapper-head">Frameworks</h5>
+						<ul>
+						{{#frameworks}}
+							<li class="wrapper-list">{{name}}</li>
+						{{/frameworks}}
+						</ul>
+					</div>
+				{{/frameworks.0}}
+			</div>
+		{{/technical}}
+		{{#photo_back}}
+			<div class="image-wrapper">			
+				<img class="content-image" src="../images/profile/small/{{photo_back}}" title="{{name}}" />
+			</div>
+		{{/photo_back}}
+		{{#myAchievements.0}}
+			<div>
+				<h4 class="wrapper-head">Notable achievements</h4>
+				<div class="nested-wrapper">
+				<ol class="styled-list">
+					{{#myAchievements}}
+						<li class="wrapper-list">{{achievements}}</li>
+					{{/myAchievements}}
+				</ol>
+				</div>
+			</div>
+		{{/myAchievements.0}}
+	</div>
+</div>

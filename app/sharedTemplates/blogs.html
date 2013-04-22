@@ -1,0 +1,24 @@
+<section class="toggle-list-section">
+	<div class="major-text-wrapper">
+		<h2 class="wrapper-head">Our blogs</h2>
+	</div>
+	<div class="content-wrapper">
+		<ol>
+			{{#items}}
+				<li class="detail-list">
+					<div class="widget-summary">
+						<a class="widget-body" href="../blog/{{name}}" title="{{name}}">
+							<div class="text-wrapper">
+								<p class="wrapper-body"><strong>{{name}}</strong></p>
+								<p class="wrapper-body"><strong>Written by {{author.employee_name}} on {{date}}</strong></p>
+							</div>
+						</a>
+					</div>
+					{{#blog}}
+						{{{blog}}}
+					{{/blog}}
+				</li>
+			{{/items}}
+		</ol>
+	</div>
+</section>

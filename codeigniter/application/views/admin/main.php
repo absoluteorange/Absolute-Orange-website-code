@@ -1,0 +1,12 @@
+<?=$header;?>
+<?=$heading;?>
+<?=$user;?>
+<?php if ($this->session->userdata('userId')): ?>
+	<?= $navigation;?>
+<?php endif; ?>
+<?=$breadcrumbs;?>
+<?php if (isset($logo)): ?>
+<?=$logo;?>
+<?php endif; ?>
+<?=$content;?>
+<?=$footer;?>

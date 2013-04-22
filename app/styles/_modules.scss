@@ -1,0 +1,152 @@
+header {
+	@extend .drop-shadow;
+	border-top: 1px solid #ff7c27;	
+	.wrapper {
+		@extend .texture1;
+		border-bottom: 1px solid #000;
+		padding: 0.5em;
+		@include media($smallest) {
+		 	padding: 0.2em;
+		}
+		h1.wrapper-head,  p.wrapper-body {
+			color: #ff7c27;
+		}
+		h1.wrapper-head {
+			 margin-bottom: 0;
+		}
+		p.wrapper-body {
+			margin: 0;
+		}
+	}
+}
+
+nav {
+	@extend .drop-shadow;
+	.wrapper {
+		@extend .texture2;
+	}
+	@extend .list-touch;
+	li {
+		border-top: 1px solid #e2dfe2;
+		a.wrapper-body {
+			padding: 0.5em;
+			color:  #e2dfe2;
+		}
+		a:hover {
+			color:  #ff7c27;
+		}
+	}
+}
+
+footer {
+	border-top: 1px solid #000;
+	margin-bottom: 0.2em;
+	.wrapper {
+		border-top: 1px solid #e2dfe2;
+		.text-wrapper {
+			@extend .extend-nested-margins-padding;
+			@extend .text-wrapper-style-a;
+		}
+	}
+	.copy-wrapper {
+		@extend .extend-nested-margins-padding;
+		text-align: center;
+		p.wrapper-body {
+			font-size: 0.9em;
+			color: #ff7c27;
+			margin: 0;
+			@include media($smallest) {
+		 		font-size: 0.5em;
+			}
+		}
+	}
+}
+
+.tweets {
+	@extend .drop-shadow;
+	border-top: 5px solid #ff7c27;
+	
+	padding-bottom: 0.5em;
+	.text-wrapper {
+		@extend .texture1;
+		.nested-wrapper {
+			@extend .extend-nested-margins-padding;
+			@extend .text-wrapper-style-a;
+		}
+	}
+	li {
+		p {
+			min-height: 2em;
+			color: #e2dfe2;
+		}
+		a {
+			height: 2em;
+		}
+		a {
+			color: #ff7c27;
+		}
+		a.selected {
+			margin-top: 2px;
+			border-top: 2px solid #ff7c27;
+		}
+	}
+}
+
+section.toggle-list-section {
+	.major-text-wrapper {
+		border-top: 1px solid #ff7c27;
+		@extend .extend-nested-margins-padding;
+		h2.wrapper-head {
+			color: #e2dfe2;
+		}
+	}
+	.content-wrapper {
+		margin: 0 0.3em;
+		li.detail-list {
+			@extend .list-toggle-style-a;
+			h4 {
+				color: #19a388;
+			}
+		 	h5 {
+				@extend .heading-bottom-border-style-b;
+			}
+		}
+		@extend .extend-styled-list-a; 
+	}
+}
+
+section.toggle-list-section-style-b {
+	.major-text-wrapper {
+		border-top: 1px solid #ff7c27;
+		@extend .extend-nested-margins-padding;
+		h2.wrapper-head {
+			color: #e2dfe2;
+		}
+	}
+	.content-wrapper {
+		margin: 0 0.3em;
+		li.detail-list {
+			@extend .list-toggle-style-b;
+		}
+		p, h4, h5, li {
+			color: #e2dfe2;
+		}	
+		a {
+			color: #19a388;
+		}	
+	}
+}
+
+section.page-section {
+	@extend .drop-shadow;
+	.major-text-wrapper {
+		border-top: 1px solid #ff7c27;
+		@extend .content-style-a;
+		@extend .text-wrapper-style-b;
+	}
+	.text-wrapper {
+		border-top: 5px solid #19a388;  
+		@extend .content-style-a;
+		@extend .text-wrapper-style-b;
+	}
+}
