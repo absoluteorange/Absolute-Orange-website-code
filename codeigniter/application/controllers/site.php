@@ -18,8 +18,8 @@ class Site extends CI_Controller {
             $this->load->model(array('blogs', 'showcases', 'profiles', 'content'));
             $this->version='1.2';
 
-            $this->load->library('wurfl');
-			$this->wurfl->load('USER_AGENT_HERE');
+        //    $this->load->library('wurfl');
+			//$this->wurfl->load('USER_AGENT_HERE');
 			//var_dump($this->wurfl->getAllCapabilities());
 			//echo 'is wireless device = '.$this->wurfl->getCapability('is_wireless_device');
 			//echo 'is handheld friendly = '.$this->wurfl->getCapability('handheldfriendly');

@@ -47,7 +47,6 @@
 
 $active_group = 'default';
 $active_record = TRUE;
-echo getenv('MYSQL_DB_NAME');
 $db['default']['hostname'] = '127.0.0.1';
 $db['default']['username'] = getenv('MYSQL_USERNAME');
 $db['default']['password'] = getenv('MYSQL_PASSWORD');
