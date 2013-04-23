@@ -219,7 +219,6 @@ class Site extends CI_Controller {
 		$data->technical->languages = $this->showcases->getLanguages($data->id);
 		$data->technical->software = $this->showcases->getSoftware($data->id);
 		$data->technical->frameworks = $this->showcases->getFrameworks($data->id);
-		var_dump($data->technical);
 		$data->images = $this->showcases->getImages($data->id);
 		return $this->templateparser->parseTemplate('showcase.html', $data);
 	}
