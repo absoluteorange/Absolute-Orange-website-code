@@ -1,0 +1,98 @@
+@import 'reset.sass';
+
+@font-face {
+	font-family: 'UbuntuBoldItalics';
+	src: url('../fonts/ubuntu/UBUNTU-BI.TTF') format('truetype');
+}
+* {
+	line-height: 16px;
+}
+	
+p, h1, h2, a {
+	color: #fff;
+	margin: 0 0 18px;
+}
+	
+h1, h2 {
+	font-family: 'UbuntuBoldItalics', Helvetica, Arial, sans-serif;
+	font-size: 4em;
+}
+
+h2 {
+	font-size: 2em;
+	font-weight: bold;
+}
+
+p {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 1.077em;
+}
+
+strong {
+	font-weight: bold;
+}
+
+body {
+	background-color: #151e5c;
+}
+	
+.logo {
+	text-align: center;
+}
+
+@mixin rounded-top-left {
+	$vert: top;
+	$horz: left;
+	$radius: 1em;
+	border-#{$vert}-#{$horz}-radius: $radius;
+	-moz-border-radius-#{$vert}#{$horz}: $radius;
+	-webkit-border-#{$vert}#{$horz}-radius: $radius;
+}
+@mixin rounded-bottom-left {
+	$vert: bottom;
+	$horz: left;
+	$radius: 1em;
+	border-#{$vert}-#{$horz}-radius: $radius;
+	-moz-border-radius-#{$vert}#{$horz}: $radius;
+	-webkit-border-#{$vert}#{$horz}-radius: $radius;
+}
+@mixin rounded-top-right {
+	$vert: top;
+	$horz: right;
+	$radius: 1em;
+	border-#{$vert}-#{$horz}-radius: $radius;
+	-moz-border-radius-#{$vert}#{$horz}: $radius;
+	-webkit-border-#{$vert}#{$horz}-radius: $radius;
+}
+@mixin rounded-bottom-right {
+	$vert: bottom;
+	$horz: right;
+	$radius: 1em;
+	border-#{$vert}-#{$horz}-radius: $radius;
+	-moz-border-radius-#{$vert}#{$horz}: $radius;
+	-webkit-border-#{$vert}#{$horz}-radius: $radius;
+}
+
+section {
+	margin: 1em;
+	border: 1px solid #fff;
+	padding: 1em;
+	@include rounded-top-left;
+	@include rounded-bottom-left;
+	@include rounded-top-right;
+	@include rounded-bottom-right;
+	.content {
+		padding: 1em;	
+		background-color: #fff;
+		h2, p, a { 
+			color: #151e5c; 
+		}
+	}
+}
+
+footer {
+	text-align: center;
+	p {
+		font-size: 0.77em;
+	}
+}

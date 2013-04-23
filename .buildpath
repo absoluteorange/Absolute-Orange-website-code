@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<buildpath>
+	<buildpathentry kind="src" path="codeigniter/application/errors"/>
+	<buildpathentry kind="src" path="codeigniter/application/models"/>
+	<buildpathentry kind="src" path="node_modules/grunt-bower-hooks/node_modules/lodash/test/template"/>
+	<buildpathentry kind="src" path="codeigniter/application/config"/>
+	<buildpathentry kind="src" path="codeigniter/system/database"/>
+	<buildpathentry kind="src" path="app"/>
+	<buildpathentry kind="src" path="node_modules/grunt/node_modules/lodash/test/template"/>
+	<buildpathentry kind="src" path="node_modules/grunt-contrib-jst/node_modules/lodash/test/template"/>
+	<buildpathentry kind="src" path="codeigniter/system/core"/>
+	<buildpathentry kind="src" path="node_modules/grunt-requirejs/node_modules/grunt-jquerybuilder/node_modules/jquery-builder/jquery/src/sizzle/speed"/>
+	<buildpathentry kind="lib" path="node_modules/grunt-mocha/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/node_modules/unzip/testData/compressed-OSX-Finder/archive.zip"/>
+	<buildpathentry kind="src" path="codeigniter/application/controllers"/>
+	<buildpathentry kind="lib" path="node_modules/grunt-mocha/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/node_modules/unzip/testData/compressed-standard/archive.zip"/>
+	<buildpathentry kind="src" path="codeigniter/application/views"/>
+	<buildpathentry kind="lib" path="node_modules/grunt-mocha/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/node_modules/unzip/testData/compressed-flags-set/archive.zip"/>
+	<buildpathentry kind="src" path="codeigniter/system/libraries"/>
+	<buildpathentry kind="src" path="node_modules/grunt-requirejs/node_modules/grunt-jquerybuilder/node_modules/jquery-builder/jquery/test"/>
+	<buildpathentry kind="src" path="codeigniter/system/language/english"/>
+	<buildpathentry kind="src" path="node_modules/grunt/node_modules/findup-sync/node_modules/lodash/test/template"/>
+	<buildpathentry kind="lib" path="node_modules/grunt-bower-hooks/node_modules/bower/node_modules/unzip/testData/uncompressed/archive.zip"/>
+	<buildpathentry kind="src" path="codeigniter/application/language/english"/>
+	<buildpathentry kind="con" path="org.eclipse.php.core.LANGUAGE"/>
+	<buildpathentry kind="lib" path="node_modules/grunt-mocha/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/node_modules/unzip/testData/uncompressed/archive.zip"/>
+	<buildpathentry kind="src" path="codeigniter/system/helpers"/>
+	<buildpathentry kind="src" path="node_modules/grunt-bower-hooks/node_modules/bower/node_modules/lodash/test/template"/>
+	<buildpathentry kind="src" path="codeigniter/application/libraries"/>
+	<buildpathentry kind="src" path="dist"/>
+	<buildpathentry kind="lib" path="node_modules/grunt-mocha/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/tmp/phantomjs-1.8.2-windows.zip"/>
+	<buildpathentry kind="lib" path="node_modules/grunt-bower-hooks/node_modules/bower/node_modules/unzip/testData/compressed/archive.zip"/>
+</buildpath>
