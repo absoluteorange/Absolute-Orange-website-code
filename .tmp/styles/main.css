@@ -206,7 +206,7 @@ p {
 }
 
 /* line 60, ../../app/styles/_base.scss */
-p, h1, h2, h3, h4, li {
+span, p, h1, h2, h3, h4, li {
   margin: 0 0 18px;
 }
 
@@ -264,23 +264,28 @@ img {
 }
 
 /* line 18, ../../app/styles/_themes.scss */
+span.first {
+  text-transform: capitalize;
+}
+
+/* line 21, ../../app/styles/_themes.scss */
 .drop-shadow, .list-toggle-style-a, section.toggle-list-section .content-wrapper li.detail-list, .list-toggle-style-b, section.toggle-list-section-style-b .content-wrapper li.detail-list, header, nav, .tweets, section.page-section {
   padding-bottom: 0.5em;
   background: #424242 url("../images/bg/drop_shadow.gif") repeat-x left bottom;
 }
 @media screen and (max-width: 240px) {
-  /* line 18, ../../app/styles/_themes.scss */
+  /* line 21, ../../app/styles/_themes.scss */
   .drop-shadow, .list-toggle-style-a, section.toggle-list-section .content-wrapper li.detail-list, .list-toggle-style-b, section.toggle-list-section-style-b .content-wrapper li.detail-list, header, nav, .tweets, section.page-section {
     padding-bottom: 0.2em;
   }
 }
 
-/* line 26, ../../app/styles/_themes.scss */
+/* line 29, ../../app/styles/_themes.scss */
 .texture1, header .wrapper, .tweets .text-wrapper {
   background: #424242 url("../images/bg/texture1.gif") repeat;
 }
 
-/* line 30, ../../app/styles/_themes.scss */
+/* line 33, ../../app/styles/_themes.scss */
 .texture2, nav .wrapper {
   background: #424242 url("../images/bg/texture2.jpg") repeat;
   /*@include background(
@@ -291,189 +296,194 @@ img {
   );*/
 }
 
-/* line 40, ../../app/styles/_themes.scss */
+/* line 43, ../../app/styles/_themes.scss */
 .texture3, .list-toggle-style-a .image-wrapper, section.toggle-list-section .content-wrapper li.detail-list .image-wrapper, .toggle-widget-style-a, .list-toggle-style-a, section.toggle-list-section .content-wrapper li.detail-list {
   background: #424242 url("../images/bg/texture3.jpg") repeat;
 }
 
-/* line 44, ../../app/styles/_themes.scss */
+/* line 47, ../../app/styles/_themes.scss */
 .extend-nested-margins-padding, .content-style-a, section.page-section .major-text-wrapper, section.page-section .text-wrapper, .extend-toggle-widget .text-wrapper, .toggle-widget-style-a .text-wrapper, .list-toggle-style-a .text-wrapper, section.toggle-list-section .content-wrapper li.detail-list .text-wrapper, .toggle-widget-style-b .text-wrapper, .list-toggle-style-b .text-wrapper, section.toggle-list-section-style-b .content-wrapper li.detail-list .text-wrapper, footer .wrapper .text-wrapper, footer .copy-wrapper, .tweets .text-wrapper .nested-wrapper, section.toggle-list-section .major-text-wrapper, section.toggle-list-section-style-b .major-text-wrapper {
   margin: 0 0.3em;
   padding: 0.5em;
 }
 @media screen and (max-width: 240px) {
-  /* line 44, ../../app/styles/_themes.scss */
+  /* line 47, ../../app/styles/_themes.scss */
   .extend-nested-margins-padding, .content-style-a, section.page-section .major-text-wrapper, section.page-section .text-wrapper, .extend-toggle-widget .text-wrapper, .toggle-widget-style-a .text-wrapper, .list-toggle-style-a .text-wrapper, section.toggle-list-section .content-wrapper li.detail-list .text-wrapper, .toggle-widget-style-b .text-wrapper, .list-toggle-style-b .text-wrapper, section.toggle-list-section-style-b .content-wrapper li.detail-list .text-wrapper, footer .wrapper .text-wrapper, footer .copy-wrapper, .tweets .text-wrapper .nested-wrapper, section.toggle-list-section .major-text-wrapper, section.toggle-list-section-style-b .major-text-wrapper {
     margin: 0 0.2em;
     padding: 0.2em;
   }
 }
-/* line 51, ../../app/styles/_themes.scss */
+/* line 54, ../../app/styles/_themes.scss */
 .extend-nested-margins-padding .nested-wrapper, .content-style-a .nested-wrapper, section.page-section .major-text-wrapper .nested-wrapper, section.page-section .text-wrapper .nested-wrapper, .extend-toggle-widget .text-wrapper .nested-wrapper, .toggle-widget-style-a .text-wrapper .nested-wrapper, .list-toggle-style-a .text-wrapper .nested-wrapper, section.toggle-list-section .content-wrapper li.detail-list .text-wrapper .nested-wrapper, .toggle-widget-style-b .text-wrapper .nested-wrapper, .list-toggle-style-b .text-wrapper .nested-wrapper, section.toggle-list-section-style-b .content-wrapper li.detail-list .text-wrapper .nested-wrapper, footer .wrapper .text-wrapper .nested-wrapper, footer .copy-wrapper .nested-wrapper, .tweets .text-wrapper .nested-wrapper .nested-wrapper, section.toggle-list-section .major-text-wrapper .nested-wrapper, section.toggle-list-section-style-b .major-text-wrapper .nested-wrapper {
   margin: 0 0.3em;
   padding: 0 0.5em;
 }
 @media screen and (max-width: 240px) {
-  /* line 51, ../../app/styles/_themes.scss */
+  /* line 54, ../../app/styles/_themes.scss */
   .extend-nested-margins-padding .nested-wrapper, .content-style-a .nested-wrapper, section.page-section .major-text-wrapper .nested-wrapper, section.page-section .text-wrapper .nested-wrapper, .extend-toggle-widget .text-wrapper .nested-wrapper, .toggle-widget-style-a .text-wrapper .nested-wrapper, .list-toggle-style-a .text-wrapper .nested-wrapper, section.toggle-list-section .content-wrapper li.detail-list .text-wrapper .nested-wrapper, .toggle-widget-style-b .text-wrapper .nested-wrapper, .list-toggle-style-b .text-wrapper .nested-wrapper, section.toggle-list-section-style-b .content-wrapper li.detail-list .text-wrapper .nested-wrapper, footer .wrapper .text-wrapper .nested-wrapper, footer .copy-wrapper .nested-wrapper, .tweets .text-wrapper .nested-wrapper .nested-wrapper, section.toggle-list-section .major-text-wrapper .nested-wrapper, section.toggle-list-section-style-b .major-text-wrapper .nested-wrapper {
     margin: 0 0.2em;
     padding: 0.2em;
   }
 }
-
 /* line 61, ../../app/styles/_themes.scss */
+.extend-nested-margins-padding .nested-wrapper ul.wrapper-body, .content-style-a .nested-wrapper ul.wrapper-body, section.page-section .major-text-wrapper .nested-wrapper ul.wrapper-body, section.page-section .text-wrapper .nested-wrapper ul.wrapper-body, .extend-toggle-widget .text-wrapper .nested-wrapper ul.wrapper-body, .toggle-widget-style-a .text-wrapper .nested-wrapper ul.wrapper-body, .list-toggle-style-a .text-wrapper .nested-wrapper ul.wrapper-body, section.toggle-list-section .content-wrapper li.detail-list .text-wrapper .nested-wrapper ul.wrapper-body, .toggle-widget-style-b .text-wrapper .nested-wrapper ul.wrapper-body, .list-toggle-style-b .text-wrapper .nested-wrapper ul.wrapper-body, section.toggle-list-section-style-b .content-wrapper li.detail-list .text-wrapper .nested-wrapper ul.wrapper-body, footer .wrapper .text-wrapper .nested-wrapper ul.wrapper-body, footer .copy-wrapper .nested-wrapper ul.wrapper-body, .tweets .text-wrapper .nested-wrapper .nested-wrapper ul.wrapper-body, section.toggle-list-section .major-text-wrapper .nested-wrapper ul.wrapper-body, section.toggle-list-section-style-b .major-text-wrapper .nested-wrapper ul.wrapper-body {
+  padding: 1em 0;
+}
+
+/* line 67, ../../app/styles/_themes.scss */
 .content-style-a, section.page-section .major-text-wrapper, section.page-section .text-wrapper {
   background-color: #e2dfe2;
 }
 
-/* line 66, ../../app/styles/_themes.scss */
+/* line 72, ../../app/styles/_themes.scss */
 .heading-border-bottom-margin-padding, .heading-bottom-border-style-a, .heading-bottom-border-style-b, .text-wrapper-style-b h5.wrapper-head, .toggle-widget-style-a .widget-detail h5.wrapper-head, .list-toggle-style-a .widget-detail h5.wrapper-head, section.toggle-list-section .content-wrapper li.detail-list .widget-detail h5.wrapper-head, section.page-section .major-text-wrapper h5.wrapper-head, section.page-section .text-wrapper h5.wrapper-head, .text-wrapper-style-c h5.wrapper-head, .toggle-widget-style-b .widget-detail h5.wrapper-head, .list-toggle-style-b .widget-detail h5.wrapper-head, section.toggle-list-section-style-b .content-wrapper li.detail-list .widget-detail h5.wrapper-head, section.toggle-list-section .content-wrapper li.detail-list h5, .heading-bottom-border-style-c, .text-wrapper-style-a h4.wrapper-head, .toggle-widget-style-b .widget-summary h4.wrapper-head, .list-toggle-style-b .widget-summary h4.wrapper-head, section.toggle-list-section-style-b .content-wrapper li.detail-list .widget-summary h4.wrapper-head, footer .wrapper .text-wrapper h4.wrapper-head, .tweets .text-wrapper .nested-wrapper h4.wrapper-head {
   padding-bottom: 0.5em;
   margin-bottom: 0.3em;
 }
 
-/* line 71, ../../app/styles/_themes.scss */
+/* line 77, ../../app/styles/_themes.scss */
 .heading-bottom-border-style-a {
   border-bottom: 1px solid #19a388;
 }
 
-/* line 76, ../../app/styles/_themes.scss */
+/* line 82, ../../app/styles/_themes.scss */
 .heading-bottom-border-style-b, .text-wrapper-style-b h5.wrapper-head, .toggle-widget-style-a .widget-detail h5.wrapper-head, .list-toggle-style-a .widget-detail h5.wrapper-head, section.toggle-list-section .content-wrapper li.detail-list .widget-detail h5.wrapper-head, section.page-section .major-text-wrapper h5.wrapper-head, section.page-section .text-wrapper h5.wrapper-head, .text-wrapper-style-c h5.wrapper-head, .toggle-widget-style-b .widget-detail h5.wrapper-head, .list-toggle-style-b .widget-detail h5.wrapper-head, section.toggle-list-section-style-b .content-wrapper li.detail-list .widget-detail h5.wrapper-head, section.toggle-list-section .content-wrapper li.detail-list h5 {
   border-bottom: 1px solid #535353;
 }
 
-/* line 81, ../../app/styles/_themes.scss */
+/* line 87, ../../app/styles/_themes.scss */
 .heading-bottom-border-style-c, .text-wrapper-style-a h4.wrapper-head, .toggle-widget-style-b .widget-summary h4.wrapper-head, .list-toggle-style-b .widget-summary h4.wrapper-head, section.toggle-list-section-style-b .content-wrapper li.detail-list .widget-summary h4.wrapper-head, footer .wrapper .text-wrapper h4.wrapper-head, .tweets .text-wrapper .nested-wrapper h4.wrapper-head {
   border-bottom: 1px solid #ff7c27;
 }
 
-/* line 86, ../../app/styles/_themes.scss */
+/* line 92, ../../app/styles/_themes.scss */
 .extend-image-wrapper, .extend-toggle-widget .image-wrapper, .toggle-widget-style-a .image-wrapper, .list-toggle-style-a .image-wrapper, section.toggle-list-section .content-wrapper li.detail-list .image-wrapper, .toggle-widget-style-b .image-wrapper, .list-toggle-style-b .image-wrapper, section.toggle-list-section-style-b .content-wrapper li.detail-list .image-wrapper {
   background: none;
   text-align: center;
 }
 
-/* line 92, ../../app/styles/_themes.scss */
+/* line 98, ../../app/styles/_themes.scss */
 .text-wrapper-style-a a.wrapper-body, .toggle-widget-style-b .widget-summary a.wrapper-body, .list-toggle-style-b .widget-summary a.wrapper-body, section.toggle-list-section-style-b .content-wrapper li.detail-list .widget-summary a.wrapper-body, footer .wrapper .text-wrapper a.wrapper-body, .tweets .text-wrapper .nested-wrapper a.wrapper-body, .text-wrapper-style-a p.wrapper-body, .toggle-widget-style-b .widget-summary p.wrapper-body, .list-toggle-style-b .widget-summary p.wrapper-body, section.toggle-list-section-style-b .content-wrapper li.detail-list .widget-summary p.wrapper-body, footer .wrapper .text-wrapper p.wrapper-body, .tweets .text-wrapper .nested-wrapper p.wrapper-body {
   color: #e2dfe2;
 }
-/* line 95, ../../app/styles/_themes.scss */
+/* line 101, ../../app/styles/_themes.scss */
 .text-wrapper-style-a h4.wrapper-head, .toggle-widget-style-b .widget-summary h4.wrapper-head, .list-toggle-style-b .widget-summary h4.wrapper-head, section.toggle-list-section-style-b .content-wrapper li.detail-list .widget-summary h4.wrapper-head, footer .wrapper .text-wrapper h4.wrapper-head, .tweets .text-wrapper .nested-wrapper h4.wrapper-head {
   color: #ff7c27;
 }
 
-/* line 103, ../../app/styles/_themes.scss */
+/* line 109, ../../app/styles/_themes.scss */
 .text-wrapper-style-b h4.wrapper-head, .toggle-widget-style-a .widget-detail h4.wrapper-head, .list-toggle-style-a .widget-detail h4.wrapper-head, section.toggle-list-section .content-wrapper li.detail-list .widget-detail h4.wrapper-head, section.page-section .major-text-wrapper h4.wrapper-head, section.page-section .text-wrapper h4.wrapper-head {
   color: #19a388;
 }
 
-/* line 115, ../../app/styles/_themes.scss */
+/* line 121, ../../app/styles/_themes.scss */
 .text-wrapper-style-c p.wrapper-body, .toggle-widget-style-b .widget-detail p.wrapper-body, .list-toggle-style-b .widget-detail p.wrapper-body, section.toggle-list-section-style-b .content-wrapper li.detail-list .widget-detail p.wrapper-body {
   color: #e2dfe2;
 }
-/* line 118, ../../app/styles/_themes.scss */
+/* line 124, ../../app/styles/_themes.scss */
 .text-wrapper-style-c a.wrapper-body, .toggle-widget-style-b .widget-detail a.wrapper-body, .list-toggle-style-b .widget-detail a.wrapper-body, section.toggle-list-section-style-b .content-wrapper li.detail-list .widget-detail a.wrapper-body {
   color: #19a388;
 }
-/* line 121, ../../app/styles/_themes.scss */
+/* line 127, ../../app/styles/_themes.scss */
 .text-wrapper-style-c h4.wrapper-head, .toggle-widget-style-b .widget-detail h4.wrapper-head, .list-toggle-style-b .widget-detail h4.wrapper-head, section.toggle-list-section-style-b .content-wrapper li.detail-list .widget-detail h4.wrapper-head {
   color: #19a388;
 }
 
-/* line 130, ../../app/styles/_themes.scss */
+/* line 136, ../../app/styles/_themes.scss */
 .list-touch li.touch-list, .text-wrapper-style-a li.touch-list, .toggle-widget-style-b .widget-summary li.touch-list, .list-toggle-style-b .widget-summary li.touch-list, section.toggle-list-section-style-b .content-wrapper li.detail-list .widget-summary li.touch-list, footer .wrapper .text-wrapper li.touch-list, .tweets .text-wrapper .nested-wrapper li.touch-list, nav li.touch-list {
   min-height: 2em;
   margin-bottom: 0;
 }
-/* line 132, ../../app/styles/_themes.scss */
+/* line 138, ../../app/styles/_themes.scss */
 .list-touch li.touch-list a.wrapper-body, .text-wrapper-style-a li.touch-list a.wrapper-body, .toggle-widget-style-b .widget-summary li.touch-list a.wrapper-body, .list-toggle-style-b .widget-summary li.touch-list a.wrapper-body, section.toggle-list-section-style-b .content-wrapper li.detail-list .widget-summary li.touch-list a.wrapper-body, footer .wrapper .text-wrapper li.touch-list a.wrapper-body, .tweets .text-wrapper .nested-wrapper li.touch-list a.wrapper-body, nav li.touch-list a.wrapper-body {
   height: 2em;
   display: block;
 }
-/* line 136, ../../app/styles/_themes.scss */
+/* line 142, ../../app/styles/_themes.scss */
 .list-touch li.touch-list a.wrapper-body.selected, .text-wrapper-style-a li.touch-list a.wrapper-body.selected, .toggle-widget-style-b .widget-summary li.touch-list a.wrapper-body.selected, .list-toggle-style-b .widget-summary li.touch-list a.wrapper-body.selected, section.toggle-list-section-style-b .content-wrapper li.detail-list .widget-summary li.touch-list a.wrapper-body.selected, footer .wrapper .text-wrapper li.touch-list a.wrapper-body.selected, .tweets .text-wrapper .nested-wrapper li.touch-list a.wrapper-body.selected, nav li.touch-list a.wrapper-body.selected {
   margin-top: 2px;
   border-top: 2px solid #ff7c27;
 }
 
-/* line 144, ../../app/styles/_themes.scss */
+/* line 150, ../../app/styles/_themes.scss */
 .list-toggle-style-a, section.toggle-list-section .content-wrapper li.detail-list {
   border-top: 5px solid #19a388;
   margin: 0;
 }
-/* line 147, ../../app/styles/_themes.scss */
+/* line 153, ../../app/styles/_themes.scss */
 .list-toggle-style-a .image-wrapper, section.toggle-list-section .content-wrapper li.detail-list .image-wrapper {
   text-align: center;
   border-bottom: 1px solid #e2dfe2;
 }
 
-/* line 156, ../../app/styles/_themes.scss */
+/* line 162, ../../app/styles/_themes.scss */
 .list-toggle-style-b, section.toggle-list-section-style-b .content-wrapper li.detail-list {
   border-top: 5px solid #ff7c27;
   margin: 0;
 }
-/* line 159, ../../app/styles/_themes.scss */
+/* line 165, ../../app/styles/_themes.scss */
 .list-toggle-style-b .image-wrapper, section.toggle-list-section-style-b .content-wrapper li.detail-list .image-wrapper {
   background-color: #2b2b2b;
   text-align: center;
-  border-bottom: 1px solid #656464;
 }
 
-/* line 171, ../../app/styles/_themes.scss */
+/* line 176, ../../app/styles/_themes.scss */
 .toggle-widget-style-a .widget-summary, .list-toggle-style-a .widget-summary, section.toggle-list-section .content-wrapper li.detail-list .widget-summary {
   background-color: #e2dfe2;
 }
-/* line 175, ../../app/styles/_themes.scss */
+/* line 180, ../../app/styles/_themes.scss */
 .toggle-widget-style-a .widget-summary .text-wrapper p.wrapper-body, .list-toggle-style-a .widget-summary .text-wrapper p.wrapper-body, section.toggle-list-section .content-wrapper li.detail-list .widget-summary .text-wrapper p.wrapper-body {
   margin-bottom: 8px;
 }
-/* line 180, ../../app/styles/_themes.scss */
+/* line 185, ../../app/styles/_themes.scss */
 .toggle-widget-style-a .widget-detail, .list-toggle-style-a .widget-detail, section.toggle-list-section .content-wrapper li.detail-list .widget-detail {
   background-color: #e2dfe2;
 }
-/* line 184, ../../app/styles/_themes.scss */
+/* line 189, ../../app/styles/_themes.scss */
 .toggle-widget-style-a .widget-detail .text-wrapper, .list-toggle-style-a .widget-detail .text-wrapper, section.toggle-list-section .content-wrapper li.detail-list .widget-detail .text-wrapper {
   border-top: 1px solid #19a388;
 }
-/* line 186, ../../app/styles/_themes.scss */
+/* line 191, ../../app/styles/_themes.scss */
 .toggle-widget-style-a .widget-detail .text-wrapper a, .list-toggle-style-a .widget-detail .text-wrapper a, section.toggle-list-section .content-wrapper li.detail-list .widget-detail .text-wrapper a {
   color: #19a388;
 }
 
-/* line 193, ../../app/styles/_themes.scss */
+/* line 198, ../../app/styles/_themes.scss */
 .toggle-widget-style-b, .list-toggle-style-b, section.toggle-list-section-style-b .content-wrapper li.detail-list {
   background-color: #2b2b2b;
 }
-/* line 199, ../../app/styles/_themes.scss */
+/* line 204, ../../app/styles/_themes.scss */
 .toggle-widget-style-b .widget-summary .text-wrapper, .list-toggle-style-b .widget-summary .text-wrapper, section.toggle-list-section-style-b .content-wrapper li.detail-list .widget-summary .text-wrapper {
   padding-bottom: 0;
+  border-top: 1px solid #656464;
 }
-/* line 206, ../../app/styles/_themes.scss */
+/* line 212, ../../app/styles/_themes.scss */
 .toggle-widget-style-b .widget-detail .text-wrapper, .list-toggle-style-b .widget-detail .text-wrapper, section.toggle-list-section-style-b .content-wrapper li.detail-list .widget-detail .text-wrapper {
   padding-top: 0;
 }
 
-/* line 213, ../../app/styles/_themes.scss */
+/* line 219, ../../app/styles/_themes.scss */
 .extend-toggle-widget a.widget-body, .toggle-widget-style-a a.widget-body, .list-toggle-style-a a.widget-body, section.toggle-list-section .content-wrapper li.detail-list a.widget-body, .toggle-widget-style-b a.widget-body, .list-toggle-style-b a.widget-body, section.toggle-list-section-style-b .content-wrapper li.detail-list a.widget-body {
   height: auto;
 }
 
-/* line 224, ../../app/styles/_themes.scss */
-.extend-toggle-widget-summary, .toggle-widget-style-a .widget-summary, .list-toggle-style-a .widget-summary, section.toggle-list-section .content-wrapper li.detail-list .widget-summary, .toggle-widget-style-b .widget-summary, .list-toggle-style-b .widget-summary, section.toggle-list-section-style-b .content-wrapper li.detail-list .widget-summary {
-  margin-top: 0.1em;
-}
-
-/* line 228, ../../app/styles/_themes.scss */
+/* line 231, ../../app/styles/_themes.scss */
 .extend-toggle-widget-detail .image-wrapper, .toggle-widget-style-b .widget-detail .image-wrapper, .list-toggle-style-b .widget-detail .image-wrapper, section.toggle-list-section-style-b .content-wrapper li.detail-list .widget-detail .image-wrapper {
   border-bottom: none;
 }
 
+/**** IMAGES *****/
+/* line 238, ../../app/styles/_themes.scss */
+img.transparent {
+  border: none;
+}
+
 /**** FORMS *****/
-/* line 236, ../../app/styles/_themes.scss */
+/* line 245, ../../app/styles/_themes.scss */
 .extend-form-style-a form, .toggle-widget-style-a .widget-detail form, .list-toggle-style-a .widget-detail form, section.toggle-list-section .content-wrapper li.detail-list .widget-detail form {
   margin: 1em 0;
 }
-/* line 238, ../../app/styles/_themes.scss */
+/* line 247, ../../app/styles/_themes.scss */
 .extend-form-style-a form button.btn, .toggle-widget-style-a .widget-detail form button.btn, .list-toggle-style-a .widget-detail form button.btn, section.toggle-list-section .content-wrapper li.detail-list .widget-detail form button.btn {
   border: none;
   min-height: 2em;
@@ -482,7 +492,7 @@ img {
   font-weight: bold;
 }
 
-/* line 251, ../../app/styles/_themes.scss */
+/* line 260, ../../app/styles/_themes.scss */
 .extend-select-styled-a, .extend-form-style-a form .styled-select, .toggle-widget-style-a .widget-detail form .styled-select, .list-toggle-style-a .widget-detail form .styled-select, section.toggle-list-section .content-wrapper li.detail-list .widget-detail form .styled-select {
   display: inline-block;
   width: 4em;
@@ -491,7 +501,7 @@ img {
   border: 1px solid #535353;
   vertical-align: bottom;
 }
-/* line 258, ../../app/styles/_themes.scss */
+/* line 267, ../../app/styles/_themes.scss */
 .extend-select-styled-a select, .extend-form-style-a form .styled-select select, .toggle-widget-style-a .widget-detail form .styled-select select, .list-toggle-style-a .widget-detail form .styled-select select, section.toggle-list-section .content-wrapper li.detail-list .widget-detail form .styled-select select {
   background: transparent;
   width: 268px;
@@ -502,7 +512,7 @@ img {
 }
 
 /**** LISTS *****/
-/* line 271, ../../app/styles/_themes.scss */
+/* line 280, ../../app/styles/_themes.scss */
 .extend-styled-list-a ol.styled-list li, .text-wrapper-style-b ul.styled-list ol.styled-list li, .toggle-widget-style-a .widget-detail ul.styled-list ol.styled-list li, .list-toggle-style-a .widget-detail ul.styled-list ol.styled-list li, section.toggle-list-section .content-wrapper li.detail-list .widget-detail ul.styled-list ol.styled-list li, section.page-section .major-text-wrapper ul.styled-list ol.styled-list li, section.page-section .text-wrapper ul.styled-list ol.styled-list li, .text-wrapper-style-b ol.styled-list ol.styled-list li, .toggle-widget-style-a .widget-detail ol.styled-list ol.styled-list li, .list-toggle-style-a .widget-detail ol.styled-list ol.styled-list li, section.toggle-list-section .content-wrapper li.detail-list .widget-detail ol.styled-list ol.styled-list li, section.page-section .major-text-wrapper ol.styled-list ol.styled-list li, section.page-section .text-wrapper ol.styled-list ol.styled-list li, section.toggle-list-section .content-wrapper ol.styled-list li, .extend-styled-list-a ul.styled-list li, .text-wrapper-style-b ul.styled-list ul.styled-list li, .toggle-widget-style-a .widget-detail ul.styled-list ul.styled-list li, .list-toggle-style-a .widget-detail ul.styled-list ul.styled-list li, section.toggle-list-section .content-wrapper li.detail-list .widget-detail ul.styled-list ul.styled-list li, section.page-section .major-text-wrapper ul.styled-list ul.styled-list li, section.page-section .text-wrapper ul.styled-list ul.styled-list li, .text-wrapper-style-b ol.styled-list ul.styled-list li, .toggle-widget-style-a .widget-detail ol.styled-list ul.styled-list li, .list-toggle-style-a .widget-detail ol.styled-list ul.styled-list li, section.toggle-list-section .content-wrapper li.detail-list .widget-detail ol.styled-list ul.styled-list li, section.page-section .major-text-wrapper ol.styled-list ul.styled-list li, section.page-section .text-wrapper ol.styled-list ul.styled-list li, section.toggle-list-section .content-wrapper ul.styled-list li {
   list-style-type: disc;
   list-style-position: inside;
@@ -582,20 +592,20 @@ footer .copy-wrapper p.wrapper-body {
   padding-bottom: 0.5em;
 }
 /* line 78, ../../app/styles/_modules.scss */
-.tweets li p {
+.tweets li.touch-list p {
   min-height: 2em;
   color: #e2dfe2;
 }
 /* line 82, ../../app/styles/_modules.scss */
-.tweets li a {
+.tweets li.touch-list a {
   height: 2em;
 }
 /* line 85, ../../app/styles/_modules.scss */
-.tweets li a {
+.tweets li.touch-list a {
   color: #ff7c27;
 }
 /* line 88, ../../app/styles/_modules.scss */
-.tweets li a.selected {
+.tweets li.touch-list a.selected {
   margin-top: 2px;
   border-top: 2px solid #ff7c27;
 }

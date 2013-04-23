@@ -21,7 +21,7 @@ $config['from_site_email'] = "info@absoluteorange.com";
 $config['showcaseTables'] = array('skills', 'programs','software', 'frameworks', 'experience');
 $config['profileTables'] = array('skills', 'achievements');
 $config['blogTables'] = array('images', 'relatedlinks', 'thumbnail_images');
-$config['CDNPath'] ='';
+$config['CDNPath'] = '';
 $config['TwitterKey'] = 'iKGq68YjeRv7LTxx1GKA';
 $config['TwitterSecret'] = 'VcWiq18dwkhSdCKbnIVRG3H2QC3J0FOYp3cjGI8';
 

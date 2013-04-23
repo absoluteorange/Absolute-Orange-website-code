@@ -10,7 +10,7 @@ class Showcases extends CI_Model {
     function getAll() {
         $sql = "SELECT title, id, deliverable, DATE_FORMAT(date_completed, '%a, %D %M  %Y') as date
 				FROM showcase
-				ORDER BY date_completed desc";
+				ORDER BY date_started desc";
         $query= $this->db->query($sql);
         return $query->result_array();
     }
@@ -58,11 +58,12 @@ class Showcases extends CI_Model {
         return $query->first_row();
     }
     
-	function getPrograms($id){
+	function getLanguages($id){
     	$sql = "SELECT name
-				FROM programs
-				JOIN showcase_programs ON programs.id=showcase_programs.programs_id
-				WHERE showcase_id = '$id'";
+				FROM languages
+				JOIN showcase_languages ON languages.id=showcase_languages.languages_id
+				WHERE showcase_id = '$id'
+				ORDER by name asc";
         $query= $this->db->query($sql);
         return $query->result_array();
     }
@@ -71,7 +72,8 @@ class Showcases extends CI_Model {
     	$sql = "SELECT name
 				FROM software
 				JOIN showcase_software ON software.id=showcase_software.software_id
-				WHERE showcase_id = '$id'";
+				WHERE showcase_id = '$id'
+				ORDER by name asc";
         $query= $this->db->query($sql);
          return $query->result_array();
     }
@@ -80,7 +82,8 @@ class Showcases extends CI_Model {
     	$sql = "SELECT name
 				FROM frameworks
 				JOIN showcase_frameworks ON frameworks.id=showcase_frameworks.frameworks_id
-				WHERE showcase_id = '$id'";
+				WHERE showcase_id = '$id'
+				ORDER by name asc";
         $query= $this->db->query($sql);
         return $query->result_array();
     }

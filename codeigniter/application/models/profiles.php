@@ -30,8 +30,14 @@ class Profiles extends CI_Model {
     }
     
     function getSkills($id, $table) {
+    	if ($table == 'expertise'):
+    		$table = 'skills';
+    		$col = 'expertise';
+    	else:
+    		$col = 'name';
+    	endif;
     	$strTableCol = $table.'_id';
-    	$sql = "SELECT name
+    	$sql = "SELECT $col
     			FROM $table
     			JOIN showcase_$table ON $table.id=showcase_$table.$strTableCol
     			WHERE showcase_id = $id";

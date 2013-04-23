@@ -128,17 +128,17 @@ class Showcase extends CI_Controller {
 	
 	public function updateLogo ($id) {
 		$this->db->insert('showcase_logos', array(
-								'image_url' => $_FILES['logo']['name'],
-                                'image_alt' => $_POST['logo_alt'],
-                                'showcase_id' => $id));
+						   'image_url' => $_FILES['logo']['name'],
+                           'image_alt' => $_POST['logo_alt'],
+                           'showcase_id' => $id));
 		return TRUE;
 	}
 	
 	public function updateScreenshot ($id, $title) {
 		$this->db->insert('showcase_images', array(
-								'image_url' => $title.'_'.$_FILES['screenshot']['name'],
-                                'image_alt' => $title.' > '.$_POST['screenshot_alt'],
-                                'showcase_id' => $id));
+							'image_url' => $title.'_'.$_FILES['screenshot']['name'],
+                            'image_alt' => $title.' > '.$_POST['screenshot_alt'],
+                            'showcase_id' => $id));
 		return TRUE;
 	}
 	
@@ -161,15 +161,15 @@ class Showcase extends CI_Controller {
 		endif;
 	}
 	
-	public function programs() {
+	public function languages() {
 		if (!empty($_POST['formAction'])):
 			$action = $_POST['formAction'];
 			switch ($action):
-				case 'addPrograms':
-					$this->crud_methods->addItem('programs', $_POST['addName']);
+				case 'addLanguages':
+					$this->crud_methods->addItem('languages', $_POST['addName']);
 				break;
-				case 'editPrograms':
-					$this->crud_methods->editItem('programs', $_POST['editId'], $_POST['editName']);
+				case 'editLanguages':
+					$this->crud_methods->editItem('languages', $_POST['editId'], $_POST['editName']);
 				break;
 			endswitch;
 		endif;
@@ -178,12 +178,12 @@ class Showcase extends CI_Controller {
 		endif;
 		$this->user_methods->setUserDetails();
 		$data['userName'] =  $this->user_methods->userName;			
-		$data['heading'] = "Absolute Orange programs administration";		
+		$data['heading'] = "Absolute Orange languages administration";		
 		$data['showLogo'] = false;	
-		$items=$this->showcase_model->getItems('programs');
+		$items=$this->showcase_model->getItems('languages');
 		$data['items'] = $items;
 		$data['section'] = 'showcase';
-		$data['tableName'] = 'programs';
+		$data['tableName'] = 'languages';
 		$data['fieldName'] = 'name';
 		$data['content'] = $this->load->view("admin/common/view",$data,true);	
 		$this->admin_display->makepage($data);
