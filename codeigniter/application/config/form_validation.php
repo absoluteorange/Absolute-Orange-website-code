@@ -17,11 +17,6 @@
 				'rules' => 'xss_clean|required|date'
 			),
 			array(
-				'field' => 'link',
-				'label' => 'URL',
-				'rules' => 'xss_clean|required'
-			),
-			array(
 				'field' => 'description',
 				'label' => 'Description',
 				'rules' => 'xss_clean|required'
@@ -89,18 +84,18 @@
 				'rules' => 'trim|xss_clean|required|_checkExists[software]'
 			)
 		),
-		'addPrograms' => array(
+		'addLanguages' => array(
 			array(
 				'field' => 'addName',
-				'label' => 'program',
-				'rules' => 'trim|xss_clean|required|_checkExists[programs]'
+				'label' => 'language',
+				'rules' => 'trim|xss_clean|required|_checkExists[languages]'
 			)
 		),
-		'editPrograms' => array(
+		'editLanguages' => array(
 			array(
 				'field' => 'editName',
-				'label' => 'program',
-				'rules' => 'trim|xss_clean|required|_checkExists[programs]'
+				'label' => 'languages',
+				'rules' => 'trim|xss_clean|required|_checkExists[languages]'
 			)
 		),
 		'addFrameworks' => array(
