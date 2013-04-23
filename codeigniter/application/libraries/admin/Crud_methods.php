@@ -35,7 +35,18 @@ class Crud_methods extends CI_Controller {
 				$showcaseTables[] = 'images';
 				$showcaseTables[] = 'logos';
 				$showcaseTables[] = 'relatedlinks';
-				foreach ($this->_ci->config->item('showcaseTables') as $relatedTable):
+				foreach ($showcaseTables as $relatedTable):
+					if ($relatedTable == 'logos'):
+						$query = $this->_ci->db->get_where('showcase_logos', array('showcase_id' => $id));
+						foreach ($query->result() as $row):
+							$this->delFile('showcase', 'logo', $row->id);
+						endforeach;
+					elseif ($relatedTable == 'images'):
+						$query = $this->_ci->db->get_where('showcase_images', array('showcase_id' => $id));
+						foreach ($query->result() as $row):
+							$this->delFile('showcase', 'screenshot', $row->id);
+						endforeach;
+					endif;
 					$this->_ci->db->delete('showcase_'.$relatedTable, array('showcase_id' => $id));
 				endforeach;
 				$this->_ci->db->delete('employee_showcase', array('showcase_id' => $id));
@@ -103,10 +114,12 @@ class Crud_methods extends CI_Controller {
 	 * string $_GET['type'] = type of image
 	 * string $_GET['id'] = image id
 	 */
-    public function delFile() {
-    	$section = $_GET['section'];
-        $type = $_GET['type'];
-        $id = $_GET['id'];
+    public function delFile($section = NULL, $type = NULL, $id = NULL) {
+    	if ($section == NULL):
+	    	$section = $_GET['section'];
+	        $type = $_GET['type'];
+	        $id = $_GET['id'];
+	    endif;
         switch ($section):
     	case ('showcase'):
         	switch($type):

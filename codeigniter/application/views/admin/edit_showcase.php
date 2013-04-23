@@ -48,7 +48,7 @@
 		            	<span class="help-inline error"><?=$error; ?></span>
 		            <?php endforeach;?>
 				<?php endif; ?>
-				<span class="help-block">Images should have a max height of 100px</span>
+				<span class="help-block">Images should have a max height of 300px</span>
 			</div>
 		</div>
 		<div class="control-group <?php if (form_error('logo_alt')): echo 'error'; endif; ?>">
@@ -124,6 +124,10 @@
 		        <?php if (form_error('description')): ?>
 		            <span class="help-inline error"><?=form_error('description'); ?></span>
 		        <?php endif; ?>
+		        <span class="help-block">Please use &lt;h4 class='wrapper-head'&gt;&lt;/h4&gt; and &lt;h5 class='wrapper-head'&gt;&lt;/h5&gt; for headings, </br>
+		        &lt;p class='wrapper-body'&gt;&lt;/p&gt; for paragraphs,<br />
+		        &lt;ul class='wrapper-body'&gt;&lt;/ul&gt; for lists<br />
+		        to ident paragraphs use the &lt;div class='nested-wrapper'&gt;&lt;/div&gt;.</span>
 	        </div>
 	    </div>
 	</fieldset>
@@ -223,8 +227,10 @@
 	            <div class="controls">
 		        	<input type="file" id="screenshot" name="screenshot" value=""/>
 		        	<?php if (isset($this->form_validation->screenshot)): ?>
-		            	<span class="help-inline error"><?=$this->form_validation->screenshot; ?></span>
-					<?php endif; ?>
+		            	<?php foreach ($this->form_validation->screenshot as $error):?>
+		            		<span class="help-inline error"><?=$error; ?></span>
+		            	<?php endforeach;?>
+		            <?php endif; ?>
 					<span class="help-block">Images should have a max height of 600px</span>
 	            </div>
 	        </div>
@@ -233,9 +239,11 @@
 	            <div class="controls">
 		            <input type="file" id="screenshot_thumb" name="screenshot_thumb" value=""/>
 		            <?php if (isset($this->form_validation->screenshot_thumb)): ?>
-		            	<span class="help-inline error"><?=$this->form_validation->screenshot_thumb; ?></span>
+		            	<?php foreach ($this->form_validation->screenshot_thumb as $error):?>
+		            		<span class="help-inline error"><?=$error; ?></span>
+		            	<?php endforeach;?>
 					<?php endif; ?>
-					<span class="help-block">Images should have a max height of 100px</span>
+					<span class="help-block">Images should have a max height of 300px</span>
 				</div>
 		    </div>
 	        <div class="control-group <?php if (form_error('screenshot_alt')): echo 'error'; endif; ?>">

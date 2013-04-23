@@ -5,4 +5,5 @@ dist
 .ai-cache
 .settings
 .tmp
+app/styles/icons/*.scss
 app/components

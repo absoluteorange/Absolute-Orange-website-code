@@ -17,24 +17,22 @@ class Site extends CI_Controller {
             $this->load->helper('url');
             $this->load->model(array('blogs', 'showcases', 'profiles', 'content'));
             $this->version='1.2';
-
-        //    $this->load->library('wurfl');
-			//$this->wurfl->load('USER_AGENT_HERE');
-			//var_dump($this->wurfl->getAllCapabilities());
-			//echo 'is wireless device = '.$this->wurfl->getCapability('is_wireless_device');
-			//echo 'is handheld friendly = '.$this->wurfl->getCapability('handheldfriendly');
-            //echo 'is dual orientation = '.$this->wurfl->getCapability('dual_orientation');
-
-
+            
+            /*$this->load->library('wurfl');
+			$this->wurfl->load('USER_AGENT_HERE');
+			var_dump($this->wurfl->getAllCapabilities());
+			echo 'is wireless device = '.$this->wurfl->getCapability('is_wireless_device');
+			echo 'is handheld friendly = '.$this->wurfl->getCapability('handheldfriendly');
+            echo 'is dual orientation = '.$this->wurfl->getCapability('dual_orientation');*/  
     }
-
+    
     /**
 	 * Displays home view
 	 */
 	public function index() {
 	    $this->home();
 	}
-
+	
 	public function home() {
 		$this->title="Absolute Orange home";
 	    $data = array(
@@ -46,9 +44,9 @@ class Site extends CI_Controller {
 	    $container=$this->templateparser->parseTemplate('layout/container.html',$data );
 	    $this->displayContent($container);
 	}
-
+	
 	public function getHome() {
-		$content = $this->content->getHome();
+		$content = $this->content->getHome();	
 		$arrContent = explode(':', $content->section_content);
 		$data->intro = $arrContent[0];
 		for ($i=1; $i<count($arrContent)-1; $i++):
@@ -57,7 +55,7 @@ class Site extends CI_Controller {
 				'content' => $arrContent[$i],
 				'heading' => $arrContent[$j],
 			);
-		endfor;
+		endfor;	
 		return $this->templateparser->parseTemplate('home.html', $data);
 	}
 
@@ -75,11 +73,11 @@ class Site extends CI_Controller {
 	    $container = $this->templateparser->parseTemplate('layout/container.html',$data );
 	    $this->displayContent($container);
 	}
-
+	
 	/**
 	 * Display work
 	 */
-
+	
 	public function work() {
 		$this->title="Absolute Orange our work";
 		$data = array(
@@ -91,11 +89,11 @@ class Site extends CI_Controller {
 	    $container = $this->templateparser->parseTemplate('layout/container.html',$data );
 	    $this->displayContent($container);
 	}
-
+	
 	/**
 	 * Display developers
 	 */
-
+	
 	public function developers() {
 		$this->title="Absolute Orange our developers";
 		$data = array(
@@ -107,13 +105,13 @@ class Site extends CI_Controller {
 	    $container = $this->templateparser->parseTemplate('layout/container.html',$data );
 	    $this->displayContent($container);
 	}
-
+	
 	/**
 	 * Displays main navigation
 	 */
 	private function getNav() {
 		$section = $this->uri->segment(1);
-
+		
 		$data['items'] = array(
 			'0' => array(
 				'url' => site_url(''),
@@ -143,7 +141,7 @@ class Site extends CI_Controller {
 		endfor;
 		return $data;
 	}
-
+	
 	/**
 	 * Display all tweets
 	 */
@@ -153,7 +151,7 @@ class Site extends CI_Controller {
 		$formattedTweets = $this->twitter->formatTweets($tweets);
 		return $formattedTweets;
 	}
-
+	
 	/**
 	 *Displays all blogs
 	 */
@@ -171,7 +169,7 @@ class Site extends CI_Controller {
 		endforeach;
 		return $this->templateparser->parseTemplate('blogs.html', $data);
 	}
-
+	
 	/**
 	 *Displays blog
 	 */
@@ -182,7 +180,7 @@ class Site extends CI_Controller {
 		$data->links = $this->blogs->getLinks($data->id);
 		return $this->templateparser->parseTemplate('blog.html', $data);
 	}
-
+	
 	/**
 	 *Displays all showcases
 	 */
@@ -194,15 +192,22 @@ class Site extends CI_Controller {
 		$data['items'] = $this->showcases->getAll();
 		foreach ($data['items'] as $key => $item):
 			$data['items'][$key]['logos'] = $this->showcases->getLogos($item['id']);
+			foreach ($data['items'][$key]['logos'] as $thisKey => $logo):
+				$arrImgUrl = explode('.', $logo['image_url']);
+				$format = $arrImgUrl[1];
+				if ($format == 'png' OR $format == 'gif'):
+					$data['items'][$key]['logos'][$thisKey]['class'] = 'transparent';
+				endif;
+			endforeach;
 			$data['items'][$key]['skills'] = $this->showcases->getSkills($item['id']);
 			$data['items'][$key]['skills'][count($data['items'][$key]['skills'])-1]['last'] = true;
 			if (isset($name) AND $item['title'] == $name):
 				$data['items'][$key]['showcase'] = $showcase;
-			endif;
+			endif; 
 		endforeach;
 		return $this->templateparser->parseTemplate('showcases.html', $data);
 	}
-
+	
 	/**
 	 *Displays showcase
 	 */
@@ -211,13 +216,13 @@ class Site extends CI_Controller {
 		$data->logo = $this->showcases->getLogo($data->id);
 		$data->developer = $this->showcases->getDeveloper($data->id);
 		$data->skillset = $this->showcases->getSkills($data->id);
-		$data->technical->programs = $this->showcases->getPrograms($data->id);
+		$data->technical->languages = $this->showcases->getLanguages($data->id);
 		$data->technical->software = $this->showcases->getSoftware($data->id);
 		$data->technical->frameworks = $this->showcases->getFrameworks($data->id);
 		$data->images = $this->showcases->getImages($data->id);
 		return $this->templateparser->parseTemplate('showcase.html', $data);
 	}
-
+	
 	/**
 	 *Displays all profiles
 	 */
@@ -232,15 +237,14 @@ class Site extends CI_Controller {
 			$id = $item['employee_id'];
 			$data['items'][$key]['name'] = $this->profiles->getName($id);
 			$data['items'][$key]['skills'] = array();
-			$data['items'][$key]['skills'] = $this->getEmployeeSkills($id, $data['items'][$key]['skills'], 'skills');
-
+			$data['items'][$key]['skills'] = $this->getEmployeeSkills($id, $data['items'][$key]['skills'], 'expertise');
 			if (isset($featureId) AND $featureId == $id):
 				$data['items'][$key]['profile'] = $profile;
-			endif;
-		endforeach;
+			endif;		
+		endforeach;	    
 		return $this->templateparser->parseTemplate('profiles.html', $data);
 	}
-
+	
 	/**
 	 *Displays profile
 	 */
@@ -253,10 +257,8 @@ class Site extends CI_Controller {
 		$data->skillset = array();
 		$data->skillset = $this->getSkillset($id, $data->skillset);
 		$data->cv = $this->profiles->getCV($id);
-		$data->skills = array();
-		$data->skills = $this->getEmployeeSkills($id, $data->skills, 'skills');
-		$data->technical->programs = array();
-		$data->technical->programs = $this->getEmployeeSkills($id, $data->technical->programs, 'programs');
+		$data->technical->languages = array();
+		$data->technical->languages = $this->getEmployeeSkills($id, $data->technical->languages, 'languages');
 		$data->technical->software = array();
 		$data->technical->software = $this->getEmployeeSkills($id, $data->technical->software, 'software');
 		$data->technical->frameworks = array();
@@ -264,9 +266,9 @@ class Site extends CI_Controller {
 		$data->myAchievements = $this->profiles->getAchievements($id);
 		return $this->templateparser->parseTemplate('profile.html', $data);
 	}
-
+	
 	/**
-	 *
+	 * 
 	 * Post form for downloading CV
 	 */
 	function downloadCV(){
@@ -276,23 +278,28 @@ class Site extends CI_Controller {
 		$name = str_replace(' ', '_', $arrName->employee_name);
 		header('Location: '.site_url('/cv/'.$name.'.'.$format));
 	}
-
+	
 	/**
-	 *
+	 * 
 	 * Returns employee skills based on the showcases they have submitted
-	 *
+	 * 
 	 * @param $id = employee id
 	 * @param $array = array to put skills in
-	 * @param $skill = 'skills' OR 'programs' OR 'software' OR 'frameworks'
+	 * @param $skill = 'skills' OR 'programs' OR 'software' OR 'frameworks' OR 'expertise'
 	 */
 	function getEmployeeSkills($id, $array, $strSkill) {
 		$showcases = $this->profiles->getShowcases($id);
 		$employeeSkills = array();
 		foreach ($showcases as $showcase):
 			$skills = $this->profiles->getSkills($showcase['showcase_id'], $strSkill);
+			if ($strSkill == 'expertise'):
+				$col = 'expertise';
+			else:
+				$col = 'name';
+			endif;
 			foreach ($skills as $skill):
-				if (!in_array($skill['name'], $employeeSkills)):
-					$employeeSkills[] = $skill['name'];
+				if (!in_array($skill[$col], $employeeSkills)):
+					$employeeSkills[] = $skill[$col];
 				endif;
 			endforeach;
 		endforeach;
@@ -304,7 +311,7 @@ class Site extends CI_Controller {
 		$array[count($array)-1]['last'] = true;
 		return $array;
 	}
-
+	
 	function getSkillset($id, $array){
 		$skillset = $this->profiles->getSkillset($id);
 		foreach ($skillset as $skill):
@@ -316,7 +323,7 @@ class Site extends CI_Controller {
 		endforeach;
 		return $array;
 	}
-
+	
 	/**
 	 *Display specified content
 	 * @param $strContent

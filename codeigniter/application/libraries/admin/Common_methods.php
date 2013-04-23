@@ -39,9 +39,8 @@ class Common_methods extends CI_Controller {
 	public function validateLogo ($table) {
 		$capitalisedTable = ucfirst($table);
 		if ($this->_ci->form_validation->run('add'.$capitalisedTable.'Logo') == TRUE):
-			$uploadConfig = array('max_height' => '100',
+			$uploadConfig = array('max_height' => '300',
 								  'upload_path' => './images/'.$table.'/logos',
-								  'max_height' => '100',
 								  'allowed_types' => 'gif|jpg|png',
 								  'max_size' => '1000');
 			$name = 'logo';
@@ -63,7 +62,7 @@ class Common_methods extends CI_Controller {
 								  'file_name' => $title.'_'.$_FILES['screenshot']['name']);
 			$name = 'screenshot';
 			if ($this->uploadFile($uploadConfig, $name)):
-				$uploadConfig = array('max_height' => '100', 
+				$uploadConfig = array('max_height' => '300', 
 								  'upload_path' => './images/'.$table.'/thumbnails',
 								  'allowed_types' => 'gif|jpg|png',
 								  'max_size' => '1000', 
