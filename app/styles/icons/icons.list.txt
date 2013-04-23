@@ -1,5 +1,0 @@
-$icon-bear : ".icon-bear";
-
-$icon-phone : ".icon-phone";
-
-$icon-star : ".icon-star";
