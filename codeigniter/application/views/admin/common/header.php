@@ -8,6 +8,6 @@
 	<meta name="copyright" content="<?= $copyright ?>" />
 	<title><?= $this->config->item('title');?> : <?= $title; ?></title>
 	<link rel="shortcut icon" href="<?=site_url('favicon.ico'); ?>" />
-	<link href="<?= site_url('styles/bootstrap/bootstrap.min.css'); ?>" rel="stylesheet" type="text/css" />
+	<link href="<?= site_url('styles/bootstrap/bootstrap.css'); ?>" rel="stylesheet" type="text/css" />
 </head>
 <body>
