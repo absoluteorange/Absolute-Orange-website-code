@@ -1,5 +1,0 @@
-$icon-email : ".icon-email";
-
-$icon-phone : ".icon-phone";
-
-$icon-twitter : ".icon-twitter";
