@@ -1,3 +1,19 @@
-$icon-phone : ".icon-phone .ape3, .ape2";
-$icon-star : ".mystar,.star";
-$icon-bear : ".bear,.hello";
+$icon-phone : ".icon-phone";
+$icon-twitter : ".icon-twitter";
+$icon-email : ".icon-email";
+
+.icon{
+	background-size:cover;
+}
+
+.footer-icon{
+	@extend .icon;
+	width:20px;
+	height:20px;
+margin-right:5px;
+	float:left;
+}
+
+#{$icon-phone},#{$icon-email},#{$icon-twitter}{
+	@extend .footer-icon;	
+}

@@ -1,5 +1,5 @@
-$icon-bear : ".icon-bear";
+$icon-email : ".icon-email";
 
 $icon-phone : ".icon-phone";
 
-$icon-star : ".icon-star";
+$icon-twitter : ".icon-twitter";
