@@ -2,48 +2,55 @@
 	line-height: 16px;
 }
 
+@mixin font-size($px) {
+	font-size:unquote($px+"px");
+	font-size:unquote(($px/10)+"rem");
+ }
+
+body{
+
+	font-size:62.5%;
+}
+
 @font-face {
 	font-family: 'gothicBold';
-	src: url('fonts/centuryGothic/GOTHICB.TTF') format('truetype');
+	src: url('/fonts/centuryGothic/GOTHICB.TTF') format('truetype');
 }
 
 @font-face {
 	font-family: 'gothic';
-	src: url('fonts/centuryGothic/GOTHIC.TTF') format('truetype');
+	src: url('/fonts/centuryGothic/GOTHIC.TTF') format('truetype');
 }
 	
 h1, h2, h3, h4, h5 {
 	font-family: 'gothicBold';
-	font-size: 2em;
+	@include font-size(30);
 	@include breakpoint($smallest) {
-	    font-size: 1.5em;
 	}
 	color: #535353;
 }
 
 h2 {
-	font-size: 2.5em;
+	@include font-size(20);
 	@include breakpoint($smallest) {
-	    font-size: 1.4em;
+	    	@include font-size(1.6);
 	}
 }
 h3{
-	font-size: 2em;
+	@include font-size(14);
 	@include breakpoint($smallest) {
-	    font-size: 1.3em;
+	   
 	}
 }
 h4{
-	font-size: 1.5em;
+	@include font-size(13);
 	@include breakpoint($smallest) {
-	    font-size: 1.2em;
 	 }
 }
 
 h5{
-	font-size: 1.3em;
+	@include font-size(12);
 	@include breakpoint($smallest) {
-	    font-size: 1.1em;
 	 }
 }
 
@@ -53,17 +60,15 @@ p, a, button, select, li {
 }
 
 button, select {
-	font-size: 1.077em;
+	@include font-size(11);
 	@include breakpoint($smallest) {
-	    font-size: 0.8em;
 	}
 	color: #535353;
 } 
 
 p {
-	font-size: 1.077em;
+	@include font-size(11);
 	@include breakpoint($smallest) {
-	    font-size: 0.8em;
 	}
 }
 
@@ -76,9 +81,8 @@ strong {
 }
 
 a {
-	font-size: 1em;
+	@include font-size(12);
 	@include breakpoint($smallest) {
-	    font-size: 0.8em;
 	}
 	&:link, &:visited, &:active, {
 		color: #535353;
@@ -90,7 +94,6 @@ a {
 	}	
 }
 
-p a, a p { font-size: 1em; }
 
 img {
 	border: 1px solid #535353;
