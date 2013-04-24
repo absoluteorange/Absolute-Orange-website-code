@@ -10,7 +10,7 @@ span.first {
 }
 .drop-shadow {
 	padding-bottom: 0.5em;
-	@include media($smallest) {
+	@include media($first) {
 	 	padding-bottom: 0.2em;
 	}
 	background: #424242 url('../images/bg/drop_shadow.gif') repeat-x left bottom;
@@ -37,14 +37,14 @@ span.first {
 .extend-nested-margins-padding {
 	margin: 0 0.3em;
 	padding: 0.5em;
-	@include media($smallest) {
+	@include media($first) {
 	 	margin: 0 0.2em;
 	 	padding: 0.2em;
 	}
 	.nested-wrapper {
 		margin: 0 0.3em;
 		padding: 0 0.5em;
-		@include media($smallest) {
+		@include media($first) {
 		 	margin: 0 0.2em;
 		 	padding: 0.2em;
 		}
