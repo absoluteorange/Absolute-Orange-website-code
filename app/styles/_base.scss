@@ -1,9 +1,19 @@
 * {
 	line-height: 16px;
 }
+
+@font-face {
+	font-family: 'gothicBold';
+	src: url('fonts/centuryGothic/GOTHICB.TTF') format('truetype');
+}
+
+@font-face {
+	font-family: 'gothic';
+	src: url('fonts/centuryGothic/GOTHIC.TTF') format('truetype');
+}
 	
 h1, h2, h3, h4, h5 {
-	font-family: 'gothicBold', Helvetica, Arial, sans-serif;
+	font-family: 'gothicBold';
 	font-size: 2em;
 	@include breakpoint($smallest) {
 	    font-size: 1.5em;
