@@ -29,9 +29,13 @@ nav {
 	}
 	@extend .list-touch;
 	li {
-		
+		//backround-position:right center;
+		//backround-position:right 3em bottom 10px;
+	
 		border-top: 1px solid #e2dfe2;
 		a.wrapper-body {
+			background-origin:content-box;
+			background-position:right;
 			@include font-size(20);
 			@include breakpoint($first) {
 				@include font-size(16);
@@ -61,7 +65,7 @@ footer {
 		text-align: center;
 		.wrapper-body {
 			@include media($second) {
-				@include font-size(12);
+				@include font-size(12); 
 			}
 			@include font-size(13);
 		}
