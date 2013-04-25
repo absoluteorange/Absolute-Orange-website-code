@@ -46,7 +46,9 @@ function handleDropFiles(files) {
 	for (var aMultiples = ["KiB", "MiB", "GiB", "TiB", "PiB", "EiB", "ZiB", "YiB"], nMultiple = 0, nApprox = nBytes / 1024; nApprox > 1; nApprox /= 1024, nMultiple++) {
 		sOutput = nApprox.toFixed(3) + " " + aMultiples[nMultiple] + " (" + nBytes + " bytes)";
 	}
+	console.log(nBytes);
 	alert('Your image size is '+sOutput);
+	
 	if (nBytes <= 5242880) {
 		FileUpload(file);
 	} else {
