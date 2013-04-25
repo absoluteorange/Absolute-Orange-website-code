@@ -130,7 +130,6 @@ span.first {
 	@extend .texture3;
 	.widget-summary {
 		background-color: #e2dfe2;
-		@extend .extend-toggle-widget-summary;
 		.text-wrapper {
 			p.wrapper-body {
 				margin-bottom: 8px;
@@ -138,12 +137,12 @@ span.first {
 		}
 	}
 	.widget-detail {
+		@extend .extend-toggle-widget-detail;
 		background-color: #e2dfe2;
 		@extend .text-wrapper-style-b;
 		@extend .extend-form-style-a;
 		.text-wrapper {
 			border-top: 1px solid #19a388;
-			
 		}
 	}
 }
@@ -152,7 +151,6 @@ span.first {
 	@extend .extend-toggle-widget;
 	background-color: #2b2b2b;
 	.widget-summary {
-		@extend .extend-toggle-widget-summary;
 		@extend .text-wrapper-style-a;
 		.text-wrapper {
 			padding-bottom: 0;
@@ -184,6 +182,7 @@ span.first {
 	.image-wrapper {
 		border-bottom: none;
 	}
+	a { text-decoration: underline; }
 }
 
 /**** IMAGES *****/
