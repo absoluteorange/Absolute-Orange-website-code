@@ -253,7 +253,7 @@
 			array(
 				'field' => 'description',
 				'label' => 'Description',
-				'rules' => 'xss_clean|required'
+				'rules' => 'required'
 			)
 		),
 		'addBlogLogo' => array(

@@ -80,6 +80,19 @@ class Common_methods extends CI_Controller {
 			return FALSE;
 		endif;
 	}
+	
+	public function validateFile () {
+		$uploadConfig = array('max_height' => '200', 
+						  'upload_path' => './images/publicUpload',
+						  'allowed_types' => 'gif|jpg|png',
+						  'max_size' => '500');
+		$name = 'upload';
+		if ($this->uploadFile($uploadConfig, $name)):
+			return TRUE;
+		else:
+			return FALSE;
+		endif;
+	}
 		
 	public function validateRelatedLink ($table) {
 		$capitalisedTable = ucfirst($table);
