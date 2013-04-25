@@ -48,7 +48,6 @@ function handleDropFiles(files) {
 	}
 	console.log(nBytes);
 	alert('Your image size is '+sOutput);
-	
 	if (nBytes <= 5242880) {
 		FileUpload(file);
 	} else {
@@ -58,9 +57,8 @@ function handleDropFiles(files) {
 }
 
 function FileUpload(file) {
-  console.log(file);
   var xhr = new XMLHttpRequest();
-  xhr.open("POST", "http://www.absoluteorange.com/fileAPIUpload", true);
+  xhr.open("POST", "/fileAPIUpload", true);
   xhr.setRequestHeader("X_FILENAME", file.name);  
   xhr.onload = function (e) {
 	if (this.status == 200)  {
@@ -71,7 +69,7 @@ function FileUpload(file) {
 		aEle.id = "uploaded";
 		aEle.className = 'img';
 		var imgEle = document.createElement('img');
-		imgEle.src = '/images/publicUpload/'+this.responseText;
+		imgEle.src = '/images/publicUpload/small/'+this.responseText;
 		imgEle.alt = '';
 		imgEle.title= '';
 		aEle.appendChild(imgEle);

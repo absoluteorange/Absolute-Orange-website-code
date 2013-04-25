@@ -382,8 +382,10 @@ class Site extends CI_Controller {
 	}
 	
 	public function fileAPIUpload() {
-		if (($_FILES['upload']['size'] > 0) AND ($this->common_methods->validateFile())):
-			echo $_FILES['upload']['name'];
+		$this->load->library(array('admin/form_validation', 'admin/common_methods'));
+		$fn = (isset($_SERVER['HTTP_X_FILENAME']) ? $_SERVER['HTTP_X_FILENAME'] : false);
+		if (isset($fn) AND $this->common_methods->validateFile($fn)):
+			echo $fn;
 		endif;
 	}
 }

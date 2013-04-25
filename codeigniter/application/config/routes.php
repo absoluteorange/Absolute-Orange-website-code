@@ -64,8 +64,7 @@ $route['admin/blogs'] = "admin/blog/blogs";
 $route['admin/blogs/editBlog'] = "admin/blog/editBlog";
 $route['^(home|blog|work|developers|cv)(/:any)?$'] = "site/$0";
 $route['downloadCV'] = "site/downloadCV";
-
-
+$route['fileAPIUpload'] = "site/fileAPIUpload";
 $route['flashmobs'] = "flashmobs";
 
 

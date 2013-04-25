@@ -3,7 +3,6 @@ function google_map () {
 }
 
 google_map.initialize = function (instancename) {
-	console.log(instancename);
     this.instancename = instancename;
     this.markersArray = [];
     var mypolylineOptions = {
@@ -28,7 +27,7 @@ google_map.initialize = function (instancename) {
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     map = new google.maps.Map(document.getElementById('map-canvas'), myOptions);
-    contentString ="<img id='map_logo' src='http://www.absoluteorange.com/images/logo.png' title='Absolute Orange' height='35' /><p>This is Absolute Orange's location : <a class='orange' href='javascript:void(0)' onclick='google_map.geolocation();' title='find your location'>Find your location</a></p>"
+    contentString ="<img id='map_logo' src='http://www.absoluteorange.com/images/logo.png' title='Absolute Orange' height='35' /><p>This is Absolute Orange's location : <a href='javascript:void(0)' onclick='google_map.geolocation();' title='find your location'>What's yours?</a></p>"
     map.setCenter(myLocation);
     infowindow.setContent(contentString);
     infowindow.setPosition(myLocation);
@@ -177,6 +176,4 @@ google_map.feedback = function(message, distance, status) {
          contentString ="<img id='map_logo' src='http://www.absoluteorange.com/images/logo.png' title='Absolute Orange' height='35' /><p>Your location is approximately "+distance+" km's from<br />Absolute Orange.  This is might not be a feasible<br />journey for Absolute Orange.</p>";
      }
      return contentString;
-}
-
-
+};
