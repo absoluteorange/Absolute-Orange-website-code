@@ -3,17 +3,17 @@
 }
 
 @mixin font-size($px) {
-	font-size:unquote($px+"px");
-	font-size:unquote(($px/10)+"rem");
+	font-size:$px+px;
+	font-size:($px/10)+rem;
  }
 
-body{
+html{
 
 	font-size:62.5%;
 }
 
 @font-face {
-	font-family: 'gothicBold';
+	font-family:  'gothicBold';
 	src: url('/fonts/centuryGothic/GOTHICB.TTF') format('truetype');
 }
 
@@ -24,51 +24,51 @@ body{
 	
 h1, h2, h3, h4, h5 {
 	font-family: 'gothicBold';
-	@include font-size(30);
-	@include breakpoint($first) {
-		@include font-size(20);
-	}
+	
+	
+}
+h1{
 	color: #535353;
 }
-
-h2 {
-	@include font-size(20);
-	@include breakpoint($first) {
-	    	@include font-size(16);
-	}
-}
+h1,h2 {
+	
+	@include font-size(35);
+	@include breakpoint($second) {
+		@include font-size(35);
+	}}
 h3{
-	@include font-size(14);
+	@include font-size(20);
 	@include breakpoint($first) {
 	   
 	}
 }
 h4{
-	@include font-size(13);
+	@include font-size(16);
 	@include breakpoint($first) {
 	 }
 }
 
 h5{
-	@include font-size(12);
+	@include font-size(14);
 	@include breakpoint($first) {
 	 }
 }
 
 p, a, button, select, li {
+@include font-size(14);
 	font-family: Helvetica, Arial, sans-serif;
 	color: #535353;
 }
 
 button, select {
-	@include font-size(11);
+	@include font-size(14);
 	@include breakpoint($first) {
 	}
 	color: #535353;
 } 
 
 p {
-	@include font-size(11);
+	@include font-size(14);
 	@include breakpoint($first) {
 	}
 }
@@ -82,7 +82,7 @@ strong {
 }
 
 a {
-	@include font-size(12);
+	//@include font-size(12);
 	@include breakpoint($first) {
 	}
 	&:link, &:visited, &:active, {

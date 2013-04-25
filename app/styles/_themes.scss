@@ -124,13 +124,14 @@ span.first {
  
 .list-touch {
 	li.touch-list {
+		
 		min-height: 2em; 
 		a.wrapper-body {
 			height: 2em;
 			display: block;
 		}
 		a.wrapper-body.selected {
-			margin-top: 2px;
+			
 			border-top: 2px solid #ff7c27;
 		}
 		margin-bottom: 0;

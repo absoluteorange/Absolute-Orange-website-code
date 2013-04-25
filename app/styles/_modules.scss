@@ -27,8 +27,10 @@ nav {
 	}
 	@extend .list-touch;
 	li {
+		
 		border-top: 1px solid #e2dfe2;
 		a.wrapper-body {
+			@include font-size(16);
 			padding: 0.5em;
 			color:  #e2dfe2;
 		}
@@ -51,15 +53,16 @@ footer {
 	.copy-wrapper {
 		@extend .extend-nested-margins-padding;
 		text-align: center;
-		p.wrapper-body {
-			font-size: 0.9em;
+		
+	}
+	.wrapper-body {
+			@include font-size(14);
 			color: #ff7c27;
 			margin: 0;
-			@include media($first) {
-		 		font-size: 0.5em;
+			@include media($second) {
+		 		//@include font-size(12);
 			}
 		}
-	}
 }
 
 .tweets {
