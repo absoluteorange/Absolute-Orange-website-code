@@ -1,6 +1,6 @@
 function google_map () {
 
-}
+};
 
 google_map.initialize = function (instancename) {
     this.instancename = instancename;
@@ -33,7 +33,7 @@ google_map.initialize = function (instancename) {
     infowindow.setPosition(myLocation);
     infowindow.open(map);
     google_map.addMarker(myLocation, "Absolute Orange's location");
-}
+};
 
 google_map.addMarker = function (marker_position, marker_title) {
     var marker = new google.maps.Marker({
@@ -45,7 +45,7 @@ google_map.addMarker = function (marker_position, marker_title) {
         infowindow.open(map, marker);
     });
     google_map.markersArray.push(marker);
-}
+};
 
 google_map.deleteMarkers = function () {
   for (var i=0; i<google_map.markersArray.length; i++) {
@@ -60,34 +60,35 @@ google_map.geolocation = function () {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(google_map.showPosition, google_map.onError);
     }
-}
+};
 
 google_map.google_gears = function() {
     var geo = google.gears.factory.create('beta.geolocation');
     geo.getCurrentPosition(google_map.showPosition, google_map.onError);
-}
+};
 
 google_map.geo_yahoo = function () {
     yqlgeo.get('visitor', google_map.normalize_yql_response);
-}
+};
 
 google_map.codeAddress = function () {
     var address = document.getElementById("address").value;
     if (geocoder) {
         geocoder.geocode( {'address': address}, function(results, status) {
-        if (status == google.maps.GeocoderStatus.OK) {
-            google_map.displayPosition(results[0].geometry.location.b, results[0].geometry.location.c);
-        } else {
-            google_map.feedback('error', '', status);
-        }
-    });}
-}
+	        if (status == google.maps.GeocoderStatus.OK) {
+	        	google_map.displayPosition(results[0].geometry.location.jb, results[0].geometry.location.kb);
+	        } else {
+	            google_map.feedback('error', '', status);
+	        }
+        });
+    }
+};
 
 google_map.showPosition = function (position) {
   var lat = position.coords.latitude;
   var lng = position.coords.longitude;
   google_map.displayPosition(lat, lng);
-}
+};
 
 google_map.displayPosition = function (lat, lng) {
   var latlng = new google.maps.LatLng(lat, lng);
@@ -126,7 +127,7 @@ google_map.displayPosition = function (lat, lng) {
     infowindow.open(map);
     directionsDisplay.setMap(map);
   });
-}
+};
 
 google_map.onError = function(error) {
   if (error.message == 'User denied Geolocation') {
@@ -140,7 +141,7 @@ google_map.onError = function(error) {
   infowindow.setContent(contentString);
   infowindow.setPosition(myLocation);
   infowindow.open(map);  
-}
+};
 
 google_map.normalize_yql_response = function (response)  {
     if (response.error)  {
@@ -159,11 +160,11 @@ google_map.normalize_yql_response = function (response)  {
         country: response.place.country.content
     }};
     google_map.handle_geolocation_query(position);
-}
+};
 
 google_map.handle_geolocation_query = function (position){
     google_map.showPosition(position);
-}
+};
 
 google_map.feedback = function(message, distance, status) {
      if (message == 'feasible') {
