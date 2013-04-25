@@ -34,7 +34,7 @@ class Site extends CI_Controller {
 	}
 	
 	public function home() {
-		$this->title="Absolute Orange home";
+		$this->title = "Absolute Orange : home";
 	    $data = array(
 	            'contentPanels' => array (
 	    			'0' => array(
@@ -63,7 +63,7 @@ class Site extends CI_Controller {
 	 * Displays blog view
 	 */
 	public function blog() {
-	    $this->title="Absolute Orange our blog";
+	    $this->title="Absolute Orange : our blog";
 	    $data = array(
 	    		'contentPanels' => array (
 	    			'0' => array(
@@ -79,7 +79,7 @@ class Site extends CI_Controller {
 	 */
 	
 	public function work() {
-		$this->title="Absolute Orange our work";
+		$this->title="Absolute Orange : our work";
 		$data = array(
 	    		'contentPanels' => array (
 	    			'0' => array(
@@ -95,7 +95,7 @@ class Site extends CI_Controller {
 	 */
 	
 	public function developers() {
-		$this->title="Absolute Orange our developers";
+		$this->title="Absolute Orange : our developers";
 		$data = array(
 	    		'contentPanels' => array (
 	    			'0' => array(
@@ -156,6 +156,7 @@ class Site extends CI_Controller {
 	 *Displays all blogs
 	 */
 	function getAllBlogs() {
+		$this->title = "Absolute Orange : our blogs";
 		if ($this->uri->segment(2)):
 	    	$name = urldecode($this->uri->segment(2));
 	    	$blog = $this->getBlog($name);
@@ -174,6 +175,7 @@ class Site extends CI_Controller {
 	 *Displays blog
 	 */
 	function getBlog($name) {
+		$this->title = "Absolute Orange : our blog : $name";
 		$data = $this->blogs->getBlog($name);
 		$data->author = $this->blogs->getAuthor($data->id);
 		$data->logo = $this->blogs->getLogo($data->id);
@@ -185,6 +187,7 @@ class Site extends CI_Controller {
 	 *Displays all showcases
 	 */
 	function getAllShowcases() {
+		$this->title = "Absolute Orange : our work";
 		if ($this->uri->segment(2)):
 	    	$name = urldecode($this->uri->segment(2));
 	    	$showcase = $this->getShowcase($name);
@@ -200,6 +203,14 @@ class Site extends CI_Controller {
 				endif;
 			endforeach;
 			$data['items'][$key]['skills'] = $this->showcases->getSkills($item['id']);
+			$thisKey = 0;
+			foreach ($data['items'][$key]['skills'] as $thisKey => $skill):
+				if ($thisKey == 0):
+					$data['items'][$key]['skills'][$thisKey]['class'] = 'first';
+				else:
+					$data['items'][$key]['skills'][$thisKey]['class'] = '';
+				endif;
+			endforeach;
 			$data['items'][$key]['skills'][count($data['items'][$key]['skills'])-1]['last'] = true;
 			if (isset($name) AND $item['title'] == $name):
 				$data['items'][$key]['showcase'] = $showcase;
@@ -212,6 +223,7 @@ class Site extends CI_Controller {
 	 *Displays showcase
 	 */
 	function getShowcase($name) {
+		$this->title = "Absolute Orange : our work : $name";
 		$data = $this->showcases->getShowcase($name);
 		$data->logo = $this->showcases->getLogo($data->id);
 		$data->developer = $this->showcases->getDeveloper($data->id);
@@ -227,6 +239,7 @@ class Site extends CI_Controller {
 	 *Displays all profiles
 	 */
 	function getAllProfiles() {
+		$this->title = "Absolute Orange : our developers";
 		if ($this->uri->segment(2)):
 	    	$name = urldecode($this->uri->segment(2));
 	    	$profile = $this->getProfile($name);
@@ -249,6 +262,7 @@ class Site extends CI_Controller {
 	 *Displays profile
 	 */
 	function getProfile($name) {
+		$this->title = "Absolute Orange : our developers : $name";
 		$arrId = $this->profiles->getId($name);
 		$id = $arrId->employee_id;
 		$data = $this->profiles->getProfile($id);
@@ -333,7 +347,8 @@ class Site extends CI_Controller {
         $scriptData=array(
         		'script'=>'app/main',
         		'version'=>$this->version,
-        		'CDNPath'=>$this->config->item('CDNPath')
+        		'CDNPath'=>$this->config->item('CDNPath'),
+        		'title'=> $this->title
         );
         $contactData=array(
         		'email'=>'info@absoluteorange.com',
@@ -364,6 +379,12 @@ class Site extends CI_Controller {
     			'footer'=>$footer
 	         )
 	     );
+	}
+	
+	public function fileAPIUpload() {
+		if (($_FILES['upload']['size'] > 0) AND ($this->common_methods->validateFile())):
+			echo $_FILES['upload']['name'];
+		endif;
 	}
 }
 ?>

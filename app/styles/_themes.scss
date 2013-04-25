@@ -102,9 +102,7 @@ span.first {
  	h5.wrapper-head {
 		@extend .heading-bottom-border-style-b;
 	}
-	ul.styled-list, ol.styled-list {
-		@extend .extend-styled-list-a;
-	}
+	@extend .extend-styled-list-a;
  }
  
 .text-wrapper-style-c {
@@ -122,44 +120,6 @@ span.first {
 	}
  }
  
-.list-touch {
-	li.touch-list {
-		min-height: 2em; 
-		a.wrapper-body {
-			height: 2em;
-			display: block;
-		}
-		a.wrapper-body.selected {
-			margin-top: 2px;
-			border-top: 2px solid #ff7c27;
-		}
-		margin-bottom: 0;
-	}
-}
-
-.list-toggle-style-a {
-	@extend .drop-shadow;
-		border-top: 5px solid #19a388;
-	.image-wrapper {
-		@extend .texture3;
-		text-align: center;
-		border-bottom: 1px solid #e2dfe2;	
-	}
-	@extend .toggle-widget-style-a;
-	margin: 0;
-}
-
-.list-toggle-style-b {
-	@extend .drop-shadow;
-	border-top: 5px solid #ff7c27;
-	.image-wrapper {
-		background-color: #2b2b2b;
-		text-align: center;
-	}
-	@extend .toggle-widget-style-b;
-	margin: 0;
-}
-
 .toggle-widget-style-a {
 	@extend .extend-toggle-widget;
 	@extend .texture3;
@@ -178,9 +138,7 @@ span.first {
 		@extend .extend-form-style-a;
 		.text-wrapper {
 			border-top: 1px solid #19a388;
-			a {
-				color: #19a388;
-			}
+			
 		}
 	}
 }
@@ -266,8 +224,47 @@ img.transparent {
 
 /**** LISTS *****/
 
+.list-touch {
+	li.touch-list {
+		min-height: 2em; 
+		a.wrapper-body {
+			height: 2em;
+			display: block;
+		}
+		a.wrapper-body.selected {
+			margin-top: 2px;
+			border-top: 2px solid #ff7c27;
+		}
+		margin-bottom: 0;
+	}
+}
+
+.list-toggle-style-a {
+	@extend .drop-shadow;
+		border-top: 5px solid #19a388;
+	.image-wrapper {
+		@extend .texture3;
+		text-align: center;
+		border-bottom: 1px solid #e2dfe2;	
+	}
+	@extend .toggle-widget-style-a;
+	margin: 0;
+}
+
+.list-toggle-style-b {
+	@extend .drop-shadow;
+	border-top: 5px solid #ff7c27;
+	.image-wrapper {
+		background-color: #2b2b2b;
+		text-align: center;
+	}
+	@extend .toggle-widget-style-b;
+	margin: 0;
+}
+
 .extend-styled-list-a {
-	ol.styled-list li, ul.styled-list li {
+    @extend .list-touch;
+	li.touch-list {
 		list-style-type: disc;
 		list-style-position:inside;
 	}
