@@ -3,6 +3,8 @@
 $column: 8px;
 $gutter: 8px;
 $grid-columns: 20;
-$max-width: px(480);
+$max-width: px(1024);
 
-$smallest: new-breakpoint(max-width 240px 15);
+$first: new-breakpoint(max-width 240px 15);
+$second: new-breakpoint(max-width 400px 15);
+$third: new-breakpoint(max-width 640px 15);
