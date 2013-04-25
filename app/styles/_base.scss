@@ -36,16 +36,11 @@ h1,h2 {
 	@include breakpoint($second) {
 		@include font-size(35);
 	}}
-h3{
+h3,h4{
 	@include font-size(20);
 	@include breakpoint($first) {
 	   
 	}
-}
-h4{
-	@include font-size(16);
-	@include breakpoint($first) {
-	 }
 }
 
 h5{
@@ -55,22 +50,20 @@ h5{
 }
 
 p, a, button, select, li {
-@include font-size(14);
+@include font-size(18);
 	font-family: Helvetica, Arial, sans-serif;
 	color: #535353;
 }
 
 button, select {
-	@include font-size(14);
+	@include font-size(18);
 	@include breakpoint($first) {
 	}
 	color: #535353;
 } 
 
 p {
-	@include font-size(14);
-	@include breakpoint($first) {
-	}
+	
 }
 
 span, p, h1, h2, h3, h4, li {

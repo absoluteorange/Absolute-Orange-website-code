@@ -1,6 +1,5 @@
 header {
 	@extend .drop-shadow;
-	border-top: 1px solid #ff7c27;	
 	.wrapper {
 		@extend .texture1;
 		border-bottom: 1px solid #000;
@@ -30,7 +29,7 @@ nav {
 		
 		border-top: 1px solid #e2dfe2;
 		a.wrapper-body {
-			@include font-size(16);
+			@include font-size(20);
 			padding: 0.5em;
 			color:  #e2dfe2;
 		}
@@ -56,7 +55,7 @@ footer {
 		
 	}
 	.wrapper-body {
-			@include font-size(14);
+			@include font-size(18);
 			color: #ff7c27;
 			margin: 0;
 			@include media($second) {
