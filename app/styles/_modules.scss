@@ -104,7 +104,7 @@ section.toggle-list-section {
 		}
 	}
 	.content-wrapper {
-		margin: 0 0.3em;
+		
 		li.detail-list {
 			@extend .list-toggle-style-a;
 			h4 {
@@ -126,7 +126,6 @@ section.toggle-list-section-style-b {
 		}
 	}
 	.content-wrapper {
-		margin: 0 0.3em;
 		li.detail-list {
 			@extend .list-toggle-style-b;
 		}
