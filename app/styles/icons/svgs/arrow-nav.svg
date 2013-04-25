@@ -5,10 +5,10 @@
 ]>
 <svg version="1.1"
 	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
-	 x="0px" y="0px" width="20px" height="20px" viewBox="-3.473 0.007 20 20"
-	 overflow="visible" enable-background="new -3.473 0.007 20 20" xml:space="preserve">
+	 x="0px" y="0px" width="15px" height="15px" viewBox="-1.808 -0.427 15 15"
+	 overflow="visible" enable-background="new -1.808 -0.427 15 15" xml:space="preserve">
 <defs>
 </defs>
-<polygon fill="#F47B2B" stroke="#F47B2B" stroke-width="0.5" stroke-miterlimit="10" points="15.798,9.916 0.25,0.445 0.25,19.386 
+<polygon fill="#F47B2B" stroke="#F47B2B" stroke-width="0.5" stroke-miterlimit="10" points="11.135,7.07 0.25,0.445 0.253,13.701 
 	"/>
 </svg>
