@@ -40,7 +40,6 @@ span.first {
 }
 
 .extend-nested-margins-padding {
-	margin: 0 0.3em;
 	padding: 0.5em;
 	@include media($first) {
 	 	margin: 0 0.2em;
@@ -236,7 +235,6 @@ img.transparent {
 			display: block;
 		}
 		a.wrapper-body.selected {
-			margin-top: 2px;
 			border-top: 2px solid #ff7c27;
 		}
 		margin-bottom: 0;

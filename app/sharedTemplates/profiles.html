@@ -5,27 +5,25 @@
 	<div class="content-wrapper">
 		<ol>
 			{{#items}}
+			<a name="{{anchor}}"></a>
 				<li class="detail-list">
 					<div class="image-wrapper">
 						<img class="wrapper-image" src="../images/profile/small/{{photo}}" title="{{name.employee_name}}" />	
 					</div>
 					<div class="widget-summary">
-						<a class="widget-body" href="../developers/{{name.employee_name}}" title={{name.employee_name}}"">
+						<a class="widget-body" href="../developers/{{name.employee_name}}#selected-content" title={{name.employee_name}}"">
 							<div class="text-wrapper">
 								<p class="wrapper-body"><strong>{{name.employee_name}}</strong></p>
-								<p class="wrapper-body"><strong>Expertise: 
+								<p class="wrapper-body">Expertise: 
 									{{#skills}}
 										<span>{{name}}</span>{{^last}}, {{/last}}
 									{{/skills}}
-								</strong></p>
-								<p class="wrapper-body"><strong>{{years_of_experience}} years experience</strong></p>
+								</p>
+								<p class="wrapper-body">{{years_of_experience}} years experience</p>
 							</div>
 						</a>
 					</div>
-					{{#profile}}
-						{{{profile}}}
-					{{/profile}}
-				</li>
+					{{{profile}}}
 			{{/items}}
 		</ol>
 	</div>

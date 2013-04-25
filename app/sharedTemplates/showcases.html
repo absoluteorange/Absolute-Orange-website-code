@@ -5,7 +5,9 @@
 	<div class="content-wrapper">
 		<ol>
 			{{#items}}
+				<a name="{{anchor}}"></a>
 				<li class="detail-list">
+					
 					<div class="image-wrapper">
 						{{#logos.0}}
 							{{#logos}}
@@ -14,7 +16,7 @@
 						{{/logos.0}}
 					</div>
 					<div class="widget-summary">
-						<a class="widget-body" href="../work/{{title}}" title="{{title}}">
+						<a class="widget-body" href="../work/{{title}}#selected-content"" title="{{title}}">
 							<div class="text-wrapper">
 								{{^logos.0}}
 									<p class="wrapper-body"><strong>{{title}}</strong></p>
@@ -34,9 +36,7 @@
 							</div>
 						</a>
 					</div>
-					{{#showcase}}
 						{{{showcase}}}
-					{{/showcase}}
 				</li>
 			{{/items}}
 		</ol>
