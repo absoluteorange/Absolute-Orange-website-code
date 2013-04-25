@@ -12,28 +12,51 @@ class Common_methods extends CI_Controller {
         redirect($prevPage);
 	}
 	
-	public function uploadFile ($uploadConfig, $name){
-		if ($this->_ci->form_validation->_sanitiseFilename($name, $_FILES[$name]['name']) == TRUE):
+	/**
+	 * 
+	 * Uploads the file 
+	 * @param $uploadConfig array upload configurations
+	 * @param $name string : name in $_FILE[name]
+	 * @param $file string filename : to be used when the file is uploaded without a $_FILE[name] 
+	 */
+	public function uploadFile ($uploadConfig, $name = NULL, $file = NULL){
+		if ($name):
+			$filename = $_FILES[$name]['name'];
+		else:
+			$filename = $file;
+		endif;
+		if ($this->_ci->form_validation->_sanitiseFilename($name, $filename) == TRUE):
 			foreach ($uploadConfig as $key => $value) {
 				$config[$key] = $value;
 			}
 	        $this->_ci->upload->initialize($config);
-	        if (!$this->_ci->upload->do_upload($name)):
-				$this->setUploadError($name);
-				return FALSE;
+	   		if ($name):
+		        if (!$this->_ci->upload->do_upload($name)):
+					$this->setUploadError($name);
+					return FALSE;
+				else:
+					return TRUE;
+				endif;
 			else:
+				file_put_contents(  
+					'images/publicUpload/' . $filename,  
+					file_get_contents('php://input')  
+				);
 				return TRUE;
-		endif;
+			endif;  
 		else:
 			$this->setUploadError($name);
 			return FALSE;
-		endif;
-		
+		endif;	
 	}
 	
 	public function setUploadError ($name) {		
 		$error = array('error' => $this->_ci->upload->display_errors('',''));
-		$this->_ci->form_validation->$name = $error;
+		if (isset($this->_ci->form_validation->$name)):
+			$this->_ci->form_validation->$name = $error;
+		else:
+			var_dump($error);
+		endif;
 	}
 	
 	public function validateLogo ($table) {
@@ -81,13 +104,13 @@ class Common_methods extends CI_Controller {
 		endif;
 	}
 	
-	public function validateFile () {
+	public function validateFile ($file) {
 		$uploadConfig = array('max_height' => '200', 
 						  'upload_path' => './images/publicUpload',
 						  'allowed_types' => 'gif|jpg|png',
 						  'max_size' => '500');
 		$name = 'upload';
-		if ($this->uploadFile($uploadConfig, $name)):
+		if ($this->uploadFile($uploadConfig, NULL, $file)):
 			return TRUE;
 		else:
 			return FALSE;

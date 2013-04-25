@@ -190,6 +190,11 @@ span.first {
 img.transparent {
 	border: none;
 }
+img.text-img {
+	float: left;
+	margin-top: 0;
+	margin-right: 1em;
+}
 
 /**** FORMS *****/
 
@@ -223,6 +228,24 @@ img.transparent {
 	    border-radius: 0;
 	   -webkit-appearance: none;
    }
+}
+
+.extend-styled-input {
+	border: 1px solid #19a388;
+    color: #535353;
+    height: 2em;
+    padding-left: 0.25em;
+    width: 70%;
+}
+
+.extend-styled-link {
+	border: none;
+	background-color: #19a388;
+	color: #e2dfe2;
+	display: inline-block;
+    height: 1.9em;
+    padding: 0.5em;
+    vertical-align: top;
 }
 
 /**** LISTS *****/

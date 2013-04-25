@@ -155,8 +155,11 @@ section.page-section {
 	@extend .drop-shadow;
 	.major-text-wrapper {
 		border-top: 1px solid #ff7c27;
-		@extend .content-style-a;
-		@extend .text-wrapper-style-b;
+		@extend .extend-nested-margins-padding;
+		h2.wrapper-head {
+			color: #e2dfe2;
+		}
+		
 	}
 	.text-wrapper {
 		border-top: 5px solid #19a388;  
