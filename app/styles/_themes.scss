@@ -6,7 +6,7 @@
 }
 #inner-page {
 	border: solid 1px #535353;
-	border-top:none;
+	border-top: 1px solid #ff7c27;	
 
 }
 
@@ -40,7 +40,6 @@ span.first {
 }
 
 .extend-nested-margins-padding {
-	margin: 0 0.3em;
 	padding: 0.5em;
 	@include media($first) {
 	 	margin: 0 0.2em;
@@ -224,7 +223,6 @@ img.text-img {
     select {
 	    background: transparent;
 	    width: 268px;
-	    padding: 0.3em;
 	    border: 0;
 	    border-radius: 0;
 	   -webkit-appearance: none;
@@ -259,7 +257,6 @@ img.text-img {
 			display: block;
 		}
 		a.wrapper-body.selected {
-			margin-top: 2px;
 			border-top: 2px solid #ff7c27;
 		}
 		margin-bottom: 0;
