@@ -56,6 +56,7 @@ function handleDropFiles(files) {
 }
 
 function FileUpload(file) {
+  console.log(file);
   var xhr = new XMLHttpRequest();
   xhr.open("POST", "http://www.absoluteorange.com/fileAPIUpload", true);
   xhr.setRequestHeader("X_FILENAME", file.name);  
