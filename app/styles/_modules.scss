@@ -60,7 +60,6 @@ footer {
 	}
 	.copy-wrapper {
 		@extend .extend-nested-margins-padding;
-		
 		text-align: center;
 		.wrapper-body {
 			@include media($second) {
@@ -72,11 +71,14 @@ footer {
 		
 	}
 	.wrapper-body {
-			@include font-size(18);
+			@include font-size(15);
 			color: #ff7c27;
 			margin: 0;
 			@include media($first) {
 		 		@include font-size(14);
+			}
+			@include media($second) {
+		 		@include font-size(18);
 			}
 		}
 }
@@ -120,7 +122,7 @@ section.toggle-list-section {
 		}
 	}
 	.content-wrapper {
-		
+		margin: 0 0.5em;
 		li.detail-list {
 			@extend .list-toggle-style-a;
 			h4 {
@@ -142,6 +144,7 @@ section.toggle-list-section-style-b {
 		}
 	}
 	.content-wrapper {
+		margin: 0 0.5em;
 		li.detail-list {
 			@extend .list-toggle-style-b;
 		}
@@ -149,11 +152,32 @@ section.toggle-list-section-style-b {
 			color: #e2dfe2;
 		}	
 		a {
-			color: #19a388;
+			color: #e2dfe2;
 		}	
 	}
 }
 
+section.toggle-list-section-style-c {
+	.major-text-wrapper {
+		border-top: 1px solid #ff7c27;
+		@extend .extend-nested-margins-padding;
+		h2.wrapper-head {
+			color: #e2dfe2;
+		}
+	}
+	.content-wrapper {
+		margin: 0 0.5em;
+		li.detail-list {
+			@extend .list-toggle-style-c;
+			h4 {
+				color: #19a388;
+			}
+		 	h5 {
+				@extend .heading-bottom-border-style-b;
+			}
+		}
+	}
+}
 section.page-section {
 	@extend .drop-shadow;
 	.major-text-wrapper {
