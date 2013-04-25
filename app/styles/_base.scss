@@ -1,5 +1,5 @@
 * {
-	line-height: 16px;
+	line-height: 1.0em;
 }
 
 @mixin font-size($px) {
@@ -8,7 +8,7 @@
  }
 
 html{
-
+	background-color:#a7a7a7;
 	font-size:62.5%;
 }
 
