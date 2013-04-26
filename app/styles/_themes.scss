@@ -84,7 +84,7 @@ span.first {
 .extend-image-wrapper {
 	background: none;
 	text-align: center;
-	@include span-columns(15);
+		@include  row();
 }
 
 .text-wrapper-style-a {
@@ -174,7 +174,7 @@ span.first {
 
 .extend-toggle-widget {
 	a.widget-body,.widget-summary,.widget-detail {
-		@include span-columns(15,true);
+		@include  row() ;
 		height: auto;
 	}
 	.text-wrapper {

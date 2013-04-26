@@ -1,5 +1,5 @@
 header {
-	@include  span-columns(15);
+	@include  row();
 	@extend .drop-shadow;
 	.wrapper {
 		@extend .texture1;
@@ -26,12 +26,12 @@ header {
 nav {
 	@extend .drop-shadow;
 	.wrapper {
-	@include span-columns(15);
+		@include  row();
 		@extend .texture2;
 	}
 	@extend .list-touch;
 	li {
-		@include span-columns(15);
+		@include  row();
 		//backround-position:right center;
 		//backround-position:right 3em bottom 10px;
 	
@@ -69,7 +69,7 @@ nav {
 		}
 
 footer {
-	@include  span-columns(15);
+	@include  row();
 	border-top: 1px solid #000;
 	margin-bottom: 0.2em;
 	.wrapper {
@@ -145,7 +145,7 @@ footer {
 	.content-wrapper {
 		margin: 0 0.5em;
 		li.detail-list {
-			@include span-columns(15);
+			@include  row();
 			@extend .list-toggle-style-a;
 			h4 {
 				color: #19a388;
@@ -157,7 +157,7 @@ footer {
 	}
 }
 li.detail-list {
-	@include span-columns(15);
+		@include  row();
 }
 
 	
