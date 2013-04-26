@@ -27,6 +27,7 @@ $icon-arrow-a-selected :".toggle-list-section-style-b .widget-summary.selected .
 
 #{$icon-arrow-a},#{$icon-arrow-a-selected}{
 	@extend .contentbox-icon;
+	background-position:right top ;
 }
 
 
