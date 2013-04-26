@@ -26,6 +26,7 @@ header {
 nav {
 	@extend .drop-shadow;
 	.wrapper {
+	@include span-columns(15);
 		@extend .texture2;
 	}
 	@extend .list-touch;
@@ -35,14 +36,11 @@ nav {
 		//backround-position:right 3em bottom 10px;
 	
 		border-top: 1px solid #e2dfe2;
-		.wrapper-body {
-		
-			
+		.wrapper-body {			
 			@include font-size(20);
 			@include breakpoint($first) {
 				@include font-size(16);
-			}
-			
+			}			
 		}
 		.touch-list-title{
 			@include span-columns(13);
@@ -51,6 +49,9 @@ nav {
 		}
 		&.selected{
 			border-top: 1px solid  #ff7c27;
+			.touch-list-title{
+					color:  #ff7c27;
+			}
 		}
 		a:hover {
 			.touch-list-title{
@@ -131,18 +132,20 @@ footer {
 	}
 }
 
-section.toggle-list-section {
-	.major-text-wrapper {
-		border-top: 1px solid #ff7c27;
+.major-text-wrapper {
+		border-top: 1px solid #e2dfe2;
+		background-color:#535353;
 		@extend .extend-nested-margins-padding;
 		h2.wrapper-head {
 			color: #e2dfe2;
 		}
 	}
+.toggle-list-section {
+	
 	.content-wrapper {
 		margin: 0 0.5em;
 		li.detail-list {
-				@include span-columns(15);
+			@include span-columns(15);
 			@extend .list-toggle-style-a;
 			h4 {
 				color: #19a388;
@@ -157,16 +160,13 @@ li.detail-list {
 	@include span-columns(15);
 }
 
+	
+
 section.toggle-list-section-style-b {
-	.major-text-wrapper {
-		border-top: 1px solid #ff7c27;
-		@extend .extend-nested-margins-padding;
-		h2.wrapper-head {
-			color: #e2dfe2;
-		}
-	}
+	@extend .toggle-list-section ;
+
+	
 	.content-wrapper {
-		margin: 0 0.5em;
 		li.detail-list {
 			@extend .list-toggle-style-b;
 		}
@@ -180,15 +180,9 @@ section.toggle-list-section-style-b {
 }
 
 section.toggle-list-section-style-c {
-	.major-text-wrapper {
-		border-top: 1px solid #ff7c27;
-		@extend .extend-nested-margins-padding;
-		h2.wrapper-head {
-			color: #e2dfe2;
-		}
-	}
+	
+	@extend .toggle-list-section ;
 	.content-wrapper {
-		margin: 0 0.5em;
 		li.detail-list {
 			@extend .list-toggle-style-c;
 			h4 {
@@ -202,14 +196,6 @@ section.toggle-list-section-style-c {
 }
 section.page-section {
 	@extend .drop-shadow;
-	.major-text-wrapper {
-		border-top: 1px solid #ff7c27;
-		@extend .extend-nested-margins-padding;
-		h2.wrapper-head {
-			color: #e2dfe2;
-		}
-		
-	}
 	.text-wrapper {
 		border-top: 5px solid #19a388;  
 		@extend .content-style-a;
