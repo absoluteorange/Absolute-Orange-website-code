@@ -1,5 +1,4 @@
 header {
-	@include  row();
 	@extend .drop-shadow;
 	.wrapper {
 		@extend .texture1;
@@ -26,7 +25,6 @@ header {
 nav {
 	@extend .drop-shadow;
 	.wrapper {
-		@include  row();
 		@extend .texture2;
 	}
 	@extend .list-touch;
@@ -69,7 +67,7 @@ nav {
 		}
 
 footer {
-	@include  row();
+	
 	border-top: 1px solid #000;
 	margin-bottom: 0.2em;
 	.wrapper {
@@ -145,7 +143,6 @@ footer {
 	.content-wrapper {
 		margin: 0 0.5em;
 		li.detail-list {
-			@include  row();
 			@extend .list-toggle-style-a;
 			h4 {
 				color: #19a388;
@@ -157,7 +154,6 @@ footer {
 	}
 }
 li.detail-list {
-		@include  row();
 }
 
 	
