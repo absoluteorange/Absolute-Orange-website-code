@@ -2,8 +2,11 @@
 	<div class="wrapper">
 		<ul>
 			{{#items}}
-				<li class="touch-list">
-					<a class="wrapper-body {{class}}" href="{{url}}">{{title}}</a>
+				<li class="touch-list {{class}}">
+					<a class="wrapper-body" href="{{url}}">
+					<div class="touch-list-title">{{title}}</div>
+					<div class="widget-icon">&nbsp;</div>
+					</a>
 				</li>
 			{{/items}}
 		</ul>

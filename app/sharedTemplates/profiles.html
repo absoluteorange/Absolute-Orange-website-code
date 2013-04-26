@@ -1,4 +1,4 @@
-<section class="toggle-list-section">
+<section class="toggle-list-section-style-c">
 	<div class="major-text-wrapper">
 		<h2 class="wrapper-head">Our developers</h2>
 	</div>
@@ -10,7 +10,7 @@
 					<div class="image-wrapper">
 						<img class="wrapper-image" src="../images/profile/small/{{photo}}" title="{{name.employee_name}}" />	
 					</div>
-					<div class="widget-summary">
+					<div class="widget-summary  {{class}}">
 						<a class="widget-body" href="../developers/{{name.employee_name}}#selected-content" title={{name.employee_name}}"">
 							<div class="text-wrapper">
 								<p class="wrapper-body"><strong>{{name.employee_name}}</strong></p>
@@ -21,8 +21,11 @@
 								</p>
 								<p class="wrapper-body">{{years_of_experience}} years experience</p>
 							</div>
+								<div class="widget-icon">&nbsp;</div>
 						</a>
+					
 					</div>
+					
 					{{{profile}}}
 			{{/items}}
 		</ol>

@@ -1,11 +1,15 @@
 $icon-phone : ".icon-phone";
 $icon-twitter : ".icon-twitter";
 $icon-email : ".icon-email";
-$icon-arrow-nav :".nav-icon,nav .touch-list .wrapper-body";
-$icon-arrow-nav-selected :".nav-icon,nav .touch-list .wrapper-body.selected";
-$icon-arrow-a :".toggle-list-section-style-b .widget-summary .text-wrapper";
-$icon-arrow-a-selected :".toggle-list-section-style-b .widget-summary.selected .text-wrapper";
+$icon-arrow-nav :"nav .touch-list .widget-icon";
+$icon-arrow-nav-selected :"nav .touch-list.selected .widget-icon";
+$icon-arrow-a :".toggle-list-section-style-b .widget-summary .widget-icon";
+$icon-arrow-a-selected :".toggle-list-section-style-b .widget-summary.selected .widget-icon";
 
+$icon-arrow-b :".toggle-list-section .widget-summary .widget-icon,.toggle-list-section-style-c .widget-summary .widget-icon";
+$icon-arrow-b-selected :".toggle-list-section .widget-summary.selected .widget-icon,.toggle-list-section-style-c .widget-summary.selected .widget-icon";
+
+$icon-under-construction : "#construction-badge";
 .icon{
 	background-size:cover;
 }
@@ -14,20 +18,14 @@ $icon-arrow-a-selected :".toggle-list-section-style-b .widget-summary.selected .
 	@extend .icon;
 	width:20px;
 	height:20px;
-	margin-right:5px;
+	margin-right:1em;
 	float:left;
 }
 
 .contentbox-icon{
 	background-origin:content-box;
-	background-position:right;
-}
-
-
-
-#{$icon-arrow-a},#{$icon-arrow-a-selected}{
-	@extend .contentbox-icon;
-	background-position:right top ;
+	background-position:right; 
+	
 }
 
 

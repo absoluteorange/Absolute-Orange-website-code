@@ -2,8 +2,11 @@
 
 $column: 8px;
 $gutter: 8px;
-$grid-columns: 20;
+$grid-columns: 15;
+
 $max-width: 480px;
+
 
 $first: new-breakpoint(max-width 260px 15);
 $second: new-breakpoint(max-width 400px 15);
+$third: new-breakpoint(max-width 960px 15);

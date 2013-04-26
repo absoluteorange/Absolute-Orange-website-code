@@ -24,14 +24,11 @@ html{
 	
 h1, h2, h3, h4, h5 {
 	font-family: 'gothicBold';
-	
-	
 }
 h1{
 	color: #535353;
 }
 h1,h2 {
-	
 	@include font-size(40);
 	@include breakpoint($second) {
 		@include font-size(35);
@@ -48,13 +45,14 @@ h3,h4{
 }
 
 h5{
-	@include font-size(14);
+	@include font-size(16);
 	@include breakpoint($first) {
-	 }
+	   @include font-size(12);
+	}
 }
 
 p, a, button, select, li {
-	@include font-size(18);
+	@include font-size(15);
 	@include breakpoint($first) {
 		@include font-size(16);
 	}
@@ -63,13 +61,8 @@ p, a, button, select, li {
 }
 
 button, select {
-	
 	color: #535353;
 } 
-
-p {
-	
-}
 
 span, p, h1, h2, h3, h4, li {
 	margin: 0 0 18px;
@@ -80,8 +73,6 @@ strong {
 }
 
 a {
-	@include breakpoint($first) {
-	}
 	&:link, &:visited, &:active, {
 		color: #535353;
 		text-decoration: none;
@@ -92,8 +83,10 @@ a {
 	}	
 }
 
-
 img {
 	border: 1px solid #535353;
 	margin: 0.5em 0;
 }	
+section{
+ @include span-columns(15);
+}
