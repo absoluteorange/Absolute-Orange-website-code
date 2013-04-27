@@ -7,7 +7,11 @@
 			{{#items}}
 				<a name="{{anchor}}"></a>
 				<li class="detail-list">
-					<a class="image-wrapper" href="../work/{{title}}#selected-content"" title="{{title}}">
+					<a class="image-wrapper" href="../work
+						{{^showcase}}
+							/{{title}}#selected-content
+						{{/showcase}}
+						" title="{{title}}">
 						{{#logos.0}}
 							{{#logos}}
 							<img class="{{class}}" src="../images/showcase/logos/thumb/{{image_url}}" title="{{image_alt}}" />
@@ -45,4 +49,4 @@
 			{{/items}}
 		</ol>
 	</div>
-</nav>
+</section>

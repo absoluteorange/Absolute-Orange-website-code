@@ -554,7 +554,7 @@ AddCharset utf-8 .atom .css .js .json .rss .vtt .xml
 
 RewriteEngine on
 
-RewriteCond $1 !^(index\.php|images|user_guide|styles|js|robots\.txt|cv|favicon.ico|scripts|tweets\.txt|fonts|adaptive-images\.php|ai-cache)
+RewriteCond $1 !^(index\.php|images|user_guide|styles|cv|favicon.ico|scripts|blogs|maps\.js|tweets\.txt|fonts|adaptive-images\.php|ai-cache)
 RewriteRule  ^(.*)$ /index.php/site/$1 [L] 
 
 

@@ -1,22 +1,21 @@
 $icon-phone : ".icon-phone";
 $icon-twitter : ".icon-twitter";
 $icon-email : ".icon-email";
-$icon-arrow-nav :"nav .touch-list .widget-icon";
-$icon-arrow-nav-selected :"nav .touch-list.selected .widget-icon";
+$icon-arrow-nav :"nav .touch-list";
+$icon-arrow-nav-selected :"nav .touch-list.selected";
 $icon-arrow-a :".toggle-list-section-style-b .widget-summary";
 $icon-arrow-a-selected :".toggle-list-section-style-b .widget-summary.selected";
 
-$icon-arrow-b :".toggle-list-section .widget-summary .widget-icon,.toggle-list-section-style-c .widget-summary .widget-icon";
-$icon-arrow-b-selected :".toggle-list-section .widget-summary.selected .widget-icon,.toggle-list-section-style-c .widget-summary.selected .widget-icon";
+$icon-arrow-b :".toggle-list-section .widget-summary,.toggle-list-section-style-c .widget-summary";
+$icon-arrow-b-selected :".toggle-list-section .widget-summary.selected,.toggle-list-section-style-c .widget-summary.selected";
 
 $icon-under-construction : "#construction-badge";
 .icon{ 
 	background-size:cover;
 }
 
-#{$icon-arrow-a} {
-	background-position: right center;
-	margin-right:1em;
+#{$icon-arrow-a}, #{$icon-arrow-nav}, #{$icon-arrow-b} {
+	background-position: 95% center;
 }
 .footer-icon{
 	@extend .icon;
