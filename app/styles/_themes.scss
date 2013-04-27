@@ -1,4 +1,4 @@
-@import 'compass/css3';
+
 
 #page {
 	border: solid 8px #a7a7a7;
@@ -23,15 +23,19 @@ span.first {
 .texture1 {
 	background: #424242 url('../images/bg/texture1.gif') repeat;
 }
-
 .texture2 {
-	background: #424242 url('../images/bg/texture2.jpg') repeat;
-	/*@include background(
-		radial-gradient(
-		rgba(0,0,0,0.1) 10px, 
-		rgba(0,0,0,0.5)),
-		image-url('../images/bg/texture2.jpg')
-	);*/
+
+	//background: #424242 url('../images/bg/texture2.jpg') repeat;
+	@include background-image(
+				
+				radial-gradient(
+					rgba(0,0,0,0.1) 10px, 
+					rgba(0,0,0,0.5)
+				),
+				
+			
+				url("../images/bg/texture2.jpg")
+			);
 }
 
 .texture3 {
