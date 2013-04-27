@@ -90,7 +90,7 @@ footer {
 		
 	}
 	.wrapper-body {
-			@include font-size(15);
+			@include font-size($grid-columns);
 			color: #ff7c27;
 			margin: 0;
 			@include media($first) {

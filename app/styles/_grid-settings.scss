@@ -7,6 +7,6 @@ $grid-columns: 15;
 $max-width: 480px;
 
 
-$first: new-breakpoint(max-width 260px 15);
-$second: new-breakpoint(max-width 400px 15);
-$third: new-breakpoint(max-width 960px 15);
+$first: new-breakpoint(max-width 260px $grid-columns);
+$second: new-breakpoint(max-width 400px $grid-columns);
+$third: new-breakpoint(max-width 960px $grid-columns);
