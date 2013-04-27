@@ -1,0 +1,32 @@
+@mixin font-face($fontname, $fontfile) {
+        font-family: '#{$fontname}';
+        src: url('/fonts/#{$fontfile}/#{$fontfile}.eot');
+    
+         src: local('☺'),
+          url('/fonts/#{$fontfile}/#{$fontfile}.eot?#iefix') format('embedded-opentype'),
+             url('/fonts/#{$fontfile}/#{$fontfile}.woff') format('woff'),
+             url('/fonts/#{$fontfile}/#{$fontfile}.ttf') format('truetype'),
+             url('/fonts/#{$fontfile}/#{$fontfile}.svg##{$fontname}') format('svg');
+         
+        font-weight: normal;
+        font-style: normal;
+}
+
+@mixin font-size($px) {
+	font-size:$px+px;
+	font-size:($px/10)+rem;
+ }
+
+@font-face {
+	@include font-face('Gothic',Gothic);
+ }
+  
+@font-face {
+	@include font-face('GothicB',GothicB);
+}
+  
+@font-face {
+	@include font-face('Helvetica',Helvetica55Roman);
+}
+  
+

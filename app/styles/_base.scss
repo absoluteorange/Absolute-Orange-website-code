@@ -3,28 +3,15 @@
 }
 
 
-@mixin font-size($px) {
-	font-size:$px+px;
-	font-size:($px/10)+rem;
- }
-
 html{
 	background-color:#a7a7a7;
 	font-size:62.5%;
 }
 
-@font-face {
-	font-family:  'gothicBold';
-	src: url('/fonts/centuryGothic/GOTHICB.TTF') format('truetype');
-}
 
-@font-face {
-	font-family: 'gothic';
-	src: url('/fonts/centuryGothic/GOTHIC.TTF') format('truetype');
-}
 	
 h1, h2, h3, h4, h5 {
-	font-family: 'gothicBold';
+	font-family: "GothicB", CenturyGothic, AppleGothic, sans-serif;
 }
 h1{
 	color: #535353;

@@ -2,7 +2,7 @@
 @import "neat/neat";
 
 #page {
-	$visual-grid: true; 
+	//$visual-grid: true; 
 	@include outer-container; 
 	position:relative;
 }
