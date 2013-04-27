@@ -7,15 +7,17 @@
 			{{#items}}
 				<a name="{{anchor}}"></a>
 				<li class="detail-list">
-					
 					<div class="widget-summary {{class}}">
-						<a class="widget-body" href="../blog/{{name}}#selected-content" title="{{name}}">
-							<div class="text-wrapper">
+						<a class="widget-body" href="../blog
+						{{^blog}}
+							/{{name}}#selected-content
+						{{/blog}}
+						" title="{{name}}">
+						<div class="text-wrapper">
 								<p class="wrapper-body"><strong>{{name}}</strong></p>
 								<p class="wrapper-body">Written by {{author.employee_name}} on {{date}}</p>
 							</div>
-							<div class="widget-icon">&nbsp;</div>
-							
+							<div class="widget-icon">&nbsp;</div>	
 						</a>
 					</div>
 					{{{blog}}}

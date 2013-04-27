@@ -3,17 +3,21 @@ $icon-twitter : ".icon-twitter";
 $icon-email : ".icon-email";
 $icon-arrow-nav :"nav .touch-list .widget-icon";
 $icon-arrow-nav-selected :"nav .touch-list.selected .widget-icon";
-$icon-arrow-a :".toggle-list-section-style-b .widget-summary .widget-icon";
-$icon-arrow-a-selected :".toggle-list-section-style-b .widget-summary.selected .widget-icon";
+$icon-arrow-a :".toggle-list-section-style-b .widget-summary";
+$icon-arrow-a-selected :".toggle-list-section-style-b .widget-summary.selected";
 
 $icon-arrow-b :".toggle-list-section .widget-summary .widget-icon,.toggle-list-section-style-c .widget-summary .widget-icon";
 $icon-arrow-b-selected :".toggle-list-section .widget-summary.selected .widget-icon,.toggle-list-section-style-c .widget-summary.selected .widget-icon";
 
 $icon-under-construction : "#construction-badge";
-.icon{
+.icon{ 
 	background-size:cover;
 }
 
+#{$icon-arrow-a} {
+	background-position: right center;
+	margin-right:1em;
+}
 .footer-icon{
 	@extend .icon;
 	width:20px;

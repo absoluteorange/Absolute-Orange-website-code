@@ -62,7 +62,7 @@ span.first {
 }
 
 .heading-border-bottom-margin-padding {
-	//padding-bottom: 0.5em;
+	padding-bottom: 0.5em;
 }	
 
 .heading-bottom-border-style-a {
@@ -158,8 +158,13 @@ span.first {
 	.widget-detail {
 		@extend .extend-toggle-widget-detail;
 		@extend .text-wrapper-style-c;
-			background-color: #2b2b2b;
+		background-color: #2b2b2b;
 		.text-wrapper {
+			.compact-text {
+				p.wrapper-body {
+					margin-bottom: 8px;
+				}
+			}
 			padding-top: 0;
 			border:none;
 		}

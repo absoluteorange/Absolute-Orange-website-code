@@ -11,7 +11,11 @@
 						<img class="wrapper-image" src="../images/profile/small/{{photo}}" title="{{name.employee_name}}" />	
 					</a>
 					<div class="widget-summary  {{class}}">
-						<a class="widget-body" href="../developers/{{name.employee_name}}#selected-content" title="{{name.employee_name}}">
+						<a class="widget-body" href="../developers
+						{{^profile}}
+							/{{name.employee_name}}#selected-content
+						{{/profile}}
+						" title="{{name.employee_name}}">
 							<div class="text-wrapper">
 								<p class="wrapper-body"><strong>{{name.employee_name}}</strong></p>
 								<p class="wrapper-body">Expertise: 
@@ -23,9 +27,7 @@
 							</div>
 								<div class="widget-icon">&nbsp;</div>
 						</a>
-					
 					</div>
-					
 					{{{profile}}}
 			{{/items}}
 		</ol>

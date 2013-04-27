@@ -115,8 +115,13 @@ footer {
 		@extend .texture1;
 		.head-wrapper {
 			@extend .heading-bottom-border-style-c;
-			color: #ff7c27;
+			padding-bottom: 0;
 			margin: 0.5em 0 2em 0;
+			padding-bottom: 0;
+			h4.wrapper-head {
+				color: #ff7c27;
+				
+			}
 		}
 		.text-wrapper {
 			.nested-wrapper {
