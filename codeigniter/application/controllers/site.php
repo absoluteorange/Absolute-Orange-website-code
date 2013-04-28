@@ -255,6 +255,13 @@ class Site extends CI_Controller {
 			$data['items'][$key]['name'] = $this->profiles->getName($id);
 			$data['items'][$key]['skills'] = array();
 			$data['items'][$key]['skills'] = $this->getEmployeeSkills($id, $data['items'][$key]['skills'], 'expertise');
+			foreach ($data['items'][$key]['skills'] as $thisKey => $skill):
+				if ($thisKey == 0):
+					$data['items'][$key]['skills'][$thisKey]['class'] = 'first';
+				else:
+					$data['items'][$key]['skills'][$thisKey]['class'] = '';
+				endif;
+			endforeach;
 			if (isset($featureId) AND $featureId == $id):
 				$data['items'][$key]['profile'] = $profile;
 				$data['items'][$key]['class']="selected";
