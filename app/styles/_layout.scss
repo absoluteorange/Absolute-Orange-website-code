@@ -6,3 +6,7 @@
 	@include outer-container; 
 	position:relative;
 }
+
+#inner-page{
+	@include row();
+}

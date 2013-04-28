@@ -40,6 +40,7 @@ nav {
 		}
 		.touch-list-title{
 			@include span-columns(13);
+			@include omega();
 			padding: 0.5em;
 			color:  #e2dfe2;
 		}
@@ -56,9 +57,6 @@ nav {
 		}
 		
 	}
-}
-.widget-icon{
-	@include span-columns(1);
 }
 
 footer {
