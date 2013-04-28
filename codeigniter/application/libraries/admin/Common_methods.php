@@ -52,11 +52,7 @@ class Common_methods extends CI_Controller {
 	
 	public function setUploadError ($name) {		
 		$error = array('error' => $this->_ci->upload->display_errors('',''));
-		if (isset($this->_ci->form_validation->$name)):
-			$this->_ci->form_validation->$name = $error;
-		else:
-			var_dump($error);
-		endif;
+		$this->_ci->form_validation->$name = $error;
 	}
 	
 	public function validateLogo ($table) {

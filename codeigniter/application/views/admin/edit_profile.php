@@ -30,7 +30,9 @@
 				<div class="controls">
 					<input type="file" name="profile" id="profile_photo" value="" required/>
 					<?php if (isset($this->form_validation->profile)): ?>
-			            <span class="help-inline error"><?=$this->form_validation->profile; ?></span>
+			            <?php foreach ($this->form_validation->profile as $error):?>
+		            	<span class="help-inline error"><?=$error; ?></span>
+		            <?php endforeach;?>
 					<?php endif; ?>
 				</div>
 			</div>

@@ -135,7 +135,7 @@ class Profile extends CI_Controller {
      	$ext = pathinfo($_FILES['cv']['name'], PATHINFO_EXTENSION);
      	$fileName =  str_replace(' ', '_', $this->user_methods->userName).'.'.$ext;
      	$name = 'cv';
-        if ($this->form_validation->_formatExists($fileName, './cv') == FALSE):
+        if ($this->form_validation->_formatExists($name, $fileName, './cv') == FALSE):
         	$uploadConfig = array('upload_path' => './cv',
 								  'allowed_types' => 'doc|pdf',
 	   							  'file_name' => $fileName);
