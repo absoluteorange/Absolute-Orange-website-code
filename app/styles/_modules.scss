@@ -133,7 +133,7 @@ footer {
 }
 
 .major-text-wrapper {
-	border-top: 1px solid #19a388;
+	//border-top: 1px solid #19a388;
 	//background-color:#535353;
 	@extend .extend-nested-margins-padding;
 	h2.wrapper-head {
@@ -186,11 +186,13 @@ section.toggle-list-section-style-c {
 	}
 }
 section.page-section {
-	@extend .drop-shadow;
+	padding-bottom:0.5em;
+
 	.content-wrapper {
+		border-top: 5px solid #19a388; 
 		 margin: 0 0.5em;
 		.text-wrapper {
-			border-top: 5px solid #19a388;  
+			//border-top: 5px solid #19a388;  
 			@extend .content-style-a;
 			@extend .text-wrapper-style-b;
 		}
