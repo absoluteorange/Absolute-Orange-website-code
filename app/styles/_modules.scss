@@ -207,11 +207,12 @@ p.top-link{
 #construction{	
 	@include perspective( 1200px);
 	position:absolute;	
-	left: -220px;
+	left: -144px;
+	top: 10px;
 	display:block;
 	#construction-badge{	
-		width: 210px;	
-		height: 215px;
+		width: 140px;	
+		height: 140px;
 		@include transition-property(rotateY);
  		//@include backface-visibility( hidden); 	
     	@include transform-style( preserve-3d );    	
@@ -222,7 +223,6 @@ p.top-link{
 				 @include transform(rotateY(90deg));				
 		}
 	}
-	
 }
 
  
