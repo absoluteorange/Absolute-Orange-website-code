@@ -106,6 +106,7 @@ span.first {
 
 .extend-image-wrapper {
 	text-align: center;
+	width: 100%;
 	@include  row();
 }
 
