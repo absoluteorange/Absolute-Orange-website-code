@@ -133,7 +133,12 @@ footer {
 }
 
 .major-text-wrapper {
+<<<<<<< HEAD
+	border-top: 1px solid #19a388;
+=======
 	//border-top: 1px solid #19a388;
+	//background-color:#535353;
+>>>>>>> 766fe9b0814308d4d74da52d0b7d7c172e998642
 	@extend .extend-nested-margins-padding;
 	h2.wrapper-head {
 		color: #e2dfe2;
