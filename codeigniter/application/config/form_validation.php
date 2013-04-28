@@ -198,7 +198,7 @@
 			array(
 				'field' => 'skillsOrder',
 				'label' => 'order',
-				'rules' => 'trim|xss_clean|required|numeric'
+				'rules' => 'trim|xss_clean|numeric'
 			)
 		),
 		'editProfileAchievements' => array(
