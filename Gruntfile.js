@@ -211,6 +211,13 @@ module.exports = function (grunt) {
                 cwd: '.tmp/styles/icons',
                 src: ['*.css'],
                 dest: '<%= yeoman.dist %>/styles/icons'
+              },
+            bootstrap: {
+            	files: {
+                    '<%= yeoman.dist %>/styles/bootstrap/bootstrap.css': [
+                        '.tmp/styles/bootstrap/bootstrap.css'
+                    ]
+                }
               }
         
         },
@@ -245,7 +252,7 @@ module.exports = function (grunt) {
                     src: [
                         '*.{ico,txt,php}',
                         '.htaccess',
-                        'images/{,*/}*.{webp,gif}',
+                        'images/**',
                         'sharedTemplates/{,*/}*.html',
                         'fonts/{,*/}*.*'
                     ]
@@ -321,9 +328,9 @@ module.exports = function (grunt) {
         'concat',
         'cssmin',
         'cssmin:grunticon',
+        'cssmin:bootstrap',
         'uglify',
-        'copy',
-        'usemin'
+        'copy'
     ]);
 
     grunt.registerTask('default', [
