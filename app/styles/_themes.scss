@@ -65,7 +65,7 @@ span.first {
 		 	padding: 0.2em;
 		}
 		ul.wrapper-body {
-			padding: 1em 0 0 0;
+			padding: 1em 0;
 		}
 	}
 }
@@ -106,7 +106,6 @@ span.first {
 
 .extend-image-wrapper {
 	text-align: center;
-	width: 100%;
 	@include  row();
 }
 
@@ -219,6 +218,9 @@ span.first {
 
 .extend-toggle-widget-detail {
 	.image-wrapper {
+		img{
+		width: 80%
+	}
 		border-bottom: none;
 	}
 	a { text-decoration: underline; }
@@ -246,10 +248,13 @@ img.text-img {
 			background-color: #19a388;
 			color: #e2dfe2;
 			font-weight: bold;
+			margin: 0;
 		}
 		.styled-select {
+			min-height: 2em;
 			@extend .extend-select-styled-a;
 		}
+		
 	}
 }
 	
@@ -257,15 +262,20 @@ img.text-img {
 	display: inline-block;
     width: 4em;
     overflow: hidden;
-    background: url(new_arrow.png) no-repeat right #ddd;
+    background-position: right;
     border: 1px solid #535353;
   	vertical-align: bottom;
+  		@include box-sizing(border-box);
+  		height:2.0em;
     select {
 	    background: transparent;
 	    width: 268px;
 	    border: 0;
 	    border-radius: 0;
 	   -webkit-appearance: none;
+	   	min-height: 2em;
+		margin:0;
+	
    }
 }
 
@@ -286,7 +296,6 @@ img.text-img {
     padding: 0.5em;
     vertical-align: top;
     text-decoration: none;
-    cursor: pointer;
 }
 
 /**** LISTS *****/
