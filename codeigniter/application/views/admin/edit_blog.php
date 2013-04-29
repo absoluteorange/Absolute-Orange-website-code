@@ -114,7 +114,7 @@
 							<tr>
 								<td>
 									<a class="image_<?=$image['id']; ?>" title="<?=$image['image_alt']; ?>" id="image_<?=$count; ?>" rel="lightbox" href="/images/blog/<?=$image['image_url']; ?>">
-				                    	<img src="<?=site_url('images/blog/thumbnails/'.$image['image_url'])?>" alt="<?=$image['image_alt']; ?>" title="<?=$image['image_alt']; ?>" />
+				                    	<img src="<?=site_url('images/blog/thumbnails/med/'.$image['image_url'])?>" alt="<?=$image['image_alt']; ?>" title="<?=$image['image_alt']; ?>" />
 				                	</a>
 								</td>
 								<td>
@@ -152,7 +152,7 @@
 	            <?php if (isset($this->form_validation->screenshot_thumb)): ?>
 	            	<span class="help-inline error"><?=$this->form_validation->screenshot_thumb; ?></span>
 				<?php endif; ?>
-				<span class="help-block">Images should have a max height of 100px</span>
+				<span class="help-block">Images should have a max height of 300px</span>
 			</div>
 	    </div>
         <div class="control-group <?php if (form_error('screenshot_alt')): echo 'error'; endif; ?>">

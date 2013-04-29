@@ -47,5 +47,12 @@ class Blogs extends CI_Model {
     	return $query->result_array();
     }
     
+	function getImages($id) {
+    	$sql = "SELECT * FROM blog_images  			
+    			WHERE blog_id = $id";
+    	$query = $this->db->query($sql);
+    	return $query->result_array();
+    }
+    
 }
 ?>

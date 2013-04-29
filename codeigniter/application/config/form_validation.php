@@ -274,7 +274,7 @@
 			array(
 				'field' => 'related_link',
 				'label' => 'Link',
-				'rules' => 'trim|xss_clean|_validUrl|required'
+				'rules' => 'trim|xss_clean|_validUrl|required|_checkExists[blog_relatedlinks]'
 			),
 			array(
 				'field' => 'related_link_title',

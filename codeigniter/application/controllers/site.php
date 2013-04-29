@@ -182,6 +182,7 @@ class Site extends CI_Controller {
 		$data->author = $this->blogs->getAuthor($data->id);
 		$data->logo = $this->blogs->getLogo($data->id);
 		$data->links = $this->blogs->getLinks($data->id);
+		$data->images = $this->blogs->getImages($data->id);
 		return $this->templateparser->parseTemplate('blog.html', $data);
 	}
 
