@@ -206,7 +206,6 @@ class Site extends CI_Controller {
 				endif;
 			endforeach;
 			$data['items'][$key]['skills'] = $this->showcases->getSkills($item['id']);
-			var_dump($data['items'][$key]);
 			$data['items'][$key]['skills'][0]['expertise'] = ucfirst($data['items'][$key]['skills'][0]['expertise']);
 			$data['items'][$key]['skills'][count($data['items'][$key]['skills'])-1]['last'] = true;
 			if (isset($name) AND $item['title'] == $name):
