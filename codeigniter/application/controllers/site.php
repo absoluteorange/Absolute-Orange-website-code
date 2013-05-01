@@ -206,14 +206,8 @@ class Site extends CI_Controller {
 				endif;
 			endforeach;
 			$data['items'][$key]['skills'] = $this->showcases->getSkills($item['id']);
-			$thisKey = 0;
-			foreach ($data['items'][$key]['skills'] as $thisKey => $skill):
-				if ($thisKey == 0):
-					$data['items'][$key]['skills'][$thisKey]['class'] = 'first';
-				else:
-					$data['items'][$key]['skills'][$thisKey]['class'] = '';
-				endif;
-			endforeach;
+			var_dump($data['items'][$key]);
+			$data['items'][$key]['skills'][0]['expertise'] = ucfirst($data['items'][$key]['skills'][0]['expertise']);
 			$data['items'][$key]['skills'][count($data['items'][$key]['skills'])-1]['last'] = true;
 			if (isset($name) AND $item['title'] == $name):
 				$data['items'][$key]['showcase'] = $showcase;
@@ -256,13 +250,7 @@ class Site extends CI_Controller {
 			$data['items'][$key]['name'] = $this->profiles->getName($id);
 			$data['items'][$key]['skills'] = array();
 			$data['items'][$key]['skills'] = $this->getEmployeeSkills($id, $data['items'][$key]['skills'], 'expertise');
-			foreach ($data['items'][$key]['skills'] as $thisKey => $skill):
-				if ($thisKey == 0):
-					$data['items'][$key]['skills'][$thisKey]['class'] = 'first';
-				else:
-					$data['items'][$key]['skills'][$thisKey]['class'] = '';
-				endif;
-			endforeach;
+			$data['items'][$key]['skills'][0]['name'] = ucfirst($data['items'][$key]['skills'][0]['name']);
 			if (isset($featureId) AND $featureId == $id):
 				$data['items'][$key]['profile'] = $profile;
 				$data['items'][$key]['class']="selected";
