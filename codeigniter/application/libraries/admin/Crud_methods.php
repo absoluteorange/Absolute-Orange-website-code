@@ -166,10 +166,10 @@ class Crud_methods extends CI_Controller {
 		        	unlink('./images/blog/logos'.$fileName);
 		        	return TRUE;
 	        	break;
-    			case ('screeshot'):
+    			case ('screenshot'):
     				$screenshotName = $this->_ci->blog_model->getFileName('blog_images', $id);
     				$this->_ci->db->delete('blog_images', array('id' => $id));
-            		unlink('./images/blog/thumbnails'.$screenshotName);
+            		unlink('./images/blog/thumbnails/'.$screenshotName);
     				unlink('./images/blog/'.$screenshotName);
             		return TRUE;
         		break;

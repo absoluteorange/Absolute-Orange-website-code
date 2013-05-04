@@ -79,7 +79,7 @@ class Blog extends CI_Controller {
 				return FALSE;
 			endif;
 		endif;
-		if (!empty($_POST['relatedLink']) AND $this->common_methods->validateRelatedlink('showcase')):
+		if (!empty($_POST['related_link']) AND $this->common_methods->validateRelatedlink('blog')):
 			$this->updateRelatedLink($id);
 		endif;
 		if  ($this->form_validation->run('editBlog') == TRUE):

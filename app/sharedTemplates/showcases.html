@@ -25,9 +25,7 @@
 						{{/showcase}}
 						" title="{{title}}">
 							<div class="text-wrapper">
-							
-									<p class="wrapper-body"><strong>{{title}}</strong></p>
-						
+									<h4 class="wrapper-head">{{title}}</h4>
 									<p class="wrapper-body"><strong>Deliverable: </strong>
 										<span>
 											<span>{{deliverable}}</span>
@@ -36,7 +34,7 @@
 								{{#skills.0}}
 									<p class="wrapper-body"><strong>Skillset: </strong>
 									{{#skills}}
-										<span class="{{class}}">{{expertise}}</span>{{^last}}, {{/last}}
+										<span>{{expertise}}</span>{{^last}}, {{/last}}
 									{{/skills}}
 									</p>
 								{{/skills.0}}
