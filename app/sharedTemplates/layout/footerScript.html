@@ -1,59 +1,15 @@
-<script type="text/javascript" >
-isMustardException=false;
-</script>
-<!--[if IE 6]>
-	<script src="{{CDNPath}}/js/libs/DD_belatedPNG.js"></script>
-	<script>
-		$(document).ready(function(){
-  			DD_belatedPNG.fix('');
-		});
-	</script>
-<![endif]-->
-<!--[if (IE 7)|(IE 8)]>
-<script type="text/javascript" >
-	isMustardException=true;
-</script>		
-<script type="text/javascript" src="{{CDNPath}}/js/polyfills/JSON.js"></script>
-<script type="text/javascript" src="{{CDNPath}}/js/polyfills/respond.js"></script>
-<![endif]-->
-<!--[if (IE 7)]>
-<script type="text/javascript" src="{{CDNPath}}/js/polyfills/excanvas.js"></script>
-<script type="text/javascript" >
-		isIE7=true;
-</script>
-<![endif]-->
-<!--[if (IE 8)]>
-<script type="text/javascript" src="{{CDNPath}}/js/polyfills/flashcanvas.js"></script>
-<script type="text/javascript" >
-		isIE8=true;
-</script>
-<![endif]-->		
-	<!--  <script type="text/javascript" src="{{CDNPath}}/js/common.js"></script>
-       	<script type="text/javascript">         	
-       	var templateData={homeData:{}};
- 		{{#jsonData}}
- 			templateData.{{var}}={{{data}}}
- 		{{/jsonData}}
-     	var init = function (){
-     		importJS('{{CDNPath}}/js/app/config.js', 'configCheck', function(){
-     			require.config({
-      				baseUrl:'{{CDNPath}}/js',
-      				urlArgs:"v={{version}}"});
-                  require(["{{script}}"],function(){});
-			});
-     		
-     	}
-		if(hasTheMustard()) {
-			importJS('{{CDNPath}}/js/require.js','require',function(){						
-				init();
-			});
-		}			
-</script>-->
 <script type="text/javascript">
-	var _gaq=[['_setAccount','UA-9959509-1'],['_trackPageview']];
-	(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-	g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-	s.parentNode.insertBefore(g,s)}(document,'script'));
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-9959509-1']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+	    var ga = document.createElement('script');
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 
+	        'http://www') + '.google-analytics.com/ga.js';
+	    ga.setAttribute('async', 'true');
+	    document.documentElement.firstChild.appendChild(ga);
+	  })();
 </script>
 
 
