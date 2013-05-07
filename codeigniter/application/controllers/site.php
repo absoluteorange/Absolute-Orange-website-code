@@ -376,7 +376,7 @@ class Site extends CI_Controller {
 	    $tweets=$this->templateparser->parseTemplate('layout/tweets.html',$tweetData,true);
     	$footerScript=$this->templateparser->parseTemplate('layout/footerScript.html',$scriptData,true);
 	    $footer=$this->templateparser->parseTemplate('layout/footer.html',$footerData,true);
-    	echo $this->templateparser->parseTemplate('layout/layout.html',array(
+    	$output=$this->templateparser->parseTemplate('layout/layout.html',array(
     	        'headScript'=>$headScript,
 	    		'header'=>$header,
 	    		'nav'=>$nav,
@@ -387,7 +387,10 @@ class Site extends CI_Controller {
     			'footer'=>$footer
 	         )
 	     );
-	}
+	     echo   preg_replace('/[\t\s\n]*(<.*>)[\t\s\n]*/', '$1', $output);
+		}
+
+
 
 	public function fileAPIUpload() {
 		$this->load->library(array('admin/form_validation', 'admin/common_methods'));
