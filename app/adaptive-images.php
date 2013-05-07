@@ -368,13 +368,13 @@ function getResolution ($resolutions) {
 	        }
 	      }
 	    }
-	    else { // pixel density is 1, just fit it into one of the breakpoints
+	    //else { // pixel density is 1, just fit it into one of the breakpoints
 	      foreach ($resolutions as $break_point) { // filter down
 	        if ($total_width <= $break_point) {
 	          $resolution = $break_point;
 	        }
 	      }
-	    }
+	    //}
 	  }
   } else {
   	// We send the lowest resolution for mobile-first approach, and highest otherwise

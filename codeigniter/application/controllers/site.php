@@ -183,6 +183,13 @@ class Site extends CI_Controller {
 		$data->logo = $this->blogs->getLogo($data->id);
 		$data->links = $this->blogs->getLinks($data->id);
 		$data->images = $this->blogs->getImages($data->id);
+		foreach ($data->images as $key => $image):
+			$arrImgUrl = explode('.', $image['image_url']);
+			$format = $arrImgUrl[1];
+			if ($format == 'png' OR $format == 'gif'):
+				$data->images[$key]['class'] = 'transparent';
+			endif;
+		endforeach;
 		return $this->templateparser->parseTemplate('blog.html', $data);
 	}
 
