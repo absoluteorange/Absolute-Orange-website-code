@@ -330,6 +330,7 @@ class Site extends CI_Controller {
 				'name'=>$skill
 			);
 		endforeach;
+		sort($array);
 		$array[count($array)-1]['last'] = true;
 		return $array;
 	}
