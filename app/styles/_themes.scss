@@ -271,7 +271,7 @@ img.text-img {
 	display: inline-block;
     width: 4em;
     overflow: hidden;
-    background-position: right;
+    background-position: 95% center;
     border: 1px solid #535353;
   	vertical-align: bottom;
   		@include box-sizing(border-box);
@@ -283,7 +283,7 @@ img.text-img {
 	    border-radius: 0;
 	   -webkit-appearance: none;
 	   	min-height: 2em;
-		margin:0;
+		margin: 0.25em 0 0 0 ;
 	
    }
 }

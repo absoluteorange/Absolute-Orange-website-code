@@ -7,6 +7,11 @@
 <!--[if gt IE 10]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>{{{headScript}}}</head>
 <body>
+	<script>
+	 	if (window.innerHeight == undefined) {
+	 		document.cookie='resolution='+Math.max(document.body.clientWidth, document.body.clientHeight)+("devicePixelRatio" in window ? ","+devicePixelRatio : ",1")+'; path=/';	
+		 }
+	</script>
 	<div id="page">
 		<div id="construction"><div id="construction-badge"></div></div>
 		<div id="inner-page">
