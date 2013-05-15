@@ -49,7 +49,8 @@ class Blogs extends CI_Model {
     
 	function getImages($id) {
     	$sql = "SELECT * FROM blog_images  			
-    			WHERE blog_id = $id";
+    			WHERE blog_id = $id
+    			ORDER BY order_index asc";
     	$query = $this->db->query($sql);
     	return $query->result_array();
     }

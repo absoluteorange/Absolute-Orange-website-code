@@ -10,7 +10,6 @@ class Templateparser {
         $this->_ci->load->helper('file');
         $this->strTemplatesPath="./sharedTemplates";
         $this->fileCache= array();
-
     }
 
 	/**
@@ -33,7 +32,7 @@ class Templateparser {
 	         $this->fileCache[$name]=$string;
 	    }
 	    $string = read_file( $this->strTemplatesPath.'/'.$name);
-	   return $this->m->render($string,$data);
+	    return $this->m->render($string,$data);
 	}
 }
 ?>

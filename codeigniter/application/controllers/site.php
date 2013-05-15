@@ -388,7 +388,7 @@ class Site extends CI_Controller {
     			'footer'=>$footer
 	         )
 	     );
-	     echo   preg_replace('/[\t\s\n]*(<.*>)[\t\s\n]*/', '$1', $output);
+	     echo preg_replace('/[\t\s\n]*(<.*>)[\t\s\n]*/', '$1', $output);
 		}
 
 

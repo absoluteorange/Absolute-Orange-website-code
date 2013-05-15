@@ -1,0 +1,30 @@
+<section id="login">
+	{{#newRegistration}}
+	<div id="form-helper">
+		<p>You have successfully registered, please login.</p>
+	</div>
+	{{/newRegistration}}
+	<form action="{{formUrl}}" method="post" accept-charset="utf-8" id="loginForm" class="form-horizontal well">	
+		<input type="hidden" value="{{csrf}}" name="csrf_secure">
+		<div class="control-group" id="email">
+			<input type="text" name="email" value="{{#values}}{{email}}{{/values}}" maxlength="100" />		
+			<span class="help-inline">
+				{{#errors}}{{email}}{{/errors}}
+			</span>
+		</div>
+	    <div class="control-group" id="password">
+			<input type="password" name="password" value="{{#values}}{{password}}{{/values}}" maxlength="100" />		
+			<span class="help-inline">
+				{{#errors}}{{password}}{{/errors}}
+			</span>
+			<p class="form-help">{{passwordHelper}}</p>
+		</div>
+		<button type="submit" class="btn btn-primary" data-toggle="button" id="loginButton">Login</button>
+		<a href="{{registerUrl}}" title="Register">Register</a>
+		{{#response}}
+			<div class="form-helpers">
+				<p>{{{result}}}</p>
+			</div>
+		{{/response}}
+	</form>
+</section>

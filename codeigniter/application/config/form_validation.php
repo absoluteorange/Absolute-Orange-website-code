@@ -281,6 +281,63 @@
 				'label' => 'Link title',
 				'rules' => 'trim|xss_clean|required'
 			)
+		),
+		'register' => array(
+				array(
+						'field' => 'username',
+						'label' => 'username',
+						'rules' => 'required|callback_checkDefault|alpha_numeric'
+				), 
+				array (
+						'field' => 'email',
+						'label' => 'email',
+						'rules' => 'required|valid_email|callback_checkDefault'
+				),
+				array (
+						'field' => 'password',
+						'label' => 'password',
+						'rules' => 'required|callback_checkDefault|callback_checkPassword'
+				), 
+				array (
+						'field' => 'csrf_secure',
+						'label' => 'csrf_secure',
+						'rules' => 'callback_checkCSRF'
+				)
+		),
+		'login' => array(
+				array (
+						'field' => 'email',
+						'label' => 'email',
+						'rules' => 'required|valid_email|callback_checkDefault'
+				),
+				array (
+						'field' => 'password',
+						'label' => 'password',
+						'rules' => 'required|callback_checkDefault|callback_checkPassword'
+				),
+				array (
+						'field' => 'csrf_secure',
+						'label' => 'csrf_secure',
+						'rules' => 'callback_checkCSRF'
+				)
+		),
+		'photo' => array(
+				array (
+						'field' => 'data',
+						'label' => 'data',
+						'rules' => 'callback_dataValidate'
+						//'rules' => 'valid_base64|callback_dataValidate'
+				),
+				array (
+						'field' => 'name',
+						'label' => 'name',
+						'rules' => 'required|max_length[75]|callback_sanitiseFilename'
+				),
+				array (
+						'field' => 'csrf_secure',
+						'label' => 'csrf_secure',
+						'rules' => 'required|callback_checkCSRF'
+				)
 		)
 	);
 ?>

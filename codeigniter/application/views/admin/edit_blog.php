@@ -27,7 +27,7 @@
 	        			<?php foreach ($blogLogos as $logo): ?>
 		        			<tr>
 							    <td>
-							    	<img src='/images/blog/logos/<?=$logo['image_url']; ?>' id="<?=$logo['id']; ?>" alt="<?=$logo['image_alt']; ?>" title="<?=$logo['image_alt']; ?>" />
+							    	<img src='/images/blog/logos/small/<?=$logo['image_url']; ?>' id="<?=$logo['id']; ?>" alt="<?=$logo['image_alt']; ?>" title="<?=$logo['image_alt']; ?>" />
 		            			</td>
 							    <td>
 							    	<a href="<?=site_url('admin/delFile?section=blog&blog='.$title.'&type=logo&id='.$logo['id']); ?>">Delete</a>

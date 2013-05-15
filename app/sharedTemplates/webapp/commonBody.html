@@ -1,0 +1,16 @@
+<body>
+	<script type="text/javascript">
+		{{#activeSession}}
+			var activeSession = true;
+		{{/activeSession}}
+		{{^activeSession}}
+			var activeSession = false;
+		{{/activeSession}}
+		if (determiningDevice == true || activeSession == false ) {
+			document.getElementsByTagName('body')[0].className+='js';
+		}
+	</script>
+	<div id="contentContainer">
+		<header>
+			<h1>{{heading}}</h1>
+		</header>

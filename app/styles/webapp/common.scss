@@ -1,0 +1,59 @@
+@import '../bootstrap/bootstrap.scss';
+body {
+	margin:0;
+	padding: 0;
+}
+img {
+	height: auto;
+	//width:100%
+}
+header {
+	padding-bottom: 2em; 
+}
+footer {
+	padding-top: 2em; 
+}
+section {
+	padding: 1em;
+}
+#contentContainer {
+  width: 100%;
+  margin: 0 auto;
+}
+.item {
+    width: 200px;
+    margin-top: 5px;
+    border: 3px solid #fff;
+}
+header, footer, #loading { 
+    text-align: center;
+    clear: both;
+    display: block;
+}
+#photos {
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+	padding-bottom: 5px;
+}
+span.help-inline { color: #b94a48;}
+#form-helper, .form-helper { background-color: #f5e7e7; border: #f5acac 1px solid; margin-top: 0.5em; padding: 0.5em; z-index: 1; text-align: center }
+#form-helper p, .form-helper p { color: #666 }
+.success { background-color: #e5e5e5!important; border: #a8a8a8 1px solid!important; color: #fff }
+span.photoName { text-transform: capitalize }
+p.form-help {color: #7db797; font-weight: bold }
+#loading {
+   display: none;
+}
+.js #loading {
+   display: block;
+}
+.js #photos { 
+   display: none
+}
+ul.debug-info li{
+   width: 100%;
+}
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }

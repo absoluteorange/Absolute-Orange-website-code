@@ -25,7 +25,8 @@
     "grunt-open": "~0.2.0",
     "matchdep": "~0.1.1",
     "grunt-grunticon-sass": "git://github.com/jeradg/grunticon-sass.git",
-    "uglify-js": "~2.2.5"
+    "uglify-js": "~2.2.5",
+    "grunt-contrib-requirejs": "~0.4.0"
   },
   "engines": {
     "node": ">=0.8.0"

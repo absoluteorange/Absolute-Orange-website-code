@@ -67,9 +67,11 @@ $route['downloadCV'] = "site/downloadCV";
 $route['fileAPIUpload'] = "site/fileAPIUpload";
 $route['flashmobs'] = "flashmobs";
 
-
-
 $route['auth'] = "auth";
+
+
+$route['dynamicScripts/jsGlobals.js'] = "scripts/jsGlobals";
+$route['dynamicScripts/jsLanguage.js'] = "scripts/jsLanguage";
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

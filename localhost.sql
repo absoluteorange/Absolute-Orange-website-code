@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 01, 2013 at 01:05 PM
+-- Generation Time: May 15, 2013 at 01:55 PM
 -- Server version: 5.1.61
 -- PHP Version: 5.3.10-2
 
@@ -17,10 +17,8 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `amyvarga`
+-- Database: `absoluteorange`
 --
-CREATE DATABASE `amyvarga` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `amyvarga`;
 
 -- --------------------------------------------------------
 
@@ -53,8 +51,8 @@ INSERT INTO `blog` (`id`, `url`, `name`, `image`, `description`, `date_completed
 (30, 'Geolocation and HTML5', 'Geolocation and HTML5', NULL, '<p>For many web developers the new HTML 5 specification is a very exciting one.  In this blog Amy implements her first HTML 5 API, more specifically the HTML5 geolocation API.</p>\r\n<p>This implementation uses the HTML5 Geolocation API to find a users location.  If the user''s browser does not have the Geolocation API enabled we attempt to find the user''s location using Google Gears.  And finally, if Google Gears is not enabled we resort to Yahoo Geo to get the location based on the IP address.</p>\r\n<p>This example uses Googlemaps API (V3) and more specifically the Geocoder and Directions service.</p>\r\n<p><a href="../scripts/blogs/map.js" target="_blank" title="View the Javascript source code">View the Javascript source code</a></p>\r\n        <div id="map-canvas"></div>\r\n        <div class="map-form">\r\n            <input type="text" id="address" class="map-inline-form" value="enter your address" />\r\n            <a href="javascript:void(0);" onclick="google_map.codeAddress();" title="Find this address" id="code_address">Find this address</a>\r\n        </div>\r\n        <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&key=AIzaSyCwQwbUh1w8rxf8ev8hgXLNGKmIZmc-Vic" type="text/javascript"></script>\r\n        <script type="text/javascript" src="/scripts/blogs/yqlgeo.js"></script>\r\n        <script type="text/javascript" src="/scripts/blogs/map.js"></script>\r\n        <script type="text/javascript">\r\n            google_map.initialize(''geolocation'');\r\nfunction codeAddress() {\r\nalert(''here'');\r\ngoogle_map.codeAddress();\r\n}\r\nvar mapInput = document.getElementById(''address'');\r\n           mapInput.onfocus= function () { \r\n             var value = mapInput.value;\r\n if (value.substring(''enter'') != '''') {\r\n       mapInput.value = '''';\r\n }\r\n            }; \r\n        </script>', '2010-09-08 00:00:00'),
 (32, 'Agile methodologies and new product development', 'Agile methodologies and new product development', NULL, '<p>Agile methodologies differ from other project management methods because it does not "...assume that the entire set of requirements and activities can be forecast at the beginning of the project.  Agile methods combine all the elements of product development, such as requirements, analysis, design, development and testing in brief, regular iterations. Every iteration delivers a working product or prototype, and the response to that product or prototype serve as crucial input into the succeeding iterations." [Successful projects through Agile project management, 2010.  Nancy Nee [online] Available at: <a href="http://www.projecttimes.com/agile/successful-projects-through-agile-project-management.html" title="Successful projects through Agile project management">Successful projects through Agile project management</a> [Accessed 23 July 2011]]</p>\n\n<p>The definition above emphasizes the importance of delivering a working product at every iteration however, in new product development there is no existing product.  Furthermore, building a new product has many challenges and unknowns.  Whilst using agile is desirable there are a number of risk factors, which include:</p>\n\n<ol>\n<li>Changing core requirements<br />\nAgile works very well in managing changes to feature level requirements as long as the core architecture stays stable.  In new product development requirements that affect the core system or its architecture are common.  Having a clear indication of these requirements during the analysis phase of new product development gives development teams the opportunity to prototype these features without risking other development efforts from being rendered useless as changes occur in core requirements.</li> \n\n<li>Unknown technical challenges that have not been verified with a prototype<br />\nFor a new product, the number of unknown technical challenges (ideas that have not been proven to work) is way bigger than for an established product. It is usually necessary to identify these challenges, understand their impact, plan contingencies and prove the ideas sooner than later. If one of these efforts ends up falling in the later phases of agile development, this could have devastating effects on the overall delivery plans for the product.</li> \n\n<li>Incomplete system architecture<br />\nSystem architecture provides guidance and framework to make sure that the individual pieces of a new product are coming together the right way. Not having complete core architecture is like a bunch of people walking on their own paths with a ''hope'' that they are going to meet somewhere.  Agile methodology has provisions for bringing different parts of the project to sync-up together at the end of each phase. Having a framework to assess where the overall project is going and how it can come together is a key to ensure timely delivery of the entire product (especially when the product is being developed for the first time).</li> \n\n<li>Lack of Framework for Continuous Integration<br />\nAgile methodology requires that there be a way to continuously integrate the features being developed. Not having a framework to integrate, test and verify that the features are working together as intended could seriously hurt the project and may make integration effort a whole lot more challenging than it needs to be. [Agile methodology and new product development: four key issues, 2008.  Alok [online]  Available at:  <A href="http://blogs.msdn.com/b/isv/archive/2008/07/29/agile-methodology-and-new-product-development-four-key-issues.aspx" title="Agile methodology and new product development: four key issues">Agile methodology and new product development: four key issues</a> [Accessed 23 July 2011]]</li>\n</ol> \n\n<p>These challenges reiterate the importance of a defining a blueprint of the new product in the initial analysis and design stages of the development cycle.  With this understanding systems and architectures can be designed and developed to support the anticipated concept of the product.  It also stands that this blueprint is likely to change with each iteration and subsequent review.</p>\n\n<p>Development of the new product using an agile approach would require that the first phase of the development of the new product should produce a very basic, featureless, working product.</p>\n\n<p>The delivery of the basic product would then be reviewed by all stakeholders, including marketing, design, users (based on user testing) and the client.  This review would provide input into the product backlog which would be prioritized by the product owner.</p>\n\n<p>Agile methodologies would then allow for iterations on this product which would result in the implementation of enhancements and features whose priority could change with review and feedback.</p>', '2011-08-01 00:00:00'),
 (36, 'HTML5 - File APIs', 'HTML5 - File APIs', NULL, '<p>The new HTML5 file API''s make importing, creating, manipulating, storing and publishing files simple.  In this blog I prototype the drag & drop, reading and creating File API''s.</p>\r\n\r\n<p>In this demonstration a user can drag an image from their computer on to an area on the web page.  The image file size is read and the image is displayed in the area.  If the image is under 5Mbytes, it is uploaded as binary to the Absolute Orange domain.  The image is then displayed in a seperate box using the Absolute Orange domain.</p>  \r\n\r\n<div id="dropbox">\r\n	<p>Drop your photo here and it will be uploaded to the Absolute Orange website</p>\r\n</div>\r\n<div id="uploadedImages">\r\n	<p>Your uploaded image</p>\r\n</div>\r\n\r\n<script src="../scripts/blogs/file_api_blog.js" type="text/javascript"></script>', '2012-02-17 00:00:00'),
-(37, 'Responsive web development', 'Responsive web development', 'responsive.jpg', '<p>Responsive Web Development is a front end web development approach for building one website that fits all screen sizes.</p>\r\n\r\n<h3>Lowest common denominator</h3>\r\n<p>The Responsive approach to building a website begins with the development of the website for a lowest common denominator (LCD). The LCD''s core experience is based on a Mobile First approach.  It focuses on being fast, lightweight and independent of JavaScript or CSS media queries.  The lowest common denominator website once tested provides the foundation for optimisation.</p>\r\n\r\n<h3>Browser features</h3>\r\n<p>Testing browser features allows one to determe what device and browser a user is using.  Ultimately the device and browser determine the optimal website experience.  Browser features are detected using a device description repository (DDR) e.g. WURFL and / or client side JavaScript.</p>\r\n\r\n<p>To avoid a flash of unstyled content when a page loads one cannot leave all the browser feature testing to be run on page load.  Ideally a DDR would be used to determine device features before the page is server to the browser.  However, a DDR costs money and this will really depend on the client requirements.</p>\r\n\r\n<p>In my reponsive prototype I use a server session to store the browser''s features.  This requires that when a device visits my website for the first time all browser features are detected and set in the session.</p>\r\n\r\n<p>If no session is set, the server serves the basic version of the web page (the one for the LCD).  The web page determines whether a browser supports HTML5 using the hasTheMustard method.  \r\n\r\n<h4>hasTheMustard</h4>\r\n<p>The hasTheMustard is a method used by the BBC to distinguish between browsers that support HTML5 and those that don''t.  It tests for browser capabilities using JavaScript namely, Document.querySelector, Window.localStorage and Window.addEventListener.  It should be noted however, that Internet Explorer 8 does not support HTML5 but since it represents such a significant market share we cannot exclude it.  Using JavaScript user agent sniffing we provide an exception for IE8 and upwards.</p>\r\n\r\n<p>If a browser does not support HTML5 or does not have JavaScript the basic web page is displayed.  For those that do support HTML5 and have JavaScript the browser returns to the server (via AJAX) browser features including screen width, screen height, orientation, mouse or touch capabilities, local storage, geolocation etc.  This data is set in the server session and used to determine what content, CSS and JavaScript is most appropriate for the device.</p>\r\n\r\n<h3>Device groups</h3>\r\n<p>To differentiate between styles for various devices one sets device groups.  To be truly responsive device group breakpoints should not have any gaps and can be as exhaustive as your resources permit.  The challenge here is to define device groups that can use the same design grid.  In my prototype I have defined the following device groups:\r\n<ul>\r\n<li>\r\n<h4>Legacy</h4>\r\n<p>Screen width less than 240px\r\n</li>\r\n<li>\r\n<h4>Smart</h4>\r\n<p>Screen width greater and equal to 240px and less than and equal to 640px.  Within this device group I can have a number of breakpoints including 240px, 320px, 480px and 640px.  I use an 8px grid for this device group.</p>\r\n</li>\r\n<li>\r\n<h4>Compact</h4>\r\n<p>Screen width greater than 640px and less than 960px.  I can have a breakpoint of 640px, 800px and 960px.  I use a 30px grid with 10px gutters for this device group.</p>\r\n</li>\r\n<li>\r\n<h4>Large</h4>\r\n<p>Screen width greater than 960px.  I set a 960px limit on my website size and use a 30px grid with 10px gutters for this device group.</p>\r\n</li>\r\n</ul>\r\n \r\n<h3>AMD Loaders</h3>\r\n<p>To further improve performance AMD (asynchronous module definition) loaders enable JavaScript, CSS, text and il8n:</p>\r\n<ul>\r\n<li>to load in parallel improving the overall speed of a website page</li>\r\n<li>to encourage a modular structure of scripts based on dependencies which are easily maintainable</li>\r\n<li>to follow a well defined and standardised approach in keeping with the prospective ES-Harmony migration path</li>\r\n</ul>\r\n\r\n<h3>Adaptive images</h3>\r\n<p>A responsive website will serve appropriately sized images to a device that optimises download speeds.  I have chosen to implement a method based on Matt Wilcox'' approach that redirects all image requests to a PHP script.  The PHP script determines the required image dimension and either crops the image at run time or requests it from the cache.</p>\r\n\r\n<h3>Interesting insights:</h3>\r\n<ul>\r\n<li>The CSS media query for orientation is currently not widely supported for example, it does not work in iPhone 4 (iOS 4.3.3).  As such my thinking is that the orientation of the device is not required so long as I ensure my stylesheets include styles, using width media queries, for any viewport changes.</li>\r\n<li>Dynamically removing and adding stylesheets with JavaScript puts considerable strain on the browser as documented by Stubbornella.  For this reason, I use AJAX to determine the appropriate stylesheets to include in my web page.</li>\r\n</ul>\r\n\r\n<h4>Technologies I have used</h4>\r\n<ul>\r\n<li>RequireJS (AMD Loader and JavaScript and CSS optimiser)</li>\r\n<li>{Less} (Dyanmic style sheet language)</li>\r\n<li>UseJS (AMD Loader for non-compatible AMD JavaScripts)</li>\r\n<li>MasonryJS</li>\r\n<li>Almond (minimal AMD API implementation for optimised builds)</li>\r\n<li>Apache Ant (compiler)</li>\r\n<li>CodeIgniter REST API server</li>\r\n<li>Backbone JS (JavaScript MVC framework)</li>\r\n</ul>', '2012-05-04 17:00:00'),
-(38, 'absolute_orange_website_redesign', 'Absolute Orange website redesign', NULL, '<p class="wrapper-body">It had been approximately 4 years since I re-designed the Absolute Orange website and it was time to implement a much needed upgrade.</p>\n\n<p class="wrapper-body">The website uses its own CMS which I have cobbled together over the last 6 years.  It is written in Codeigniter PHP and I took 2 weeks to rewrite the code and improve the interface. I was impressed by how much I have improved. The code uses considerably more logic, common libraries and consistent methodologies for CRUD events which translates into fewer lines of code which are easy to understand and manage.</p>\n\n<p class="wrapper-body">As with all websites there is an initial planning phase. I spent half a day researching:</p>\n<ul class="wrapper-body">\n<li class="touch-list">Absolute Orange website metrics</li>\n<li  class="touch-list">Top 100 digital agencies websites on various devices</li>\n<li  class="touch-list">Freelance web developer websites on various devices</li>\n<li  class="touch-list">General information on freelancing in the IT industry</li>\n</ul>\n<p class="wrapper-body">This research helped me finalise my website content and from here I defined my information architecture.</p>\n\n<p class="wrapper-body">I decided that as the Absolute Orange website does not have a huge amount of content or interaction I would design it to be responsive (automatically responding to different size devices through the use of adaptive images, the implementation of appropriate grids and specified design elements using CSS media queries).  Following the ''mobile first'' methodology I design and build for a legacy mobile first and once the basic mobile website is built I then optimise for modern mobiles, tablets and desktops ensuring that my breakpoints are set where the design breaks.</p>\n\n<p class="wrapper-body">Having defined my overall approach I drew wireframes for both the optimised mobile and tablet devices (see examples below) .  I kept my wireframes idealistic in that I did not allow myself to set any limitations on the design and the user experience.  These would provide a blue print for an ideal product and it would be perfectly acceptable to compromise during development if time or resources so required, but the wireframes represented the desirable solution.</p>\n\n<p class="wrapper-body">The nex\n\n<p class="wrapper-body">Now that the essential planning phase was complete I could begin to consider the first stage of development.  I intended to develop a legacy version of the mobile site first.  A legacy version of a website exists to ensure an adequate user experience to the LCD (lowest common denominator).  As such I designed all the pages in Photoshop first keeping my designs at 175px width in order to ensure an adequate experience for my LCD (see examples below).</p>\n\n<p>Development could begin.  The legacy version of the website uses little, preferably no JavaScript (in fact I use only 1 script, storing the resolution of the device in a cookie for my adaptive images PHP script) and CSS 1 & 2.  It''s URI''s are all searchable and crawlable and once tested and released forms the basis from which to optimise.</p>\n\n<p class="wrapper-body">Unfortunately it was at this point that I ran out of time and I needed to release a MVP (minimum viable product).  I decided to optimise the legacy mobile website for phones greater than 240px but less than 640px using CSS media queries and CSS 3 transitions and gradients.</p>\n\n<p>I believe that version 2 will be optimise the existing website for devices greater than 640px, implementing my tablet wireframes as best possible without using JavaScript.  Version 3 will probably be when I begin implementing JavaScript, perhaps looking at implementing a one page JavaScript app for devices less than 640px.</p>', '2013-04-29 00:00:00');
+(37, 'Responsive web development', 'Responsive web development', 'responsive.jpg', '<p>Responsive Web Development is a front end web development approach for building one website that fits all screen sizes.</p>\n\n<h3>Lowest common denominator</h3>\n<p>The Responsive approach to building a website begins with the development of the website for a lowest common denominator (LCD). The LCD''s core experience is based on a Mobile First approach.  It focuses on being fast, lightweight and independent of JavaScript or CSS media queries.  The lowest common denominator website once tested provides the foundation for optimisation.</p>\n\n<h3>Browser features</h3>\n<p>Testing browser features allows one to determe what device and browser a user is using.  Ultimately the device and browser determine the optimal website experience.  Browser features are detected using a device description repository (DDR) e.g. WURFL and / or client side JavaScript.</p>\n\n<p>To avoid a flash of unstyled content when a page loads one cannot leave all the browser feature testing to be run on page load.  Ideally a DDR would be used to determine device features before the page is server to the browser.  However, a DDR costs money and this will really depend on the client requirements.</p>\n\n<p>In my <a href="/web#gallery" title="reponsive prototype">reponsive prototype</a> I use a server session to store the browser''s features.  This requires that when a device visits my website for the first time all browser features are detected and set in the session.</p>\n\n<p>If no session is set, the server serves the basic version of the web page (the one for the LCD).  The web page determines whether a browser supports HTML5 using the hasTheMustard method.  \n\n<h4>hasTheMustard</h4>\n<p>The hasTheMustard is a method used by the BBC to distinguish between browsers that support HTML5 and those that don''t.  It tests for browser capabilities using JavaScript namely, Document.querySelector, Window.localStorage and Window.addEventListener.  It should be noted however, that Internet Explorer 8 does not support HTML5 but since it represents such a significant market share we cannot exclude it.  Using JavaScript user agent sniffing we provide an exception for IE8 and upwards.</p>\n\n<p>If a browser does not support HTML5 or does not have JavaScript the basic web page is displayed.  For those that do support HTML5 and have JavaScript the browser returns to the server (via AJAX) browser features including screen width, screen height, orientation, mouse or touch capabilities, local storage, geolocation etc.  This data is set in the server session and used to determine what content, CSS and JavaScript is most appropriate for the device.</p>\n\n<h3>Device groups</h3>\n<p>To differentiate between styles for various devices one sets device groups.  To be truly responsive device group breakpoints should not have any gaps and can be as exhaustive as your resources permit.  The challenge here is to define device groups that can use the same design grid.  In my prototype I have defined the following device groups:\n<ul>\n<li>\n<h4>Legacy</h4>\n<p>Screen width less than 240px\n</li>\n<li>\n<h4>Smart</h4>\n<p>Screen width greater and equal to 240px and less than and equal to 640px.  Within this device group I can have a number of breakpoints including 240px, 320px, 480px and 640px.  I use an 8px grid for this device group.</p>\n</li>\n<li>\n<h4>Compact</h4>\n<p>Screen width greater than 640px and less than 960px.  I can have a breakpoint of 640px, 800px and 960px.  I use a 30px grid with 10px gutters for this device group.</p>\n</li>\n<li>\n<h4>Large</h4>\n<p>Screen width greater than 960px.  I set a 960px limit on my website size and use a 30px grid with 10px gutters for this device group.</p>\n</li>\n</ul>\n \n<h3>AMD Loaders</h3>\n<p>To further improve performance AMD (asynchronous module definition) loaders enable JavaScript, CSS, text and il8n:</p>\n<ul>\n<li>to load in parallel improving the overall speed of a website page</li>\n<li>to encourage a modular structure of scripts based on dependencies which are easily maintainable</li>\n<li>to follow a well defined and standardised approach in keeping with the prospective ES-Harmony migration path</li>\n</ul>\n\n<h3>Adaptive images</h3>\n<p>A responsive website will serve appropriately sized images to a device that optimises download speeds.  I have chosen to implement a method based on Matt Wilcox'' approach that redirects all image requests to a PHP script.  The PHP script determines the required image dimension and either crops the image at run time or requests it from the cache.</p>\n\n<h3>Interesting insights:</h3>\n<ul>\n<li>The CSS media query for orientation is currently not widely supported for example, it does not work in iPhone 4 (iOS 4.3.3).  As such my thinking is that the orientation of the device is not required so long as I ensure my stylesheets include styles, using width media queries, for any viewport changes.</li>\n<li>Dynamically removing and adding stylesheets with JavaScript puts considerable strain on the browser as documented by Stubbornella.  For this reason, I use AJAX to determine the appropriate stylesheets to include in my web page.</li>\n</ul>\n\n<h4>Technologies I have used</h4>\n<ul>\n<li>RequireJS (AMD Loader and JavaScript and CSS optimiser)</li>\n<li>{Less} (Dyanmic style sheet language)</li>\n<li>UseJS (AMD Loader for non-compatible AMD JavaScripts)</li>\n<li>MasonryJS</li>\n<li>Almond (minimal AMD API implementation for optimised builds)</li>\n<li>Apache Ant (compiler)</li>\n<li>CodeIgniter REST API server</li>\n<li>Backbone JS (JavaScript MVC framework)</li>\n</ul>', '2012-05-04 17:00:00'),
+(38, 'absolute_orange_website_redesign', 'Absolute Orange website redesign', NULL, '<p class="wrapper-body">It had been approximately 4 years since I re-designed the Absolute Orange website and it was time to implement a much needed upgrade.</p>\n\n<p class="wrapper-body">The website uses its own CMS which I have cobbled together over the last 6 years.  It is written in Codeigniter PHP and I took 2 weeks to rewrite the code and improve the interface. I was impressed by how much I have improved. The code uses considerably more logic, common libraries and consistent methodologies for CRUD events which translates into fewer lines of code which are easy to understand and manage.</p>\n\n<p class="wrapper-body">As with all websites there is an initial planning phase. I spent half a day researching:</p>\n<ul class="wrapper-body">\n<li class="touch-list">Absolute Orange website metrics</li>\n<li  class="touch-list">Top 100 digital agencies websites on various devices</li>\n<li  class="touch-list">Freelance web developer websites on various devices</li>\n<li  class="touch-list">General information on freelancing in the IT industry</li>\n</ul>\n<p class="wrapper-body">This research helped me finalise my website content and from here I defined my information architecture.</p>\n\n<p class="wrapper-body">I decided that as the Absolute Orange website does not have a huge amount of content or interaction I would design it to be responsive (automatically responding to different size devices through the use of adaptive images, the implementation of appropriate grids and specified design elements using CSS media queries).  Following the ''mobile first'' methodology I design and build for a legacy mobile first and once the basic mobile website is built I then optimise for modern mobiles, tablets and desktops ensuring that my breakpoints are set where the design breaks.</p>\n\n<p class="wrapper-body">Having defined my overall approach I drew wireframes for both the optimised mobile and tablet devices (see examples below) .  I kept my wireframes idealistic in that I did not allow myself to set any limitations on the design and the user experience.  These would provide a blue print for an ideal product and it would be perfectly acceptable to compromise during development if time or resources so required, but the wireframes represented the desirable solution.</p>\n\n<p class="wrapper-body">Now that the essential planning phase was complete I could begin to consider the first stage of development.  I intended to develop a legacy version of the mobile site first.  A legacy version of a website exists to ensure an adequate user experience to the LCD (lowest common denominator).  As such I designed all the pages in Photoshop keeping my designs at 175px width in order to ensure an adequate experience for my LCD (see examples below).</p>\n\n<p>Development could begin.  The legacy version of the website uses little, preferably no JavaScript (in fact I use only 1 script, storing the resolution of the device in a cookie for my adaptive images PHP script) and CSS 1 & 2.  It''s URI''s are all searchable and crawlable and once tested and released forms the basis from which to optimise.</p>\n\n<p class="wrapper-body">Unfortunately it was at this point that I ran out of time and I needed to release a MVP (minimum viable product).  I decided to optimise the legacy mobile website for phones greater than 240px but less than 640px using CSS media queries and CSS 3 transitions and gradients.</p>\n\n<p>I believe that version 2 will be optimise the existing website for devices greater than 640px, implementing my tablet wireframes as best possible without using JavaScript.  Version 3 will probably be when I begin implementing JavaScript, perhaps looking at implementing a one page JavaScript app for devices less than 640px.</p>', '2013-04-29 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -98,7 +96,7 @@ CREATE TABLE IF NOT EXISTS `blog_images` (
   `order_index` smallint(3) DEFAULT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
 
 --
 -- Dumping data for table `blog_images`
@@ -106,7 +104,11 @@ CREATE TABLE IF NOT EXISTS `blog_images` (
 
 INSERT INTO `blog_images` (`blog_id`, `image_url`, `image_alt`, `order_index`, `id`) VALUES
 (38, 'Absolute_Orange_website_redesign_photo(1)-enhanced.jpg', 'Absolute_Orange_website_redesign > Absolute Orange', 1, 12),
-(38, 'Absolute_Orange_website_redesign_photo(2)-enhanced.jpg', 'Absolute_Orange_website_redesign > Absolute Orange', 1, 13);
+(38, 'Absolute_Orange_website_redesign_photo(2)-enhanced.jpg', 'Absolute_Orange_website_redesign > Absolute Orange', 2, 13),
+(38, 'Absolute_Orange_website_redesign_v1-home.gif', 'Absolute_Orange_website_redesign > Absolute Orange', 4, 14),
+(38, 'Absolute_Orange_website_redesign_v1-developers.gif', 'Absolute_Orange_website_redesign > Absolute Orange', 5, 15),
+(38, 'Absolute_Orange_website_redesign_v1-work-open.gif', 'Absolute_Orange_website_redesign > Absolute Orange', 6, 16),
+(38, 'Absolute_Orange_website_redesign_photo-enhanced.jpg', 'Absolute_Orange_website_redesign > Absolute Orange', 3, 17);
 
 -- --------------------------------------------------------
 
@@ -151,7 +153,7 @@ CREATE TABLE IF NOT EXISTS `blog_relatedlinks` (
   `name` varchar(100) NOT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=101 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=99 ;
 
 --
 -- Dumping data for table `blog_relatedlinks`
@@ -23321,6 +23323,76 @@ INSERT INTO `country` (`id`, `country`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `employees`
+--
+
+DROP TABLE IF EXISTS `employees`;
+CREATE TABLE IF NOT EXISTS `employees` (
+  `employee_id` smallint(3) unsigned NOT NULL AUTO_INCREMENT,
+  `employee_name` varchar(75) DEFAULT NULL,
+  PRIMARY KEY (`employee_id`),
+  UNIQUE KEY `name` (`employee_name`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `employees`
+--
+
+INSERT INTO `employees` (`employee_id`, `employee_name`) VALUES
+(1, 'Amy Varga'),
+(2, 'Jon Reading');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `employees_relatedlinks`
+--
+
+DROP TABLE IF EXISTS `employees_relatedlinks`;
+CREATE TABLE IF NOT EXISTS `employees_relatedlinks` (
+  `relatedlink_id` smallint(3) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `url` varchar(50) NOT NULL,
+  PRIMARY KEY (`relatedlink_id`),
+  KEY `relatedLink_id` (`relatedlink_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `employees_relatedlinks`
+--
+
+INSERT INTO `employees_relatedlinks` (`relatedlink_id`, `name`, `url`) VALUES
+(1, 'CV in PDF format', '/cv/amyvarga_cv_1.pdf'),
+(2, 'CV in Word format', '/cv/amyvarga_cv_1.doc');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `employees_summaries`
+--
+
+DROP TABLE IF EXISTS `employees_summaries`;
+CREATE TABLE IF NOT EXISTS `employees_summaries` (
+  `employee_id` smallint(3) unsigned NOT NULL AUTO_INCREMENT,
+  `photo` varchar(50) NOT NULL,
+  `photo_back` varchar(50) NOT NULL,
+  `years_of_experience` smallint(3) unsigned NOT NULL,
+  `profile` longtext NOT NULL,
+  PRIMARY KEY (`employee_id`),
+  KEY `name_id` (`employee_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `employees_summaries`
+--
+
+INSERT INTO `employees_summaries` (`employee_id`, `photo`, `photo_back`, `years_of_experience`, `profile`) VALUES
+(1, 'amy_varga.jpg', '', 6, 'My profile'),
+(2, 'jonathan_reading.jpg', '', 6, 'My profile');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `employee_achievements`
 --
 
@@ -23332,7 +23404,7 @@ CREATE TABLE IF NOT EXISTS `employee_achievements` (
   `sort` smallint(3) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -23465,9 +23537,9 @@ CREATE TABLE IF NOT EXISTS `employee_skills` (
 --
 
 INSERT INTO `employee_skills` (`id`, `skills`, `employee_id`, `sort`) VALUES
-(8, 'Front end languages: Highly proficient in HTML, CSS including SASS, OO JavaScript as well as JSTL, JSP and XSLT', 1, 0),
-(9, 'Front end techniques and technologies: Experience in device-independent design and development as well as techniques including browser optimisation, progressive enhancement, responsive design, accessibility, selenium testing and JavaScript application development', 1, 0),
-(10, 'UX design techniques and technologies: Experience in participatory and collaborative, iterative design techniques, including user requirements specifications, personas, storyboards and user-flows, wireframing, prototyping and usability testing', 1, 0),
+(8, 'Front end languages:  Highly proficient in HTML, CSS including SASS, OO JavaScript and other front end languages including JSTL, JSP and XSLT', 1, 0),
+(9, 'Front end techniques and technologies: Experience in device-independent design and a solid understanding of fundamental front end techniques including browser optimisation, progressive enhancement, responsive design, accessibility and selenium testing', 1, 0),
+(10, 'User experience techniques:  Experience in participatory and collaborative, iterative design techniques, writing user requirements specifications, competitor analysis, personas, user-flows, wireframing and prototyping.  Experience implementing and conducting user observations, user focus groups, usability testing and A/B testing,', 1, 0),
 (11, 'Development processes and methodologies: Strong advocate of Agile practises and methodologies and processes and procedures which encourage overall effectiveness and delivery', 1, 0),
 (12, 'Broad skill-set:Experience developing bespoke CMS and E-commerce solutions using PHP and MySQL as well as native IOS applications', 2, 4),
 (13, 'Experience in latest methodologies: ''Responsive development'', ''Progressive enhancement'' and ''Feature detection''', 2, 3),
@@ -23476,76 +23548,6 @@ INSERT INTO `employee_skills` (`id`, `skills`, `employee_id`, `sort`) VALUES
 (16, 'Streamlined workflow: Incorporating version control, unit testing (TDD & BDD specs) , auto-generated documentation and automated builds.', 2, 5),
 (17, 'Object oriented design: Producing modular reusable code, utilising design patterns', 2, 6),
 (18, 'Standards complance: Adhering to W3C and Accessibility standards', 2, 6);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `employees`
---
-
-DROP TABLE IF EXISTS `employees`;
-CREATE TABLE IF NOT EXISTS `employees` (
-  `employee_id` smallint(3) unsigned NOT NULL AUTO_INCREMENT,
-  `employee_name` varchar(75) DEFAULT NULL,
-  PRIMARY KEY (`employee_id`),
-  UNIQUE KEY `name` (`employee_name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- Dumping data for table `employees`
---
-
-INSERT INTO `employees` (`employee_id`, `employee_name`) VALUES
-(1, 'Amy Varga'),
-(2, 'Jon Reading');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `employees_relatedlinks`
---
-
-DROP TABLE IF EXISTS `employees_relatedlinks`;
-CREATE TABLE IF NOT EXISTS `employees_relatedlinks` (
-  `relatedlink_id` smallint(3) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) NOT NULL,
-  `url` varchar(50) NOT NULL,
-  PRIMARY KEY (`relatedlink_id`),
-  KEY `relatedLink_id` (`relatedlink_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- Dumping data for table `employees_relatedlinks`
---
-
-INSERT INTO `employees_relatedlinks` (`relatedlink_id`, `name`, `url`) VALUES
-(1, 'CV in PDF format', '/cv/amyvarga_cv_1.pdf'),
-(2, 'CV in Word format', '/cv/amyvarga_cv_1.doc');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `employees_summaries`
---
-
-DROP TABLE IF EXISTS `employees_summaries`;
-CREATE TABLE IF NOT EXISTS `employees_summaries` (
-  `employee_id` smallint(3) unsigned NOT NULL AUTO_INCREMENT,
-  `photo` varchar(50) NOT NULL,
-  `photo_back` varchar(50) NOT NULL,
-  `years_of_experience` smallint(3) unsigned NOT NULL,
-  `profile` longtext NOT NULL,
-  PRIMARY KEY (`employee_id`),
-  KEY `name_id` (`employee_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- Dumping data for table `employees_summaries`
---
-
-INSERT INTO `employees_summaries` (`employee_id`, `photo`, `photo_back`, `years_of_experience`, `profile`) VALUES
-(1, 'amy_varga.jpg', '', 6, 'My profile'),
-(2, 'jonathan_reading.jpg', '', 6, 'My profile');
 
 -- --------------------------------------------------------
 
@@ -23831,19 +23833,18 @@ CREATE TABLE IF NOT EXISTS `showcase_images` (
   `order_index` smallint(3) DEFAULT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=94 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=99 ;
 
 --
 -- Dumping data for table `showcase_images`
 --
 
 INSERT INTO `showcase_images` (`showcase_id`, `image_url`, `image_alt`, `order_index`, `id`) VALUES
-(73, 'Three_mobile_website_iphone3.jpg', 'Three_mobile_website > Three ondemand video website iPhone', 1, 78),
 (75, 'UK_Web_Archive_website_web_archive_1.jpg', 'UK_Web_Archive_website > UK Web Archive home', 1, 79),
 (74, 'Virgin_shorts_website_virgin_shorts_3.jpg', 'Virgin_shorts_website > Virgin Shorts', 1, 80),
 (74, 'Virgin_shorts_website_virgin_shorts_1.jpg', 'Virgin_shorts_website > Virgin Shorts', 1, 81),
 (76, 'Clipper_Teas_clipper_1.jpg', 'Clipper_Teas > Clipper Teas shopping home page', 1, 82),
-(76, 'Clipper_Teas_clipper_2.jpg', 'Clipper_Teas > Clipper teas shopping web page', NULL, 83),
+(76, 'Clipper_Teas_clipper_2.jpg', 'Clipper_Teas > Clipper teas shopping web page', 1, 83),
 (78, 'BBC_IMG_0042.jpg', 'BBC > BBC iPlayer dial', 1, 84),
 (78, 'BBC_IMG_0049.jpg', 'BBC > BBC iPlayer prototype', 3, 85),
 (78, 'BBC_IMG_0048.jpg', 'BBC > BBC iPlayer prototype', 2, 86),
@@ -23853,7 +23854,12 @@ INSERT INTO `showcase_images` (`showcase_id`, `image_url`, `image_alt`, `order_i
 (80, 'The_Run_To_runto-3.jpg', 'The_Run_To > The Run To', 1, 90),
 (81, 'Happy_Face_IMG_0053.jpg', 'Happy_Face > Happy Face app', 1, 91),
 (81, 'Happy_Face_IMG_0055.jpg', 'Happy_Face > Happy Face app', 1, 92),
-(82, 'Film_London_screenshot1.jpg', 'Film_London > Film London', 1, 93);
+(82, 'Film_London_screenshot1.jpg', 'Film_London > Film London', 1, 93),
+(73, 'Three_htc.jpg', 'Three > Three ondemand video website HTC', 5, 94),
+(73, 'Three_htc2.jpg', 'Three > Three ondemand video website HTC', 4, 95),
+(73, 'Three_htc3.jpg', 'Three > Three ondemand video website HTC', 3, 96),
+(73, 'Three_iphone.jpg', 'Three > Three ondemand video website iPhone', 2, 97),
+(73, 'Three_iphone2.jpg', 'Three > Three ondemand video website iPhone', 2, 98);
 
 -- --------------------------------------------------------
 
@@ -23979,7 +23985,7 @@ INSERT INTO `showcase_skills` (`showcase_id`, `skills_id`) VALUES
 (74, 22),
 (75, 22),
 (75, 23),
-(76, 19),
+(76, 22),
 (77, 22),
 (78, 24),
 (78, 25),
@@ -24147,14 +24153,14 @@ DROP TABLE IF EXISTS `turba_shares_seq`;
 CREATE TABLE IF NOT EXISTS `turba_shares_seq` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=87 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=341 ;
 
 --
 -- Dumping data for table `turba_shares_seq`
 --
 
 INSERT INTO `turba_shares_seq` (`id`) VALUES
-(86);
+(340);
 
 -- --------------------------------------------------------
 
@@ -24198,6 +24204,51 @@ INSERT INTO `versions` (`id`, `name`) VALUES
 (1, 'v1'),
 (10, 'v2'),
 (11, 'v3');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `webapp_photos`
+--
+
+DROP TABLE IF EXISTS `webapp_photos`;
+CREATE TABLE IF NOT EXISTS `webapp_photos` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL DEFAULT '0',
+  `alt` varchar(50) NOT NULL DEFAULT '0',
+  `format` tinytext NOT NULL,
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=489 ;
+
+--
+-- Dumping data for table `webapp_photos`
+--
+
+INSERT INTO `webapp_photos` (`id`, `name`, `alt`, `format`) VALUES
+(487, 'jon_the_hulk', 'Jon the hulk', 'jpg'),
+(488, 'superman', '', 'jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `webapp_users`
+--
+
+DROP TABLE IF EXISTS `webapp_users`;
+CREATE TABLE IF NOT EXISTS `webapp_users` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(200) NOT NULL,
+  KEY `id` (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `webapp_users`
+--
+
+INSERT INTO `webapp_users` (`id`, `name`, `email`, `password`) VALUES
+(3, 'AmyV', 'amymvarga@yahoo.co.uk', 'TtqIVaKUbmRRZVk4jBfznkNjzy8K/IrCOWXCMP41CIOg7dGLQW4+WWvYUXVj5R3iMdDHLcG9mylHXjh90AfF8Q==');
 
 -- --------------------------------------------------------
 

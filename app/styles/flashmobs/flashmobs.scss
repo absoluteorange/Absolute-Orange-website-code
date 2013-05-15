@@ -1,9 +1,6 @@
 @import 'reset.sass';
+@import 'fonts.scss';
 
-@font-face {
-	font-family: 'UbuntuBoldItalics';
-	src: url('../fonts/ubuntu/UBUNTU-BI.TTF') format('truetype');
-}
 * {
 	line-height: 16px;
 }
@@ -17,7 +14,6 @@ h1, h2 {
 	font-family: 'UbuntuBoldItalics', Helvetica, Arial, sans-serif;
 	font-size: 4em;
 }
-
 h2 {
 	font-size: 2em;
 	font-weight: bold;
@@ -28,16 +24,28 @@ p {
 	font-size: 1.077em;
 }
 
+span.italics {
+	font-style: italic;
+}
 strong {
 	font-weight: bold;
 }
 
 body {
 	background-color: #151e5c;
+	margin: 1em;
 }
 	
-.logo {
-	text-align: center;
+header {
+	float: left;
+	width: 100%;
+	margin-bottom: 2em;
+	h1, img {
+		float: left;
+	}
+	h1 {
+		padding-top: 0.25em;
+	}
 }
 
 @mixin rounded-top-left {
@@ -72,24 +80,6 @@ body {
 	-moz-border-radius-#{$vert}#{$horz}: $radius;
 	-webkit-border-#{$vert}#{$horz}-radius: $radius;
 }
-
-section {
-	margin: 1em;
-	border: 1px solid #fff;
-	padding: 1em;
-	@include rounded-top-left;
-	@include rounded-bottom-left;
-	@include rounded-top-right;
-	@include rounded-bottom-right;
-	.content {
-		padding: 1em;	
-		background-color: #fff;
-		h2, p, a { 
-			color: #151e5c; 
-		}
-	}
-}
-
 footer {
 	text-align: center;
 	p {

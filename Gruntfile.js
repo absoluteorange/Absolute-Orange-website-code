@@ -170,6 +170,11 @@ module.exports = function (grunt) {
                     preserveLicenseComments: false,
                     useStrict: true,
                     wrap: true,
+                    mainConfigFile: 'app/scripts/main',
+                    paths: {
+        				"globals": "empty:",
+        				"Lang": "empty:"
+        		 	}
                     //uglify2: {} // https://github.com/mishoo/UglifyJS2
                 }
             }
@@ -218,7 +223,13 @@ module.exports = function (grunt) {
                         '.tmp/styles/bootstrap/bootstrap.css'
                     ]
                 }
-              }
+              },
+            webapp: {
+            	  expand: true,
+                  cwd: '.tmp/styles/webapp',
+                  src: ['*.css'],
+                  dest: '<%= yeoman.dist %>/styles/webapp'
+             }
         
         },
         htmlmin: {
@@ -253,7 +264,7 @@ module.exports = function (grunt) {
                         '*.{ico,txt,php}',
                         '.htaccess',
                         'images/**',
-                        'sharedTemplates/{,*/}*.html',
+                        'sharedTemplates/**',
                         'fonts/{,*/}*.*'
                     ]
                 }]

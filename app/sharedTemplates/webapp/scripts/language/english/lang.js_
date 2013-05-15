@@ -1,0 +1,32 @@
+define([],function() {
+	var messages = {
+		required: "You must have an %s.",
+		required_field: "You must have an ",
+		default_value: "Please enter a ",
+		regex_match: "Your password is not in the correct format, please try again.",
+		max_length: "The photo name is too long, it must be no longer than 75 characters long.",
+		username_invalid: "Your username includes characters that are not allowed, please try again.",
+		valid_email:"Your email is not in the correct format, please try again.",
+		email_not_recognised: "Your username is not recognised.  Please <a href='./register' id='openRegister' title='Register' alt='Register'>register</a>",
+		email_invalid: "Your email is not in the correct format, please try again.",
+		password_invalid: "Your password is not in the correct format.",
+		password_incorrect: "Your password is incorrect.  Have you <a href='./forgottenPassword' id='openForgottenPassword' title='Forgotten password' alt='Forgotten password'>forgotten password</a>?",
+		registered:"You are already registered, <a href='./login' title='Login'>Login</a>",
+		not_logged_in:"You must login to add photos, <a href='javascript:void(0)' id='openLogin' title='Login' alt='Login'>login</a>.",
+		photo_invalid_format:" is not a valid format.",
+		photo_invalid_size:"Your image is to big to upload.  Please choose an image that is smaller than 1.5Mb",
+		valid_base64:"This photo is not a valid format.",
+		insecure:"This form cannot be processed.",
+		csrf_secure:"This form cannot be processed.",
+		photo_uploaded: "This photo has been successfully uploaded.",
+		helper_password: "Your password must contain at least one uppercase letter and one digit.",
+		helper_username: "Your username must contain only letters and numbers.",
+		helper_dropzone: "You can upload photos to this gallery by dragging them into the green dropzone.",
+		photo_uploading: " is being uploaded.",
+		helper_successfully_registered: "Welcome, you have successfully registered.  Please login.",
+		email: "Your email",
+		password: "Your password",
+		username: "Your username"		
+	};
+	return messages;
+});

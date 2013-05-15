@@ -1,0 +1,10 @@
+<section id="photoGallery">
+	<h2>My photos</h2>
+	<div id="photoContainer">
+		<div id="photos" class="fluid clearfix">
+			{{#photos}}
+				<img src="{{imageUrl}}/{{scale}}/{{name}}.{{format}}" title="{{alt}}" alt="{{alt}}" />
+			{{/photos}}
+		</div>
+	</div>
+</section>
