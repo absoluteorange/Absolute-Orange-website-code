@@ -1,6 +1,6 @@
 define(['use!Backbone', 'Lang'], function(Backbone, Lang){
 	var user = Backbone.Model.extend ({
-		urlRoot: "./api/users/register/format/json",
+		urlRoot: "/api/users/register/format/json",
 		defaults: {
 			'email': '',
 			'password': '',

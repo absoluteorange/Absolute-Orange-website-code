@@ -12,16 +12,25 @@
 	 		document.cookie='resolution='+Math.max(document.body.clientWidth, document.body.clientHeight)+("devicePixelRatio" in window ? ","+devicePixelRatio : ",1")+'; path=/';	
 		 }
 	</script>
+    <script>
+        var eleHtml = document.getElementsByTagName('html')[0],
+            existingPseudoClasses = eleHtml.className.split(' '),
+            newPseudoClass = 'js';
+            for(var i= 0, len=existingPseudoClasses.len; i<len; i++){
+                if (thisClass != 'no-js') {
+                    newPseudoClass = newPseudoClass+' '+thisClass;
+                }
+            }
+            eleHtml.className = newPseudoClass;
+    </script>
 	<div id="page">
 		<div id="construction"><div id="construction-badge"></div></div>
 		<div id="inner-page">
 			{{{header}}}
-			{{{nav}}}
 			{{{container}}}
-			
-			{{{tweets}}}
-			<footer>
+		<footer>
 			{{{contact}}}
+            {{{nav}}}
 			{{{footer}}}
 		</footer>
 		</div>

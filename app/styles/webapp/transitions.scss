@@ -20,3 +20,22 @@
        -o-transition-property: left, right, top;
           transition-property: left, right, top;
 }
+
+
+
+
+#form-helper {
+  -webkit-transition: height 2s width 2s ease-in;
+     -moz-transition: height 2s width 2s ease-in;
+      -ms-transition: height 2s width 2s ease-in;
+       -o-transition: height 2s width 2s ease-in;
+          transition: height 2s width 2s ease-in;
+}
+
+#form-helper.expanded {
+	-webkit-transform: height 2s width 2s ease-in;
+     -moz-transform: height 2s width 2s ease-in;
+      -ms-transform: height 2s width 2s ease-in;
+       -o-transform: height 2s width 2s ease-in;
+          transform: height 2s width 2s ease-in;
+}

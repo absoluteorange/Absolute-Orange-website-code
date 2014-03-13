@@ -6,32 +6,35 @@ define(['use!utils', 'use!Backbone', 'Login', 'text!templates/login.html', 'use!
 		 },
 		 render:function (eventName) {
 			 $('html, body').animate({ scrollTop: 0 }, 0);
+			 $(this.el).find('h1').html("Login");
 			 document.title = 'Login';
-			 $(this.el).empty();
-			 $(this.el).append('<header><h1>Login</h1></header>');
 			 if (this.options.registerModel.attributes.newRegistration == 'true') {
 				 this.newRegistration = "<div id='form-helper'><p>"+Lang['helper_succesfully_registered']+"</p></div>";
 			 }
-			 var view = {
-				formUrl: '',
-				registerUrl: '#register',
-				csrf: this.csrf,
-				passwordHelper: Lang['helper_password'],
-				usernameHelper: Lang['helper_username'],
-			 	values: new Object ({email: Lang['email'], password: Lang['password']}),
-			 	newRegistration: this.newRegistration
-			 };
-			 this.htm = Mustache.render(this.template(), view);
-			 $(this.el).append(this.htm);
-			 utils.inputClearer();
+			 if ($(this.el).find('#login').length == 0) {
+				 var view = {
+					formUrl: '',
+					registerUrl: 'javascript: void(0);',
+					csrf: this.csrf,					
+					passwordHelper: Lang['helper_password'],
+				 	values: new Object ({email: Lang['email'], password: Lang['password']}),
+				 	newRegistration: this.newRegistration
+				 };
+				 this.htm = Mustache.render(this.template(), view);
+				 $(this.el).append(this.htm);
+			 } else {
+				 $('#login').fadeIn('fast');	
+			 } 
 		 },
 		 events: {
 			 'click button#loginButton' : 'login',
 			 'click a#openForgottenPassword' : 'openView',
-			 'click a#openRegister' : 'openView'
+			 'click a#openRegister' : 'openView',
+			 'click input#openGallery' : 'openView'
 		 },
 		 login: function () {
-			 $(this.el).find('.btn').html('Loading...');
+			 var $submitButton = $(this.el).find('#loginButton');
+			 $submitButton.html('Loading...');
 			 var arr = $('#loginForm').serializeArray();
 			 var data = _(arr).reduce(function(acc, field) {
 			      acc[field.name] = field.value;
@@ -61,27 +64,29 @@ define(['use!utils', 'use!Backbone', 'Login', 'text!templates/login.html', 'use!
 							 }
 						 }
 					 }
-					 $('#loginForm').find('.btn').html('Log in');
+					 $submitButton.html('Submit');
 				 }, success: function(model) {
+					 thisObj.options.authenticateModel.fetch();
 					 thisObj.openView();
 				 }
 			 });
 			 return false;
 		 },
 		 close: function () {
-		       $('#login').unbind();
-		       $('#login').remove();
+		       
 		 },
 		 openView: function (e) {
-			 this.close();
-			 if (e == undefined) {
-				 this.options.loginModel.set({status: 'true'}, {silent: true});
-				 Backbone.history.navigate('gallery', true);
-			 } else {
-				 var view = e.currentTarget.id.replace('open', '').toLowerCase();
-				 Backbone.history.navigate(view, true);
-			 }
-			 return false;
+			 var thisObj = this;
+			 $('#login').fadeOut('slow', function () {
+				 if (e == undefined) {
+					 thisObj.options.loginModel.set({status: 'true'}, {silent: true});
+					 Backbone.history.navigate('gallery', true);
+				 } else {
+					 var view = e.currentTarget.id.replace('open', '').toLowerCase();
+					 Backbone.history.navigate(view, true);
+				 }
+				 return false;
+			 });
 		 }
 	});
 	return LoginView;

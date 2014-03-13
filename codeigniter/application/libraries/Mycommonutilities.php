@@ -40,6 +40,7 @@ class Mycommonutilities {
 			$sessionArray[$key] = $value;
 		}
 		$this->_ci->session->set_userdata($sessionArray);
+		
 		return true;
 	}
 	
@@ -96,7 +97,7 @@ class Mycommonutilities {
 		if ($screenWidth >= 240 && $screenWidth <= 640) {
 			$deviceGroup = 'smart';
 		} else if ($screenWidth > 640 && $screenWidth < 960 ) {
-			$deviceGroup = 'compact';
+			$deviceGroup = 'smart';
 		} else if ($screenWidth >= 960) {
 			$deviceGroup = 'large';
 		}

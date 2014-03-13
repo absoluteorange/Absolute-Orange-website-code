@@ -1,28 +1,31 @@
-<section id="register">
-	<form action="{{formUrl}}" method="post" accept-charset="utf-8" id="registerForm" class="form-horizontal well">	
+<section id="register" class="js-only">
+	<div class="navigation">
+		<a id="openLogin" href="{{loginUrl}}" class="btn btn-warning" title="Login">Login</a>
+	</div>
+	<form action="{{formUrl}}" method="post" accept-charset="utf-8" id="registerForm" class="form-horizontal">	
 		<input type="hidden" value="{{csrf}}" name="csrf_secure">
 		<div class="control-group" id="username">
-			<input type="text" name="username" value="{{#values}}{{username}}{{/values}}" maxlength="100" size="50" style="width:50%"  />		
+			<input type="text" name="username" placeholder="{{#values}}{{username}}{{/values}}" value="" maxlength="100" size="50" style="width:50%"  />		
 			<span class="help-inline">
 			{{#errors}}{{username}}{{/errors}}
 			</span>
 			<p class="form-help">{{usernameHelper}}</p>
 		</div>
 		<div class="control-group" id="email">
-			<input type="text" name="email" value="{{#values}}{{email}}{{/values}}" maxlength="100" size="50" style="width:50%"  />		
+			<input type="text" name="email" placeholder="{{#values}}{{email}}{{/values}}" value="" maxlength="100" size="50" style="width:50%"  />		
 			<span class="help-inline">
 				{{#errors}}{{email}}{{/errors}}
 			</span>
 		</div>
 	    <div class="control-group" id="password">
-			<input type="password" name="password" value="{{#values}}{{password}}{{/values}}" maxlength="100" size="50" style="width:50%"  />		
+			<input type="password" name="password" placeholder="{{#values}}{{password}}{{/values}}" value="" maxlength="100" size="50" style="width:50%"  />		
 			<span class="help-inline">
 				{{#errors}}{{{password}}}{{/errors}}
 			</span>
 			<p class="form-help">{{passwordHelper}}</p>
 		</div>
-		<button type="submit" class="btn btn-primary" data-toggle="button" id="registerButton">Register</button>
-		<a href="{{loginUrl}}" title="Login">Login</a>
+		<button type="submit" class="btn btn-success btn-first" data-toggle="button" id="registerButton">Submit</button>
+		
 		{{#response}}
 			<div class="form-helper">
 				<p>{{{result}}}</p>

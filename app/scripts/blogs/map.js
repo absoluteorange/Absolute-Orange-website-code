@@ -27,7 +27,7 @@ google_map.initialize = function (instancename) {
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     map = new google.maps.Map(document.getElementById('map-canvas'), myOptions);
-    contentString ="<img id='map_logo' src='http://www.absoluteorange.com/images/logo.png' title='Absolute Orange' height='35' /><p>This is Absolute Orange's location : <a href='javascript:void(0)' onclick='google_map.geolocation();' title='find your location'>What's yours?</a></p>"
+    contentString ="<img id='map_logo' src='http://www.absoluteorange.com/images/bg/logo.png' title='Absolute Orange' height='35' /><p>This is Absolute Orange's location : <a href='javascript:void(0)' onclick='google_map.geolocation();' title='find your location'>What's yours?</a></p>"
     map.setCenter(myLocation);
     infowindow.setContent(contentString);
     infowindow.setPosition(myLocation);
@@ -75,8 +75,8 @@ google_map.codeAddress = function () {
     var address = document.getElementById("address").value;
     if (geocoder) {
         geocoder.geocode( {'address': address}, function(results, status) {
-	        if (status == google.maps.GeocoderStatus.OK) {
-	        	google_map.displayPosition(results[0].geometry.location.jb, results[0].geometry.location.kb);
+	        if (status === google.maps.GeocoderStatus.OK) {
+	        	google_map.displayPosition(results[0].geometry.location.lat(), results[0].geometry.location.lng());
 	        } else {
 	            google_map.feedback('error', '', status);
 	        }
@@ -131,10 +131,10 @@ google_map.displayPosition = function (lat, lng) {
 
 google_map.onError = function(error) {
   if (error.message == 'User denied Geolocation') {
-     contentString = "<img id='map_logo' src='http://www.absoluteorange.com/images/logo.png' title='Absolute Orange' height='35' /><p>Error: User denied Geolocation.  You will need to allow the browser to find your location or update your browser.  Now trying Google gears to find your location.</p>";
+     contentString = "<img id='map_logo' src='http://www.absoluteorange.com/images/bg/logo.png' title='Absolute Orange' height='35' /><p>Error: User denied Geolocation.  You will need to allow the browser to find your location or update your browser.  Now trying Google gears to find your location.</p>";
      timer = setTimeout("if (google.gears) { google_map.google_gears(); } else { google_map.onError('Google gears'); }", 5000);
   } else if (error == 'Google gears') {
-     contentString = "<p><img id='map_logo' src='http://www.absoluteorange.com/images/logo.png' title='Absolute Orange' height='35' />Error: Google gears is not supported.<br />Now trying Yahoo Geo to find your<br />location using your IP address.</p>";
+     contentString = "<p><img id='map_logo' src='http://www.absoluteorange.com/images/bg/logo.png' title='Absolute Orange' height='35' />Error: Google gears is not supported.<br />Now trying Yahoo Geo to find your<br />location using your IP address.</p>";
      timer = setTimeout("google_map.geo_yahoo();", 5000);
   }
   map.setCenter(myLocation);
@@ -168,13 +168,13 @@ google_map.handle_geolocation_query = function (position){
 
 google_map.feedback = function(message, distance, status) {
      if (message == 'feasible') {
-        contentString ="<img id='map_logo' src='http://www.absoluteorange.com/images/logo.png' title='Absolute Orange' height='35' /><p>Your location is approximately "+distance+" km's from<br />Absolute Orange.  This is a feasible journey for<br />Absolute Orange.</p>"
+        contentString ="<img id='map_logo' src='http://www.absoluteorange.com/images/bg/logo.png' title='Absolute Orange' height='35' /><p>Your location is approximately "+distance+" km's from<br />Absolute Orange.  This is a feasible journey for<br />Absolute Orange.</p>"
      } else if (message == 'relocation') {
-        contentString ="<img id='map_logo' src='http://www.absoluteorange.com/images/logo.png' title='Absolute Orange' height='35' /><p>Your location is miles away from Absolute Orange.<br />Absolute Orange would have to relocate.</p>"
+        contentString ="<img id='map_logo' src='http://www.absoluteorange.com/images/bg/logo.png' title='Absolute Orange' height='35' /><p>Your location is miles away from Absolute Orange.<br />Absolute Orange would have to relocate.</p>"
      } else if (message == 'error') {
-        contentString ="<img id='map_logo' src='http://www.absoluteorange.com/images/logo.png' title='Absolute Orange' height='35' /><p>Geo Yahoo was unsuccessful for<br />the following reason: " +status+".</p>";
+        contentString ="<img id='map_logo' src='http://www.absoluteorange.com/images/bg/logo.png' title='Absolute Orange' height='35' /><p>Geo Yahoo was unsuccessful for<br />the following reason: " +status+".</p>";
      } else if (message == 'not feasible') {
-         contentString ="<img id='map_logo' src='http://www.absoluteorange.com/images/logo.png' title='Absolute Orange' height='35' /><p>Your location is approximately "+distance+" km's from<br />Absolute Orange.  This is might not be a feasible<br />journey for Absolute Orange.</p>";
+         contentString ="<img id='map_logo' src='http://www.absoluteorange.com/images/bg/logo.png' title='Absolute Orange' height='35' /><p>Your location is approximately "+distance+" km's from<br />Absolute Orange.  This is might not be a feasible<br />journey for Absolute Orange.</p>";
      }
      return contentString;
 };

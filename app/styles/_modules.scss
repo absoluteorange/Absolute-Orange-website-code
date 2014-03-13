@@ -1,11 +1,11 @@
-
 header {
 	@extend .drop-shadow;
 	.wrapper {
+        min-height: 55px;
 		@extend .texture1;
 		border-bottom: 1px solid #444;
 		padding: 0.5em;
-		@include media($first) {
+		@include breakpoint($first) {
 		 	padding: 0.2em;
 		}
 		h1.wrapper-head,  p.wrapper-body {
@@ -13,6 +13,7 @@ header {
 		}
 		h1.wrapper-head {
 			 margin-bottom: 0.1em;
+             float: right;
 			 @include breakpoint($first) {
 			 	margin-bottom: 0.2em;
 			}
@@ -20,9 +21,20 @@ header {
 		p.wrapper-body {
 			margin: -0.5em 0 0 0.5em;
 		}
+        .icon-mobile-menu {
+          height: 50px;
+          width: 50px;
+          display:block;
+        }
 	}
 }
 
+.js nav {
+  display: none;
+}
+.no-js nav {
+  display: block;
+}
 nav {
 	@extend .drop-shadow;
 	.wrapper {
@@ -39,7 +51,7 @@ nav {
 			}			
 		}
 		.touch-list-title{
-			@include span-columns(13);
+			@include span-columns(15);
 			@include omega();
 			padding: 0.5em;
 			color:  #e2dfe2;
@@ -55,8 +67,10 @@ nav {
 				color:  #ff7c27;
 			}
 		}
-		
 	}
+    &.mobile-enabled {
+      display: block;
+    }
 }
 
 footer {
@@ -78,25 +92,27 @@ footer {
 			@include font-size($grid-columns);
 			color: #ff7c27;
 			margin: 0;
-			@include media($first) {
+			@include breakpoint($first) {
 		 		@include font-size(14);
 			}
-			@include media($second) {
+			@include breakpoint($second) {
 		 		@include font-size(18);
 			}
 		}
-		.copy-wrapper {
-			@extend .extend-nested-margins-padding;
-			text-align: center;
-			.wrapper-body {
-				color: #ff7c27;
-				@include media($second) {
-					@include font-size(12); 
-				}
-				@include font-size(13);
-			}	
-		}
 	}
+    .copy-wrapper {
+        @extend .extend-nested-margins-padding;
+        text-align: center;
+        .wrapper-body {
+            color: #ff7c27;
+            margin-bottom: 0;
+            @include breakpoint($second) {
+              @include font-size(12);
+            }
+            @include font-size(13);
+        }
+    }
+
 }
 
 .tweets {
@@ -134,7 +150,8 @@ footer {
 
 .major-text-wrapper {
 	@extend .extend-nested-margins-padding;
-	h2.wrapper-head {
+	h2.wrapper-head,
+    h2.wrapper-head a {
 		color: #e2dfe2;
 	}
 }

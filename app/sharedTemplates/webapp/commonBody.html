@@ -1,4 +1,5 @@
 <body>
+	<div class="backgroundImg"></div>
 	<script type="text/javascript">
 		{{#activeSession}}
 			var activeSession = true;
@@ -6,8 +7,13 @@
 		{{^activeSession}}
 			var activeSession = false;
 		{{/activeSession}}
-		if (determiningDevice == true || activeSession == false ) {
-			document.getElementsByTagName('body')[0].className+='js';
+		if (activeSession === false ) {
+			document.getElementsByTagName('body')[0].className+='js no-session';
+		} else {
+			document.getElementsByTagName('body')[0].className+='js session';
+		}
+		if (cookieEnabled === false) {
+			document.getElementsByTagName('body')[0].className='js no-cookie';
 		}
 	</script>
 	<div id="contentContainer">

@@ -1,6 +1,9 @@
 .js #photos { 
 	display: none;
 }
+.no-cookie #photos {
+	display: block;
+}
 .js .loading {
 	display: block;
 }

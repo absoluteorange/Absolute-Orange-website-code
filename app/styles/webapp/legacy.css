@@ -1,0 +1,10 @@
+.js .no-session #photos { 
+	display: none;
+}
+.js .no-cookie #photo {
+	display: block;
+}
+.js .loading {
+	display: block;
+}
+

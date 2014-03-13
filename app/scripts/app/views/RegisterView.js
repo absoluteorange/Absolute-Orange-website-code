@@ -6,32 +6,36 @@ define(['use!utils', 'use!Backbone', 'User', 'Login', 'text!templates/register.h
 		 },
 		 render:function (eventName) {
 			 $('html, body').animate({ scrollTop: 0 }, 0);
+			 $(this.el).find('h1').html("Register");
 			 document.title = 'Register';
-			 $(this.el).empty();
-			 $(this.el).append('<header><h1>Register</h1></header>');
-			 var view = {
-				formUrl: '',
-				loginUrl: 'web#login',
-				csrf: this.csrf,
-				passwordHelper: Lang['helper_password'],
-				usernameHelper: Lang['helper_username'],
-			 	values: new Object ({email: Lang['email'], username: Lang['username'], password: Lang['password']})
-			 };
-			 this.htm = Mustache.render(this.template(), view);
-			 $(this.el).append(this.htm);
-			 utils.inputClearer();
+			 if ($(this.el).find('#register').length == 0) {
+				 var view = {
+					formUrl: '',
+					loginUrl: '',
+					csrf: this.csrf,
+					passwordHelper: Lang['helper_password'],
+					usernameHelper: Lang['helper_username'],
+				 	values: new Object ({email: Lang['email'], username: Lang['username'], password: Lang['password']})
+				 };
+				 this.htm = Mustache.render(this.template(), view);
+				 $(this.el).append(this.htm);
+			 } else {
+				 $('#register').fadeIn('fast');
+			 }
 		 },
 		 events: {
 			 'click button#registerButton' : 'register',
 			 'click a#openLogin' : 'openView'
 		 },
 		 register: function () {
-			 $(this.el).find('.btn').html('Loading...');
+			 var $submitButton = $(this.el).find('#registerButton');
+			 $submitButton.html('Loading...');
 			 var arr = $('#registerForm').serializeArray();
 			 var data = _(arr).reduce(function(acc, field) {
 			      acc[field.name] = field.value;
 			      return acc;
 			    }, {});
+			 
 			 var thisObj = this;
 			 this.options.registerModel.save(data, {
 				 error: function(model, errors) {
@@ -53,26 +57,25 @@ define(['use!utils', 'use!Backbone', 'User', 'Login', 'text!templates/register.h
 							 }
 						 }
 					 }
-					 $('#registerForm').find('.btn').html('Register');
+					 $submitButton.html('Submit');
 				 }, success: function(model) {
+					 thisObj.options.authenticateModel.fetch();
 					 thisObj.openView();
 				 }
 			 });
 			 return false;
 		 },
-		 close: function () {
-			 $('#register').unbind();
-		     $('#register').remove();
-		 },
 		 openView: function (e) {
-			 this.close();
-			 if (e == undefined) {
-				 this.options.registerModel.set({newRegistration: 'true'}, {silent: true});
-				 Backbone.history.navigate('login', true);
-			 } else {
-				 var view = e.currentTarget.id.replace('open', '').toLowerCase();
-				 Backbone.history.navigate(view, true);				
-			 }
+			 var thisObj = this;
+			 $('#register').fadeOut('slow', function () {
+				 if (e == undefined) {
+					 thisObj.options.registerModel.set({newRegistration: 'true'}, {silent: true});
+					 Backbone.history.navigate('gallery', true);
+				 } else {
+					 var view = e.currentTarget.id.replace('open', '').toLowerCase();
+					 Backbone.history.navigate(view, true);				
+				 }
+		 	});
 		 }
 	});
 	return RegisterView;

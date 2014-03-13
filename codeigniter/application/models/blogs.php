@@ -7,9 +7,18 @@ class Blogs extends CI_Model {
         parent::__construct();
     }
     
-    function getAll() {
-        $sql = "SELECT name, id, DATE_FORMAT(date_completed, '%a, %D %M  %Y') as date
+    function getAll($employeeId) {
+        $join = '';
+        if (isset($employeeId)) {
+            $join = "JOIN employee_blog ON blog.id=employee_blog.blog_id WHERE employee_id=$employeeId";
+        }
+        /*$sql = "SELECT name, id, DATE_FORMAT(date_completed, '%a, %D %M  %Y') as date
 				FROM blog
+				".$join."
+				ORDER BY date_completed desc";*/
+        $sql = "SELECT name, id, description
+				FROM blog
+				".$join."
 				ORDER BY date_completed desc";
         $query= $this->db->query($sql);
         return $query->result_array();

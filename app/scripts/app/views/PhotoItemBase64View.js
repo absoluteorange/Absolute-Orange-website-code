@@ -3,7 +3,7 @@ define(['use!Backbone', 'Photo', 'text!app/templates/photoItemBase64.html'], fun
 		 tagName: 'div',
 		 template: _.template(PhotoTemplate),
 		 render:function (eventName) {
-			 $(this.el).addClass('item col1');
+			 $(this.el).addClass('item');
 			 $(this.el).html(this.template(this.model.toJSON())); 
 			return this;
 		 }

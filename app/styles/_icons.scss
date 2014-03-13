@@ -1,8 +1,8 @@
 $icon-phone : ".icon-phone";
 $icon-twitter : ".icon-twitter";
 $icon-email : ".icon-email";
-$icon-arrow-nav :"nav .touch-list";
-$icon-arrow-nav-selected :"nav .touch-list.selected";
+$icon-arrow-nav :"touch-list";
+$icon-arrow-nav-selected :"touch-list.selected";
 $icon-arrow-a :".toggle-list-section-style-b .widget-summary";
 $icon-arrow-a-selected :".toggle-list-section-style-b .widget-summary.selected";
 
@@ -11,6 +11,7 @@ $icon-arrow-b-selected :".toggle-list-section .widget-summary.selected,.toggle-l
 $icon-select-box-arrow:".styled-select";
 
 $icon-under-construction : "#construction-badge";
+$icon-mobile-menu : "header .wrapper .icon-mobile-menu";
 .icon{ 
 	background-size:cover;
 }
@@ -28,11 +29,28 @@ $icon-under-construction : "#construction-badge";
 
 .contentbox-icon{
 	background-origin:content-box;
-	background-position:right; 
-	
+	background-position:right;
 }
 
-
 #{$icon-phone},#{$icon-email},#{$icon-twitter}{
-	@extend .footer-icon;	
+	@extend .footer-icon;
+}
+
+#{$icon-mobile-menu} {
+  @extend .icon;
+  box-shadow: 0px 0px 2px #e2dfe2;
+}
+
+$icon-infographic-1 : ".infographics img.icon-infographic-1";
+$icon-infographic-2 : ".infographics img.icon-infographic-2";
+$icon-infographic-3 : ".infographics img.icon-infographic-3";
+$icon-infographic-4 : ".infographics img.icon-infographic-4";
+$icon-infographic-5 : ".infographics img.icon-infographic-5";
+
+.icon { 
+	background-size: 100%;
+}
+
+#{$icon-infographic-1}, #{$icon-infographic-2}, #{$icon-infographic-3}, #{$icon-infographic-4}, #{$icon-infographic-5}{
+	@extend .icon;
 }

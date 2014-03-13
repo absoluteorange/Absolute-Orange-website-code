@@ -1,9 +1,8 @@
 @import 'reset.sass';
-@import 'fonts';
-@import "bourbon/bourbon";
+@import 'fonts.scss';
+@import 'bourbon/bourbon';
 @import 'layout.scss';
 @import 'base.scss';
 @import 'themes.scss';
 @import 'modules.scss';
 @import 'icons.scss';
-@import 'blog-specific.scss';

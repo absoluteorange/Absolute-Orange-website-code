@@ -372,11 +372,11 @@ FileETag None
 # Option 1:
 # Rewrite "www.example.com -> example.com".
 
-#<IfModule mod_rewrite.c>
-#RewriteCond %{HTTPS} !=on
-#RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
-#RewriteRule ^ http://%1%{REQUEST_URI} [R=301,L]
-#</IfModule>
+<IfModule mod_rewrite.c>
+ RewriteCond %{HTTPS} !=on
+ RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+ RewriteRule ^ http://%1%{REQUEST_URI} [R=301,L]
+</IfModule>
 
 # ----------------------------------------------------------------------
 
@@ -385,11 +385,11 @@ FileETag None
 # Be aware that the following rule might not be a good idea if you use "real"
 # subdomains for certain parts of your website.
 
-<IfModule mod_rewrite.c>
-   RewriteCond %{HTTPS} !=on
-  RewriteCond %{HTTP_HOST} !^www\..+$ [NC]
-  RewriteRule ^ http://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
-</IfModule>
+#<IfModule mod_rewrite.c>
+#   RewriteCond %{HTTPS} !=on
+#  RewriteCond %{HTTP_HOST} !^www\..+$ [NC]
+#  RewriteRule ^ http://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+#</IfModule>
 
 
 # ----------------------------------------------------------------------
@@ -431,7 +431,8 @@ FileETag None
 # same name does not exist.
 # webmasterworld.com/apache/3808792.htm
 
-Options -MultiViews
+#Options -MultiViews
+Options +FollowSymLinks
 
 
 # ----------------------------------------------------------------------
@@ -554,9 +555,8 @@ AddCharset utf-8 .atom .css .js .json .rss .vtt .xml
 
 RewriteEngine on
 
-RewriteCond $1 !^(index\.php|images|user_guide|styles|cv|favicon.ico|scripts|blogs|maps\.js|tweets\.txt|fonts|adaptive-images\.php|ai-cache|sharedTemplates|components)
+RewriteCond $1 !^(index\.php|images|user_guide|styles|cv|favicon.ico|scripts|blogs|maps\.js|fonts|adaptive-images\.php|ai-cache|sharedTemplates|components|preview\.html)
 RewriteRule  ^(.*)$ /index.php/site/$1 [L] 
-
 
 RewriteCond %{REQUEST_URI} !images/bg
 

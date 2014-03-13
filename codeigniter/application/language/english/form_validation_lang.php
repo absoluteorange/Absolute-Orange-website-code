@@ -44,7 +44,7 @@ $lang['password_incorrect']="Your password is incorrect.  Have you <a href='./fo
 $lang['registered']="You are already registered, <a href='./login' title='Login'>Login</a>";
 $lang['not_logged_in']="You must login to add photos, <a href='javascript:void(0)' id='openLogin' title='Login' alt='Login'>login</a>.";
 $lang['photo_invalid_format']=" is not a valid format.";
-$lang['photo_invalid_size']="Your image is to big to upload.  Please choose an image that is smaller than 1.5Mb";
+$lang['photo_invalid_size']="Your image is to big to upload.  Please choose an image that is smaller than 12.5Mb";
 $lang['valid_base64']="This photo is not a valid format.";
 
 /* End of file form_validation_lang.php */

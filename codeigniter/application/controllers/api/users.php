@@ -23,6 +23,7 @@ class Users extends Validation_Controller {
 	    	$dbUser = $this->Usersmodel->get_user($_POST['email']);
 	    	if (empty($dbUser)) {
 	    		$this->Usersmodel->create_user($_POST['username'], $_POST['email'], $this->encrypt->encode($_POST['password']));
+	    		$this->mycommonutilities->setSession(array('authenticated' => true));
 	    		$this->response(array('success' => '200'), 200);
 	    	} else {
 	    		$this->response(array('error' => '400'), 400);

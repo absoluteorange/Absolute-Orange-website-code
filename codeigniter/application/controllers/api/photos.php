@@ -25,10 +25,11 @@ class Photos extends Validation_Controller {
 		$deviceGroup = $this->session->userdata('deviceGroup');
 		$authenticated = $this->session->userdata('authenticated');
 		$photoData['errors'] = array();
+		$fields = array('data', 'name', 'format');
 		if ($deviceGroup == 'large' && $authenticated == true) {
 			if ($_POST) {
 			} else {
-				$_POST = $this->processData($fields);
+				$_POST = $this->myformvalidator->processData($fields);
 			}
 			if ($this->form_validation->run('photo') == TRUE) {
 				$data = $_POST['data'];

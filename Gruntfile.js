@@ -206,8 +206,8 @@ module.exports = function (grunt) {
             dist: {
                 files: {
                     '<%= yeoman.dist %>/styles/main.css': [
-                        '.tmp/styles/*.css',
-                        '<%= yeoman.app %>/styles/{,*/}*.css'
+                        '.tmp/styles/*.css'
+                        //,'<%= yeoman.app %>/styles/{,*/}*.css'
                     ]
                 }
             },
@@ -216,21 +216,26 @@ module.exports = function (grunt) {
                 cwd: '.tmp/styles/icons',
                 src: ['*.css'],
                 dest: '<%= yeoman.dist %>/styles/icons'
-              },
+            },
             bootstrap: {
             	files: {
                     '<%= yeoman.dist %>/styles/bootstrap/bootstrap.css': [
                         '.tmp/styles/bootstrap/bootstrap.css'
                     ]
                 }
-              },
+            },
             webapp: {
             	  expand: true,
                   cwd: '.tmp/styles/webapp',
                   src: ['*.css'],
                   dest: '<%= yeoman.dist %>/styles/webapp'
-             }
-        
+            },
+            flashmobs: {
+           	  expand: true,
+                 cwd: '.tmp/styles/flashmobs',
+                 src: ['*.css'],
+                 dest: '<%= yeoman.dist %>/styles/flashmobs'
+            }
         },
         htmlmin: {
             dist: {
@@ -265,7 +270,9 @@ module.exports = function (grunt) {
                         '.htaccess',
                         'images/**',
                         'sharedTemplates/**',
-                        'fonts/{,*/}*.*'
+                        'fonts/{,*/}*.*',
+                        'styles/blog-specific.css',
+                        'styles/webapp/lightbox/*.css'
                     ]
                 }]
             }
@@ -291,8 +298,6 @@ module.exports = function (grunt) {
             	dest: "<%= yeoman.app %>/styles/icons" , 
             	iconslistscss:"../_icons.scss"	,
             	pngfolder:'../../images/icons/'
-            		
-            	
             }
         }
         
@@ -334,7 +339,7 @@ module.exports = function (grunt) {
         'compass:dist',
         'useminPrepare',
         'requirejs',
-        'imagemin',
+       	//'imagemin',
         'htmlmin',
         'concat',
         'cssmin',
@@ -343,6 +348,10 @@ module.exports = function (grunt) {
         'uglify',
         'copy'
     ]);
+    
+    grunt.registerTask('js', [
+		 'requirejs',
+	 ]);
 
     grunt.registerTask('default', [
         'jshint',

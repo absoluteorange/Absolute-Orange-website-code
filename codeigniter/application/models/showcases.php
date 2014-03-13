@@ -7,9 +7,14 @@ class Showcases extends CI_Model {
         parent::__construct();
     }
     
-    function getAll() {
+    function getAll($employeeId) {
+        $join = '';
+        if (isset($employeeId)){
+            $join = "JOIN employee_showcase ON showcase.id=employee_showcase.showcase_id WHERE employee_id=$employeeId";
+        }
         $sql = "SELECT title, id, deliverable, DATE_FORMAT(date_completed, '%a, %D %M  %Y') as date
 				FROM showcase
+				".$join."
 				ORDER BY date_started desc";
         $query= $this->db->query($sql);
         return $query->result_array();
@@ -96,4 +101,13 @@ class Showcases extends CI_Model {
         return $query->result_array();
      
     }
+
+    function getRelatedlinks($id){
+        $sql = "SELECT *
+				FROM showcase_relatedlinks WHERE showcase_id = '$id'";
+        $query= $this->db->query($sql);
+        return $query->result_array();
+
+    }
+
 }

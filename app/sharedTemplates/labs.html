@@ -1,0 +1,27 @@
+<section class="toggle-list-section">
+	<div class="content-wrapper">
+		<ol>
+			{{#items}}
+				<a name="{{anchor}}"></a>
+				<li class="detail-list">
+					<div class="widget-summary {{class}}">
+						<a class="widget-body" href="/{{employeeUrl}}/lab
+						{{^blog}}
+							/{{name}}#selected-content
+						{{/blog}}
+						" title="{{name}}">
+						<div class="text-wrapper">
+								<h4>{{name}}</h4>
+                                <p class="wrapper-body">
+                                    <!--Written by {{author.employee_name}} on {{date}}-->
+                                    {{description}}
+                                </p>
+							</div>
+						</a>
+					</div>
+					{{{blog}}}
+				</li>
+			{{/items}}
+		</ol>
+	</div>
+</section>

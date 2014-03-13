@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.9deb1
+-- version 3.4.11.1deb2
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 15, 2013 at 01:55 PM
--- Server version: 5.1.61
--- PHP Version: 5.3.10-2
+-- Generation Time: Mar 12, 2014 at 05:49 PM
+-- Server version: 5.5.35
+-- PHP Version: 5.3.3-7+squeeze18
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,8 +17,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `absoluteorange`
+-- Database: `amyvarga`
 --
+CREATE DATABASE `amyvarga` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `amyvarga`;
 
 -- --------------------------------------------------------
 
@@ -26,33 +28,35 @@ SET time_zone = "+00:00";
 -- Table structure for table `blog`
 --
 
-DROP TABLE IF EXISTS `blog`;
 CREATE TABLE IF NOT EXISTS `blog` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `url` varchar(200) NOT NULL,
   `name` varchar(200) NOT NULL,
   `image` varchar(255) DEFAULT NULL,
   `description` longtext,
+  `implementation` longtext,
+  `code` longtext,
   `date_completed` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=39 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=40 ;
 
 --
 -- Dumping data for table `blog`
 --
 
-INSERT INTO `blog` (`id`, `url`, `name`, `image`, `description`, `date_completed`) VALUES
-(3, 'XHTML vs HTML5', 'XHTML vs HTML5', NULL, '<p>I am in the process of re-building my website and have always used the XHTML 1.0 specification.  With the recent interest in HTML 5 I thought it timely to investigate whether I should be implementing HTML 5 on my website.</p>\n<p>Most XHTML web pages (including BBC, Times Online and Facebook) are effectively not XML on the web because they are being parsed as HTML not XML.  This is because they generally use a MIME content type of ''text/html'' as opposed to ''application/xhtml+xml''; browsers use MIME type to distinguish between two types of syntax to represent HTML documents namely, HTML serialisation and XML serialisation.</p>\n\n<p>The reason for parsing XHTML pages as HTML and not XML makes sense.  Whilst the DTD''s for HTML and XHTML are both based on SGML, XHTML is a more restrictive subset of SGML meaning that it has very strict syntax rules.  An XML parser will stop processing an invalid page and nothing except an error message will be displayed.  An HTML parser on the other hand is much more complex and lenient.  It uses an error-correcting tag soup parser to display an invalid page to the best of its ability.</p>\n<p>In reality the interoperability of the Web means that invalid pages are a reality; content feeds, user generated content, body content (CMS), trackbacks, ad services and widgets can all create invalid pages.  By using an HTML parser the page is displayed regardless of its well-formedness.</p>\n<p>The XHMTL 2.0 specification has been in progress since 2001 and is in its eighth public working draft.  It is based solely on XML and is driven by how markup should be used, rather than how markup is currently being used.  It proposes sophisticated and elegant solutions that may also  require a learning curve and it is not backward compatible with XHTML 1.0.</p>\n<p>The proposed XForms, which replaces forms in the XHTML 2.0 specification, was the catalyst for the current HTML 5 specification.  In late 2003 Opera intended to prove that it was possible to extend HTML 4''s forms to provide many of the introduced features of XForms 1.0 without requiring browsers to implement rendering machines incompatible with existing HTML.  The draft proposal, presented jointly by Mozilla and Opera, was rejected by the W3C on the grounds that it conflicted with the previously chosen direction for the Web''s evolution.</p>\n<p>Subsequently, Apple, Mozilla and Opera announced their intention to continue working on the effort under the Web Hypertext Application Technology Working Group (WHATWG).  In 2006 the W3C expressed interest in the specification, and created an HTML Working Group to work with the WHATWG on the development of the HTML 5 specification.</p>\n<p>Whilst the HTML 5 specification aims to be backwards compatible with HTML4.0 and XHTML 1.0 this hasn''t been achieved completely as some elements have new meanings.  The specification focuses on creating a language for web applications as well as the creation of API''s that improve the client side web development environment.</p>\n\n<p>The proposed API''s which include a 2D drawing API, a video and audio API, an offline web application API, an API that allows web applications to register themselves for certain protocols or MIME types, an editing API, a drag and drop API, network API''s and a cross document messaging API will no doubt prove most useful to web developers and is certainly a highlight of HMTL 5 for me.</p>\n<p>Over and above that the HTML 5 specification has overwhelming industry support from browsers, search engines, CMS''s and authoring tools.</p>\n<p>Perhaps the notion that all documents on the web should be written in an XML format is an ideal one.  Ian Hickson in a conversation about the HTML 5 specification stated that the HTML 5 specification came about because 95% of the Web today is HTML.  He also questioned whether the web would have been successful if it showed error messages whenever something was the least bit wrong.  Ian estimated that 93% of documents on the web have markup errors which would mean that over 90% of the web could not be browsed.</p>\n<p>Neither specification has been implemented in its entirety and the HTML 5 specification looks unlikely to reach its deadline of 2010.  Saying that the &lt;canvas&gt; feature has been widely implemented and with such industry support implementation of some sections may take place sooner.</p>\n<p>Since the XHTML 2.0 specification is not backwards compatible with XHTML 1.0 I am going to embrace the HTML 5 specification until the XHTML 2.0 specification gets implemented.</p>', '2009-05-11 00:00:00'),
-(4, 'HTML replacement text', 'HTML replacement text', NULL, '<p>When deciding how to best insert rich typography into my web pages I implemented 4 technologies namely sIFR, server-side installed fonts, TypeSelect and Cufón which I have reviewed below:</p>\n<h3>sIFR</h3>\n<p>sIFR stands for Scalable Inman Flash Replacement and is an ongoing development on the invention made by Shaun Inman in 2003.   sIFR uses JavaScript and the Document Object Model to replace all designated text with Flash rendered text.</p>\n<h4>Advantages</h4>\n<ol>\n<li> Fairly easy to implement</li>\n<li> Degrades gracefully</li>\n<li> Accessible</li>\n\n<li> Search engine friendly</li>\n</ol>\n<h4>Disadvantages</h4>\n<ol>\n<li> Requires a Macromedia Flash plugin</li>\n<li> Requires Macromedia Flash software to create the font file</li>\n<li> Online documentation is extremely fragmented</li>\n<li> Can slow the loading of the web page if used frequently on a web page</li>\n\n<li> Requires  careful tweaking of the CSS font size to get the the desired size</li>\n<li> Overestimates the number of lines required to fit the text which occasionally  leaves the text with a blank line below</li>\n<li> Does not handle hover states as defined in the CSS</li>\n<li> Does not handle customisation of text eg. drop shadows</li>\n</ol>\n<h3>Server side fonts</h3>\n<p>Server side fonts require font file(s) to be uploaded to the server.  A script written in PHP, Perl, ASP, Java servlets or any other server side programming language creates PNG images of all replacement text.  JavaScript replaces the designated text once it has loaded.</p>\n\n<h4>Advantages</h4>\n<ol>\n<li> No Macromedia Flash plugin required</li>\n<li> Degrades gracefully</li>\n<li> Accessible</li>\n<li> Search engine friendly</li>\n</ol>\n<h4>Disadvantages</h4>\n\n<ol>\n<li> Writing of the script requires an in depth understanding of the server-side language</li>\n<li> Forcing a background colour on the heading does not give the best text results</li>\n<li> Does not use font styles as defined in the CSS to style the font</li>\n<li> Text cannot be selected</li>\n</ol>\n<h3>Type Select</h3>\n<p>Type Select uses a font generator, which converts fonts to a proprietary format.  It uses Javascript to create PNG images for each text replacement letter which it inserts into the web page using the <span> element whose style attribute is set to use PNG image as the background image.</p>\n\n<h4>Advantages</h4>\n<ol>\n<li> No Macromedia Flash plugin required</li>\n<li> Degrades gracefully</li>\n</ol>\n<h4>Disadvantages</h4>\n<ol>\n<li> The font family as to be set within the HTML page</li>\n<li>Styling on descendant text elements is ignored</li>\n\n</ol>\n<h3>Cuf&oacute;n:</h3>\n<p>Cuf&oacute;n uses a font generator, which converts fonts to a proprietary format, and a rendering engine written in Javascript.  The font generator builds a custom FontForge script based on the user input, runs it and saves the result as an SVG font.  The SVG font is then parsed and SVG paths are converted to VML paths. The resulting document is then converted into JSON with a mix of functional JavaScript. The rendering machine has a core API and two rendering engines, one which renders VML shapes used for Internet Explorer and one which renders as &lt;canvas&gt; element for other browsers.</p>\n<h4>Advantages</h4>\n<ol>\n<li> Does not require a Macromedia Flash plugin</li>\n<li> Degrades gracefully</li>\n\n<li> Extremely easy to implement</li>\n<li> Accessible</li>\n<li> Search engine friendly</li>\n<li> Good online documentation</li>\n<li> Lightweight</li>\n<li> Quick to load even when used more than 10 times on a page</li>\n\n<li> Easy to choose different character sets</li>\n<li> Applies CSS font definitions exactly including hover definitions</li>\n<li> Applies text customisation like drop shadows</li>\n</ol>\n<h4>Disadvantages</h4>\n<ol>\n<li>The image replacement text cannot be selected, except weirdly in IE</li>\n<li>In IE text decoration on the a:hover does not show</li>\n\n</ol>\n<p>Personally, I found Cuf&oacute;n to be the best and most easiest to use.</p>', '2009-07-01 00:00:00'),
-(5, 'Lists', 'Lists', NULL, '<p>I recently implemented some block (as opposed to inline) lists on my web page.  I wanted the lists to use my own list image.  There are two ways to implement this kind of list; use the CSS background-image option or the CSS list-style-image option.</p>\n<h3 class="replacement">Using CSS background-image</h3>\n\n<p>The CSS background-image option is quite popular as it allows complete control over the positioning of the list images.  However, the problem I had with this option, which can be seen in the first screen grab ''List using background image'', is that the list images do not float correctly against div.media.  The CSS relative:position illustrates that the list images are floated left against the holding div.wrapper.  I could find no way to get the list images to float correctly against div.media.</p>\n<h3 class="replacement">Using CSS list-style-image</h3>\n<p>By using the CSS list-style-image with list-style-position:inside, which one can see in the second screen grab ''List using list-style-image'', this works correctly in Firefox i.e. the list images are floating correctly against div.media.  Unfortunately however, IE does not position the list images optionally as can be seen in the third screen grab ''List using list-style-image in IE''.  I''ve checked that my list image is a square with no white space on the left.  I could find not way to position the list images correctly in IE. </p>\n<h3 class="replacement">Using CSS list-style-type for IE</h3>\n<p>The best alternative I could come up with for IE is to resort to list-style-type which correctly positions the list images as can be seen in the fourth screen grab, ''List using list-style-type in IE''.</p>', '2009-07-27 00:00:00'),
-(6, 'Developments in CSS', 'Developments in CSS', NULL, '<p>During a recent contract I came face to face with &#8216;the CSS nightmare&#8217;.  Huge websites with multiple style sheets using complex specificity to assign styles to elements.  The result was inconsistent styles across various sections of the website, lengthy style sheets and more development hours then was necessary.</p>\n\n<p>Realising there was a problem I needed to find a solution.</p>\n<h3>Object oriented CSS</h3>\n<p>Object oriented CSS works in a similar way to Object Oriented Programming (OOP):</p>\n<ul>\n<li>In OOP objects have their own class definitions.  In CSS, selectors (element type selectors, class selectors, ID selectors, attribute selectors and pseudo-classes) have their own style declarations</li>\n<li>In OOP classes inherit each others methods and properties.  In CSS inheritance and the cascade determine which style declaration should be applied to any given element.\n<p>Inheritance is the means by which, in the absence of any specific declarations applied by the CSS cascade, a property value of an element is obtained from its parent element.  Inheritance is a mechanism that?s separate from the cascade: inheritance applies to the DOM (Document Object Model) tree.</p>\n<p>The cascade deals with the style sheet rules.  The cascade combines the importance, origin, specificity, and source order of the applicable style declarations to determine exactly?and without conflict?which declaration should be applied to any given element.</li>\n<li>In OOP classes can be public or private.  Objects automatically inherit public classes.  In CSS, properties that are not automatically inherited from the parent can be inherited by specifying a value or &#8216;inherit&#8217; for that CSS property, similar to a private class.  Properties that are inherited automatically are similar to public classes.</li>\n\n</ul>\n<h4>Properties that inherit:</h4>\n<ul>\n<li>color</li>\n<li>font (and related properties)</li>\n<li>letter-spacing</li>\n<li>line-height</li>\n<li>list-style (and related properties)</li>\n<li>text-align</li>\n<li>text-indent</li>\n\n<li>text-transform</li>\n<li>visibility</li>\n<li>white-space</li>\n<li>word-spacing</li>\n</ul>\n<h4>Properties that don&#8217;t inherit:</h4>\n<ul>\n<li>background (and related properties)\n<li>border (and related properties)</li>\n<li>display</li>\n\n<li>float and clear</li>\n<li>height and width</li>\n<li>margin (and related properties)</li>\n<li>min- and max-height and -width</li>\n<li>outline</li>\n<li>overflow</li>\n<li>padding (and related properties)</li>\n<li>position (and related properties)</li>\n<li>text-decoration</li>\n\n<li>vertical-align</li>\n<li>z-index</li>\n</ul>\n<p>The concept of object oriented CSS is noteworthy.  The principles of the reuse of styles and inheritance / cascade are fundamental in creating an optimal CSS.</p>\n<h3>Semantic naming of classes and IDs</h3>\n<p>The semantic naming of classes and IDs is a controversial one.  This concept requires that all classes and IDs be named according to their meaning or role within a web page.  Unfortunately only web developers, designers and author benefit from semantically named classes and IDs.  Web page browsers, screen readers and search engines do not use classes or ID&#8217;s to gain more information about a web page.</p>\n<p>The benefits to web developers, designers and authors are:</p>\n<ol>\n<li> Semantically named classes and IDs give more meaning to a web page</li>\n\n<li> Semantically named classes and IDs can be stylistically changed in the CSS without having to be renamed in the HTML page</li>\n</ol>\n<p>The disadvantage of semantically naming classes and IDs is that it in some cases there is no  logic in naming it semantically.   Yahoo Grids and Blueprint CSS are both CSS frameworks based on grids and both frameworks name their classes based on their presentation.  For example, Blueprint&#8217;s &lt;div class=?span-24?&gt; relates to a &lt;div&gt; that spans the entire 960px over 24 columns.</p>\n<p>The semantic naming of classes and IDs have their benefits and should be encouraged however, when there is no logical reason to name an element semantically when a name relating to presentation may be more appropriate.  For example, a rounded corner &lt;span&gt; may be named roundedCornerTopLeft.</p>\n\n<h3>How to write your CSS</h3>\n<ol>\n<li>Create an element type selectors library<br />Defining the design of all HTML elements during the initial stages of web development ensures that all elements that make up a web page, visually communicate their semantic meaning in relation to each other.  It also sets the basic inheritance properties for elements with no further declarations.</li>\n<li>Define style templates for repeated designs within a web site<br />Defining a style template for repeated designs within a web site ensures that they can be consistently and easily repeated throughout the website.  When defining style templates carefully consider redundancy vs dependency.  Should a style be repeated across different class selectors so that a design change in one does not effect all the others?  Or should they be dependent resulting in a design change affecting all associated elements?   In this case you may also consider using  multiple classes to achieve your design.</li>\n<li>Minimise the use of specific selectors wherever possible and when using them, reference them as specifically as possible.</li>\n<li> Carefully consider the proximity of the cascade</li>\n<li>Always consider progressive enhancement and graceful degradation when styling.  For example if your design has rounded corners use the Mozilla and Webkit rounded corners styles.  However, also consider the best way to implement rounded corners in other browsers as well as a design without rounded corners.</li>\n<li>Remember to check how your page looks with CSS disabled</li>\n\n</ol>', '2009-07-01 00:00:00'),
-(9, 'Aria', 'Aria', NULL, '<p>Two weeks ago I decided to present WAI-ARIA (Web Accessibility Initiative - Accessible Rich Internet Applications) to my colleagues in our weekly meet.</p>\n<p>Since I had previously read about WAI-ARIA it didn''t take long for me to understand the theory behind the ARIA specification.  In summary:</p>\n<p>ARIA forms part of the Web Content Accessibility Guidelines 2.0 (WCAG 2.0) which succeeds WCAG 1.0 and which are both at working draft level with the W3C. </p>\n<p>It has been developed to address the accessibility problem that occurs when rich interaction semantics are added outside of the markup.  When this happens the markup no longer expresses the information needed to populate accessibility metadata which is then mapped by the browser to the platform accessibility APIs.</p>\n<p>WAI-ARIA provides a framework for providing proper semantics to HTML elements that provide information about:</p>\n<ul>\n<li>the role of the element within the page and in relation to other elements - the ARIA specification provides an ontology of roles that can be attached to content</li>\n<li>the states and properties of elements which are used to declare important attributes of an element that affect and describe interaction.  These are categorised as widget attributes, live region attributes, drag-and-drop attributes, relationship attributes</li>\n</ul>\n<p>The target audience for WAI-ARIA includes user agents, assistive technology, authors who create content, authoring tools and conformance checkers.  The relationship between the user agent, the accessibility API and the assistive technology is best illustrated below:</p>\n<div class="media">\n<img title="Relationship between user agents and accessibility api''s" src="http://www.absoluteorange.com/images/blog/user_agent_accessibility_api_relationship.jpg">\n</div>\n<p>My next step was to implement WAI-ARIA and test it on my Mac accessibility software, Universal Access.</p>\n<p><strong>27th September 2010 : in the mean time I have learnt that ARIA is only supported by screen readers such as JAWS, NVDA, Windows Eyes and SAToGo.</strong></p>\n<p>What makes ARIA difficult to implement is:</p>\n<ul>\n<li>It is only partly supported by browsers and accessibility software making it difficult to know which bits to implement.</li>\n<li>It does not validate on standard DTD''s</li>\n<li>It only has limited support in HTML5.0</li>\n</ul>\n<p>Despite these hurdles I decided that perhaps before I tried to implement WAI-ARIA I should test some real live examples using the accessibility software on my Mac.</p>\n<p>For obvious reasons, the first website I visited was the RNIB (Royal National Institute of the Blind).   Whilst there are some obvious improvements in accessible navigation including the Web Item Rotor and Web Auto Spots, overall I could find no implementation of ARIA on their website.</p>\n<p style="text-decoration:line-through;">I spent the next few hours trying to find real live examples or demonstrations of WAI-ARIA.  I found a few websites which I have referenced below but to be honest either the examples didn''t work i.e. they weren''t supported by Safari or Universal Access, or I didn''t quite grasp the concepts.</p>\n<p>27th September 2010 : Since ARIA is only supported in JAWS, NVDA, Windows Eyes or SAToGo, I would have to test examples using these assistive technologies.  In the mean time I found <a href="http://www.accessibleculture.org" title="Accessible Culture">Accessible Culture</a> who has taken the time to test various ARIA specifications on all supported screen readers.  This is a very useful website.</p>\n<p style="text-decoration:line-through;">In conclusion, the concept of WAI-ARIA is a good one however, it requires a considerable amount of effort to implement and to date has limited support.  Furthermore at the time of writing there are very few examples of ARIA being implemented.  For the time being I am going to put WAI-ARIA on hold, perhaps when the specification is more widely recommended by the W3C and HTML 5.0 is more widely implemented then I will come back to it.</p>\n<p><strong>27th September 2010 : I''ve changed my mind.  Just like the HTML 5.0 specification despite being unfinished and incomplete there are certain aspects of ARIA e.g. landmark roles that can be successfully implemented, so why not start implementing these?  In other words ARIA is work in progress requiring ongoing research to keep up to date.</strong></p>', '2010-05-11 00:00:00'),
-(30, 'Geolocation and HTML5', 'Geolocation and HTML5', NULL, '<p>For many web developers the new HTML 5 specification is a very exciting one.  In this blog Amy implements her first HTML 5 API, more specifically the HTML5 geolocation API.</p>\r\n<p>This implementation uses the HTML5 Geolocation API to find a users location.  If the user''s browser does not have the Geolocation API enabled we attempt to find the user''s location using Google Gears.  And finally, if Google Gears is not enabled we resort to Yahoo Geo to get the location based on the IP address.</p>\r\n<p>This example uses Googlemaps API (V3) and more specifically the Geocoder and Directions service.</p>\r\n<p><a href="../scripts/blogs/map.js" target="_blank" title="View the Javascript source code">View the Javascript source code</a></p>\r\n        <div id="map-canvas"></div>\r\n        <div class="map-form">\r\n            <input type="text" id="address" class="map-inline-form" value="enter your address" />\r\n            <a href="javascript:void(0);" onclick="google_map.codeAddress();" title="Find this address" id="code_address">Find this address</a>\r\n        </div>\r\n        <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&key=AIzaSyCwQwbUh1w8rxf8ev8hgXLNGKmIZmc-Vic" type="text/javascript"></script>\r\n        <script type="text/javascript" src="/scripts/blogs/yqlgeo.js"></script>\r\n        <script type="text/javascript" src="/scripts/blogs/map.js"></script>\r\n        <script type="text/javascript">\r\n            google_map.initialize(''geolocation'');\r\nfunction codeAddress() {\r\nalert(''here'');\r\ngoogle_map.codeAddress();\r\n}\r\nvar mapInput = document.getElementById(''address'');\r\n           mapInput.onfocus= function () { \r\n             var value = mapInput.value;\r\n if (value.substring(''enter'') != '''') {\r\n       mapInput.value = '''';\r\n }\r\n            }; \r\n        </script>', '2010-09-08 00:00:00'),
-(32, 'Agile methodologies and new product development', 'Agile methodologies and new product development', NULL, '<p>Agile methodologies differ from other project management methods because it does not "...assume that the entire set of requirements and activities can be forecast at the beginning of the project.  Agile methods combine all the elements of product development, such as requirements, analysis, design, development and testing in brief, regular iterations. Every iteration delivers a working product or prototype, and the response to that product or prototype serve as crucial input into the succeeding iterations." [Successful projects through Agile project management, 2010.  Nancy Nee [online] Available at: <a href="http://www.projecttimes.com/agile/successful-projects-through-agile-project-management.html" title="Successful projects through Agile project management">Successful projects through Agile project management</a> [Accessed 23 July 2011]]</p>\n\n<p>The definition above emphasizes the importance of delivering a working product at every iteration however, in new product development there is no existing product.  Furthermore, building a new product has many challenges and unknowns.  Whilst using agile is desirable there are a number of risk factors, which include:</p>\n\n<ol>\n<li>Changing core requirements<br />\nAgile works very well in managing changes to feature level requirements as long as the core architecture stays stable.  In new product development requirements that affect the core system or its architecture are common.  Having a clear indication of these requirements during the analysis phase of new product development gives development teams the opportunity to prototype these features without risking other development efforts from being rendered useless as changes occur in core requirements.</li> \n\n<li>Unknown technical challenges that have not been verified with a prototype<br />\nFor a new product, the number of unknown technical challenges (ideas that have not been proven to work) is way bigger than for an established product. It is usually necessary to identify these challenges, understand their impact, plan contingencies and prove the ideas sooner than later. If one of these efforts ends up falling in the later phases of agile development, this could have devastating effects on the overall delivery plans for the product.</li> \n\n<li>Incomplete system architecture<br />\nSystem architecture provides guidance and framework to make sure that the individual pieces of a new product are coming together the right way. Not having complete core architecture is like a bunch of people walking on their own paths with a ''hope'' that they are going to meet somewhere.  Agile methodology has provisions for bringing different parts of the project to sync-up together at the end of each phase. Having a framework to assess where the overall project is going and how it can come together is a key to ensure timely delivery of the entire product (especially when the product is being developed for the first time).</li> \n\n<li>Lack of Framework for Continuous Integration<br />\nAgile methodology requires that there be a way to continuously integrate the features being developed. Not having a framework to integrate, test and verify that the features are working together as intended could seriously hurt the project and may make integration effort a whole lot more challenging than it needs to be. [Agile methodology and new product development: four key issues, 2008.  Alok [online]  Available at:  <A href="http://blogs.msdn.com/b/isv/archive/2008/07/29/agile-methodology-and-new-product-development-four-key-issues.aspx" title="Agile methodology and new product development: four key issues">Agile methodology and new product development: four key issues</a> [Accessed 23 July 2011]]</li>\n</ol> \n\n<p>These challenges reiterate the importance of a defining a blueprint of the new product in the initial analysis and design stages of the development cycle.  With this understanding systems and architectures can be designed and developed to support the anticipated concept of the product.  It also stands that this blueprint is likely to change with each iteration and subsequent review.</p>\n\n<p>Development of the new product using an agile approach would require that the first phase of the development of the new product should produce a very basic, featureless, working product.</p>\n\n<p>The delivery of the basic product would then be reviewed by all stakeholders, including marketing, design, users (based on user testing) and the client.  This review would provide input into the product backlog which would be prioritized by the product owner.</p>\n\n<p>Agile methodologies would then allow for iterations on this product which would result in the implementation of enhancements and features whose priority could change with review and feedback.</p>', '2011-08-01 00:00:00'),
-(36, 'HTML5 - File APIs', 'HTML5 - File APIs', NULL, '<p>The new HTML5 file API''s make importing, creating, manipulating, storing and publishing files simple.  In this blog I prototype the drag & drop, reading and creating File API''s.</p>\r\n\r\n<p>In this demonstration a user can drag an image from their computer on to an area on the web page.  The image file size is read and the image is displayed in the area.  If the image is under 5Mbytes, it is uploaded as binary to the Absolute Orange domain.  The image is then displayed in a seperate box using the Absolute Orange domain.</p>  \r\n\r\n<div id="dropbox">\r\n	<p>Drop your photo here and it will be uploaded to the Absolute Orange website</p>\r\n</div>\r\n<div id="uploadedImages">\r\n	<p>Your uploaded image</p>\r\n</div>\r\n\r\n<script src="../scripts/blogs/file_api_blog.js" type="text/javascript"></script>', '2012-02-17 00:00:00'),
-(37, 'Responsive web development', 'Responsive web development', 'responsive.jpg', '<p>Responsive Web Development is a front end web development approach for building one website that fits all screen sizes.</p>\n\n<h3>Lowest common denominator</h3>\n<p>The Responsive approach to building a website begins with the development of the website for a lowest common denominator (LCD). The LCD''s core experience is based on a Mobile First approach.  It focuses on being fast, lightweight and independent of JavaScript or CSS media queries.  The lowest common denominator website once tested provides the foundation for optimisation.</p>\n\n<h3>Browser features</h3>\n<p>Testing browser features allows one to determe what device and browser a user is using.  Ultimately the device and browser determine the optimal website experience.  Browser features are detected using a device description repository (DDR) e.g. WURFL and / or client side JavaScript.</p>\n\n<p>To avoid a flash of unstyled content when a page loads one cannot leave all the browser feature testing to be run on page load.  Ideally a DDR would be used to determine device features before the page is server to the browser.  However, a DDR costs money and this will really depend on the client requirements.</p>\n\n<p>In my <a href="/web#gallery" title="reponsive prototype">reponsive prototype</a> I use a server session to store the browser''s features.  This requires that when a device visits my website for the first time all browser features are detected and set in the session.</p>\n\n<p>If no session is set, the server serves the basic version of the web page (the one for the LCD).  The web page determines whether a browser supports HTML5 using the hasTheMustard method.  \n\n<h4>hasTheMustard</h4>\n<p>The hasTheMustard is a method used by the BBC to distinguish between browsers that support HTML5 and those that don''t.  It tests for browser capabilities using JavaScript namely, Document.querySelector, Window.localStorage and Window.addEventListener.  It should be noted however, that Internet Explorer 8 does not support HTML5 but since it represents such a significant market share we cannot exclude it.  Using JavaScript user agent sniffing we provide an exception for IE8 and upwards.</p>\n\n<p>If a browser does not support HTML5 or does not have JavaScript the basic web page is displayed.  For those that do support HTML5 and have JavaScript the browser returns to the server (via AJAX) browser features including screen width, screen height, orientation, mouse or touch capabilities, local storage, geolocation etc.  This data is set in the server session and used to determine what content, CSS and JavaScript is most appropriate for the device.</p>\n\n<h3>Device groups</h3>\n<p>To differentiate between styles for various devices one sets device groups.  To be truly responsive device group breakpoints should not have any gaps and can be as exhaustive as your resources permit.  The challenge here is to define device groups that can use the same design grid.  In my prototype I have defined the following device groups:\n<ul>\n<li>\n<h4>Legacy</h4>\n<p>Screen width less than 240px\n</li>\n<li>\n<h4>Smart</h4>\n<p>Screen width greater and equal to 240px and less than and equal to 640px.  Within this device group I can have a number of breakpoints including 240px, 320px, 480px and 640px.  I use an 8px grid for this device group.</p>\n</li>\n<li>\n<h4>Compact</h4>\n<p>Screen width greater than 640px and less than 960px.  I can have a breakpoint of 640px, 800px and 960px.  I use a 30px grid with 10px gutters for this device group.</p>\n</li>\n<li>\n<h4>Large</h4>\n<p>Screen width greater than 960px.  I set a 960px limit on my website size and use a 30px grid with 10px gutters for this device group.</p>\n</li>\n</ul>\n \n<h3>AMD Loaders</h3>\n<p>To further improve performance AMD (asynchronous module definition) loaders enable JavaScript, CSS, text and il8n:</p>\n<ul>\n<li>to load in parallel improving the overall speed of a website page</li>\n<li>to encourage a modular structure of scripts based on dependencies which are easily maintainable</li>\n<li>to follow a well defined and standardised approach in keeping with the prospective ES-Harmony migration path</li>\n</ul>\n\n<h3>Adaptive images</h3>\n<p>A responsive website will serve appropriately sized images to a device that optimises download speeds.  I have chosen to implement a method based on Matt Wilcox'' approach that redirects all image requests to a PHP script.  The PHP script determines the required image dimension and either crops the image at run time or requests it from the cache.</p>\n\n<h3>Interesting insights:</h3>\n<ul>\n<li>The CSS media query for orientation is currently not widely supported for example, it does not work in iPhone 4 (iOS 4.3.3).  As such my thinking is that the orientation of the device is not required so long as I ensure my stylesheets include styles, using width media queries, for any viewport changes.</li>\n<li>Dynamically removing and adding stylesheets with JavaScript puts considerable strain on the browser as documented by Stubbornella.  For this reason, I use AJAX to determine the appropriate stylesheets to include in my web page.</li>\n</ul>\n\n<h4>Technologies I have used</h4>\n<ul>\n<li>RequireJS (AMD Loader and JavaScript and CSS optimiser)</li>\n<li>{Less} (Dyanmic style sheet language)</li>\n<li>UseJS (AMD Loader for non-compatible AMD JavaScripts)</li>\n<li>MasonryJS</li>\n<li>Almond (minimal AMD API implementation for optimised builds)</li>\n<li>Apache Ant (compiler)</li>\n<li>CodeIgniter REST API server</li>\n<li>Backbone JS (JavaScript MVC framework)</li>\n</ul>', '2012-05-04 17:00:00'),
-(38, 'absolute_orange_website_redesign', 'Absolute Orange website redesign', NULL, '<p class="wrapper-body">It had been approximately 4 years since I re-designed the Absolute Orange website and it was time to implement a much needed upgrade.</p>\n\n<p class="wrapper-body">The website uses its own CMS which I have cobbled together over the last 6 years.  It is written in Codeigniter PHP and I took 2 weeks to rewrite the code and improve the interface. I was impressed by how much I have improved. The code uses considerably more logic, common libraries and consistent methodologies for CRUD events which translates into fewer lines of code which are easy to understand and manage.</p>\n\n<p class="wrapper-body">As with all websites there is an initial planning phase. I spent half a day researching:</p>\n<ul class="wrapper-body">\n<li class="touch-list">Absolute Orange website metrics</li>\n<li  class="touch-list">Top 100 digital agencies websites on various devices</li>\n<li  class="touch-list">Freelance web developer websites on various devices</li>\n<li  class="touch-list">General information on freelancing in the IT industry</li>\n</ul>\n<p class="wrapper-body">This research helped me finalise my website content and from here I defined my information architecture.</p>\n\n<p class="wrapper-body">I decided that as the Absolute Orange website does not have a huge amount of content or interaction I would design it to be responsive (automatically responding to different size devices through the use of adaptive images, the implementation of appropriate grids and specified design elements using CSS media queries).  Following the ''mobile first'' methodology I design and build for a legacy mobile first and once the basic mobile website is built I then optimise for modern mobiles, tablets and desktops ensuring that my breakpoints are set where the design breaks.</p>\n\n<p class="wrapper-body">Having defined my overall approach I drew wireframes for both the optimised mobile and tablet devices (see examples below) .  I kept my wireframes idealistic in that I did not allow myself to set any limitations on the design and the user experience.  These would provide a blue print for an ideal product and it would be perfectly acceptable to compromise during development if time or resources so required, but the wireframes represented the desirable solution.</p>\n\n<p class="wrapper-body">Now that the essential planning phase was complete I could begin to consider the first stage of development.  I intended to develop a legacy version of the mobile site first.  A legacy version of a website exists to ensure an adequate user experience to the LCD (lowest common denominator).  As such I designed all the pages in Photoshop keeping my designs at 175px width in order to ensure an adequate experience for my LCD (see examples below).</p>\n\n<p>Development could begin.  The legacy version of the website uses little, preferably no JavaScript (in fact I use only 1 script, storing the resolution of the device in a cookie for my adaptive images PHP script) and CSS 1 & 2.  It''s URI''s are all searchable and crawlable and once tested and released forms the basis from which to optimise.</p>\n\n<p class="wrapper-body">Unfortunately it was at this point that I ran out of time and I needed to release a MVP (minimum viable product).  I decided to optimise the legacy mobile website for phones greater than 240px but less than 640px using CSS media queries and CSS 3 transitions and gradients.</p>\n\n<p>I believe that version 2 will be optimise the existing website for devices greater than 640px, implementing my tablet wireframes as best possible without using JavaScript.  Version 3 will probably be when I begin implementing JavaScript, perhaps looking at implementing a one page JavaScript app for devices less than 640px.</p>', '2013-04-29 00:00:00');
+INSERT INTO `blog` (`id`, `url`, `name`, `image`, `description`, `implementation`, `code`, `date_completed`) VALUES
+(3, 'XHTML vs HTML5', 'XHTML vs HTML5', NULL, '<p>I am in the process of re-building my website and have always used the XHTML 1.0 specification.  With the recent interest in HTML 5 I thought it timely to investigate whether I should be implementing HTML 5 on my website.</p>\n<p>Most XHTML web pages (including BBC, Times Online and Facebook) are effectively not XML on the web because they are being parsed as HTML not XML.  This is because they generally use a MIME content type of ''text/html'' as opposed to ''application/xhtml+xml''; browsers use MIME type to distinguish between two types of syntax to represent HTML documents namely, HTML serialisation and XML serialisation.</p>\n\n<p>The reason for parsing XHTML pages as HTML and not XML makes sense.  Whilst the DTD''s for HTML and XHTML are both based on SGML, XHTML is a more restrictive subset of SGML meaning that it has very strict syntax rules.  An XML parser will stop processing an invalid page and nothing except an error message will be displayed.  An HTML parser on the other hand is much more complex and lenient.  It uses an error-correcting tag soup parser to display an invalid page to the best of its ability.</p>\n<p>In reality the interoperability of the Web means that invalid pages are a reality; content feeds, user generated content, body content (CMS), trackbacks, ad services and widgets can all create invalid pages.  By using an HTML parser the page is displayed regardless of its well-formedness.</p>\n<p>The XHMTL 2.0 specification has been in progress since 2001 and is in its eighth public working draft.  It is based solely on XML and is driven by how markup should be used, rather than how markup is currently being used.  It proposes sophisticated and elegant solutions that may also  require a learning curve and it is not backward compatible with XHTML 1.0.</p>\n<p>The proposed XForms, which replaces forms in the XHTML 2.0 specification, was the catalyst for the current HTML 5 specification.  In late 2003 Opera intended to prove that it was possible to extend HTML 4''s forms to provide many of the introduced features of XForms 1.0 without requiring browsers to implement rendering machines incompatible with existing HTML.  The draft proposal, presented jointly by Mozilla and Opera, was rejected by the W3C on the grounds that it conflicted with the previously chosen direction for the Web''s evolution.</p>\n<p>Subsequently, Apple, Mozilla and Opera announced their intention to continue working on the effort under the Web Hypertext Application Technology Working Group (WHATWG).  In 2006 the W3C expressed interest in the specification, and created an HTML Working Group to work with the WHATWG on the development of the HTML 5 specification.</p>\n<p>Whilst the HTML 5 specification aims to be backwards compatible with HTML4.0 and XHTML 1.0 this hasn''t been achieved completely as some elements have new meanings.  The specification focuses on creating a language for web applications as well as the creation of API''s that improve the client side web development environment.</p>\n\n<p>The proposed API''s which include a 2D drawing API, a video and audio API, an offline web application API, an API that allows web applications to register themselves for certain protocols or MIME types, an editing API, a drag and drop API, network API''s and a cross document messaging API will no doubt prove most useful to web developers and is certainly a highlight of HMTL 5 for me.</p>\n<p>Over and above that the HTML 5 specification has overwhelming industry support from browsers, search engines, CMS''s and authoring tools.</p>\n<p>Perhaps the notion that all documents on the web should be written in an XML format is an ideal one.  Ian Hickson in a conversation about the HTML 5 specification stated that the HTML 5 specification came about because 95% of the Web today is HTML.  He also questioned whether the web would have been successful if it showed error messages whenever something was the least bit wrong.  Ian estimated that 93% of documents on the web have markup errors which would mean that over 90% of the web could not be browsed.</p>\n<p>Neither specification has been implemented in its entirety and the HTML 5 specification looks unlikely to reach its deadline of 2010.  Saying that the &lt;canvas&gt; feature has been widely implemented and with such industry support implementation of some sections may take place sooner.</p>\n<p>Since the XHTML 2.0 specification is not backwards compatible with XHTML 1.0 I am going to embrace the HTML 5 specification until the XHTML 2.0 specification gets implemented.</p>', NULL, NULL, '2009-05-11 00:00:00'),
+(4, 'HTML replacement text', 'HTML replacement text', NULL, '<p>When deciding how to best insert rich typography into my web pages I implemented 4 technologies namely sIFR, server-side installed fonts, TypeSelect and Cufón which I have reviewed below:</p>\n<h3>sIFR</h3>\n<p>sIFR stands for Scalable Inman Flash Replacement and is an ongoing development on the invention made by Shaun Inman in 2003.   sIFR uses JavaScript and the Document Object Model to replace all designated text with Flash rendered text.</p>\n<h4>Advantages</h4>\n<ol>\n<li> Fairly easy to implement</li>\n<li> Degrades gracefully</li>\n<li> Accessible</li>\n\n<li> Search engine friendly</li>\n</ol>\n<h4>Disadvantages</h4>\n<ol>\n<li> Requires a Macromedia Flash plugin</li>\n<li> Requires Macromedia Flash software to create the font file</li>\n<li> Online documentation is extremely fragmented</li>\n<li> Can slow the loading of the web page if used frequently on a web page</li>\n\n<li> Requires  careful tweaking of the CSS font size to get the the desired size</li>\n<li> Overestimates the number of lines required to fit the text which occasionally  leaves the text with a blank line below</li>\n<li> Does not handle hover states as defined in the CSS</li>\n<li> Does not handle customisation of text eg. drop shadows</li>\n</ol>\n<h3>Server side fonts</h3>\n<p>Server side fonts require font file(s) to be uploaded to the server.  A script written in PHP, Perl, ASP, Java servlets or any other server side programming language creates PNG images of all replacement text.  JavaScript replaces the designated text once it has loaded.</p>\n\n<h4>Advantages</h4>\n<ol>\n<li> No Macromedia Flash plugin required</li>\n<li> Degrades gracefully</li>\n<li> Accessible</li>\n<li> Search engine friendly</li>\n</ol>\n<h4>Disadvantages</h4>\n\n<ol>\n<li> Writing of the script requires an in depth understanding of the server-side language</li>\n<li> Forcing a background colour on the heading does not give the best text results</li>\n<li> Does not use font styles as defined in the CSS to style the font</li>\n<li> Text cannot be selected</li>\n</ol>\n<h3>Type Select</h3>\n<p>Type Select uses a font generator, which converts fonts to a proprietary format.  It uses Javascript to create PNG images for each text replacement letter which it inserts into the web page using the <span> element whose style attribute is set to use PNG image as the background image.</p>\n\n<h4>Advantages</h4>\n<ol>\n<li> No Macromedia Flash plugin required</li>\n<li> Degrades gracefully</li>\n</ol>\n<h4>Disadvantages</h4>\n<ol>\n<li> The font family as to be set within the HTML page</li>\n<li>Styling on descendant text elements is ignored</li>\n\n</ol>\n<h3>Cuf&oacute;n:</h3>\n<p>Cuf&oacute;n uses a font generator, which converts fonts to a proprietary format, and a rendering engine written in Javascript.  The font generator builds a custom FontForge script based on the user input, runs it and saves the result as an SVG font.  The SVG font is then parsed and SVG paths are converted to VML paths. The resulting document is then converted into JSON with a mix of functional JavaScript. The rendering machine has a core API and two rendering engines, one which renders VML shapes used for Internet Explorer and one which renders as &lt;canvas&gt; element for other browsers.</p>\n<h4>Advantages</h4>\n<ol>\n<li> Does not require a Macromedia Flash plugin</li>\n<li> Degrades gracefully</li>\n\n<li> Extremely easy to implement</li>\n<li> Accessible</li>\n<li> Search engine friendly</li>\n<li> Good online documentation</li>\n<li> Lightweight</li>\n<li> Quick to load even when used more than 10 times on a page</li>\n\n<li> Easy to choose different character sets</li>\n<li> Applies CSS font definitions exactly including hover definitions</li>\n<li> Applies text customisation like drop shadows</li>\n</ol>\n<h4>Disadvantages</h4>\n<ol>\n<li>The image replacement text cannot be selected, except weirdly in IE</li>\n<li>In IE text decoration on the a:hover does not show</li>\n\n</ol>\n<p>Personally, I found Cuf&oacute;n to be the best and most easiest to use.</p>', NULL, NULL, '2009-07-01 00:00:00'),
+(5, 'Lists', 'Lists', NULL, '<p>I recently implemented some block (as opposed to inline) lists on my web page.  I wanted the lists to use my own list image.  There are two ways to implement this kind of list; use the CSS background-image option or the CSS list-style-image option.</p>\n<h3 class="replacement">Using CSS background-image</h3>\n\n<p>The CSS background-image option is quite popular as it allows complete control over the positioning of the list images.  However, the problem I had with this option, which can be seen in the first screen grab ''List using background image'', is that the list images do not float correctly against div.media.  The CSS relative:position illustrates that the list images are floated left against the holding div.wrapper.  I could find no way to get the list images to float correctly against div.media.</p>\n<h3 class="replacement">Using CSS list-style-image</h3>\n<p>By using the CSS list-style-image with list-style-position:inside, which one can see in the second screen grab ''List using list-style-image'', this works correctly in Firefox i.e. the list images are floating correctly against div.media.  Unfortunately however, IE does not position the list images optionally as can be seen in the third screen grab ''List using list-style-image in IE''.  I''ve checked that my list image is a square with no white space on the left.  I could find not way to position the list images correctly in IE. </p>\n<h3 class="replacement">Using CSS list-style-type for IE</h3>\n<p>The best alternative I could come up with for IE is to resort to list-style-type which correctly positions the list images as can be seen in the fourth screen grab, ''List using list-style-type in IE''.</p>', NULL, NULL, '2009-07-27 00:00:00'),
+(6, 'Developments in CSS', 'Developments in CSS', NULL, '<p>During a recent contract I came face to face with &#8216;the CSS nightmare&#8217;.  Huge websites with multiple style sheets using complex specificity to assign styles to elements.  The result was inconsistent styles across various sections of the website, lengthy style sheets and more development hours then was necessary.</p>\n\n<p>Realising there was a problem I needed to find a solution.</p>\n<h3>Object oriented CSS</h3>\n<p>Object oriented CSS works in a similar way to Object Oriented Programming (OOP):</p>\n<ul>\n<li>In OOP objects have their own class definitions.  In CSS, selectors (element type selectors, class selectors, ID selectors, attribute selectors and pseudo-classes) have their own style declarations</li>\n<li>In OOP classes inherit each others methods and properties.  In CSS inheritance and the cascade determine which style declaration should be applied to any given element.\n<p>Inheritance is the means by which, in the absence of any specific declarations applied by the CSS cascade, a property value of an element is obtained from its parent element.  Inheritance is a mechanism that?s separate from the cascade: inheritance applies to the DOM (Document Object Model) tree.</p>\n<p>The cascade deals with the style sheet rules.  The cascade combines the importance, origin, specificity, and source order of the applicable style declarations to determine exactly?and without conflict?which declaration should be applied to any given element.</li>\n<li>In OOP classes can be public or private.  Objects automatically inherit public classes.  In CSS, properties that are not automatically inherited from the parent can be inherited by specifying a value or &#8216;inherit&#8217; for that CSS property, similar to a private class.  Properties that are inherited automatically are similar to public classes.</li>\n\n</ul>\n<h4>Properties that inherit:</h4>\n<ul>\n<li>color</li>\n<li>font (and related properties)</li>\n<li>letter-spacing</li>\n<li>line-height</li>\n<li>list-style (and related properties)</li>\n<li>text-align</li>\n<li>text-indent</li>\n\n<li>text-transform</li>\n<li>visibility</li>\n<li>white-space</li>\n<li>word-spacing</li>\n</ul>\n<h4>Properties that don&#8217;t inherit:</h4>\n<ul>\n<li>background (and related properties)\n<li>border (and related properties)</li>\n<li>display</li>\n\n<li>float and clear</li>\n<li>height and width</li>\n<li>margin (and related properties)</li>\n<li>min- and max-height and -width</li>\n<li>outline</li>\n<li>overflow</li>\n<li>padding (and related properties)</li>\n<li>position (and related properties)</li>\n<li>text-decoration</li>\n\n<li>vertical-align</li>\n<li>z-index</li>\n</ul>\n<p>The concept of object oriented CSS is noteworthy.  The principles of the reuse of styles and inheritance / cascade are fundamental in creating an optimal CSS.</p>\n<h3>Semantic naming of classes and IDs</h3>\n<p>The semantic naming of classes and IDs is a controversial one.  This concept requires that all classes and IDs be named according to their meaning or role within a web page.  Unfortunately only web developers, designers and author benefit from semantically named classes and IDs.  Web page browsers, screen readers and search engines do not use classes or ID&#8217;s to gain more information about a web page.</p>\n<p>The benefits to web developers, designers and authors are:</p>\n<ol>\n<li> Semantically named classes and IDs give more meaning to a web page</li>\n\n<li> Semantically named classes and IDs can be stylistically changed in the CSS without having to be renamed in the HTML page</li>\n</ol>\n<p>The disadvantage of semantically naming classes and IDs is that it in some cases there is no  logic in naming it semantically.   Yahoo Grids and Blueprint CSS are both CSS frameworks based on grids and both frameworks name their classes based on their presentation.  For example, Blueprint&#8217;s &lt;div class=?span-24?&gt; relates to a &lt;div&gt; that spans the entire 960px over 24 columns.</p>\n<p>The semantic naming of classes and IDs have their benefits and should be encouraged however, when there is no logical reason to name an element semantically when a name relating to presentation may be more appropriate.  For example, a rounded corner &lt;span&gt; may be named roundedCornerTopLeft.</p>\n\n<h3>How to write your CSS</h3>\n<ol>\n<li>Create an element type selectors library<br />Defining the design of all HTML elements during the initial stages of web development ensures that all elements that make up a web page, visually communicate their semantic meaning in relation to each other.  It also sets the basic inheritance properties for elements with no further declarations.</li>\n<li>Define style templates for repeated designs within a web site<br />Defining a style template for repeated designs within a web site ensures that they can be consistently and easily repeated throughout the website.  When defining style templates carefully consider redundancy vs dependency.  Should a style be repeated across different class selectors so that a design change in one does not effect all the others?  Or should they be dependent resulting in a design change affecting all associated elements?   In this case you may also consider using  multiple classes to achieve your design.</li>\n<li>Minimise the use of specific selectors wherever possible and when using them, reference them as specifically as possible.</li>\n<li> Carefully consider the proximity of the cascade</li>\n<li>Always consider progressive enhancement and graceful degradation when styling.  For example if your design has rounded corners use the Mozilla and Webkit rounded corners styles.  However, also consider the best way to implement rounded corners in other browsers as well as a design without rounded corners.</li>\n<li>Remember to check how your page looks with CSS disabled</li>\n\n</ol>', NULL, NULL, '2009-07-01 00:00:00'),
+(9, 'Aria', 'Aria', NULL, '<p>Two weeks ago I decided to present WAI-ARIA (Web Accessibility Initiative - Accessible Rich Internet Applications) to my colleagues in our weekly meet.</p>\n<p>Since I had previously read about WAI-ARIA it didn''t take long for me to understand the theory behind the ARIA specification.  In summary:</p>\n<p>ARIA forms part of the Web Content Accessibility Guidelines 2.0 (WCAG 2.0) which succeeds WCAG 1.0 and which are both at working draft level with the W3C. </p>\n<p>It has been developed to address the accessibility problem that occurs when rich interaction semantics are added outside of the markup.  When this happens the markup no longer expresses the information needed to populate accessibility metadata which is then mapped by the browser to the platform accessibility APIs.</p>\n<p>WAI-ARIA provides a framework for providing proper semantics to HTML elements that provide information about:</p>\n<ul>\n<li>the role of the element within the page and in relation to other elements - the ARIA specification provides an ontology of roles that can be attached to content</li>\n<li>the states and properties of elements which are used to declare important attributes of an element that affect and describe interaction.  These are categorised as widget attributes, live region attributes, drag-and-drop attributes, relationship attributes</li>\n</ul>\n<p>The target audience for WAI-ARIA includes user agents, assistive technology, authors who create content, authoring tools and conformance checkers.  The relationship between the user agent, the accessibility API and the assistive technology is best illustrated below:</p>\n<div class="media">\n<img title="Relationship between user agents and accessibility api''s" src="http://www.absoluteorange.com/images/blog/user_agent_accessibility_api_relationship.jpg">\n</div>\n<p>My next step was to implement WAI-ARIA and test it on my Mac accessibility software, Universal Access.</p>\n<p><strong>27th September 2010 : in the mean time I have learnt that ARIA is only supported by screen readers such as JAWS, NVDA, Windows Eyes and SAToGo.</strong></p>\n<p>What makes ARIA difficult to implement is:</p>\n<ul>\n<li>It is only partly supported by browsers and accessibility software making it difficult to know which bits to implement.</li>\n<li>It does not validate on standard DTD''s</li>\n<li>It only has limited support in HTML5.0</li>\n</ul>\n<p>Despite these hurdles I decided that perhaps before I tried to implement WAI-ARIA I should test some real live examples using the accessibility software on my Mac.</p>\n<p>For obvious reasons, the first website I visited was the RNIB (Royal National Institute of the Blind).   Whilst there are some obvious improvements in accessible navigation including the Web Item Rotor and Web Auto Spots, overall I could find no implementation of ARIA on their website.</p>\n<p style="text-decoration:line-through;">I spent the next few hours trying to find real live examples or demonstrations of WAI-ARIA.  I found a few websites which I have referenced below but to be honest either the examples didn''t work i.e. they weren''t supported by Safari or Universal Access, or I didn''t quite grasp the concepts.</p>\n<p>27th September 2010 : Since ARIA is only supported in JAWS, NVDA, Windows Eyes or SAToGo, I would have to test examples using these assistive technologies.  In the mean time I found <a href="http://www.accessibleculture.org" title="Accessible Culture">Accessible Culture</a> who has taken the time to test various ARIA specifications on all supported screen readers.  This is a very useful website.</p>\n<p style="text-decoration:line-through;">In conclusion, the concept of WAI-ARIA is a good one however, it requires a considerable amount of effort to implement and to date has limited support.  Furthermore at the time of writing there are very few examples of ARIA being implemented.  For the time being I am going to put WAI-ARIA on hold, perhaps when the specification is more widely recommended by the W3C and HTML 5.0 is more widely implemented then I will come back to it.</p>\n<p><strong>27th September 2010 : I''ve changed my mind.  Just like the HTML 5.0 specification despite being unfinished and incomplete there are certain aspects of ARIA e.g. landmark roles that can be successfully implemented, so why not start implementing these?  In other words ARIA is work in progress requiring ongoing research to keep up to date.</strong></p>', NULL, NULL, '2010-05-11 00:00:00'),
+(30, 'Geolocation and HTML5', 'Geolocation and HTML5', NULL, '<p>For many web developers the new HTML 5 specification is a very exciting one.  In this blog Amy implements her first HTML 5 API, more specifically the HTML5 geolocation API.</p>\r\n<p>This implementation uses the HTML5 Geolocation API to find a users location.  If the user''s browser does not have the Geolocation API enabled we attempt to find the user''s location using Google Gears.  And finally, if Google Gears is not enabled we resort to Yahoo Geo to get the location based on the IP address.</p>\r\n<p>This example uses Googlemaps API (V3) and more specifically the Geocoder and Directions service.</p>\r\n<p><a href="../scripts/blogs/map.js" target="_blank" title="View the Javascript source code">View the Javascript source code</a></p>\r\n        <div id="map-canvas"></div>\r\n        <div class="map-form">\r\n            <input type="text" id="address" class="map-inline-form" value="enter your address" />\r\n            <a href="javascript:void(0);" onclick="google_map.codeAddress();" title="Find this address" id="code_address">Find this address</a>\r\n        </div>\r\n        <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&key=AIzaSyCwQwbUh1w8rxf8ev8hgXLNGKmIZmc-Vic" type="text/javascript"></script>\r\n        <script type="text/javascript" src="/scripts/blogs/yqlgeo.js"></script>\r\n        <script type="text/javascript" src="/scripts/blogs/map.js"></script>\r\n        <script type="text/javascript">\r\n            google_map.initialize(''geolocation'');\r\nfunction codeAddress() {\r\nalert(''here'');\r\ngoogle_map.codeAddress();\r\n}\r\nvar mapInput = document.getElementById(''address'');\r\n           mapInput.onfocus= function () { \r\n             var value = mapInput.value;\r\n if (value.substring(''enter'') != '''') {\r\n       mapInput.value = '''';\r\n }\r\n            }; \r\n        </script>', NULL, NULL, '2010-09-08 00:00:00'),
+(32, 'Agile methodologies and new product development', 'Agile methodologies and new product development', NULL, '<p>Agile methodologies differ from other project management methods because it does not "...assume that the entire set of requirements and activities can be forecast at the beginning of the project.  Agile methods combine all the elements of product development, such as requirements, analysis, design, development and testing in brief, regular iterations. Every iteration delivers a working product or prototype, and the response to that product or prototype serve as crucial input into the succeeding iterations." [Successful projects through Agile project management, 2010.  Nancy Nee [online] Available at: <a href="http://www.projecttimes.com/agile/successful-projects-through-agile-project-management.html" title="Successful projects through Agile project management">Successful projects through Agile project management</a> [Accessed 23 July 2011]]</p>\n\n<p>The definition above emphasizes the importance of delivering a working product at every iteration however, in new product development there is no existing product.  Furthermore, building a new product has many challenges and unknowns.  Whilst using agile is desirable there are a number of risk factors, which include:</p>\n\n<ol>\n<li>Changing core requirements<br />\nAgile works very well in managing changes to feature level requirements as long as the core architecture stays stable.  In new product development requirements that affect the core system or its architecture are common.  Having a clear indication of these requirements during the analysis phase of new product development gives development teams the opportunity to prototype these features without risking other development efforts from being rendered useless as changes occur in core requirements.</li> \n\n<li>Unknown technical challenges that have not been verified with a prototype<br />\nFor a new product, the number of unknown technical challenges (ideas that have not been proven to work) is way bigger than for an established product. It is usually necessary to identify these challenges, understand their impact, plan contingencies and prove the ideas sooner than later. If one of these efforts ends up falling in the later phases of agile development, this could have devastating effects on the overall delivery plans for the product.</li> \n\n<li>Incomplete system architecture<br />\nSystem architecture provides guidance and framework to make sure that the individual pieces of a new product are coming together the right way. Not having complete core architecture is like a bunch of people walking on their own paths with a ''hope'' that they are going to meet somewhere.  Agile methodology has provisions for bringing different parts of the project to sync-up together at the end of each phase. Having a framework to assess where the overall project is going and how it can come together is a key to ensure timely delivery of the entire product (especially when the product is being developed for the first time).</li> \n\n<li>Lack of Framework for Continuous Integration<br />\nAgile methodology requires that there be a way to continuously integrate the features being developed. Not having a framework to integrate, test and verify that the features are working together as intended could seriously hurt the project and may make integration effort a whole lot more challenging than it needs to be. [Agile methodology and new product development: four key issues, 2008.  Alok [online]  Available at:  <A href="http://blogs.msdn.com/b/isv/archive/2008/07/29/agile-methodology-and-new-product-development-four-key-issues.aspx" title="Agile methodology and new product development: four key issues">Agile methodology and new product development: four key issues</a> [Accessed 23 July 2011]]</li>\n</ol> \n\n<p>These challenges reiterate the importance of a defining a blueprint of the new product in the initial analysis and design stages of the development cycle.  With this understanding systems and architectures can be designed and developed to support the anticipated concept of the product.  It also stands that this blueprint is likely to change with each iteration and subsequent review.</p>\n\n<p>Development of the new product using an agile approach would require that the first phase of the development of the new product should produce a very basic, featureless, working product.</p>\n\n<p>The delivery of the basic product would then be reviewed by all stakeholders, including marketing, design, users (based on user testing) and the client.  This review would provide input into the product backlog which would be prioritized by the product owner.</p>\n\n<p>Agile methodologies would then allow for iterations on this product which would result in the implementation of enhancements and features whose priority could change with review and feedback.</p>', NULL, NULL, '2011-08-01 00:00:00'),
+(36, 'HTML5 - File APIs', 'HTML5 - File APIs', NULL, '<p>The new HTML5 file API''s make importing, creating, manipulating, storing and publishing files simple.  In this blog I prototype the drag & drop, reading and creating File API''s.</p>\r\n\r\n<p>In this demonstration a user can drag an image from their computer on to an area on the web page.  The image file size is read and the image is displayed in the area.  If the image is under 5Mbytes, it is uploaded as binary to the Absolute Orange domain.  The image is then displayed in a seperate box using the Absolute Orange domain.</p>  \r\n\r\n<div id="dropbox">\r\n	<p>Drop your photo here and it will be uploaded to the Absolute Orange website</p>\r\n</div>\r\n<div id="uploadedImages">\r\n	<p>Your uploaded image</p>\r\n</div>\r\n\r\n<script src="../scripts/blogs/file_api_blog.js" type="text/javascript"></script>', NULL, NULL, '2012-02-17 00:00:00'),
+(37, 'Responsive web development', 'Responsive web development', 'responsive.jpg', '<p>Responsive Web Development is a front end web development approach for building one website that fits all screen sizes.</p>\n\n<h3>Lowest common denominator</h3>\n<p>The Responsive approach to building a website begins with the development of the website for a lowest common denominator (LCD). The LCD''s core experience is based on a Mobile First approach.  It focuses on being fast, lightweight and independent of JavaScript or CSS media queries.  The lowest common denominator website once tested provides the foundation for optimisation.</p>\n\n<h3>Browser features</h3>\n<p>Testing browser features allows one to determe what device and browser a user is using.  Ultimately the device and browser determine the optimal website experience.  Browser features are detected using a device description repository (DDR) e.g. WURFL and / or client side JavaScript.</p>\n\n<p>To avoid a flash of unstyled content when a page loads one cannot leave all the browser feature testing to be run on page load.  Ideally a DDR would be used to determine device features before the page is server to the browser.  However, a DDR costs money and this will really depend on the client requirements.</p>\n\n<p>In my <a href="/webApp/gallery" title="responsive prototype">responsive prototype</a> I use a server session to store the browser''s features.  This requires that when a device visits my website for the first time all browser features are detected and set in the session.</p>\n\n<p>If no session is set, the server serves the basic version of the web page (the one for the LCD).  The web page determines whether a browser supports HTML5 using the hasTheMustard method.  \n\n<h4>hasTheMustard</h4>\n<p>The hasTheMustard is a method used by the BBC to distinguish between browsers that support HTML5 and those that don''t.  It tests for browser capabilities using JavaScript namely, Document.querySelector, Window.localStorage and Window.addEventListener.  It should be noted however, that Internet Explorer 8 does not support HTML5 but since it represents such a significant market share we cannot exclude it.  Using JavaScript user agent sniffing we provide an exception for IE8 and upwards.</p>\n\n<p>If a browser does not support HTML5 or does not have JavaScript the basic web page is displayed.  For those that do support HTML5 and have JavaScript the browser returns to the server (via AJAX) browser features including screen width, screen height, orientation, mouse or touch capabilities, local storage, geolocation etc.  This data is set in the server session and used to determine what content, CSS and JavaScript is most appropriate for the device.</p>\n\n<h3>Device groups</h3>\n<p>To differentiate between styles for various devices one sets device groups.  To be truly responsive device group breakpoints should not have any gaps and can be as exhaustive as your resources permit.  The challenge here is to define device groups that can use the same design grid.  In my prototype I have defined the following device groups:\n<ul>\n<li>\n<h4>Legacy</h4>\n<p>Screen width less than 240px\n</li>\n<li>\n<h4>Smart</h4>\n<p>Screen width greater and equal to 240px and less than and equal to 640px.  Within this device group I can have a number of breakpoints including 240px, 320px, 480px and 640px.  I use an 8px grid for this device group.</p>\n</li>\n<li>\n<h4>Compact</h4>\n<p>Screen width greater than 640px and less than 960px.  I can have a breakpoint of 640px, 800px and 960px.  I use a 30px grid with 10px gutters for this device group.</p>\n</li>\n<li>\n<h4>Large</h4>\n<p>Screen width greater than 960px.  I set a 960px limit on my website size and use a 30px grid with 10px gutters for this device group.</p>\n</li>\n</ul>\n \n<h3>AMD Loaders</h3>\n<p>To further improve performance AMD (asynchronous module definition) loaders enable JavaScript, CSS, text and il8n:</p>\n<ul>\n<li>to load in parallel improving the overall speed of a website page</li>\n<li>to encourage a modular structure of scripts based on dependencies which are easily maintainable</li>\n<li>to follow a well defined and standardised approach in keeping with the prospective ES-Harmony migration path</li>\n</ul>\n\n<h3>Adaptive images</h3>\n<p>A responsive website will serve appropriately sized images to a device that optimises download speeds.  I have chosen to implement a method based on Matt Wilcox'' approach that redirects all image requests to a PHP script.  The PHP script determines the required image dimension and either crops the image at run time or requests it from the cache.</p>\n\n<h3>Interesting insights:</h3>\n<ul>\n<li>The CSS media query for orientation is currently not widely supported for example, it does not work in iPhone 4 (iOS 4.3.3).  As such my thinking is that the orientation of the device is not required so long as I ensure my stylesheets include styles, using width media queries, for any viewport changes.</li>\n<li>Dynamically removing and adding stylesheets with JavaScript puts considerable strain on the browser as documented by Stubbornella.  For this reason, I use AJAX to determine the appropriate stylesheets to include in my web page.</li>\n</ul>\n\n<h4>Technologies I have used</h4>\n<ul>\n<li>RequireJS (AMD Loader and JavaScript and CSS optimiser)</li>\n<li>{Less} (Dyanmic style sheet language)</li>\n<li>UseJS (AMD Loader for non-compatible AMD JavaScripts)</li>\n<li>MasonryJS</li>\n<li>Almond (minimal AMD API implementation for optimised builds)</li>\n<li>Apache Ant (compiler)</li>\n<li>CodeIgniter REST API server</li>\n<li>Backbone JS (JavaScript MVC framework)</li>\n</ul>', NULL, NULL, '2012-05-04 17:00:00'),
+(38, 'absolute_orange_website_redesign', 'Absolute Orange website redesign', NULL, '<p class="wrapper-body">It had been approximately 4 years since I re-designed the Absolute Orange website and it was time to implement a much needed upgrade.</p>\n\n<p class="wrapper-body">The website uses its own CMS which I have cobbled together over the last 6 years.  It is written in Codeigniter PHP and I took 2 weeks to rewrite the code and improve the interface. I was impressed by how much I have improved. The code uses considerably more logic, common libraries and consistent methodologies for CRUD events which translates into fewer lines of code which are easy to understand and manage.</p>\n\n<p class="wrapper-body">As with all websites there is an initial planning phase. I spent half a day researching:</p>\n<ul class="wrapper-body">\n<li class="touch-list">Absolute Orange website metrics</li>\n<li  class="touch-list">Top 100 digital agencies websites on various devices</li>\n<li  class="touch-list">Freelance web developer websites on various devices</li>\n<li  class="touch-list">General information on freelancing in the IT industry</li>\n</ul>\n<p class="wrapper-body">This research helped me finalise my website content and from here I defined my information architecture.</p>\n\n<p class="wrapper-body">I decided that as the Absolute Orange website does not have a huge amount of content or interaction I would design it to be responsive (automatically responding to different size devices through the use of adaptive images, the implementation of appropriate grids and specified design elements using CSS media queries).  Following the ''mobile first'' methodology I design and build for a legacy mobile first and once the basic mobile website is built I then optimise for modern mobiles, tablets and desktops ensuring that my breakpoints are set where the design breaks.</p>\n\n<p class="wrapper-body">Having defined my overall approach I drew wireframes for both the optimised mobile and tablet devices (see examples below) .  I kept my wireframes idealistic in that I did not allow myself to set any limitations on the design and the user experience.  These would provide a blue print for an ideal product and it would be perfectly acceptable to compromise during development if time or resources so required, but the wireframes represented the desirable solution.</p>\n\n<p class="wrapper-body">Now that the essential planning phase was complete I could begin to consider the first stage of development.  I intended to develop a legacy version of the mobile site first.  A legacy version of a website exists to ensure an adequate user experience to the LCD (lowest common denominator).  As such I designed all the pages in Photoshop keeping my designs at 175px width in order to ensure an adequate experience for my LCD (see examples below).</p>\n\n<p>Development could begin.  The legacy version of the website uses little, preferably no JavaScript (in fact I use only 1 script, storing the resolution of the device in a cookie for my adaptive images PHP script) and CSS 1 & 2.  It''s URI''s are all searchable and crawlable and once tested and released forms the basis from which to optimise.</p>\n\n<p class="wrapper-body">Unfortunately it was at this point that I ran out of time and I needed to release a MVP (minimum viable product).  I decided to optimise the legacy mobile website for phones greater than 240px but less than 640px using CSS media queries and CSS 3 transitions and gradients.</p>\n\n<p>I believe that version 2 will be optimise the existing website for devices greater than 640px, implementing my tablet wireframes as best possible without using JavaScript.  Version 3 will probably be when I begin implementing JavaScript, perhaps looking at implementing a one page JavaScript app for devices less than 640px.</p>', NULL, NULL, '2013-04-29 00:00:00'),
+(39, 'FileAPI', 'HTML5 File API', NULL, 'The HTML5 file API''s make importing, creating, manipulating, storing and publishing files simple.\nIn this demonstration a user can drop an image into a dropbox. The image file size is read and alerted.  If the image size is under 5Mbytes it is uploaded as binary to the Absolute Orange domain and downloaded to the browser.', '<div id="dropbox">\n	<p>Drop your photo here and it will be uploaded to the Absolute Orange website</p>\n</div>\n<div id="uploadedImages">\n	<p>Your image uploaded from the Absolute Orange domain</p>\n</div>\n\n<script src="/scripts/blogs/FileAPI.js" type="text/javascript"></script>', 'var FileApi = function () {\n\n    "use strict";\n\n    var droppedFile;\n\n    var dragEnter = function (e) {\n        e.stopPropagation();\n        e.preventDefault();\n    };\n\n    var dragOver = function (e) {\n        e.stopPropagation();\n        e.preventDefault();\n    };\n\n    var drop = function (e) {\n        e.stopPropagation();\n        e.preventDefault();\n        var dt = e.dataTransfer,\n            files = dt.files;\n        if (droppedFile === null) {\n            droppedFile ++;\n            handleDropFiles(files);\n        } else {\n            window.alert(''Sorry you can only upload one image per session.'');\n        }\n    };\n\n    var handleDropFiles = function (files) {\n        for (var i= 0, len=files.length; i<len; i++) {\n            var file = files[i],\n                imageType = /image.*/;\n\n            if (!file.type.match(imageType)) {\n                window.alert(''This is not a valid image file.'');\n                continue;\n            }\n\n            var img = document.createElement("img");\n            img.classList.add("obj");\n            img.file = file;\n            dropbox.appendChild(img);\n\n            var reader = new FileReader();\n            reader.onload = (function(aImg) { return function(e) { aImg.src = e.target.result; }; })(img);\n            reader.readAsDataURL(file);\n            var nBytes = file.size,\n                sOutput;\n            for (var aMultiples = ["KiB", "MiB", "GiB", "TiB", "PiB", "EiB", "ZiB", "YiB"], nMultiple = 0, nApprox = nBytes / 1024; nApprox > 1; nApprox /= 1024, nMultiple++) {\n                sOutput = nApprox.toFixed(3) + " " + aMultiples[nMultiple] + " (" + nBytes + " bytes)";\n            }\n            window.alert(''Your image size is ''+ sOutput);\n            if (nBytes <= 5242880) {\n                fileUpload(file);\n            } else {\n                window.alert(''Your image is to big to upload.  Please choose an image that is smaller than 5Mb'');\n            }\n        }\n    };\n\n    var fileUpload = function (file) {\n        var xhr = new XMLHttpRequest();\n        xhr.open("POST", "/fileAPIUpload", true);\n        xhr.setRequestHeader("X_FILENAME", file.name);\n        xhr.onload = function (e) {\n            if (this.status === 200)  {\n                var img = this.responseText;\n                var parentEle = document.getElementById(''uploadedImages'');\n                var aEle = document.createElement("a");\n                aEle.rel = "lightbox";\n                aEle.id = "uploaded";\n                aEle.className = ''img'';\n                var imgEle = document.createElement(''img'');\n                imgEle.src = ''/images/publicUpload/small/''+this.responseText;\n                imgEle.alt = '''';\n                imgEle.title= '''';\n                aEle.appendChild(imgEle);\n                parentEle.appendChild(aEle);\n                var paraEle = document.createElement(''p'');\n                var content = ''Image address is: http://www.absoluteorange.com/images/publicUpload/''+this.responseText;\n                if(typeof paraEle.innerText !== ''undefined'') {\n                    paraEle.innerText = content;\n                }\n                else {\n                    paraEle.innerHTML = content;\n                }\n            }\n            parentEle.appendChild(paraEle);\n            var imageLink = document.getElementById(''uploaded'');\n            imageLink.lightBox;\n        };\n        xhr.send(file);\n    };\n    var dropbox = document.getElementById("dropbox");\n    dropbox.addEventListener("dragenter", dragEnter, false);\n    dropbox.addEventListener("dragover", dragOver, false);\n    dropbox.addEventListener("drop", drop, false);\n};\nvar myFileApi = new FileApi();', '2012-02-17 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -60,7 +64,6 @@ INSERT INTO `blog` (`id`, `url`, `name`, `image`, `description`, `date_completed
 -- Table structure for table `blog_comments`
 --
 
-DROP TABLE IF EXISTS `blog_comments`;
 CREATE TABLE IF NOT EXISTS `blog_comments` (
   `blog_id` smallint(3) unsigned NOT NULL,
   `comment_id` smallint(3) unsigned NOT NULL,
@@ -88,7 +91,6 @@ INSERT INTO `blog_comments` (`blog_id`, `comment_id`) VALUES
 -- Table structure for table `blog_images`
 --
 
-DROP TABLE IF EXISTS `blog_images`;
 CREATE TABLE IF NOT EXISTS `blog_images` (
   `blog_id` smallint(3) unsigned NOT NULL,
   `image_url` varchar(100) NOT NULL,
@@ -116,7 +118,6 @@ INSERT INTO `blog_images` (`blog_id`, `image_url`, `image_alt`, `order_index`, `
 -- Table structure for table `blog_logos`
 --
 
-DROP TABLE IF EXISTS `blog_logos`;
 CREATE TABLE IF NOT EXISTS `blog_logos` (
   `blog_id` smallint(3) unsigned NOT NULL,
   `image_url` varchar(50) NOT NULL,
@@ -146,7 +147,6 @@ INSERT INTO `blog_logos` (`blog_id`, `image_url`, `image_alt`, `id`) VALUES
 -- Table structure for table `blog_relatedlinks`
 --
 
-DROP TABLE IF EXISTS `blog_relatedlinks`;
 CREATE TABLE IF NOT EXISTS `blog_relatedlinks` (
   `blog_id` smallint(3) unsigned NOT NULL,
   `url` varchar(200) NOT NULL,
@@ -237,7 +237,6 @@ INSERT INTO `blog_relatedlinks` (`blog_id`, `url`, `name`, `id`) VALUES
 -- Table structure for table `captcha`
 --
 
-DROP TABLE IF EXISTS `captcha`;
 CREATE TABLE IF NOT EXISTS `captcha` (
   `captcha_id` bigint(13) unsigned NOT NULL AUTO_INCREMENT,
   `captcha_time` int(10) unsigned NOT NULL,
@@ -23206,7 +23205,6 @@ INSERT INTO `captcha` (`captcha_id`, `captcha_time`, `ip_address`, `word`) VALUE
 -- Table structure for table `comments`
 --
 
-DROP TABLE IF EXISTS `comments`;
 CREATE TABLE IF NOT EXISTS `comments` (
   `comment_id` smallint(3) unsigned NOT NULL AUTO_INCREMENT,
   `comment` longtext NOT NULL,
@@ -23224,7 +23222,6 @@ CREATE TABLE IF NOT EXISTS `comments` (
 -- Table structure for table `country`
 --
 
-DROP TABLE IF EXISTS `country`;
 CREATE TABLE IF NOT EXISTS `country` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `country` varchar(35) DEFAULT NULL,
@@ -23323,80 +23320,9 @@ INSERT INTO `country` (`id`, `country`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `employees`
---
-
-DROP TABLE IF EXISTS `employees`;
-CREATE TABLE IF NOT EXISTS `employees` (
-  `employee_id` smallint(3) unsigned NOT NULL AUTO_INCREMENT,
-  `employee_name` varchar(75) DEFAULT NULL,
-  PRIMARY KEY (`employee_id`),
-  UNIQUE KEY `name` (`employee_name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- Dumping data for table `employees`
---
-
-INSERT INTO `employees` (`employee_id`, `employee_name`) VALUES
-(1, 'Amy Varga'),
-(2, 'Jon Reading');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `employees_relatedlinks`
---
-
-DROP TABLE IF EXISTS `employees_relatedlinks`;
-CREATE TABLE IF NOT EXISTS `employees_relatedlinks` (
-  `relatedlink_id` smallint(3) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) NOT NULL,
-  `url` varchar(50) NOT NULL,
-  PRIMARY KEY (`relatedlink_id`),
-  KEY `relatedLink_id` (`relatedlink_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- Dumping data for table `employees_relatedlinks`
---
-
-INSERT INTO `employees_relatedlinks` (`relatedlink_id`, `name`, `url`) VALUES
-(1, 'CV in PDF format', '/cv/amyvarga_cv_1.pdf'),
-(2, 'CV in Word format', '/cv/amyvarga_cv_1.doc');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `employees_summaries`
---
-
-DROP TABLE IF EXISTS `employees_summaries`;
-CREATE TABLE IF NOT EXISTS `employees_summaries` (
-  `employee_id` smallint(3) unsigned NOT NULL AUTO_INCREMENT,
-  `photo` varchar(50) NOT NULL,
-  `photo_back` varchar(50) NOT NULL,
-  `years_of_experience` smallint(3) unsigned NOT NULL,
-  `profile` longtext NOT NULL,
-  PRIMARY KEY (`employee_id`),
-  KEY `name_id` (`employee_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- Dumping data for table `employees_summaries`
---
-
-INSERT INTO `employees_summaries` (`employee_id`, `photo`, `photo_back`, `years_of_experience`, `profile`) VALUES
-(1, 'amy_varga.jpg', '', 6, 'My profile'),
-(2, 'jonathan_reading.jpg', '', 6, 'My profile');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `employee_achievements`
 --
 
-DROP TABLE IF EXISTS `employee_achievements`;
 CREATE TABLE IF NOT EXISTS `employee_achievements` (
   `id` smallint(3) unsigned NOT NULL AUTO_INCREMENT,
   `achievements` longtext,
@@ -23412,7 +23338,6 @@ CREATE TABLE IF NOT EXISTS `employee_achievements` (
 -- Table structure for table `employee_blog`
 --
 
-DROP TABLE IF EXISTS `employee_blog`;
 CREATE TABLE IF NOT EXISTS `employee_blog` (
   `employee_id` smallint(3) unsigned NOT NULL AUTO_INCREMENT,
   `blog_id` smallint(3) unsigned NOT NULL,
@@ -23425,19 +23350,20 @@ CREATE TABLE IF NOT EXISTS `employee_blog` (
 --
 
 INSERT INTO `employee_blog` (`employee_id`, `blog_id`) VALUES
-(1, 3),
-(1, 4),
-(1, 5),
-(1, 6),
-(1, 7),
-(1, 8),
-(1, 9),
-(1, 30),
-(1, 31),
-(1, 32),
-(1, 36),
-(1, 37),
-(1, 38);
+(1, 39),
+(3, 3),
+(3, 4),
+(3, 5),
+(3, 6),
+(3, 7),
+(3, 8),
+(3, 9),
+(3, 30),
+(3, 31),
+(3, 32),
+(3, 36),
+(3, 37),
+(3, 38);
 
 -- --------------------------------------------------------
 
@@ -23445,23 +23371,22 @@ INSERT INTO `employee_blog` (`employee_id`, `blog_id`) VALUES
 -- Table structure for table `employee_cv`
 --
 
-DROP TABLE IF EXISTS `employee_cv`;
 CREATE TABLE IF NOT EXISTS `employee_cv` (
   `id` smallint(10) NOT NULL AUTO_INCREMENT,
   `employee_id` smallint(3) unsigned NOT NULL,
   `name` varchar(50) NOT NULL,
   KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `employee_cv`
 --
 
 INSERT INTO `employee_cv` (`id`, `employee_id`, `name`) VALUES
-(1, 1, 'amy_varga.pdf'),
-(2, 1, 'amy_varga.doc'),
 (3, 2, 'jonathan_reading.pdf'),
-(4, 2, 'jonathan_reading.doc');
+(4, 2, 'jonathan_reading.doc'),
+(6, 1, 'amy_varga.doc'),
+(7, 1, 'amy_varga.pdf');
 
 -- --------------------------------------------------------
 
@@ -23469,7 +23394,6 @@ INSERT INTO `employee_cv` (`id`, `employee_id`, `name`) VALUES
 -- Table structure for table `employee_expertise`
 --
 
-DROP TABLE IF EXISTS `employee_expertise`;
 CREATE TABLE IF NOT EXISTS `employee_expertise` (
   `employee_id` smallint(3) unsigned NOT NULL DEFAULT '0',
   `expertise_id` smallint(3) unsigned NOT NULL,
@@ -23492,7 +23416,6 @@ INSERT INTO `employee_expertise` (`employee_id`, `expertise_id`) VALUES
 -- Table structure for table `employee_showcase`
 --
 
-DROP TABLE IF EXISTS `employee_showcase`;
 CREATE TABLE IF NOT EXISTS `employee_showcase` (
   `employee_id` smallint(3) unsigned NOT NULL,
   `showcase_id` smallint(3) unsigned NOT NULL,
@@ -23510,6 +23433,7 @@ INSERT INTO `employee_showcase` (`employee_id`, `showcase_id`) VALUES
 (1, 75),
 (1, 76),
 (1, 77),
+(1, 83),
 (2, 78),
 (2, 79),
 (2, 80),
@@ -23522,7 +23446,6 @@ INSERT INTO `employee_showcase` (`employee_id`, `showcase_id`) VALUES
 -- Table structure for table `employee_skills`
 --
 
-DROP TABLE IF EXISTS `employee_skills`;
 CREATE TABLE IF NOT EXISTS `employee_skills` (
   `id` smallint(3) unsigned NOT NULL AUTO_INCREMENT,
   `skills` longtext,
@@ -23530,24 +23453,92 @@ CREATE TABLE IF NOT EXISTS `employee_skills` (
   `sort` smallint(3) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
 
 --
 -- Dumping data for table `employee_skills`
 --
 
 INSERT INTO `employee_skills` (`id`, `skills`, `employee_id`, `sort`) VALUES
-(8, 'Front end languages:  Highly proficient in HTML, CSS including SASS, OO JavaScript and other front end languages including JSTL, JSP and XSLT', 1, 0),
-(9, 'Front end techniques and technologies: Experience in device-independent design and a solid understanding of fundamental front end techniques including browser optimisation, progressive enhancement, responsive design, accessibility and selenium testing', 1, 0),
-(10, 'User experience techniques:  Experience in participatory and collaborative, iterative design techniques, writing user requirements specifications, competitor analysis, personas, user-flows, wireframing and prototyping.  Experience implementing and conducting user observations, user focus groups, usability testing and A/B testing,', 1, 0),
-(11, 'Development processes and methodologies: Strong advocate of Agile practises and methodologies and processes and procedures which encourage overall effectiveness and delivery', 1, 0),
+(8, 'Front end languages:  Highly proficient in OO JavaScript, HTML, and CSS and other front end languages including JSTL, JSP and XSLT', 1, 0),
+(9, 'Front end techniques and technologies:  A solid understanding of fundamental front end techniques including responsive design, browser optimisation, progressive enhancement, accessibility and selenium & unit testing', 1, 1),
+(10, 'User experience techniques:  Experience in participatory and collaborative, iterative design techniques, writing user requirements specifications, competitor analysis, personas, user-flows, wireframing and prototyping.  Experience implementing and conducting user observations, user focus groups, usability testing and A/B testing', 1, 5),
+(11, 'Development processes and methodologies: An advocate of Agile practises and processes, has a thorough understanding of OO and MVC programming patterns and has experience using SVN and Git versioning systems', 1, 4),
 (12, 'Broad skill-set:Experience developing bespoke CMS and E-commerce solutions using PHP and MySQL as well as native IOS applications', 2, 4),
 (13, 'Experience in latest methodologies: ''Responsive development'', ''Progressive enhancement'' and ''Feature detection''', 2, 3),
 (14, 'Agency experience: 6 years agency experience working on award winning projects for high profile clients such as  BBC, Channel 4, Channel 5, Film London, Fosters+Partners, and NESTA.', 2, 1),
 (15, 'Expertise in latest web technologies: HTML5, CSS3, LESS, SASS and OO Javascript', 2, 2),
 (16, 'Streamlined workflow: Incorporating version control, unit testing (TDD & BDD specs) , auto-generated documentation and automated builds.', 2, 5),
 (17, 'Object oriented design: Producing modular reusable code, utilising design patterns', 2, 6),
-(18, 'Standards complance: Adhering to W3C and Accessibility standards', 2, 6);
+(18, 'Standards complance: Adhering to W3C and Accessibility standards', 2, 6),
+(19, 'User interface design:  Experience designing and developing user focused web interfaces on mobile, tablet and desktop devices.  A strong appreciation for the responsibility of the front end developer as a last stop position before the user actually interacts with the interface.', 1, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `employees`
+--
+
+CREATE TABLE IF NOT EXISTS `employees` (
+  `employee_id` smallint(3) unsigned NOT NULL AUTO_INCREMENT,
+  `employee_name` varchar(75) DEFAULT NULL,
+  PRIMARY KEY (`employee_id`),
+  UNIQUE KEY `name` (`employee_name`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `employees`
+--
+
+INSERT INTO `employees` (`employee_id`, `employee_name`) VALUES
+(1, 'Amy Varga'),
+(2, 'Jon Reading');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `employees_relatedlinks`
+--
+
+CREATE TABLE IF NOT EXISTS `employees_relatedlinks` (
+  `relatedlink_id` smallint(3) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `url` varchar(50) NOT NULL,
+  PRIMARY KEY (`relatedlink_id`),
+  KEY `relatedLink_id` (`relatedlink_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `employees_relatedlinks`
+--
+
+INSERT INTO `employees_relatedlinks` (`relatedlink_id`, `name`, `url`) VALUES
+(1, 'CV in PDF format', '/cv/amyvarga_cv_1.pdf'),
+(2, 'CV in Word format', '/cv/amyvarga_cv_1.doc');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `employees_summaries`
+--
+
+CREATE TABLE IF NOT EXISTS `employees_summaries` (
+  `employee_id` smallint(3) unsigned NOT NULL AUTO_INCREMENT,
+  `photo` varchar(50) NOT NULL,
+  `photo_back` varchar(50) NOT NULL,
+  `years_of_experience` smallint(3) unsigned NOT NULL,
+  `profile` longtext NOT NULL,
+  PRIMARY KEY (`employee_id`),
+  KEY `name_id` (`employee_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `employees_summaries`
+--
+
+INSERT INTO `employees_summaries` (`employee_id`, `photo`, `photo_back`, `years_of_experience`, `profile`) VALUES
+(1, 'amy_varga.jpg', '', 7, 'My profile'),
+(2, 'jonathan_reading.jpg', '', 6, 'My profile');
 
 -- --------------------------------------------------------
 
@@ -23555,7 +23546,6 @@ INSERT INTO `employee_skills` (`id`, `skills`, `employee_id`, `sort`) VALUES
 -- Table structure for table `experience`
 --
 
-DROP TABLE IF EXISTS `experience`;
 CREATE TABLE IF NOT EXISTS `experience` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) DEFAULT NULL,
@@ -23577,7 +23567,6 @@ INSERT INTO `experience` (`id`, `name`) VALUES
 -- Table structure for table `frameworks`
 --
 
-DROP TABLE IF EXISTS `frameworks`;
 CREATE TABLE IF NOT EXISTS `frameworks` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) DEFAULT NULL,
@@ -23607,7 +23596,6 @@ INSERT INTO `frameworks` (`id`, `name`) VALUES
 -- Table structure for table `languages`
 --
 
-DROP TABLE IF EXISTS `languages`;
 CREATE TABLE IF NOT EXISTS `languages` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) DEFAULT NULL,
@@ -23640,7 +23628,6 @@ INSERT INTO `languages` (`id`, `name`) VALUES
 -- Table structure for table `photos`
 --
 
-DROP TABLE IF EXISTS `photos`;
 CREATE TABLE IF NOT EXISTS `photos` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL DEFAULT '0',
@@ -23676,7 +23663,6 @@ INSERT INTO `photos` (`id`, `name`, `alt`, `format`) VALUES
 -- Table structure for table `portfolio_versions`
 --
 
-DROP TABLE IF EXISTS `portfolio_versions`;
 CREATE TABLE IF NOT EXISTS `portfolio_versions` (
   `portfolio_id` tinyint(3) unsigned NOT NULL,
   `versions_id` tinyint(3) unsigned NOT NULL,
@@ -23714,7 +23700,6 @@ INSERT INTO `portfolio_versions` (`portfolio_id`, `versions_id`) VALUES
 -- Table structure for table `showcase`
 --
 
-DROP TABLE IF EXISTS `showcase`;
 CREATE TABLE IF NOT EXISTS `showcase` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `extra_details` varchar(255) DEFAULT NULL,
@@ -23731,14 +23716,14 @@ CREATE TABLE IF NOT EXISTS `showcase` (
   `owner` varchar(50) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`title`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT AUTO_INCREMENT=83 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT AUTO_INCREMENT=84 ;
 
 --
 -- Dumping data for table `showcase`
 --
 
 INSERT INTO `showcase` (`id`, `extra_details`, `title`, `image`, `link`, `link_title`, `description`, `size`, `deliverable`, `date_completed`, `date_started`, `contractor`, `owner`) VALUES
-(73, NULL, 'Three', NULL, 'http://mobile.three.co.uk/935a/portal-web/whats-hot', NULL, 'The Three video-ondemand mobile website provides Three customers with free & subscription based videos.', NULL, 'Mobile website delivering Three video-ondemand service', '2012-06-01 00:00:00', '2010-09-01 00:00:00', 'Ondemand!', 'Three'),
+(73, NULL, 'Three', NULL, 'http://mobile.three.co.uk/935a/portal-web/whats-hot', NULL, 'A video-on-demand mobile subscription service offered by Three to its customers ', NULL, 'Mobile website delivering Three video-ondemand service', '2012-06-01 00:00:00', '2010-09-01 00:00:00', 'Ondemand!', 'Three'),
 (74, NULL, 'Virgin Shorts', NULL, 'http://www.virginmediashorts.co.uk', NULL, 'The Virgin Shorts website is an integral part of the Virgin Shorts competition allowing competitors to upload and showcase their entries.', NULL, 'Website showcasing short films for the Virgin Shorts competition', '2010-06-01 00:00:00', '2010-01-01 00:00:00', 'Virgin Media', 'Virgin Media'),
 (75, NULL, 'UK Web Archive', NULL, 'http://www.webarchive.org.uk/ukwa/', NULL, 'Redesign and improve the UK Web Archive website so that it is more usable and communicates the brand better.', NULL, 'Redesign on UK Web Archive website', '2009-12-15 00:00:00', '2009-11-01 00:00:00', 'UK Web Archive', 'British Library'),
 (76, NULL, 'Clipper Teas', NULL, 'http://shop.clipper-teas.com/', NULL, 'Provide an e-commerce website for Clipper Teas', NULL, 'Clipper Teas shopping website', '2010-12-23 00:00:00', '2009-10-01 00:00:00', 'Big Fish ', 'Clipper Teas'),
@@ -23747,7 +23732,8 @@ INSERT INTO `showcase` (`id`, `extra_details`, `title`, `image`, `link`, `link_t
 (79, NULL, 'Channel 4 Toyota Aygo Mashup', NULL, 'http://toyotaaygo.channel4.com/', NULL, 'Channel 4 competition website to win a Toyota Aygo', NULL, 'HTML5 web application', '2013-04-26 00:00:00', '2013-03-28 00:00:00', 'KentLyons', 'Channel 4'),
 (80, NULL, 'The Run To', NULL, 'http://therunto.com/', NULL, 'Responsive HTML5 website', NULL, 'HTML5 website', '2012-10-19 00:00:00', '2012-09-03 00:00:00', 'KentLyons', 'The Run To'),
 (81, NULL, 'Happy Face', NULL, 'http://www.kentlyons.com/happyface/', NULL, 'Native IOS parenting app', NULL, 'IOS app', '2012-04-13 00:00:00', '2012-02-01 00:00:00', 'KentLyons', 'KentLyons'),
-(82, NULL, 'Film London', NULL, 'http://filmlondon.org.uk/', NULL, 'Content Managed Website', NULL, 'Website', '2010-04-30 00:00:00', '2010-01-01 00:00:00', 'KentLyons', 'Film London');
+(82, NULL, 'Film London', NULL, 'http://filmlondon.org.uk/', NULL, 'Content Managed Website', NULL, 'Website', '2010-04-30 00:00:00', '2010-01-01 00:00:00', 'KentLyons', 'Film London'),
+(83, NULL, 'News International', NULL, 'http://news.co.uk/', NULL, 'News International acquisition web pages', NULL, 'The Sun+, The Times and The Sunday Times subscription pages', '2013-08-30 00:00:00', '2013-06-03 00:00:00', 'Nice Agency', 'News International');
 
 -- --------------------------------------------------------
 
@@ -23755,7 +23741,6 @@ INSERT INTO `showcase` (`id`, `extra_details`, `title`, `image`, `link`, `link_t
 -- Table structure for table `showcase_experience`
 --
 
-DROP TABLE IF EXISTS `showcase_experience`;
 CREATE TABLE IF NOT EXISTS `showcase_experience` (
   `experience_id` int(11) NOT NULL DEFAULT '0',
   `showcase_id` int(11) NOT NULL DEFAULT '0',
@@ -23775,7 +23760,8 @@ INSERT INTO `showcase_experience` (`experience_id`, `showcase_id`) VALUES
 (14, 79),
 (14, 80),
 (14, 81),
-(14, 82);
+(14, 82),
+(14, 83);
 
 -- --------------------------------------------------------
 
@@ -23783,7 +23769,6 @@ INSERT INTO `showcase_experience` (`experience_id`, `showcase_id`) VALUES
 -- Table structure for table `showcase_frameworks`
 --
 
-DROP TABLE IF EXISTS `showcase_frameworks`;
 CREATE TABLE IF NOT EXISTS `showcase_frameworks` (
   `showcase_id` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `frameworks_id` tinyint(3) unsigned NOT NULL DEFAULT '0',
@@ -23796,7 +23781,7 @@ CREATE TABLE IF NOT EXISTS `showcase_frameworks` (
 
 INSERT INTO `showcase_frameworks` (`showcase_id`, `frameworks_id`) VALUES
 (73, 8),
-(73, 11),
+(73, 12),
 (74, 8),
 (74, 13),
 (75, 8),
@@ -23817,7 +23802,11 @@ INSERT INTO `showcase_frameworks` (`showcase_id`, `frameworks_id`) VALUES
 (81, 16),
 (82, 8),
 (82, 13),
-(82, 14);
+(82, 14),
+(83, 8),
+(83, 9),
+(83, 10),
+(83, 12);
 
 -- --------------------------------------------------------
 
@@ -23825,7 +23814,6 @@ INSERT INTO `showcase_frameworks` (`showcase_id`, `frameworks_id`) VALUES
 -- Table structure for table `showcase_images`
 --
 
-DROP TABLE IF EXISTS `showcase_images`;
 CREATE TABLE IF NOT EXISTS `showcase_images` (
   `showcase_id` smallint(3) unsigned NOT NULL,
   `image_url` varchar(50) NOT NULL,
@@ -23833,7 +23821,7 @@ CREATE TABLE IF NOT EXISTS `showcase_images` (
   `order_index` smallint(3) DEFAULT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=99 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=101 ;
 
 --
 -- Dumping data for table `showcase_images`
@@ -23859,7 +23847,9 @@ INSERT INTO `showcase_images` (`showcase_id`, `image_url`, `image_alt`, `order_i
 (73, 'Three_htc2.jpg', 'Three > Three ondemand video website HTC', 4, 95),
 (73, 'Three_htc3.jpg', 'Three > Three ondemand video website HTC', 3, 96),
 (73, 'Three_iphone.jpg', 'Three > Three ondemand video website iPhone', 2, 97),
-(73, 'Three_iphone2.jpg', 'Three > Three ondemand video website iPhone', 2, 98);
+(73, 'Three_iphone2.jpg', 'Three > Three ondemand video website iPhone', 2, 98),
+(83, 'News_International_the-sun-accountCreation.gif', 'News_International > The Sun - account creation', 1, 99),
+(83, 'News_International_the-times-accountCreation.gif', 'News_International > The Times - account creation', 1, 100);
 
 -- --------------------------------------------------------
 
@@ -23867,7 +23857,6 @@ INSERT INTO `showcase_images` (`showcase_id`, `image_url`, `image_alt`, `order_i
 -- Table structure for table `showcase_languages`
 --
 
-DROP TABLE IF EXISTS `showcase_languages`;
 CREATE TABLE IF NOT EXISTS `showcase_languages` (
   `languages_id` int(11) NOT NULL DEFAULT '0',
   `showcase_id` int(11) NOT NULL DEFAULT '0',
@@ -23880,17 +23869,16 @@ CREATE TABLE IF NOT EXISTS `showcase_languages` (
 
 INSERT INTO `showcase_languages` (`languages_id`, `showcase_id`) VALUES
 (7, 82),
-(8, 73),
 (9, 73),
 (9, 75),
+(9, 77),
 (15, 73),
-(22, 73),
 (38, 73),
 (38, 78),
 (38, 79),
 (38, 80),
+(38, 83),
 (39, 73),
-(39, 74),
 (39, 75),
 (39, 76),
 (39, 77),
@@ -23898,10 +23886,10 @@ INSERT INTO `showcase_languages` (`languages_id`, `showcase_id`) VALUES
 (39, 79),
 (39, 80),
 (39, 82),
+(39, 83),
+(41, 74),
 (41, 80),
 (41, 82),
-(42, 74),
-(43, 74),
 (43, 75),
 (43, 76),
 (43, 77),
@@ -23910,7 +23898,9 @@ INSERT INTO `showcase_languages` (`languages_id`, `showcase_id`) VALUES
 (44, 79),
 (44, 80),
 (44, 82),
+(44, 83),
 (46, 80),
+(47, 73),
 (47, 80),
 (48, 78),
 (48, 81);
@@ -23921,14 +23911,13 @@ INSERT INTO `showcase_languages` (`languages_id`, `showcase_id`) VALUES
 -- Table structure for table `showcase_logos`
 --
 
-DROP TABLE IF EXISTS `showcase_logos`;
 CREATE TABLE IF NOT EXISTS `showcase_logos` (
   `showcase_id` smallint(3) unsigned NOT NULL,
   `image_url` varchar(50) NOT NULL,
   `image_alt` varchar(50) NOT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=97 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=100 ;
 
 --
 -- Dumping data for table `showcase_logos`
@@ -23944,7 +23933,8 @@ INSERT INTO `showcase_logos` (`showcase_id`, `image_url`, `image_alt`, `id`) VAL
 (78, 'bbc.png', 'BBC', 92),
 (79, 'channel-4-logo.png', 'Channel 4', 93),
 (81, 'IMG_0051-thumb.jpg', 'Happy Face', 94),
-(82, 'film-london-logo.png', 'Film London', 96);
+(82, 'film-london-logo.png', 'Film London', 96),
+(83, 'news_int_logos.jpg', 'News International', 99);
 
 -- --------------------------------------------------------
 
@@ -23952,14 +23942,22 @@ INSERT INTO `showcase_logos` (`showcase_id`, `image_url`, `image_alt`, `id`) VAL
 -- Table structure for table `showcase_relatedlinks`
 --
 
-DROP TABLE IF EXISTS `showcase_relatedlinks`;
 CREATE TABLE IF NOT EXISTS `showcase_relatedlinks` (
   `showcase_id` smallint(3) unsigned NOT NULL,
   `url` varchar(100) NOT NULL,
   `name` varchar(50) NOT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `showcase_relatedlinks`
+--
+
+INSERT INTO `showcase_relatedlinks` (`showcase_id`, `url`, `name`, `id`) VALUES
+(83, 'https://join.thesundaytimes.co.uk', 'The Sunday Times subscription', 1),
+(83, 'https://join.thesun.co.uk', 'The Sun subscription', 2),
+(83, 'https://join.thetimes.co.uk', 'The Times subscription', 3);
 
 -- --------------------------------------------------------
 
@@ -23967,7 +23965,6 @@ CREATE TABLE IF NOT EXISTS `showcase_relatedlinks` (
 -- Table structure for table `showcase_skills`
 --
 
-DROP TABLE IF EXISTS `showcase_skills`;
 CREATE TABLE IF NOT EXISTS `showcase_skills` (
   `showcase_id` smallint(3) unsigned NOT NULL,
   `skills_id` smallint(3) unsigned NOT NULL,
@@ -23980,13 +23977,11 @@ CREATE TABLE IF NOT EXISTS `showcase_skills` (
 --
 
 INSERT INTO `showcase_skills` (`showcase_id`, `skills_id`) VALUES
-(73, 22),
-(73, 23),
-(74, 22),
-(75, 22),
-(75, 23),
-(76, 22),
-(77, 22),
+(73, 25),
+(74, 25),
+(75, 25),
+(76, 25),
+(77, 25),
 (78, 24),
 (78, 25),
 (78, 26),
@@ -23999,7 +23994,8 @@ INSERT INTO `showcase_skills` (`showcase_id`, `skills_id`) VALUES
 (82, 19),
 (82, 24),
 (82, 25),
-(82, 27);
+(82, 27),
+(83, 25);
 
 -- --------------------------------------------------------
 
@@ -24007,7 +24003,6 @@ INSERT INTO `showcase_skills` (`showcase_id`, `skills_id`) VALUES
 -- Table structure for table `showcase_software`
 --
 
-DROP TABLE IF EXISTS `showcase_software`;
 CREATE TABLE IF NOT EXISTS `showcase_software` (
   `software_id` int(11) NOT NULL DEFAULT '0',
   `showcase_id` int(11) NOT NULL DEFAULT '0',
@@ -24022,23 +24017,23 @@ INSERT INTO `showcase_software` (`software_id`, `showcase_id`) VALUES
 (9, 75),
 (15, 73),
 (15, 75),
-(22, 73),
+(15, 83),
 (24, 73),
 (27, 73),
 (27, 74),
 (27, 82),
 (30, 73),
-(31, 73),
+(30, 83),
 (32, 73),
 (32, 74),
 (32, 75),
 (32, 82),
+(32, 83),
 (33, 76),
 (34, 78),
 (35, 73),
 (36, 73),
-(37, 73),
-(38, 73);
+(37, 73);
 
 -- --------------------------------------------------------
 
@@ -24046,7 +24041,6 @@ INSERT INTO `showcase_software` (`software_id`, `showcase_id`) VALUES
 -- Table structure for table `showcase_tags`
 --
 
-DROP TABLE IF EXISTS `showcase_tags`;
 CREATE TABLE IF NOT EXISTS `showcase_tags` (
   `tags_id` int(11) NOT NULL DEFAULT '0',
   `showcase_id` int(11) NOT NULL DEFAULT '0',
@@ -24059,7 +24053,6 @@ CREATE TABLE IF NOT EXISTS `showcase_tags` (
 -- Table structure for table `skills`
 --
 
-DROP TABLE IF EXISTS `skills`;
 CREATE TABLE IF NOT EXISTS `skills` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
@@ -24088,12 +24081,11 @@ INSERT INTO `skills` (`id`, `name`, `expertise`) VALUES
 -- Table structure for table `software`
 --
 
-DROP TABLE IF EXISTS `software`;
 CREATE TABLE IF NOT EXISTS `software` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=40 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=42 ;
 
 --
 -- Dumping data for table `software`
@@ -24118,7 +24110,9 @@ INSERT INTO `software` (`id`, `name`) VALUES
 (36, 'Adobe Edge'),
 (37, 'Google analytics'),
 (38, 'Balsamiq wireframing tool'),
-(39, 'Omnigraffle');
+(39, 'Omnigraffle'),
+(40, 'Git versioning system'),
+(41, 'Litmus email testing');
 
 -- --------------------------------------------------------
 
@@ -24126,7 +24120,6 @@ INSERT INTO `software` (`id`, `name`) VALUES
 -- Table structure for table `tags`
 --
 
-DROP TABLE IF EXISTS `tags`;
 CREATE TABLE IF NOT EXISTS `tags` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) DEFAULT NULL,
@@ -24149,18 +24142,17 @@ INSERT INTO `tags` (`id`, `name`) VALUES
 -- Table structure for table `turba_shares_seq`
 --
 
-DROP TABLE IF EXISTS `turba_shares_seq`;
 CREATE TABLE IF NOT EXISTS `turba_shares_seq` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=341 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2198 ;
 
 --
 -- Dumping data for table `turba_shares_seq`
 --
 
 INSERT INTO `turba_shares_seq` (`id`) VALUES
-(340);
+(2197);
 
 -- --------------------------------------------------------
 
@@ -24168,7 +24160,6 @@ INSERT INTO `turba_shares_seq` (`id`) VALUES
 -- Table structure for table `user`
 --
 
-DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `user_id` int(10) NOT NULL,
   `email` mediumtext NOT NULL,
@@ -24189,7 +24180,6 @@ INSERT INTO `user` (`user_id`, `email`, `name`) VALUES
 -- Table structure for table `versions`
 --
 
-DROP TABLE IF EXISTS `versions`;
 CREATE TABLE IF NOT EXISTS `versions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) DEFAULT NULL,
@@ -24211,22 +24201,139 @@ INSERT INTO `versions` (`id`, `name`) VALUES
 -- Table structure for table `webapp_photos`
 --
 
-DROP TABLE IF EXISTS `webapp_photos`;
 CREATE TABLE IF NOT EXISTS `webapp_photos` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL DEFAULT '0',
   `alt` varchar(50) NOT NULL DEFAULT '0',
   `format` tinytext NOT NULL,
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=489 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=491 ;
 
 --
 -- Dumping data for table `webapp_photos`
 --
 
 INSERT INTO `webapp_photos` (`id`, `name`, `alt`, `format`) VALUES
-(487, 'jon_the_hulk', 'Jon the hulk', 'jpg'),
-(488, 'superman', '', 'jpg');
+(1, '001', '', 'jpg'),
+(2, '002', '', 'jpg'),
+(3, '004', '', 'jpg'),
+(4, '005', '', 'jpg'),
+(5, '006', '', 'jpg'),
+(6, '007', '', 'jpg'),
+(7, '008', '', 'jpg'),
+(8, '009', '', 'jpg'),
+(9, '010', '', 'jpg'),
+(10, '011', '', 'jpg'),
+(11, '012', '', 'jpg'),
+(12, '013', '', 'jpg'),
+(13, '014', '', 'jpg'),
+(14, '015', '', 'jpg'),
+(15, '016', '', 'jpg'),
+(16, '017', '', 'jpg'),
+(17, '018', '', 'jpg'),
+(19, '019', '', 'jpg'),
+(20, '020', '', 'jpg'),
+(21, '021', '', 'jpg'),
+(22, '022', '', 'jpg'),
+(23, '023', '', 'jpg'),
+(24, '024', '', 'jpg'),
+(25, '025', '', 'jpg'),
+(26, '026', '', 'jpg'),
+(27, '027', '', 'jpg'),
+(28, '028', '', 'jpg'),
+(29, '029', '', 'jpg'),
+(30, '030', '', 'jpg'),
+(31, '031', '', 'jpg'),
+(32, '032', '', 'jpg'),
+(33, '033', '', 'jpg'),
+(34, '034', '', 'jpg'),
+(35, '035', '', 'jpg'),
+(36, '036', '', 'jpg'),
+(37, '037', '', 'jpg'),
+(39, '039', '', 'jpg'),
+(40, '040', '', 'jpg'),
+(41, '041', '', 'jpg'),
+(42, '042', '', 'jpg'),
+(43, '043', '', 'jpg'),
+(44, '044', '', 'jpg'),
+(45, '045', '', 'jpg'),
+(46, '046', '', 'jpg'),
+(47, '047', '', 'jpg'),
+(48, '048', '', 'jpg'),
+(49, '049', '', 'jpg'),
+(50, '050', '', 'jpg'),
+(51, '051', '', 'jpg'),
+(52, '052', '', 'jpg'),
+(53, '053', '', 'jpg'),
+(54, '054', '', 'jpg'),
+(55, '055', '', 'jpg'),
+(56, '056', '', 'jpg'),
+(57, '057', '', 'jpg'),
+(58, '058', '', 'jpg'),
+(59, '059', '', 'jpg'),
+(60, '060', '', 'jpg'),
+(61, '061', '', 'jpg'),
+(62, '062', '', 'jpg'),
+(63, '063', '', 'jpg'),
+(64, '064', '', 'jpg'),
+(65, '065', '', 'jpg'),
+(66, '066', '', 'jpg'),
+(67, '067', '', 'jpg'),
+(68, '068', '', 'jpg'),
+(69, '069', '', 'jpg'),
+(70, '070', '', 'jpg'),
+(71, '071', '', 'jpg'),
+(72, '072', '', 'jpg'),
+(73, '073', '', 'jpg'),
+(74, '074', '', 'jpg'),
+(75, '075', '', 'jpg'),
+(76, '076', '', 'jpg'),
+(77, '077', '', 'jpg'),
+(78, '078', '', 'jpg'),
+(79, '079', '', 'jpg'),
+(80, '080', '', 'jpg'),
+(81, '081', '', 'jpg'),
+(82, '082', '', 'jpg'),
+(83, '083', '', 'jpg'),
+(84, '084', '', 'jpg'),
+(85, '085', '', 'jpg'),
+(86, '086', '', 'jpg'),
+(87, '087', '', 'jpg'),
+(89, '089', '', 'jpg'),
+(90, '090', '', 'jpg'),
+(91, '091', '', 'jpg'),
+(92, '092', '', 'jpg'),
+(93, '093', '', 'jpg'),
+(94, '094', '', 'jpg'),
+(95, '095', '', 'jpg'),
+(96, '096', '', 'jpg'),
+(97, '097', '', 'jpg'),
+(98, '098', '', 'jpg'),
+(99, '099', '', 'jpg'),
+(100, '100', '', 'jpg'),
+(101, '101', '', 'jpg'),
+(102, '102', '', 'jpg'),
+(103, '103', '', 'jpg'),
+(104, '104', '', 'jpg'),
+(105, '105', '', 'jpg'),
+(106, '106', '', 'jpg'),
+(107, '107', '', 'jpg'),
+(108, '108', '', 'jpg'),
+(109, '109', '', 'jpg'),
+(110, '111', '', 'jpg'),
+(111, '112', '', 'jpg'),
+(112, '113', '', 'jpg'),
+(114, '114', '', 'jpg'),
+(115, '115', '', 'jpg'),
+(116, '116', '', 'jpg'),
+(117, '117', '', 'jpg'),
+(118, '118', '', 'jpg'),
+(119, '119', '', 'jpg'),
+(120, '120', '', 'jpg'),
+(121, '121', '', 'jpg'),
+(122, '122', '', 'jpg'),
+(123, '123', '', 'jpg'),
+(490, '124', '0', 'jpg');
 
 -- --------------------------------------------------------
 
@@ -24234,7 +24341,6 @@ INSERT INTO `webapp_photos` (`id`, `name`, `alt`, `format`) VALUES
 -- Table structure for table `webapp_users`
 --
 
-DROP TABLE IF EXISTS `webapp_users`;
 CREATE TABLE IF NOT EXISTS `webapp_users` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
@@ -24256,7 +24362,6 @@ INSERT INTO `webapp_users` (`id`, `name`, `email`, `password`) VALUES
 -- Table structure for table `website_sections`
 --
 
-DROP TABLE IF EXISTS `website_sections`;
 CREATE TABLE IF NOT EXISTS `website_sections` (
   `section_name` varchar(50) DEFAULT NULL,
   `section_content` longtext,
@@ -24276,6 +24381,3679 @@ INSERT INTO `website_sections` (`section_name`, `section_content`, `section_titl
 ('blogs', '<p>Nothing is more useful than the information you''ve been looking for.&nbsp;&nbsp;Our blogs communicate our recent findings and expertise within our skillset.</p>\r\n<p>Please select a blog from the menu.</p>', 'Our blogs', 'Sharing our knowledge'),
 ('contact us ', '<p>Phone us, Skype us or use our online contact form to get in touch.</p>', 'Contact us', 'Get in touch'),
 (NULL, NULL, '', '');
+--
+-- Database: `information_schema`
+--
+CREATE DATABASE `information_schema` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `information_schema`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `CHARACTER_SETS`
+--
+
+CREATE TEMPORARY TABLE `CHARACTER_SETS` (
+  `CHARACTER_SET_NAME` varchar(32) NOT NULL DEFAULT '',
+  `DEFAULT_COLLATE_NAME` varchar(32) NOT NULL DEFAULT '',
+  `DESCRIPTION` varchar(60) NOT NULL DEFAULT '',
+  `MAXLEN` bigint(3) NOT NULL DEFAULT '0'
+) ENGINE=MEMORY DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `CHARACTER_SETS`
+--
+
+INSERT INTO `CHARACTER_SETS` (`CHARACTER_SET_NAME`, `DEFAULT_COLLATE_NAME`, `DESCRIPTION`, `MAXLEN`) VALUES
+('big5', 'big5_chinese_ci', 'Big5 Traditional Chinese', 2),
+('dec8', 'dec8_swedish_ci', 'DEC West European', 1),
+('cp850', 'cp850_general_ci', 'DOS West European', 1),
+('hp8', 'hp8_english_ci', 'HP West European', 1),
+('koi8r', 'koi8r_general_ci', 'KOI8-R Relcom Russian', 1),
+('latin1', 'latin1_swedish_ci', 'cp1252 West European', 1),
+('latin2', 'latin2_general_ci', 'ISO 8859-2 Central European', 1),
+('swe7', 'swe7_swedish_ci', '7bit Swedish', 1),
+('ascii', 'ascii_general_ci', 'US ASCII', 1),
+('ujis', 'ujis_japanese_ci', 'EUC-JP Japanese', 3),
+('sjis', 'sjis_japanese_ci', 'Shift-JIS Japanese', 2),
+('hebrew', 'hebrew_general_ci', 'ISO 8859-8 Hebrew', 1),
+('tis620', 'tis620_thai_ci', 'TIS620 Thai', 1),
+('euckr', 'euckr_korean_ci', 'EUC-KR Korean', 2),
+('koi8u', 'koi8u_general_ci', 'KOI8-U Ukrainian', 1),
+('gb2312', 'gb2312_chinese_ci', 'GB2312 Simplified Chinese', 2),
+('greek', 'greek_general_ci', 'ISO 8859-7 Greek', 1),
+('cp1250', 'cp1250_general_ci', 'Windows Central European', 1),
+('gbk', 'gbk_chinese_ci', 'GBK Simplified Chinese', 2),
+('latin5', 'latin5_turkish_ci', 'ISO 8859-9 Turkish', 1),
+('armscii8', 'armscii8_general_ci', 'ARMSCII-8 Armenian', 1),
+('utf8', 'utf8_general_ci', 'UTF-8 Unicode', 3),
+('ucs2', 'ucs2_general_ci', 'UCS-2 Unicode', 2),
+('cp866', 'cp866_general_ci', 'DOS Russian', 1),
+('keybcs2', 'keybcs2_general_ci', 'DOS Kamenicky Czech-Slovak', 1),
+('macce', 'macce_general_ci', 'Mac Central European', 1),
+('macroman', 'macroman_general_ci', 'Mac West European', 1),
+('cp852', 'cp852_general_ci', 'DOS Central European', 1),
+('latin7', 'latin7_general_ci', 'ISO 8859-13 Baltic', 1),
+('utf8mb4', 'utf8mb4_general_ci', 'UTF-8 Unicode', 4),
+('cp1251', 'cp1251_general_ci', 'Windows Cyrillic', 1),
+('utf16', 'utf16_general_ci', 'UTF-16 Unicode', 4),
+('cp1256', 'cp1256_general_ci', 'Windows Arabic', 1),
+('cp1257', 'cp1257_general_ci', 'Windows Baltic', 1),
+('utf32', 'utf32_general_ci', 'UTF-32 Unicode', 4),
+('binary', 'binary', 'Binary pseudo charset', 1),
+('geostd8', 'geostd8_general_ci', 'GEOSTD8 Georgian', 1),
+('cp932', 'cp932_japanese_ci', 'SJIS for Windows Japanese', 2),
+('eucjpms', 'eucjpms_japanese_ci', 'UJIS for Windows Japanese', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `COLLATIONS`
+--
+
+CREATE TEMPORARY TABLE `COLLATIONS` (
+  `COLLATION_NAME` varchar(32) NOT NULL DEFAULT '',
+  `CHARACTER_SET_NAME` varchar(32) NOT NULL DEFAULT '',
+  `ID` bigint(11) NOT NULL DEFAULT '0',
+  `IS_DEFAULT` varchar(3) NOT NULL DEFAULT '',
+  `IS_COMPILED` varchar(3) NOT NULL DEFAULT '',
+  `SORTLEN` bigint(3) NOT NULL DEFAULT '0'
+) ENGINE=MEMORY DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `COLLATIONS`
+--
+
+INSERT INTO `COLLATIONS` (`COLLATION_NAME`, `CHARACTER_SET_NAME`, `ID`, `IS_DEFAULT`, `IS_COMPILED`, `SORTLEN`) VALUES
+('big5_chinese_ci', 'big5', 1, 'Yes', 'Yes', 1),
+('big5_bin', 'big5', 84, '', 'Yes', 1),
+('dec8_swedish_ci', 'dec8', 3, 'Yes', 'Yes', 1),
+('dec8_bin', 'dec8', 69, '', 'Yes', 1),
+('cp850_general_ci', 'cp850', 4, 'Yes', 'Yes', 1),
+('cp850_bin', 'cp850', 80, '', 'Yes', 1),
+('hp8_english_ci', 'hp8', 6, 'Yes', 'Yes', 1),
+('hp8_bin', 'hp8', 72, '', 'Yes', 1),
+('koi8r_general_ci', 'koi8r', 7, 'Yes', 'Yes', 1),
+('koi8r_bin', 'koi8r', 74, '', 'Yes', 1),
+('latin1_german1_ci', 'latin1', 5, '', 'Yes', 1),
+('latin1_swedish_ci', 'latin1', 8, 'Yes', 'Yes', 1),
+('latin1_danish_ci', 'latin1', 15, '', 'Yes', 1),
+('latin1_german2_ci', 'latin1', 31, '', 'Yes', 2),
+('latin1_bin', 'latin1', 47, '', 'Yes', 1),
+('latin1_general_ci', 'latin1', 48, '', 'Yes', 1),
+('latin1_general_cs', 'latin1', 49, '', 'Yes', 1),
+('latin1_spanish_ci', 'latin1', 94, '', 'Yes', 1),
+('latin2_czech_cs', 'latin2', 2, '', 'Yes', 4),
+('latin2_general_ci', 'latin2', 9, 'Yes', 'Yes', 1),
+('latin2_hungarian_ci', 'latin2', 21, '', 'Yes', 1),
+('latin2_croatian_ci', 'latin2', 27, '', 'Yes', 1),
+('latin2_bin', 'latin2', 77, '', 'Yes', 1),
+('swe7_swedish_ci', 'swe7', 10, 'Yes', 'Yes', 1),
+('swe7_bin', 'swe7', 82, '', 'Yes', 1),
+('ascii_general_ci', 'ascii', 11, 'Yes', 'Yes', 1),
+('ascii_bin', 'ascii', 65, '', 'Yes', 1),
+('ujis_japanese_ci', 'ujis', 12, 'Yes', 'Yes', 1),
+('ujis_bin', 'ujis', 91, '', 'Yes', 1),
+('sjis_japanese_ci', 'sjis', 13, 'Yes', 'Yes', 1),
+('sjis_bin', 'sjis', 88, '', 'Yes', 1),
+('hebrew_general_ci', 'hebrew', 16, 'Yes', 'Yes', 1),
+('hebrew_bin', 'hebrew', 71, '', 'Yes', 1),
+('tis620_thai_ci', 'tis620', 18, 'Yes', 'Yes', 4),
+('tis620_bin', 'tis620', 89, '', 'Yes', 1),
+('euckr_korean_ci', 'euckr', 19, 'Yes', 'Yes', 1),
+('euckr_bin', 'euckr', 85, '', 'Yes', 1),
+('koi8u_general_ci', 'koi8u', 22, 'Yes', 'Yes', 1),
+('koi8u_bin', 'koi8u', 75, '', 'Yes', 1),
+('gb2312_chinese_ci', 'gb2312', 24, 'Yes', 'Yes', 1),
+('gb2312_bin', 'gb2312', 86, '', 'Yes', 1),
+('greek_general_ci', 'greek', 25, 'Yes', 'Yes', 1),
+('greek_bin', 'greek', 70, '', 'Yes', 1),
+('cp1250_general_ci', 'cp1250', 26, 'Yes', 'Yes', 1),
+('cp1250_czech_cs', 'cp1250', 34, '', 'Yes', 2),
+('cp1250_croatian_ci', 'cp1250', 44, '', 'Yes', 1),
+('cp1250_bin', 'cp1250', 66, '', 'Yes', 1),
+('cp1250_polish_ci', 'cp1250', 99, '', 'Yes', 1),
+('gbk_chinese_ci', 'gbk', 28, 'Yes', 'Yes', 1),
+('gbk_bin', 'gbk', 87, '', 'Yes', 1),
+('latin5_turkish_ci', 'latin5', 30, 'Yes', 'Yes', 1),
+('latin5_bin', 'latin5', 78, '', 'Yes', 1),
+('armscii8_general_ci', 'armscii8', 32, 'Yes', 'Yes', 1),
+('armscii8_bin', 'armscii8', 64, '', 'Yes', 1),
+('utf8_general_ci', 'utf8', 33, 'Yes', 'Yes', 1),
+('utf8_bin', 'utf8', 83, '', 'Yes', 1),
+('utf8_unicode_ci', 'utf8', 192, '', 'Yes', 8),
+('utf8_icelandic_ci', 'utf8', 193, '', 'Yes', 8),
+('utf8_latvian_ci', 'utf8', 194, '', 'Yes', 8),
+('utf8_romanian_ci', 'utf8', 195, '', 'Yes', 8),
+('utf8_slovenian_ci', 'utf8', 196, '', 'Yes', 8),
+('utf8_polish_ci', 'utf8', 197, '', 'Yes', 8),
+('utf8_estonian_ci', 'utf8', 198, '', 'Yes', 8),
+('utf8_spanish_ci', 'utf8', 199, '', 'Yes', 8),
+('utf8_swedish_ci', 'utf8', 200, '', 'Yes', 8),
+('utf8_turkish_ci', 'utf8', 201, '', 'Yes', 8),
+('utf8_czech_ci', 'utf8', 202, '', 'Yes', 8),
+('utf8_danish_ci', 'utf8', 203, '', 'Yes', 8),
+('utf8_lithuanian_ci', 'utf8', 204, '', 'Yes', 8),
+('utf8_slovak_ci', 'utf8', 205, '', 'Yes', 8),
+('utf8_spanish2_ci', 'utf8', 206, '', 'Yes', 8),
+('utf8_roman_ci', 'utf8', 207, '', 'Yes', 8),
+('utf8_persian_ci', 'utf8', 208, '', 'Yes', 8),
+('utf8_esperanto_ci', 'utf8', 209, '', 'Yes', 8),
+('utf8_hungarian_ci', 'utf8', 210, '', 'Yes', 8),
+('utf8_sinhala_ci', 'utf8', 211, '', 'Yes', 8),
+('utf8_general_mysql500_ci', 'utf8', 223, '', 'Yes', 1),
+('ucs2_general_ci', 'ucs2', 35, 'Yes', 'Yes', 1),
+('ucs2_bin', 'ucs2', 90, '', 'Yes', 1),
+('ucs2_unicode_ci', 'ucs2', 128, '', 'Yes', 8),
+('ucs2_icelandic_ci', 'ucs2', 129, '', 'Yes', 8),
+('ucs2_latvian_ci', 'ucs2', 130, '', 'Yes', 8),
+('ucs2_romanian_ci', 'ucs2', 131, '', 'Yes', 8),
+('ucs2_slovenian_ci', 'ucs2', 132, '', 'Yes', 8),
+('ucs2_polish_ci', 'ucs2', 133, '', 'Yes', 8),
+('ucs2_estonian_ci', 'ucs2', 134, '', 'Yes', 8),
+('ucs2_spanish_ci', 'ucs2', 135, '', 'Yes', 8),
+('ucs2_swedish_ci', 'ucs2', 136, '', 'Yes', 8),
+('ucs2_turkish_ci', 'ucs2', 137, '', 'Yes', 8),
+('ucs2_czech_ci', 'ucs2', 138, '', 'Yes', 8),
+('ucs2_danish_ci', 'ucs2', 139, '', 'Yes', 8),
+('ucs2_lithuanian_ci', 'ucs2', 140, '', 'Yes', 8),
+('ucs2_slovak_ci', 'ucs2', 141, '', 'Yes', 8),
+('ucs2_spanish2_ci', 'ucs2', 142, '', 'Yes', 8),
+('ucs2_roman_ci', 'ucs2', 143, '', 'Yes', 8),
+('ucs2_persian_ci', 'ucs2', 144, '', 'Yes', 8),
+('ucs2_esperanto_ci', 'ucs2', 145, '', 'Yes', 8),
+('ucs2_hungarian_ci', 'ucs2', 146, '', 'Yes', 8),
+('ucs2_sinhala_ci', 'ucs2', 147, '', 'Yes', 8),
+('ucs2_general_mysql500_ci', 'ucs2', 159, '', 'Yes', 1),
+('cp866_general_ci', 'cp866', 36, 'Yes', 'Yes', 1),
+('cp866_bin', 'cp866', 68, '', 'Yes', 1),
+('keybcs2_general_ci', 'keybcs2', 37, 'Yes', 'Yes', 1),
+('keybcs2_bin', 'keybcs2', 73, '', 'Yes', 1),
+('macce_general_ci', 'macce', 38, 'Yes', 'Yes', 1),
+('macce_bin', 'macce', 43, '', 'Yes', 1),
+('macroman_general_ci', 'macroman', 39, 'Yes', 'Yes', 1),
+('macroman_bin', 'macroman', 53, '', 'Yes', 1),
+('cp852_general_ci', 'cp852', 40, 'Yes', 'Yes', 1),
+('cp852_bin', 'cp852', 81, '', 'Yes', 1),
+('latin7_estonian_cs', 'latin7', 20, '', 'Yes', 1),
+('latin7_general_ci', 'latin7', 41, 'Yes', 'Yes', 1),
+('latin7_general_cs', 'latin7', 42, '', 'Yes', 1),
+('latin7_bin', 'latin7', 79, '', 'Yes', 1),
+('utf8mb4_general_ci', 'utf8mb4', 45, 'Yes', 'Yes', 1),
+('utf8mb4_bin', 'utf8mb4', 46, '', 'Yes', 1),
+('utf8mb4_unicode_ci', 'utf8mb4', 224, '', 'Yes', 8),
+('utf8mb4_icelandic_ci', 'utf8mb4', 225, '', 'Yes', 8),
+('utf8mb4_latvian_ci', 'utf8mb4', 226, '', 'Yes', 8),
+('utf8mb4_romanian_ci', 'utf8mb4', 227, '', 'Yes', 8),
+('utf8mb4_slovenian_ci', 'utf8mb4', 228, '', 'Yes', 8),
+('utf8mb4_polish_ci', 'utf8mb4', 229, '', 'Yes', 8),
+('utf8mb4_estonian_ci', 'utf8mb4', 230, '', 'Yes', 8),
+('utf8mb4_spanish_ci', 'utf8mb4', 231, '', 'Yes', 8),
+('utf8mb4_swedish_ci', 'utf8mb4', 232, '', 'Yes', 8),
+('utf8mb4_turkish_ci', 'utf8mb4', 233, '', 'Yes', 8),
+('utf8mb4_czech_ci', 'utf8mb4', 234, '', 'Yes', 8),
+('utf8mb4_danish_ci', 'utf8mb4', 235, '', 'Yes', 8),
+('utf8mb4_lithuanian_ci', 'utf8mb4', 236, '', 'Yes', 8),
+('utf8mb4_slovak_ci', 'utf8mb4', 237, '', 'Yes', 8),
+('utf8mb4_spanish2_ci', 'utf8mb4', 238, '', 'Yes', 8),
+('utf8mb4_roman_ci', 'utf8mb4', 239, '', 'Yes', 8),
+('utf8mb4_persian_ci', 'utf8mb4', 240, '', 'Yes', 8),
+('utf8mb4_esperanto_ci', 'utf8mb4', 241, '', 'Yes', 8),
+('utf8mb4_hungarian_ci', 'utf8mb4', 242, '', 'Yes', 8),
+('utf8mb4_sinhala_ci', 'utf8mb4', 243, '', 'Yes', 8),
+('cp1251_bulgarian_ci', 'cp1251', 14, '', 'Yes', 1),
+('cp1251_ukrainian_ci', 'cp1251', 23, '', 'Yes', 1),
+('cp1251_bin', 'cp1251', 50, '', 'Yes', 1),
+('cp1251_general_ci', 'cp1251', 51, 'Yes', 'Yes', 1),
+('cp1251_general_cs', 'cp1251', 52, '', 'Yes', 1),
+('utf16_general_ci', 'utf16', 54, 'Yes', 'Yes', 1),
+('utf16_bin', 'utf16', 55, '', 'Yes', 1),
+('utf16_unicode_ci', 'utf16', 101, '', 'Yes', 8),
+('utf16_icelandic_ci', 'utf16', 102, '', 'Yes', 8),
+('utf16_latvian_ci', 'utf16', 103, '', 'Yes', 8),
+('utf16_romanian_ci', 'utf16', 104, '', 'Yes', 8),
+('utf16_slovenian_ci', 'utf16', 105, '', 'Yes', 8),
+('utf16_polish_ci', 'utf16', 106, '', 'Yes', 8),
+('utf16_estonian_ci', 'utf16', 107, '', 'Yes', 8),
+('utf16_spanish_ci', 'utf16', 108, '', 'Yes', 8),
+('utf16_swedish_ci', 'utf16', 109, '', 'Yes', 8),
+('utf16_turkish_ci', 'utf16', 110, '', 'Yes', 8),
+('utf16_czech_ci', 'utf16', 111, '', 'Yes', 8),
+('utf16_danish_ci', 'utf16', 112, '', 'Yes', 8),
+('utf16_lithuanian_ci', 'utf16', 113, '', 'Yes', 8),
+('utf16_slovak_ci', 'utf16', 114, '', 'Yes', 8),
+('utf16_spanish2_ci', 'utf16', 115, '', 'Yes', 8),
+('utf16_roman_ci', 'utf16', 116, '', 'Yes', 8),
+('utf16_persian_ci', 'utf16', 117, '', 'Yes', 8),
+('utf16_esperanto_ci', 'utf16', 118, '', 'Yes', 8),
+('utf16_hungarian_ci', 'utf16', 119, '', 'Yes', 8),
+('utf16_sinhala_ci', 'utf16', 120, '', 'Yes', 8),
+('cp1256_general_ci', 'cp1256', 57, 'Yes', 'Yes', 1),
+('cp1256_bin', 'cp1256', 67, '', 'Yes', 1),
+('cp1257_lithuanian_ci', 'cp1257', 29, '', 'Yes', 1),
+('cp1257_bin', 'cp1257', 58, '', 'Yes', 1),
+('cp1257_general_ci', 'cp1257', 59, 'Yes', 'Yes', 1),
+('utf32_general_ci', 'utf32', 60, 'Yes', 'Yes', 1),
+('utf32_bin', 'utf32', 61, '', 'Yes', 1),
+('utf32_unicode_ci', 'utf32', 160, '', 'Yes', 8),
+('utf32_icelandic_ci', 'utf32', 161, '', 'Yes', 8),
+('utf32_latvian_ci', 'utf32', 162, '', 'Yes', 8),
+('utf32_romanian_ci', 'utf32', 163, '', 'Yes', 8),
+('utf32_slovenian_ci', 'utf32', 164, '', 'Yes', 8),
+('utf32_polish_ci', 'utf32', 165, '', 'Yes', 8),
+('utf32_estonian_ci', 'utf32', 166, '', 'Yes', 8),
+('utf32_spanish_ci', 'utf32', 167, '', 'Yes', 8),
+('utf32_swedish_ci', 'utf32', 168, '', 'Yes', 8),
+('utf32_turkish_ci', 'utf32', 169, '', 'Yes', 8),
+('utf32_czech_ci', 'utf32', 170, '', 'Yes', 8),
+('utf32_danish_ci', 'utf32', 171, '', 'Yes', 8),
+('utf32_lithuanian_ci', 'utf32', 172, '', 'Yes', 8),
+('utf32_slovak_ci', 'utf32', 173, '', 'Yes', 8),
+('utf32_spanish2_ci', 'utf32', 174, '', 'Yes', 8),
+('utf32_roman_ci', 'utf32', 175, '', 'Yes', 8),
+('utf32_persian_ci', 'utf32', 176, '', 'Yes', 8),
+('utf32_esperanto_ci', 'utf32', 177, '', 'Yes', 8),
+('utf32_hungarian_ci', 'utf32', 178, '', 'Yes', 8),
+('utf32_sinhala_ci', 'utf32', 179, '', 'Yes', 8),
+('binary', 'binary', 63, 'Yes', 'Yes', 1),
+('geostd8_general_ci', 'geostd8', 92, 'Yes', 'Yes', 1),
+('geostd8_bin', 'geostd8', 93, '', 'Yes', 1),
+('cp932_japanese_ci', 'cp932', 95, 'Yes', 'Yes', 1),
+('cp932_bin', 'cp932', 96, '', 'Yes', 1),
+('eucjpms_japanese_ci', 'eucjpms', 97, 'Yes', 'Yes', 1),
+('eucjpms_bin', 'eucjpms', 98, '', 'Yes', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `COLLATION_CHARACTER_SET_APPLICABILITY`
+--
+
+CREATE TEMPORARY TABLE `COLLATION_CHARACTER_SET_APPLICABILITY` (
+  `COLLATION_NAME` varchar(32) NOT NULL DEFAULT '',
+  `CHARACTER_SET_NAME` varchar(32) NOT NULL DEFAULT ''
+) ENGINE=MEMORY DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `COLLATION_CHARACTER_SET_APPLICABILITY`
+--
+
+INSERT INTO `COLLATION_CHARACTER_SET_APPLICABILITY` (`COLLATION_NAME`, `CHARACTER_SET_NAME`) VALUES
+('big5_chinese_ci', 'big5'),
+('big5_bin', 'big5'),
+('dec8_swedish_ci', 'dec8'),
+('dec8_bin', 'dec8'),
+('cp850_general_ci', 'cp850'),
+('cp850_bin', 'cp850'),
+('hp8_english_ci', 'hp8'),
+('hp8_bin', 'hp8'),
+('koi8r_general_ci', 'koi8r'),
+('koi8r_bin', 'koi8r'),
+('latin1_german1_ci', 'latin1'),
+('latin1_swedish_ci', 'latin1'),
+('latin1_danish_ci', 'latin1'),
+('latin1_german2_ci', 'latin1'),
+('latin1_bin', 'latin1'),
+('latin1_general_ci', 'latin1'),
+('latin1_general_cs', 'latin1'),
+('latin1_spanish_ci', 'latin1'),
+('latin2_czech_cs', 'latin2'),
+('latin2_general_ci', 'latin2'),
+('latin2_hungarian_ci', 'latin2'),
+('latin2_croatian_ci', 'latin2'),
+('latin2_bin', 'latin2'),
+('swe7_swedish_ci', 'swe7'),
+('swe7_bin', 'swe7'),
+('ascii_general_ci', 'ascii'),
+('ascii_bin', 'ascii'),
+('ujis_japanese_ci', 'ujis'),
+('ujis_bin', 'ujis'),
+('sjis_japanese_ci', 'sjis'),
+('sjis_bin', 'sjis'),
+('hebrew_general_ci', 'hebrew'),
+('hebrew_bin', 'hebrew'),
+('tis620_thai_ci', 'tis620'),
+('tis620_bin', 'tis620'),
+('euckr_korean_ci', 'euckr'),
+('euckr_bin', 'euckr'),
+('koi8u_general_ci', 'koi8u'),
+('koi8u_bin', 'koi8u'),
+('gb2312_chinese_ci', 'gb2312'),
+('gb2312_bin', 'gb2312'),
+('greek_general_ci', 'greek'),
+('greek_bin', 'greek'),
+('cp1250_general_ci', 'cp1250'),
+('cp1250_czech_cs', 'cp1250'),
+('cp1250_croatian_ci', 'cp1250'),
+('cp1250_bin', 'cp1250'),
+('cp1250_polish_ci', 'cp1250'),
+('gbk_chinese_ci', 'gbk'),
+('gbk_bin', 'gbk'),
+('latin5_turkish_ci', 'latin5'),
+('latin5_bin', 'latin5'),
+('armscii8_general_ci', 'armscii8'),
+('armscii8_bin', 'armscii8'),
+('utf8_general_ci', 'utf8'),
+('utf8_bin', 'utf8'),
+('utf8_unicode_ci', 'utf8'),
+('utf8_icelandic_ci', 'utf8'),
+('utf8_latvian_ci', 'utf8'),
+('utf8_romanian_ci', 'utf8'),
+('utf8_slovenian_ci', 'utf8'),
+('utf8_polish_ci', 'utf8'),
+('utf8_estonian_ci', 'utf8'),
+('utf8_spanish_ci', 'utf8'),
+('utf8_swedish_ci', 'utf8'),
+('utf8_turkish_ci', 'utf8'),
+('utf8_czech_ci', 'utf8'),
+('utf8_danish_ci', 'utf8'),
+('utf8_lithuanian_ci', 'utf8'),
+('utf8_slovak_ci', 'utf8'),
+('utf8_spanish2_ci', 'utf8'),
+('utf8_roman_ci', 'utf8'),
+('utf8_persian_ci', 'utf8'),
+('utf8_esperanto_ci', 'utf8'),
+('utf8_hungarian_ci', 'utf8'),
+('utf8_sinhala_ci', 'utf8'),
+('utf8_general_mysql500_ci', 'utf8'),
+('ucs2_general_ci', 'ucs2'),
+('ucs2_bin', 'ucs2'),
+('ucs2_unicode_ci', 'ucs2'),
+('ucs2_icelandic_ci', 'ucs2'),
+('ucs2_latvian_ci', 'ucs2'),
+('ucs2_romanian_ci', 'ucs2'),
+('ucs2_slovenian_ci', 'ucs2'),
+('ucs2_polish_ci', 'ucs2'),
+('ucs2_estonian_ci', 'ucs2'),
+('ucs2_spanish_ci', 'ucs2'),
+('ucs2_swedish_ci', 'ucs2'),
+('ucs2_turkish_ci', 'ucs2'),
+('ucs2_czech_ci', 'ucs2'),
+('ucs2_danish_ci', 'ucs2'),
+('ucs2_lithuanian_ci', 'ucs2'),
+('ucs2_slovak_ci', 'ucs2'),
+('ucs2_spanish2_ci', 'ucs2'),
+('ucs2_roman_ci', 'ucs2'),
+('ucs2_persian_ci', 'ucs2'),
+('ucs2_esperanto_ci', 'ucs2'),
+('ucs2_hungarian_ci', 'ucs2'),
+('ucs2_sinhala_ci', 'ucs2'),
+('ucs2_general_mysql500_ci', 'ucs2'),
+('cp866_general_ci', 'cp866'),
+('cp866_bin', 'cp866'),
+('keybcs2_general_ci', 'keybcs2'),
+('keybcs2_bin', 'keybcs2'),
+('macce_general_ci', 'macce'),
+('macce_bin', 'macce'),
+('macroman_general_ci', 'macroman'),
+('macroman_bin', 'macroman'),
+('cp852_general_ci', 'cp852'),
+('cp852_bin', 'cp852'),
+('latin7_estonian_cs', 'latin7'),
+('latin7_general_ci', 'latin7'),
+('latin7_general_cs', 'latin7'),
+('latin7_bin', 'latin7'),
+('utf8mb4_general_ci', 'utf8mb4'),
+('utf8mb4_bin', 'utf8mb4'),
+('utf8mb4_unicode_ci', 'utf8mb4'),
+('utf8mb4_icelandic_ci', 'utf8mb4'),
+('utf8mb4_latvian_ci', 'utf8mb4'),
+('utf8mb4_romanian_ci', 'utf8mb4'),
+('utf8mb4_slovenian_ci', 'utf8mb4'),
+('utf8mb4_polish_ci', 'utf8mb4'),
+('utf8mb4_estonian_ci', 'utf8mb4'),
+('utf8mb4_spanish_ci', 'utf8mb4'),
+('utf8mb4_swedish_ci', 'utf8mb4'),
+('utf8mb4_turkish_ci', 'utf8mb4'),
+('utf8mb4_czech_ci', 'utf8mb4'),
+('utf8mb4_danish_ci', 'utf8mb4'),
+('utf8mb4_lithuanian_ci', 'utf8mb4'),
+('utf8mb4_slovak_ci', 'utf8mb4'),
+('utf8mb4_spanish2_ci', 'utf8mb4'),
+('utf8mb4_roman_ci', 'utf8mb4'),
+('utf8mb4_persian_ci', 'utf8mb4'),
+('utf8mb4_esperanto_ci', 'utf8mb4'),
+('utf8mb4_hungarian_ci', 'utf8mb4'),
+('utf8mb4_sinhala_ci', 'utf8mb4'),
+('cp1251_bulgarian_ci', 'cp1251'),
+('cp1251_ukrainian_ci', 'cp1251'),
+('cp1251_bin', 'cp1251'),
+('cp1251_general_ci', 'cp1251'),
+('cp1251_general_cs', 'cp1251'),
+('utf16_general_ci', 'utf16'),
+('utf16_bin', 'utf16'),
+('utf16_unicode_ci', 'utf16'),
+('utf16_icelandic_ci', 'utf16'),
+('utf16_latvian_ci', 'utf16'),
+('utf16_romanian_ci', 'utf16'),
+('utf16_slovenian_ci', 'utf16'),
+('utf16_polish_ci', 'utf16'),
+('utf16_estonian_ci', 'utf16'),
+('utf16_spanish_ci', 'utf16'),
+('utf16_swedish_ci', 'utf16'),
+('utf16_turkish_ci', 'utf16'),
+('utf16_czech_ci', 'utf16'),
+('utf16_danish_ci', 'utf16'),
+('utf16_lithuanian_ci', 'utf16'),
+('utf16_slovak_ci', 'utf16'),
+('utf16_spanish2_ci', 'utf16'),
+('utf16_roman_ci', 'utf16'),
+('utf16_persian_ci', 'utf16'),
+('utf16_esperanto_ci', 'utf16'),
+('utf16_hungarian_ci', 'utf16'),
+('utf16_sinhala_ci', 'utf16'),
+('cp1256_general_ci', 'cp1256'),
+('cp1256_bin', 'cp1256'),
+('cp1257_lithuanian_ci', 'cp1257'),
+('cp1257_bin', 'cp1257'),
+('cp1257_general_ci', 'cp1257'),
+('utf32_general_ci', 'utf32'),
+('utf32_bin', 'utf32'),
+('utf32_unicode_ci', 'utf32'),
+('utf32_icelandic_ci', 'utf32'),
+('utf32_latvian_ci', 'utf32'),
+('utf32_romanian_ci', 'utf32'),
+('utf32_slovenian_ci', 'utf32'),
+('utf32_polish_ci', 'utf32'),
+('utf32_estonian_ci', 'utf32'),
+('utf32_spanish_ci', 'utf32'),
+('utf32_swedish_ci', 'utf32'),
+('utf32_turkish_ci', 'utf32'),
+('utf32_czech_ci', 'utf32'),
+('utf32_danish_ci', 'utf32'),
+('utf32_lithuanian_ci', 'utf32'),
+('utf32_slovak_ci', 'utf32'),
+('utf32_spanish2_ci', 'utf32'),
+('utf32_roman_ci', 'utf32'),
+('utf32_persian_ci', 'utf32'),
+('utf32_esperanto_ci', 'utf32'),
+('utf32_hungarian_ci', 'utf32'),
+('utf32_sinhala_ci', 'utf32'),
+('binary', 'binary'),
+('geostd8_general_ci', 'geostd8'),
+('geostd8_bin', 'geostd8'),
+('cp932_japanese_ci', 'cp932'),
+('cp932_bin', 'cp932'),
+('eucjpms_japanese_ci', 'eucjpms'),
+('eucjpms_bin', 'eucjpms');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `COLUMNS`
+--
+
+CREATE TEMPORARY TABLE `COLUMNS` (
+  `TABLE_CATALOG` varchar(512) NOT NULL DEFAULT '',
+  `TABLE_SCHEMA` varchar(64) NOT NULL DEFAULT '',
+  `TABLE_NAME` varchar(64) NOT NULL DEFAULT '',
+  `COLUMN_NAME` varchar(64) NOT NULL DEFAULT '',
+  `ORDINAL_POSITION` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `COLUMN_DEFAULT` longtext,
+  `IS_NULLABLE` varchar(3) NOT NULL DEFAULT '',
+  `DATA_TYPE` varchar(64) NOT NULL DEFAULT '',
+  `CHARACTER_MAXIMUM_LENGTH` bigint(21) unsigned DEFAULT NULL,
+  `CHARACTER_OCTET_LENGTH` bigint(21) unsigned DEFAULT NULL,
+  `NUMERIC_PRECISION` bigint(21) unsigned DEFAULT NULL,
+  `NUMERIC_SCALE` bigint(21) unsigned DEFAULT NULL,
+  `CHARACTER_SET_NAME` varchar(32) DEFAULT NULL,
+  `COLLATION_NAME` varchar(32) DEFAULT NULL,
+  `COLUMN_TYPE` longtext NOT NULL,
+  `COLUMN_KEY` varchar(3) NOT NULL DEFAULT '',
+  `EXTRA` varchar(27) NOT NULL DEFAULT '',
+  `PRIVILEGES` varchar(80) NOT NULL DEFAULT '',
+  `COLUMN_COMMENT` varchar(1024) NOT NULL DEFAULT ''
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `COLUMNS`
+--
+
+INSERT INTO `COLUMNS` (`TABLE_CATALOG`, `TABLE_SCHEMA`, `TABLE_NAME`, `COLUMN_NAME`, `ORDINAL_POSITION`, `COLUMN_DEFAULT`, `IS_NULLABLE`, `DATA_TYPE`, `CHARACTER_MAXIMUM_LENGTH`, `CHARACTER_OCTET_LENGTH`, `NUMERIC_PRECISION`, `NUMERIC_SCALE`, `CHARACTER_SET_NAME`, `COLLATION_NAME`, `COLUMN_TYPE`, `COLUMN_KEY`, `EXTRA`, `PRIVILEGES`, `COLUMN_COMMENT`) VALUES
+('def', 'information_schema', 'CHARACTER_SETS', 'CHARACTER_SET_NAME', 1, '', 'NO', 'varchar', 32, 96, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(32)', '', '', 'select', ''),
+('def', 'information_schema', 'CHARACTER_SETS', 'DEFAULT_COLLATE_NAME', 2, '', 'NO', 'varchar', 32, 96, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(32)', '', '', 'select', ''),
+('def', 'information_schema', 'CHARACTER_SETS', 'DESCRIPTION', 3, '', 'NO', 'varchar', 60, 180, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(60)', '', '', 'select', ''),
+('def', 'information_schema', 'CHARACTER_SETS', 'MAXLEN', 4, '0', 'NO', 'bigint', NULL, NULL, 19, 0, NULL, NULL, 'bigint(3)', '', '', 'select', ''),
+('def', 'information_schema', 'COLLATIONS', 'COLLATION_NAME', 1, '', 'NO', 'varchar', 32, 96, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(32)', '', '', 'select', ''),
+('def', 'information_schema', 'COLLATIONS', 'CHARACTER_SET_NAME', 2, '', 'NO', 'varchar', 32, 96, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(32)', '', '', 'select', ''),
+('def', 'information_schema', 'COLLATIONS', 'ID', 3, '0', 'NO', 'bigint', NULL, NULL, 19, 0, NULL, NULL, 'bigint(11)', '', '', 'select', ''),
+('def', 'information_schema', 'COLLATIONS', 'IS_DEFAULT', 4, '', 'NO', 'varchar', 3, 9, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(3)', '', '', 'select', ''),
+('def', 'information_schema', 'COLLATIONS', 'IS_COMPILED', 5, '', 'NO', 'varchar', 3, 9, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(3)', '', '', 'select', ''),
+('def', 'information_schema', 'COLLATIONS', 'SORTLEN', 6, '0', 'NO', 'bigint', NULL, NULL, 19, 0, NULL, NULL, 'bigint(3)', '', '', 'select', ''),
+('def', 'information_schema', 'COLLATION_CHARACTER_SET_APPLICABILITY', 'COLLATION_NAME', 1, '', 'NO', 'varchar', 32, 96, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(32)', '', '', 'select', ''),
+('def', 'information_schema', 'COLLATION_CHARACTER_SET_APPLICABILITY', 'CHARACTER_SET_NAME', 2, '', 'NO', 'varchar', 32, 96, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(32)', '', '', 'select', ''),
+('def', 'information_schema', 'COLUMNS', 'TABLE_CATALOG', 1, '', 'NO', 'varchar', 512, 1536, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(512)', '', '', 'select', ''),
+('def', 'information_schema', 'COLUMNS', 'TABLE_SCHEMA', 2, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'COLUMNS', 'TABLE_NAME', 3, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'COLUMNS', 'COLUMN_NAME', 4, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'COLUMNS', 'ORDINAL_POSITION', 5, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'COLUMNS', 'COLUMN_DEFAULT', 6, NULL, 'YES', 'longtext', 4294967295, 4294967295, NULL, NULL, 'utf8', 'utf8_general_ci', 'longtext', '', '', 'select', ''),
+('def', 'information_schema', 'COLUMNS', 'IS_NULLABLE', 7, '', 'NO', 'varchar', 3, 9, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(3)', '', '', 'select', ''),
+('def', 'information_schema', 'COLUMNS', 'DATA_TYPE', 8, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'COLUMNS', 'CHARACTER_MAXIMUM_LENGTH', 9, NULL, 'YES', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'COLUMNS', 'CHARACTER_OCTET_LENGTH', 10, NULL, 'YES', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'COLUMNS', 'NUMERIC_PRECISION', 11, NULL, 'YES', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'COLUMNS', 'NUMERIC_SCALE', 12, NULL, 'YES', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'COLUMNS', 'CHARACTER_SET_NAME', 13, NULL, 'YES', 'varchar', 32, 96, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(32)', '', '', 'select', ''),
+('def', 'information_schema', 'COLUMNS', 'COLLATION_NAME', 14, NULL, 'YES', 'varchar', 32, 96, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(32)', '', '', 'select', ''),
+('def', 'information_schema', 'COLUMNS', 'COLUMN_TYPE', 15, NULL, 'NO', 'longtext', 4294967295, 4294967295, NULL, NULL, 'utf8', 'utf8_general_ci', 'longtext', '', '', 'select', ''),
+('def', 'information_schema', 'COLUMNS', 'COLUMN_KEY', 16, '', 'NO', 'varchar', 3, 9, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(3)', '', '', 'select', ''),
+('def', 'information_schema', 'COLUMNS', 'EXTRA', 17, '', 'NO', 'varchar', 27, 81, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(27)', '', '', 'select', ''),
+('def', 'information_schema', 'COLUMNS', 'PRIVILEGES', 18, '', 'NO', 'varchar', 80, 240, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(80)', '', '', 'select', ''),
+('def', 'information_schema', 'COLUMNS', 'COLUMN_COMMENT', 19, '', 'NO', 'varchar', 1024, 3072, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(1024)', '', '', 'select', ''),
+('def', 'information_schema', 'COLUMN_PRIVILEGES', 'GRANTEE', 1, '', 'NO', 'varchar', 81, 243, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(81)', '', '', 'select', ''),
+('def', 'information_schema', 'COLUMN_PRIVILEGES', 'TABLE_CATALOG', 2, '', 'NO', 'varchar', 512, 1536, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(512)', '', '', 'select', ''),
+('def', 'information_schema', 'COLUMN_PRIVILEGES', 'TABLE_SCHEMA', 3, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'COLUMN_PRIVILEGES', 'TABLE_NAME', 4, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'COLUMN_PRIVILEGES', 'COLUMN_NAME', 5, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'COLUMN_PRIVILEGES', 'PRIVILEGE_TYPE', 6, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'COLUMN_PRIVILEGES', 'IS_GRANTABLE', 7, '', 'NO', 'varchar', 3, 9, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(3)', '', '', 'select', ''),
+('def', 'information_schema', 'ENGINES', 'ENGINE', 1, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'ENGINES', 'SUPPORT', 2, '', 'NO', 'varchar', 8, 24, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(8)', '', '', 'select', ''),
+('def', 'information_schema', 'ENGINES', 'COMMENT', 3, '', 'NO', 'varchar', 80, 240, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(80)', '', '', 'select', ''),
+('def', 'information_schema', 'ENGINES', 'TRANSACTIONS', 4, NULL, 'YES', 'varchar', 3, 9, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(3)', '', '', 'select', ''),
+('def', 'information_schema', 'ENGINES', 'XA', 5, NULL, 'YES', 'varchar', 3, 9, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(3)', '', '', 'select', ''),
+('def', 'information_schema', 'ENGINES', 'SAVEPOINTS', 6, NULL, 'YES', 'varchar', 3, 9, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(3)', '', '', 'select', ''),
+('def', 'information_schema', 'EVENTS', 'EVENT_CATALOG', 1, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'EVENTS', 'EVENT_SCHEMA', 2, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'EVENTS', 'EVENT_NAME', 3, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'EVENTS', 'DEFINER', 4, '', 'NO', 'varchar', 77, 231, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(77)', '', '', 'select', ''),
+('def', 'information_schema', 'EVENTS', 'TIME_ZONE', 5, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'EVENTS', 'EVENT_BODY', 6, '', 'NO', 'varchar', 8, 24, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(8)', '', '', 'select', ''),
+('def', 'information_schema', 'EVENTS', 'EVENT_DEFINITION', 7, NULL, 'NO', 'longtext', 4294967295, 4294967295, NULL, NULL, 'utf8', 'utf8_general_ci', 'longtext', '', '', 'select', ''),
+('def', 'information_schema', 'EVENTS', 'EVENT_TYPE', 8, '', 'NO', 'varchar', 9, 27, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(9)', '', '', 'select', ''),
+('def', 'information_schema', 'EVENTS', 'EXECUTE_AT', 9, NULL, 'YES', 'datetime', NULL, NULL, NULL, NULL, NULL, NULL, 'datetime', '', '', 'select', ''),
+('def', 'information_schema', 'EVENTS', 'INTERVAL_VALUE', 10, NULL, 'YES', 'varchar', 256, 768, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(256)', '', '', 'select', ''),
+('def', 'information_schema', 'EVENTS', 'INTERVAL_FIELD', 11, NULL, 'YES', 'varchar', 18, 54, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(18)', '', '', 'select', ''),
+('def', 'information_schema', 'EVENTS', 'SQL_MODE', 12, '', 'NO', 'varchar', 8192, 24576, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(8192)', '', '', 'select', ''),
+('def', 'information_schema', 'EVENTS', 'STARTS', 13, NULL, 'YES', 'datetime', NULL, NULL, NULL, NULL, NULL, NULL, 'datetime', '', '', 'select', ''),
+('def', 'information_schema', 'EVENTS', 'ENDS', 14, NULL, 'YES', 'datetime', NULL, NULL, NULL, NULL, NULL, NULL, 'datetime', '', '', 'select', ''),
+('def', 'information_schema', 'EVENTS', 'STATUS', 15, '', 'NO', 'varchar', 18, 54, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(18)', '', '', 'select', ''),
+('def', 'information_schema', 'EVENTS', 'ON_COMPLETION', 16, '', 'NO', 'varchar', 12, 36, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(12)', '', '', 'select', ''),
+('def', 'information_schema', 'EVENTS', 'CREATED', 17, '0000-00-00 00:00:00', 'NO', 'datetime', NULL, NULL, NULL, NULL, NULL, NULL, 'datetime', '', '', 'select', ''),
+('def', 'information_schema', 'EVENTS', 'LAST_ALTERED', 18, '0000-00-00 00:00:00', 'NO', 'datetime', NULL, NULL, NULL, NULL, NULL, NULL, 'datetime', '', '', 'select', ''),
+('def', 'information_schema', 'EVENTS', 'LAST_EXECUTED', 19, NULL, 'YES', 'datetime', NULL, NULL, NULL, NULL, NULL, NULL, 'datetime', '', '', 'select', ''),
+('def', 'information_schema', 'EVENTS', 'EVENT_COMMENT', 20, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'EVENTS', 'ORIGINATOR', 21, '0', 'NO', 'bigint', NULL, NULL, 19, 0, NULL, NULL, 'bigint(10)', '', '', 'select', ''),
+('def', 'information_schema', 'EVENTS', 'CHARACTER_SET_CLIENT', 22, '', 'NO', 'varchar', 32, 96, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(32)', '', '', 'select', ''),
+('def', 'information_schema', 'EVENTS', 'COLLATION_CONNECTION', 23, '', 'NO', 'varchar', 32, 96, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(32)', '', '', 'select', ''),
+('def', 'information_schema', 'EVENTS', 'DATABASE_COLLATION', 24, '', 'NO', 'varchar', 32, 96, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(32)', '', '', 'select', ''),
+('def', 'information_schema', 'FILES', 'FILE_ID', 1, '0', 'NO', 'bigint', NULL, NULL, 19, 0, NULL, NULL, 'bigint(4)', '', '', 'select', ''),
+('def', 'information_schema', 'FILES', 'FILE_NAME', 2, NULL, 'YES', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'FILES', 'FILE_TYPE', 3, '', 'NO', 'varchar', 20, 60, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(20)', '', '', 'select', ''),
+('def', 'information_schema', 'FILES', 'TABLESPACE_NAME', 4, NULL, 'YES', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'FILES', 'TABLE_CATALOG', 5, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'FILES', 'TABLE_SCHEMA', 6, NULL, 'YES', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'FILES', 'TABLE_NAME', 7, NULL, 'YES', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'FILES', 'LOGFILE_GROUP_NAME', 8, NULL, 'YES', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'FILES', 'LOGFILE_GROUP_NUMBER', 9, NULL, 'YES', 'bigint', NULL, NULL, 19, 0, NULL, NULL, 'bigint(4)', '', '', 'select', ''),
+('def', 'information_schema', 'FILES', 'ENGINE', 10, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'FILES', 'FULLTEXT_KEYS', 11, NULL, 'YES', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'FILES', 'DELETED_ROWS', 12, NULL, 'YES', 'bigint', NULL, NULL, 19, 0, NULL, NULL, 'bigint(4)', '', '', 'select', ''),
+('def', 'information_schema', 'FILES', 'UPDATE_COUNT', 13, NULL, 'YES', 'bigint', NULL, NULL, 19, 0, NULL, NULL, 'bigint(4)', '', '', 'select', ''),
+('def', 'information_schema', 'FILES', 'FREE_EXTENTS', 14, NULL, 'YES', 'bigint', NULL, NULL, 19, 0, NULL, NULL, 'bigint(4)', '', '', 'select', ''),
+('def', 'information_schema', 'FILES', 'TOTAL_EXTENTS', 15, NULL, 'YES', 'bigint', NULL, NULL, 19, 0, NULL, NULL, 'bigint(4)', '', '', 'select', ''),
+('def', 'information_schema', 'FILES', 'EXTENT_SIZE', 16, '0', 'NO', 'bigint', NULL, NULL, 19, 0, NULL, NULL, 'bigint(4)', '', '', 'select', ''),
+('def', 'information_schema', 'FILES', 'INITIAL_SIZE', 17, NULL, 'YES', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'FILES', 'MAXIMUM_SIZE', 18, NULL, 'YES', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'FILES', 'AUTOEXTEND_SIZE', 19, NULL, 'YES', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'FILES', 'CREATION_TIME', 20, NULL, 'YES', 'datetime', NULL, NULL, NULL, NULL, NULL, NULL, 'datetime', '', '', 'select', ''),
+('def', 'information_schema', 'FILES', 'LAST_UPDATE_TIME', 21, NULL, 'YES', 'datetime', NULL, NULL, NULL, NULL, NULL, NULL, 'datetime', '', '', 'select', ''),
+('def', 'information_schema', 'FILES', 'LAST_ACCESS_TIME', 22, NULL, 'YES', 'datetime', NULL, NULL, NULL, NULL, NULL, NULL, 'datetime', '', '', 'select', ''),
+('def', 'information_schema', 'FILES', 'RECOVER_TIME', 23, NULL, 'YES', 'bigint', NULL, NULL, 19, 0, NULL, NULL, 'bigint(4)', '', '', 'select', ''),
+('def', 'information_schema', 'FILES', 'TRANSACTION_COUNTER', 24, NULL, 'YES', 'bigint', NULL, NULL, 19, 0, NULL, NULL, 'bigint(4)', '', '', 'select', ''),
+('def', 'information_schema', 'FILES', 'VERSION', 25, NULL, 'YES', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'FILES', 'ROW_FORMAT', 26, NULL, 'YES', 'varchar', 10, 30, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(10)', '', '', 'select', ''),
+('def', 'information_schema', 'FILES', 'TABLE_ROWS', 27, NULL, 'YES', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'FILES', 'AVG_ROW_LENGTH', 28, NULL, 'YES', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'FILES', 'DATA_LENGTH', 29, NULL, 'YES', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'FILES', 'MAX_DATA_LENGTH', 30, NULL, 'YES', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'FILES', 'INDEX_LENGTH', 31, NULL, 'YES', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'FILES', 'DATA_FREE', 32, NULL, 'YES', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'FILES', 'CREATE_TIME', 33, NULL, 'YES', 'datetime', NULL, NULL, NULL, NULL, NULL, NULL, 'datetime', '', '', 'select', ''),
+('def', 'information_schema', 'FILES', 'UPDATE_TIME', 34, NULL, 'YES', 'datetime', NULL, NULL, NULL, NULL, NULL, NULL, 'datetime', '', '', 'select', ''),
+('def', 'information_schema', 'FILES', 'CHECK_TIME', 35, NULL, 'YES', 'datetime', NULL, NULL, NULL, NULL, NULL, NULL, 'datetime', '', '', 'select', ''),
+('def', 'information_schema', 'FILES', 'CHECKSUM', 36, NULL, 'YES', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'FILES', 'STATUS', 37, '', 'NO', 'varchar', 20, 60, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(20)', '', '', 'select', ''),
+('def', 'information_schema', 'FILES', 'EXTRA', 38, NULL, 'YES', 'varchar', 255, 765, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(255)', '', '', 'select', ''),
+('def', 'information_schema', 'GLOBAL_STATUS', 'VARIABLE_NAME', 1, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'GLOBAL_STATUS', 'VARIABLE_VALUE', 2, NULL, 'YES', 'varchar', 1024, 3072, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(1024)', '', '', 'select', ''),
+('def', 'information_schema', 'GLOBAL_VARIABLES', 'VARIABLE_NAME', 1, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'GLOBAL_VARIABLES', 'VARIABLE_VALUE', 2, NULL, 'YES', 'varchar', 1024, 3072, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(1024)', '', '', 'select', ''),
+('def', 'information_schema', 'KEY_COLUMN_USAGE', 'CONSTRAINT_CATALOG', 1, '', 'NO', 'varchar', 512, 1536, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(512)', '', '', 'select', ''),
+('def', 'information_schema', 'KEY_COLUMN_USAGE', 'CONSTRAINT_SCHEMA', 2, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'KEY_COLUMN_USAGE', 'CONSTRAINT_NAME', 3, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'KEY_COLUMN_USAGE', 'TABLE_CATALOG', 4, '', 'NO', 'varchar', 512, 1536, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(512)', '', '', 'select', ''),
+('def', 'information_schema', 'KEY_COLUMN_USAGE', 'TABLE_SCHEMA', 5, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'KEY_COLUMN_USAGE', 'TABLE_NAME', 6, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'KEY_COLUMN_USAGE', 'COLUMN_NAME', 7, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'KEY_COLUMN_USAGE', 'ORDINAL_POSITION', 8, '0', 'NO', 'bigint', NULL, NULL, 19, 0, NULL, NULL, 'bigint(10)', '', '', 'select', ''),
+('def', 'information_schema', 'KEY_COLUMN_USAGE', 'POSITION_IN_UNIQUE_CONSTRAINT', 9, NULL, 'YES', 'bigint', NULL, NULL, 19, 0, NULL, NULL, 'bigint(10)', '', '', 'select', ''),
+('def', 'information_schema', 'KEY_COLUMN_USAGE', 'REFERENCED_TABLE_SCHEMA', 10, NULL, 'YES', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'KEY_COLUMN_USAGE', 'REFERENCED_TABLE_NAME', 11, NULL, 'YES', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'KEY_COLUMN_USAGE', 'REFERENCED_COLUMN_NAME', 12, NULL, 'YES', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'PARAMETERS', 'SPECIFIC_CATALOG', 1, '', 'NO', 'varchar', 512, 1536, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(512)', '', '', 'select', ''),
+('def', 'information_schema', 'PARAMETERS', 'SPECIFIC_SCHEMA', 2, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'PARAMETERS', 'SPECIFIC_NAME', 3, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'PARAMETERS', 'ORDINAL_POSITION', 4, '0', 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(21)', '', '', 'select', ''),
+('def', 'information_schema', 'PARAMETERS', 'PARAMETER_MODE', 5, NULL, 'YES', 'varchar', 5, 15, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(5)', '', '', 'select', ''),
+('def', 'information_schema', 'PARAMETERS', 'PARAMETER_NAME', 6, NULL, 'YES', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'PARAMETERS', 'DATA_TYPE', 7, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'PARAMETERS', 'CHARACTER_MAXIMUM_LENGTH', 8, NULL, 'YES', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(21)', '', '', 'select', ''),
+('def', 'information_schema', 'PARAMETERS', 'CHARACTER_OCTET_LENGTH', 9, NULL, 'YES', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(21)', '', '', 'select', ''),
+('def', 'information_schema', 'PARAMETERS', 'NUMERIC_PRECISION', 10, NULL, 'YES', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(21)', '', '', 'select', ''),
+('def', 'information_schema', 'PARAMETERS', 'NUMERIC_SCALE', 11, NULL, 'YES', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(21)', '', '', 'select', ''),
+('def', 'information_schema', 'PARAMETERS', 'CHARACTER_SET_NAME', 12, NULL, 'YES', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'PARAMETERS', 'COLLATION_NAME', 13, NULL, 'YES', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'PARAMETERS', 'DTD_IDENTIFIER', 14, NULL, 'NO', 'longtext', 4294967295, 4294967295, NULL, NULL, 'utf8', 'utf8_general_ci', 'longtext', '', '', 'select', ''),
+('def', 'information_schema', 'PARAMETERS', 'ROUTINE_TYPE', 15, '', 'NO', 'varchar', 9, 27, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(9)', '', '', 'select', ''),
+('def', 'information_schema', 'PARTITIONS', 'TABLE_CATALOG', 1, '', 'NO', 'varchar', 512, 1536, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(512)', '', '', 'select', ''),
+('def', 'information_schema', 'PARTITIONS', 'TABLE_SCHEMA', 2, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'PARTITIONS', 'TABLE_NAME', 3, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'PARTITIONS', 'PARTITION_NAME', 4, NULL, 'YES', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'PARTITIONS', 'SUBPARTITION_NAME', 5, NULL, 'YES', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'PARTITIONS', 'PARTITION_ORDINAL_POSITION', 6, NULL, 'YES', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'PARTITIONS', 'SUBPARTITION_ORDINAL_POSITION', 7, NULL, 'YES', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'PARTITIONS', 'PARTITION_METHOD', 8, NULL, 'YES', 'varchar', 18, 54, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(18)', '', '', 'select', ''),
+('def', 'information_schema', 'PARTITIONS', 'SUBPARTITION_METHOD', 9, NULL, 'YES', 'varchar', 12, 36, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(12)', '', '', 'select', ''),
+('def', 'information_schema', 'PARTITIONS', 'PARTITION_EXPRESSION', 10, NULL, 'YES', 'longtext', 4294967295, 4294967295, NULL, NULL, 'utf8', 'utf8_general_ci', 'longtext', '', '', 'select', ''),
+('def', 'information_schema', 'PARTITIONS', 'SUBPARTITION_EXPRESSION', 11, NULL, 'YES', 'longtext', 4294967295, 4294967295, NULL, NULL, 'utf8', 'utf8_general_ci', 'longtext', '', '', 'select', ''),
+('def', 'information_schema', 'PARTITIONS', 'PARTITION_DESCRIPTION', 12, NULL, 'YES', 'longtext', 4294967295, 4294967295, NULL, NULL, 'utf8', 'utf8_general_ci', 'longtext', '', '', 'select', ''),
+('def', 'information_schema', 'PARTITIONS', 'TABLE_ROWS', 13, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'PARTITIONS', 'AVG_ROW_LENGTH', 14, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'PARTITIONS', 'DATA_LENGTH', 15, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'PARTITIONS', 'MAX_DATA_LENGTH', 16, NULL, 'YES', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'PARTITIONS', 'INDEX_LENGTH', 17, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'PARTITIONS', 'DATA_FREE', 18, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'PARTITIONS', 'CREATE_TIME', 19, NULL, 'YES', 'datetime', NULL, NULL, NULL, NULL, NULL, NULL, 'datetime', '', '', 'select', ''),
+('def', 'information_schema', 'PARTITIONS', 'UPDATE_TIME', 20, NULL, 'YES', 'datetime', NULL, NULL, NULL, NULL, NULL, NULL, 'datetime', '', '', 'select', ''),
+('def', 'information_schema', 'PARTITIONS', 'CHECK_TIME', 21, NULL, 'YES', 'datetime', NULL, NULL, NULL, NULL, NULL, NULL, 'datetime', '', '', 'select', ''),
+('def', 'information_schema', 'PARTITIONS', 'CHECKSUM', 22, NULL, 'YES', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'PARTITIONS', 'PARTITION_COMMENT', 23, '', 'NO', 'varchar', 80, 240, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(80)', '', '', 'select', ''),
+('def', 'information_schema', 'PARTITIONS', 'NODEGROUP', 24, '', 'NO', 'varchar', 12, 36, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(12)', '', '', 'select', ''),
+('def', 'information_schema', 'PARTITIONS', 'TABLESPACE_NAME', 25, NULL, 'YES', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'PLUGINS', 'PLUGIN_NAME', 1, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'PLUGINS', 'PLUGIN_VERSION', 2, '', 'NO', 'varchar', 20, 60, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(20)', '', '', 'select', ''),
+('def', 'information_schema', 'PLUGINS', 'PLUGIN_STATUS', 3, '', 'NO', 'varchar', 10, 30, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(10)', '', '', 'select', ''),
+('def', 'information_schema', 'PLUGINS', 'PLUGIN_TYPE', 4, '', 'NO', 'varchar', 80, 240, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(80)', '', '', 'select', ''),
+('def', 'information_schema', 'PLUGINS', 'PLUGIN_TYPE_VERSION', 5, '', 'NO', 'varchar', 20, 60, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(20)', '', '', 'select', ''),
+('def', 'information_schema', 'PLUGINS', 'PLUGIN_LIBRARY', 6, NULL, 'YES', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'PLUGINS', 'PLUGIN_LIBRARY_VERSION', 7, NULL, 'YES', 'varchar', 20, 60, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(20)', '', '', 'select', ''),
+('def', 'information_schema', 'PLUGINS', 'PLUGIN_AUTHOR', 8, NULL, 'YES', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'PLUGINS', 'PLUGIN_DESCRIPTION', 9, NULL, 'YES', 'longtext', 4294967295, 4294967295, NULL, NULL, 'utf8', 'utf8_general_ci', 'longtext', '', '', 'select', ''),
+('def', 'information_schema', 'PLUGINS', 'PLUGIN_LICENSE', 10, NULL, 'YES', 'varchar', 80, 240, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(80)', '', '', 'select', ''),
+('def', 'information_schema', 'PLUGINS', 'LOAD_OPTION', 11, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'PROCESSLIST', 'ID', 1, '0', 'NO', 'bigint', NULL, NULL, 19, 0, NULL, NULL, 'bigint(4)', '', '', 'select', ''),
+('def', 'information_schema', 'PROCESSLIST', 'USER', 2, '', 'NO', 'varchar', 16, 48, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(16)', '', '', 'select', ''),
+('def', 'information_schema', 'PROCESSLIST', 'HOST', 3, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'PROCESSLIST', 'DB', 4, NULL, 'YES', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'PROCESSLIST', 'COMMAND', 5, '', 'NO', 'varchar', 16, 48, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(16)', '', '', 'select', ''),
+('def', 'information_schema', 'PROCESSLIST', 'TIME', 6, '0', 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(7)', '', '', 'select', ''),
+('def', 'information_schema', 'PROCESSLIST', 'STATE', 7, NULL, 'YES', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'PROCESSLIST', 'INFO', 8, NULL, 'YES', 'longtext', 4294967295, 4294967295, NULL, NULL, 'utf8', 'utf8_general_ci', 'longtext', '', '', 'select', ''),
+('def', 'information_schema', 'PROFILING', 'QUERY_ID', 1, '0', 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(20)', '', '', 'select', ''),
+('def', 'information_schema', 'PROFILING', 'SEQ', 2, '0', 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(20)', '', '', 'select', ''),
+('def', 'information_schema', 'PROFILING', 'STATE', 3, '', 'NO', 'varchar', 30, 90, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(30)', '', '', 'select', ''),
+('def', 'information_schema', 'PROFILING', 'DURATION', 4, '0.000000', 'NO', 'decimal', NULL, NULL, 9, 6, NULL, NULL, 'decimal(9,6)', '', '', 'select', ''),
+('def', 'information_schema', 'PROFILING', 'CPU_USER', 5, NULL, 'YES', 'decimal', NULL, NULL, 9, 6, NULL, NULL, 'decimal(9,6)', '', '', 'select', ''),
+('def', 'information_schema', 'PROFILING', 'CPU_SYSTEM', 6, NULL, 'YES', 'decimal', NULL, NULL, 9, 6, NULL, NULL, 'decimal(9,6)', '', '', 'select', ''),
+('def', 'information_schema', 'PROFILING', 'CONTEXT_VOLUNTARY', 7, NULL, 'YES', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(20)', '', '', 'select', ''),
+('def', 'information_schema', 'PROFILING', 'CONTEXT_INVOLUNTARY', 8, NULL, 'YES', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(20)', '', '', 'select', ''),
+('def', 'information_schema', 'PROFILING', 'BLOCK_OPS_IN', 9, NULL, 'YES', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(20)', '', '', 'select', ''),
+('def', 'information_schema', 'PROFILING', 'BLOCK_OPS_OUT', 10, NULL, 'YES', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(20)', '', '', 'select', ''),
+('def', 'information_schema', 'PROFILING', 'MESSAGES_SENT', 11, NULL, 'YES', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(20)', '', '', 'select', ''),
+('def', 'information_schema', 'PROFILING', 'MESSAGES_RECEIVED', 12, NULL, 'YES', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(20)', '', '', 'select', ''),
+('def', 'information_schema', 'PROFILING', 'PAGE_FAULTS_MAJOR', 13, NULL, 'YES', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(20)', '', '', 'select', ''),
+('def', 'information_schema', 'PROFILING', 'PAGE_FAULTS_MINOR', 14, NULL, 'YES', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(20)', '', '', 'select', ''),
+('def', 'information_schema', 'PROFILING', 'SWAPS', 15, NULL, 'YES', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(20)', '', '', 'select', ''),
+('def', 'information_schema', 'PROFILING', 'SOURCE_FUNCTION', 16, NULL, 'YES', 'varchar', 30, 90, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(30)', '', '', 'select', ''),
+('def', 'information_schema', 'PROFILING', 'SOURCE_FILE', 17, NULL, 'YES', 'varchar', 20, 60, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(20)', '', '', 'select', ''),
+('def', 'information_schema', 'PROFILING', 'SOURCE_LINE', 18, NULL, 'YES', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(20)', '', '', 'select', ''),
+('def', 'information_schema', 'REFERENTIAL_CONSTRAINTS', 'CONSTRAINT_CATALOG', 1, '', 'NO', 'varchar', 512, 1536, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(512)', '', '', 'select', ''),
+('def', 'information_schema', 'REFERENTIAL_CONSTRAINTS', 'CONSTRAINT_SCHEMA', 2, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'REFERENTIAL_CONSTRAINTS', 'CONSTRAINT_NAME', 3, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'REFERENTIAL_CONSTRAINTS', 'UNIQUE_CONSTRAINT_CATALOG', 4, '', 'NO', 'varchar', 512, 1536, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(512)', '', '', 'select', ''),
+('def', 'information_schema', 'REFERENTIAL_CONSTRAINTS', 'UNIQUE_CONSTRAINT_SCHEMA', 5, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'REFERENTIAL_CONSTRAINTS', 'UNIQUE_CONSTRAINT_NAME', 6, NULL, 'YES', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'REFERENTIAL_CONSTRAINTS', 'MATCH_OPTION', 7, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'REFERENTIAL_CONSTRAINTS', 'UPDATE_RULE', 8, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'REFERENTIAL_CONSTRAINTS', 'DELETE_RULE', 9, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'REFERENTIAL_CONSTRAINTS', 'TABLE_NAME', 10, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'REFERENTIAL_CONSTRAINTS', 'REFERENCED_TABLE_NAME', 11, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'ROUTINES', 'SPECIFIC_NAME', 1, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'ROUTINES', 'ROUTINE_CATALOG', 2, '', 'NO', 'varchar', 512, 1536, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(512)', '', '', 'select', ''),
+('def', 'information_schema', 'ROUTINES', 'ROUTINE_SCHEMA', 3, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'ROUTINES', 'ROUTINE_NAME', 4, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'ROUTINES', 'ROUTINE_TYPE', 5, '', 'NO', 'varchar', 9, 27, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(9)', '', '', 'select', ''),
+('def', 'information_schema', 'ROUTINES', 'DATA_TYPE', 6, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'ROUTINES', 'CHARACTER_MAXIMUM_LENGTH', 7, NULL, 'YES', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(21)', '', '', 'select', ''),
+('def', 'information_schema', 'ROUTINES', 'CHARACTER_OCTET_LENGTH', 8, NULL, 'YES', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(21)', '', '', 'select', ''),
+('def', 'information_schema', 'ROUTINES', 'NUMERIC_PRECISION', 9, NULL, 'YES', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(21)', '', '', 'select', ''),
+('def', 'information_schema', 'ROUTINES', 'NUMERIC_SCALE', 10, NULL, 'YES', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(21)', '', '', 'select', ''),
+('def', 'information_schema', 'ROUTINES', 'CHARACTER_SET_NAME', 11, NULL, 'YES', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'ROUTINES', 'COLLATION_NAME', 12, NULL, 'YES', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'ROUTINES', 'DTD_IDENTIFIER', 13, NULL, 'YES', 'longtext', 4294967295, 4294967295, NULL, NULL, 'utf8', 'utf8_general_ci', 'longtext', '', '', 'select', ''),
+('def', 'information_schema', 'ROUTINES', 'ROUTINE_BODY', 14, '', 'NO', 'varchar', 8, 24, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(8)', '', '', 'select', ''),
+('def', 'information_schema', 'ROUTINES', 'ROUTINE_DEFINITION', 15, NULL, 'YES', 'longtext', 4294967295, 4294967295, NULL, NULL, 'utf8', 'utf8_general_ci', 'longtext', '', '', 'select', ''),
+('def', 'information_schema', 'ROUTINES', 'EXTERNAL_NAME', 16, NULL, 'YES', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'ROUTINES', 'EXTERNAL_LANGUAGE', 17, NULL, 'YES', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'ROUTINES', 'PARAMETER_STYLE', 18, '', 'NO', 'varchar', 8, 24, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(8)', '', '', 'select', ''),
+('def', 'information_schema', 'ROUTINES', 'IS_DETERMINISTIC', 19, '', 'NO', 'varchar', 3, 9, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(3)', '', '', 'select', ''),
+('def', 'information_schema', 'ROUTINES', 'SQL_DATA_ACCESS', 20, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'ROUTINES', 'SQL_PATH', 21, NULL, 'YES', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'ROUTINES', 'SECURITY_TYPE', 22, '', 'NO', 'varchar', 7, 21, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(7)', '', '', 'select', ''),
+('def', 'information_schema', 'ROUTINES', 'CREATED', 23, '0000-00-00 00:00:00', 'NO', 'datetime', NULL, NULL, NULL, NULL, NULL, NULL, 'datetime', '', '', 'select', ''),
+('def', 'information_schema', 'ROUTINES', 'LAST_ALTERED', 24, '0000-00-00 00:00:00', 'NO', 'datetime', NULL, NULL, NULL, NULL, NULL, NULL, 'datetime', '', '', 'select', ''),
+('def', 'information_schema', 'ROUTINES', 'SQL_MODE', 25, '', 'NO', 'varchar', 8192, 24576, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(8192)', '', '', 'select', ''),
+('def', 'information_schema', 'ROUTINES', 'ROUTINE_COMMENT', 26, NULL, 'NO', 'longtext', 4294967295, 4294967295, NULL, NULL, 'utf8', 'utf8_general_ci', 'longtext', '', '', 'select', ''),
+('def', 'information_schema', 'ROUTINES', 'DEFINER', 27, '', 'NO', 'varchar', 77, 231, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(77)', '', '', 'select', ''),
+('def', 'information_schema', 'ROUTINES', 'CHARACTER_SET_CLIENT', 28, '', 'NO', 'varchar', 32, 96, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(32)', '', '', 'select', ''),
+('def', 'information_schema', 'ROUTINES', 'COLLATION_CONNECTION', 29, '', 'NO', 'varchar', 32, 96, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(32)', '', '', 'select', ''),
+('def', 'information_schema', 'ROUTINES', 'DATABASE_COLLATION', 30, '', 'NO', 'varchar', 32, 96, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(32)', '', '', 'select', ''),
+('def', 'information_schema', 'SCHEMATA', 'CATALOG_NAME', 1, '', 'NO', 'varchar', 512, 1536, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(512)', '', '', 'select', ''),
+('def', 'information_schema', 'SCHEMATA', 'SCHEMA_NAME', 2, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'SCHEMATA', 'DEFAULT_CHARACTER_SET_NAME', 3, '', 'NO', 'varchar', 32, 96, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(32)', '', '', 'select', ''),
+('def', 'information_schema', 'SCHEMATA', 'DEFAULT_COLLATION_NAME', 4, '', 'NO', 'varchar', 32, 96, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(32)', '', '', 'select', ''),
+('def', 'information_schema', 'SCHEMATA', 'SQL_PATH', 5, NULL, 'YES', 'varchar', 512, 1536, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(512)', '', '', 'select', ''),
+('def', 'information_schema', 'SCHEMA_PRIVILEGES', 'GRANTEE', 1, '', 'NO', 'varchar', 81, 243, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(81)', '', '', 'select', ''),
+('def', 'information_schema', 'SCHEMA_PRIVILEGES', 'TABLE_CATALOG', 2, '', 'NO', 'varchar', 512, 1536, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(512)', '', '', 'select', ''),
+('def', 'information_schema', 'SCHEMA_PRIVILEGES', 'TABLE_SCHEMA', 3, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'SCHEMA_PRIVILEGES', 'PRIVILEGE_TYPE', 4, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'SCHEMA_PRIVILEGES', 'IS_GRANTABLE', 5, '', 'NO', 'varchar', 3, 9, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(3)', '', '', 'select', ''),
+('def', 'information_schema', 'SESSION_STATUS', 'VARIABLE_NAME', 1, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'SESSION_STATUS', 'VARIABLE_VALUE', 2, NULL, 'YES', 'varchar', 1024, 3072, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(1024)', '', '', 'select', ''),
+('def', 'information_schema', 'SESSION_VARIABLES', 'VARIABLE_NAME', 1, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'SESSION_VARIABLES', 'VARIABLE_VALUE', 2, NULL, 'YES', 'varchar', 1024, 3072, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(1024)', '', '', 'select', ''),
+('def', 'information_schema', 'STATISTICS', 'TABLE_CATALOG', 1, '', 'NO', 'varchar', 512, 1536, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(512)', '', '', 'select', ''),
+('def', 'information_schema', 'STATISTICS', 'TABLE_SCHEMA', 2, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'STATISTICS', 'TABLE_NAME', 3, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'STATISTICS', 'NON_UNIQUE', 4, '0', 'NO', 'bigint', NULL, NULL, 19, 0, NULL, NULL, 'bigint(1)', '', '', 'select', ''),
+('def', 'information_schema', 'STATISTICS', 'INDEX_SCHEMA', 5, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'STATISTICS', 'INDEX_NAME', 6, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'STATISTICS', 'SEQ_IN_INDEX', 7, '0', 'NO', 'bigint', NULL, NULL, 19, 0, NULL, NULL, 'bigint(2)', '', '', 'select', ''),
+('def', 'information_schema', 'STATISTICS', 'COLUMN_NAME', 8, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'STATISTICS', 'COLLATION', 9, NULL, 'YES', 'varchar', 1, 3, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(1)', '', '', 'select', ''),
+('def', 'information_schema', 'STATISTICS', 'CARDINALITY', 10, NULL, 'YES', 'bigint', NULL, NULL, 19, 0, NULL, NULL, 'bigint(21)', '', '', 'select', ''),
+('def', 'information_schema', 'STATISTICS', 'SUB_PART', 11, NULL, 'YES', 'bigint', NULL, NULL, 19, 0, NULL, NULL, 'bigint(3)', '', '', 'select', ''),
+('def', 'information_schema', 'STATISTICS', 'PACKED', 12, NULL, 'YES', 'varchar', 10, 30, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(10)', '', '', 'select', ''),
+('def', 'information_schema', 'STATISTICS', 'NULLABLE', 13, '', 'NO', 'varchar', 3, 9, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(3)', '', '', 'select', ''),
+('def', 'information_schema', 'STATISTICS', 'INDEX_TYPE', 14, '', 'NO', 'varchar', 16, 48, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(16)', '', '', 'select', ''),
+('def', 'information_schema', 'STATISTICS', 'COMMENT', 15, NULL, 'YES', 'varchar', 16, 48, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(16)', '', '', 'select', ''),
+('def', 'information_schema', 'STATISTICS', 'INDEX_COMMENT', 16, '', 'NO', 'varchar', 1024, 3072, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(1024)', '', '', 'select', ''),
+('def', 'information_schema', 'TABLES', 'TABLE_CATALOG', 1, '', 'NO', 'varchar', 512, 1536, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(512)', '', '', 'select', ''),
+('def', 'information_schema', 'TABLES', 'TABLE_SCHEMA', 2, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'TABLES', 'TABLE_NAME', 3, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'TABLES', 'TABLE_TYPE', 4, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'TABLES', 'ENGINE', 5, NULL, 'YES', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'TABLES', 'VERSION', 6, NULL, 'YES', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'TABLES', 'ROW_FORMAT', 7, NULL, 'YES', 'varchar', 10, 30, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(10)', '', '', 'select', ''),
+('def', 'information_schema', 'TABLES', 'TABLE_ROWS', 8, NULL, 'YES', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'TABLES', 'AVG_ROW_LENGTH', 9, NULL, 'YES', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'TABLES', 'DATA_LENGTH', 10, NULL, 'YES', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'TABLES', 'MAX_DATA_LENGTH', 11, NULL, 'YES', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'TABLES', 'INDEX_LENGTH', 12, NULL, 'YES', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'TABLES', 'DATA_FREE', 13, NULL, 'YES', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'TABLES', 'AUTO_INCREMENT', 14, NULL, 'YES', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'TABLES', 'CREATE_TIME', 15, NULL, 'YES', 'datetime', NULL, NULL, NULL, NULL, NULL, NULL, 'datetime', '', '', 'select', ''),
+('def', 'information_schema', 'TABLES', 'UPDATE_TIME', 16, NULL, 'YES', 'datetime', NULL, NULL, NULL, NULL, NULL, NULL, 'datetime', '', '', 'select', ''),
+('def', 'information_schema', 'TABLES', 'CHECK_TIME', 17, NULL, 'YES', 'datetime', NULL, NULL, NULL, NULL, NULL, NULL, 'datetime', '', '', 'select', ''),
+('def', 'information_schema', 'TABLES', 'TABLE_COLLATION', 18, NULL, 'YES', 'varchar', 32, 96, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(32)', '', '', 'select', ''),
+('def', 'information_schema', 'TABLES', 'CHECKSUM', 19, NULL, 'YES', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'TABLES', 'CREATE_OPTIONS', 20, NULL, 'YES', 'varchar', 255, 765, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(255)', '', '', 'select', ''),
+('def', 'information_schema', 'TABLES', 'TABLE_COMMENT', 21, '', 'NO', 'varchar', 2048, 6144, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(2048)', '', '', 'select', ''),
+('def', 'information_schema', 'TABLESPACES', 'TABLESPACE_NAME', 1, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'TABLESPACES', 'ENGINE', 2, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'TABLESPACES', 'TABLESPACE_TYPE', 3, NULL, 'YES', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'TABLESPACES', 'LOGFILE_GROUP_NAME', 4, NULL, 'YES', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'TABLESPACES', 'EXTENT_SIZE', 5, NULL, 'YES', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'TABLESPACES', 'AUTOEXTEND_SIZE', 6, NULL, 'YES', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'TABLESPACES', 'MAXIMUM_SIZE', 7, NULL, 'YES', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'TABLESPACES', 'NODEGROUP_ID', 8, NULL, 'YES', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', '');
+INSERT INTO `COLUMNS` (`TABLE_CATALOG`, `TABLE_SCHEMA`, `TABLE_NAME`, `COLUMN_NAME`, `ORDINAL_POSITION`, `COLUMN_DEFAULT`, `IS_NULLABLE`, `DATA_TYPE`, `CHARACTER_MAXIMUM_LENGTH`, `CHARACTER_OCTET_LENGTH`, `NUMERIC_PRECISION`, `NUMERIC_SCALE`, `CHARACTER_SET_NAME`, `COLLATION_NAME`, `COLUMN_TYPE`, `COLUMN_KEY`, `EXTRA`, `PRIVILEGES`, `COLUMN_COMMENT`) VALUES
+('def', 'information_schema', 'TABLESPACES', 'TABLESPACE_COMMENT', 9, NULL, 'YES', 'varchar', 2048, 6144, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(2048)', '', '', 'select', ''),
+('def', 'information_schema', 'TABLE_CONSTRAINTS', 'CONSTRAINT_CATALOG', 1, '', 'NO', 'varchar', 512, 1536, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(512)', '', '', 'select', ''),
+('def', 'information_schema', 'TABLE_CONSTRAINTS', 'CONSTRAINT_SCHEMA', 2, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'TABLE_CONSTRAINTS', 'CONSTRAINT_NAME', 3, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'TABLE_CONSTRAINTS', 'TABLE_SCHEMA', 4, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'TABLE_CONSTRAINTS', 'TABLE_NAME', 5, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'TABLE_CONSTRAINTS', 'CONSTRAINT_TYPE', 6, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'TABLE_PRIVILEGES', 'GRANTEE', 1, '', 'NO', 'varchar', 81, 243, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(81)', '', '', 'select', ''),
+('def', 'information_schema', 'TABLE_PRIVILEGES', 'TABLE_CATALOG', 2, '', 'NO', 'varchar', 512, 1536, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(512)', '', '', 'select', ''),
+('def', 'information_schema', 'TABLE_PRIVILEGES', 'TABLE_SCHEMA', 3, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'TABLE_PRIVILEGES', 'TABLE_NAME', 4, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'TABLE_PRIVILEGES', 'PRIVILEGE_TYPE', 5, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'TABLE_PRIVILEGES', 'IS_GRANTABLE', 6, '', 'NO', 'varchar', 3, 9, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(3)', '', '', 'select', ''),
+('def', 'information_schema', 'TRIGGERS', 'TRIGGER_CATALOG', 1, '', 'NO', 'varchar', 512, 1536, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(512)', '', '', 'select', ''),
+('def', 'information_schema', 'TRIGGERS', 'TRIGGER_SCHEMA', 2, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'TRIGGERS', 'TRIGGER_NAME', 3, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'TRIGGERS', 'EVENT_MANIPULATION', 4, '', 'NO', 'varchar', 6, 18, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(6)', '', '', 'select', ''),
+('def', 'information_schema', 'TRIGGERS', 'EVENT_OBJECT_CATALOG', 5, '', 'NO', 'varchar', 512, 1536, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(512)', '', '', 'select', ''),
+('def', 'information_schema', 'TRIGGERS', 'EVENT_OBJECT_SCHEMA', 6, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'TRIGGERS', 'EVENT_OBJECT_TABLE', 7, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'TRIGGERS', 'ACTION_ORDER', 8, '0', 'NO', 'bigint', NULL, NULL, 19, 0, NULL, NULL, 'bigint(4)', '', '', 'select', ''),
+('def', 'information_schema', 'TRIGGERS', 'ACTION_CONDITION', 9, NULL, 'YES', 'longtext', 4294967295, 4294967295, NULL, NULL, 'utf8', 'utf8_general_ci', 'longtext', '', '', 'select', ''),
+('def', 'information_schema', 'TRIGGERS', 'ACTION_STATEMENT', 10, NULL, 'NO', 'longtext', 4294967295, 4294967295, NULL, NULL, 'utf8', 'utf8_general_ci', 'longtext', '', '', 'select', ''),
+('def', 'information_schema', 'TRIGGERS', 'ACTION_ORIENTATION', 11, '', 'NO', 'varchar', 9, 27, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(9)', '', '', 'select', ''),
+('def', 'information_schema', 'TRIGGERS', 'ACTION_TIMING', 12, '', 'NO', 'varchar', 6, 18, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(6)', '', '', 'select', ''),
+('def', 'information_schema', 'TRIGGERS', 'ACTION_REFERENCE_OLD_TABLE', 13, NULL, 'YES', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'TRIGGERS', 'ACTION_REFERENCE_NEW_TABLE', 14, NULL, 'YES', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'TRIGGERS', 'ACTION_REFERENCE_OLD_ROW', 15, '', 'NO', 'varchar', 3, 9, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(3)', '', '', 'select', ''),
+('def', 'information_schema', 'TRIGGERS', 'ACTION_REFERENCE_NEW_ROW', 16, '', 'NO', 'varchar', 3, 9, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(3)', '', '', 'select', ''),
+('def', 'information_schema', 'TRIGGERS', 'CREATED', 17, NULL, 'YES', 'datetime', NULL, NULL, NULL, NULL, NULL, NULL, 'datetime', '', '', 'select', ''),
+('def', 'information_schema', 'TRIGGERS', 'SQL_MODE', 18, '', 'NO', 'varchar', 8192, 24576, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(8192)', '', '', 'select', ''),
+('def', 'information_schema', 'TRIGGERS', 'DEFINER', 19, '', 'NO', 'varchar', 77, 231, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(77)', '', '', 'select', ''),
+('def', 'information_schema', 'TRIGGERS', 'CHARACTER_SET_CLIENT', 20, '', 'NO', 'varchar', 32, 96, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(32)', '', '', 'select', ''),
+('def', 'information_schema', 'TRIGGERS', 'COLLATION_CONNECTION', 21, '', 'NO', 'varchar', 32, 96, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(32)', '', '', 'select', ''),
+('def', 'information_schema', 'TRIGGERS', 'DATABASE_COLLATION', 22, '', 'NO', 'varchar', 32, 96, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(32)', '', '', 'select', ''),
+('def', 'information_schema', 'USER_PRIVILEGES', 'GRANTEE', 1, '', 'NO', 'varchar', 81, 243, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(81)', '', '', 'select', ''),
+('def', 'information_schema', 'USER_PRIVILEGES', 'TABLE_CATALOG', 2, '', 'NO', 'varchar', 512, 1536, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(512)', '', '', 'select', ''),
+('def', 'information_schema', 'USER_PRIVILEGES', 'PRIVILEGE_TYPE', 3, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'USER_PRIVILEGES', 'IS_GRANTABLE', 4, '', 'NO', 'varchar', 3, 9, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(3)', '', '', 'select', ''),
+('def', 'information_schema', 'VIEWS', 'TABLE_CATALOG', 1, '', 'NO', 'varchar', 512, 1536, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(512)', '', '', 'select', ''),
+('def', 'information_schema', 'VIEWS', 'TABLE_SCHEMA', 2, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'VIEWS', 'TABLE_NAME', 3, '', 'NO', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'VIEWS', 'VIEW_DEFINITION', 4, NULL, 'NO', 'longtext', 4294967295, 4294967295, NULL, NULL, 'utf8', 'utf8_general_ci', 'longtext', '', '', 'select', ''),
+('def', 'information_schema', 'VIEWS', 'CHECK_OPTION', 5, '', 'NO', 'varchar', 8, 24, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(8)', '', '', 'select', ''),
+('def', 'information_schema', 'VIEWS', 'IS_UPDATABLE', 6, '', 'NO', 'varchar', 3, 9, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(3)', '', '', 'select', ''),
+('def', 'information_schema', 'VIEWS', 'DEFINER', 7, '', 'NO', 'varchar', 77, 231, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(77)', '', '', 'select', ''),
+('def', 'information_schema', 'VIEWS', 'SECURITY_TYPE', 8, '', 'NO', 'varchar', 7, 21, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(7)', '', '', 'select', ''),
+('def', 'information_schema', 'VIEWS', 'CHARACTER_SET_CLIENT', 9, '', 'NO', 'varchar', 32, 96, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(32)', '', '', 'select', ''),
+('def', 'information_schema', 'VIEWS', 'COLLATION_CONNECTION', 10, '', 'NO', 'varchar', 32, 96, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(32)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_PAGE', 'POOL_ID', 1, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_PAGE', 'BLOCK_ID', 2, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_PAGE', 'SPACE', 3, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_PAGE', 'PAGE_NUMBER', 4, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_PAGE', 'PAGE_TYPE', 5, NULL, 'YES', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_PAGE', 'FLUSH_TYPE', 6, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_PAGE', 'FIX_COUNT', 7, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_PAGE', 'IS_HASHED', 8, NULL, 'YES', 'varchar', 3, 9, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(3)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_PAGE', 'NEWEST_MODIFICATION', 9, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_PAGE', 'OLDEST_MODIFICATION', 10, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_PAGE', 'ACCESS_TIME', 11, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_PAGE', 'TABLE_NAME', 12, NULL, 'YES', 'varchar', 1024, 3072, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(1024)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_PAGE', 'INDEX_NAME', 13, NULL, 'YES', 'varchar', 1024, 3072, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(1024)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_PAGE', 'NUMBER_RECORDS', 14, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_PAGE', 'DATA_SIZE', 15, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_PAGE', 'COMPRESSED_SIZE', 16, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_PAGE', 'PAGE_STATE', 17, NULL, 'YES', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_PAGE', 'IO_FIX', 18, NULL, 'YES', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_PAGE', 'IS_OLD', 19, NULL, 'YES', 'varchar', 3, 9, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(3)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_PAGE', 'FREE_PAGE_CLOCK', 20, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_TRX', 'trx_id', 1, '', 'NO', 'varchar', 18, 54, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(18)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_TRX', 'trx_state', 2, '', 'NO', 'varchar', 13, 39, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(13)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_TRX', 'trx_started', 3, '0000-00-00 00:00:00', 'NO', 'datetime', NULL, NULL, NULL, NULL, NULL, NULL, 'datetime', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_TRX', 'trx_requested_lock_id', 4, NULL, 'YES', 'varchar', 81, 243, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(81)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_TRX', 'trx_wait_started', 5, NULL, 'YES', 'datetime', NULL, NULL, NULL, NULL, NULL, NULL, 'datetime', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_TRX', 'trx_weight', 6, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_TRX', 'trx_mysql_thread_id', 7, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_TRX', 'trx_query', 8, NULL, 'YES', 'varchar', 1024, 3072, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(1024)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_TRX', 'trx_operation_state', 9, NULL, 'YES', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_TRX', 'trx_tables_in_use', 10, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_TRX', 'trx_tables_locked', 11, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_TRX', 'trx_lock_structs', 12, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_TRX', 'trx_lock_memory_bytes', 13, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_TRX', 'trx_rows_locked', 14, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_TRX', 'trx_rows_modified', 15, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_TRX', 'trx_concurrency_tickets', 16, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_TRX', 'trx_isolation_level', 17, '', 'NO', 'varchar', 16, 48, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(16)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_TRX', 'trx_unique_checks', 18, '0', 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(1)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_TRX', 'trx_foreign_key_checks', 19, '0', 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(1)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_TRX', 'trx_last_foreign_key_error', 20, NULL, 'YES', 'varchar', 256, 768, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(256)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_TRX', 'trx_adaptive_hash_latched', 21, '0', 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(1)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_TRX', 'trx_adaptive_hash_timeout', 22, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_POOL_STATS', 'POOL_ID', 1, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_POOL_STATS', 'POOL_SIZE', 2, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_POOL_STATS', 'FREE_BUFFERS', 3, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_POOL_STATS', 'DATABASE_PAGES', 4, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_POOL_STATS', 'OLD_DATABASE_PAGES', 5, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_POOL_STATS', 'MODIFIED_DATABASE_PAGES', 6, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_POOL_STATS', 'PENDING_DECOMPRESS', 7, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_POOL_STATS', 'PENDING_READS', 8, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_POOL_STATS', 'PENDING_FLUSH_LRU', 9, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_POOL_STATS', 'PENDING_FLUSH_LIST', 10, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_POOL_STATS', 'PAGES_MADE_YOUNG', 11, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_POOL_STATS', 'PAGES_NOT_MADE_YOUNG', 12, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_POOL_STATS', 'PAGES_MADE_YOUNG_RATE', 13, '0', 'NO', 'double', NULL, NULL, 12, NULL, NULL, NULL, 'double', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_POOL_STATS', 'PAGES_MADE_NOT_YOUNG_RATE', 14, '0', 'NO', 'double', NULL, NULL, 12, NULL, NULL, NULL, 'double', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_POOL_STATS', 'NUMBER_PAGES_READ', 15, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_POOL_STATS', 'NUMBER_PAGES_CREATED', 16, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_POOL_STATS', 'NUMBER_PAGES_WRITTEN', 17, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_POOL_STATS', 'PAGES_READ_RATE', 18, '0', 'NO', 'double', NULL, NULL, 12, NULL, NULL, NULL, 'double', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_POOL_STATS', 'PAGES_CREATE_RATE', 19, '0', 'NO', 'double', NULL, NULL, 12, NULL, NULL, NULL, 'double', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_POOL_STATS', 'PAGES_WRITTEN_RATE', 20, '0', 'NO', 'double', NULL, NULL, 12, NULL, NULL, NULL, 'double', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_POOL_STATS', 'NUMBER_PAGES_GET', 21, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_POOL_STATS', 'HIT_RATE', 22, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_POOL_STATS', 'YOUNG_MAKE_PER_THOUSAND_GETS', 23, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_POOL_STATS', 'NOT_YOUNG_MAKE_PER_THOUSAND_GETS', 24, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_POOL_STATS', 'NUMBER_PAGES_READ_AHEAD', 25, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_POOL_STATS', 'NUMBER_READ_AHEAD_EVICTED', 26, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_POOL_STATS', 'READ_AHEAD_RATE', 27, '0', 'NO', 'double', NULL, NULL, 12, NULL, NULL, NULL, 'double', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_POOL_STATS', 'READ_AHEAD_EVICTED_RATE', 28, '0', 'NO', 'double', NULL, NULL, 12, NULL, NULL, NULL, 'double', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_POOL_STATS', 'LRU_IO_TOTAL', 29, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_POOL_STATS', 'LRU_IO_CURRENT', 30, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_POOL_STATS', 'UNCOMPRESS_TOTAL', 31, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_POOL_STATS', 'UNCOMPRESS_CURRENT', 32, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_LOCK_WAITS', 'requesting_trx_id', 1, '', 'NO', 'varchar', 18, 54, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(18)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_LOCK_WAITS', 'requested_lock_id', 2, '', 'NO', 'varchar', 81, 243, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(81)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_LOCK_WAITS', 'blocking_trx_id', 3, '', 'NO', 'varchar', 18, 54, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(18)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_LOCK_WAITS', 'blocking_lock_id', 4, '', 'NO', 'varchar', 81, 243, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(81)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_CMPMEM', 'page_size', 1, '0', 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(5)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_CMPMEM', 'buffer_pool_instance', 2, '0', 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(11)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_CMPMEM', 'pages_used', 3, '0', 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(11)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_CMPMEM', 'pages_free', 4, '0', 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(11)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_CMPMEM', 'relocation_ops', 5, '0', 'NO', 'bigint', NULL, NULL, 19, 0, NULL, NULL, 'bigint(21)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_CMPMEM', 'relocation_time', 6, '0', 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(11)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_CMP', 'page_size', 1, '0', 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(5)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_CMP', 'compress_ops', 2, '0', 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(11)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_CMP', 'compress_ops_ok', 3, '0', 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(11)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_CMP', 'compress_time', 4, '0', 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(11)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_CMP', 'uncompress_ops', 5, '0', 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(11)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_CMP', 'uncompress_time', 6, '0', 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(11)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_LOCKS', 'lock_id', 1, '', 'NO', 'varchar', 81, 243, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(81)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_LOCKS', 'lock_trx_id', 2, '', 'NO', 'varchar', 18, 54, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(18)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_LOCKS', 'lock_mode', 3, '', 'NO', 'varchar', 32, 96, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(32)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_LOCKS', 'lock_type', 4, '', 'NO', 'varchar', 32, 96, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(32)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_LOCKS', 'lock_table', 5, '', 'NO', 'varchar', 1024, 3072, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(1024)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_LOCKS', 'lock_index', 6, NULL, 'YES', 'varchar', 1024, 3072, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(1024)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_LOCKS', 'lock_space', 7, NULL, 'YES', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_LOCKS', 'lock_page', 8, NULL, 'YES', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_LOCKS', 'lock_rec', 9, NULL, 'YES', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_LOCKS', 'lock_data', 10, NULL, 'YES', 'varchar', 8192, 24576, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(8192)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_CMPMEM_RESET', 'page_size', 1, '0', 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(5)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_CMPMEM_RESET', 'buffer_pool_instance', 2, '0', 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(11)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_CMPMEM_RESET', 'pages_used', 3, '0', 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(11)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_CMPMEM_RESET', 'pages_free', 4, '0', 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(11)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_CMPMEM_RESET', 'relocation_ops', 5, '0', 'NO', 'bigint', NULL, NULL, 19, 0, NULL, NULL, 'bigint(21)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_CMPMEM_RESET', 'relocation_time', 6, '0', 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(11)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_CMP_RESET', 'page_size', 1, '0', 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(5)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_CMP_RESET', 'compress_ops', 2, '0', 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(11)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_CMP_RESET', 'compress_ops_ok', 3, '0', 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(11)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_CMP_RESET', 'compress_time', 4, '0', 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(11)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_CMP_RESET', 'uncompress_ops', 5, '0', 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(11)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_CMP_RESET', 'uncompress_time', 6, '0', 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(11)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_PAGE_LRU', 'POOL_ID', 1, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_PAGE_LRU', 'LRU_POSITION', 2, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_PAGE_LRU', 'SPACE', 3, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_PAGE_LRU', 'PAGE_NUMBER', 4, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_PAGE_LRU', 'PAGE_TYPE', 5, NULL, 'YES', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_PAGE_LRU', 'FLUSH_TYPE', 6, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_PAGE_LRU', 'FIX_COUNT', 7, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_PAGE_LRU', 'IS_HASHED', 8, NULL, 'YES', 'varchar', 3, 9, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(3)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_PAGE_LRU', 'NEWEST_MODIFICATION', 9, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_PAGE_LRU', 'OLDEST_MODIFICATION', 10, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_PAGE_LRU', 'ACCESS_TIME', 11, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_PAGE_LRU', 'TABLE_NAME', 12, NULL, 'YES', 'varchar', 1024, 3072, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(1024)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_PAGE_LRU', 'INDEX_NAME', 13, NULL, 'YES', 'varchar', 1024, 3072, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(1024)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_PAGE_LRU', 'NUMBER_RECORDS', 14, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_PAGE_LRU', 'DATA_SIZE', 15, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_PAGE_LRU', 'COMPRESSED_SIZE', 16, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_PAGE_LRU', 'COMPRESSED', 17, NULL, 'YES', 'varchar', 3, 9, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(3)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_PAGE_LRU', 'IO_FIX', 18, NULL, 'YES', 'varchar', 64, 192, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(64)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_PAGE_LRU', 'IS_OLD', 19, NULL, 'YES', 'varchar', 3, 9, NULL, NULL, 'utf8', 'utf8_general_ci', 'varchar(3)', '', '', 'select', ''),
+('def', 'information_schema', 'INNODB_BUFFER_PAGE_LRU', 'FREE_PAGE_CLOCK', 20, '0', 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(21) unsigned', '', '', 'select', ''),
+('def', 'amyvarga', 'blog', 'id', 1, NULL, 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(11)', 'PRI', 'auto_increment', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'blog', 'url', 2, NULL, 'NO', 'varchar', 200, 200, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(200)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'blog', 'name', 3, NULL, 'NO', 'varchar', 200, 200, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(200)', 'UNI', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'blog', 'image', 4, NULL, 'YES', 'varchar', 255, 255, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(255)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'blog', 'description', 5, NULL, 'YES', 'longtext', 4294967295, 4294967295, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'longtext', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'blog', 'implementation', 6, NULL, 'YES', 'longtext', 4294967295, 4294967295, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'longtext', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'blog', 'code', 7, NULL, 'YES', 'longtext', 4294967295, 4294967295, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'longtext', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'blog', 'date_completed', 8, NULL, 'NO', 'datetime', NULL, NULL, NULL, NULL, NULL, NULL, 'datetime', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'blog_comments', 'blog_id', 1, NULL, 'NO', 'smallint', NULL, NULL, 5, 0, NULL, NULL, 'smallint(3) unsigned', 'PRI', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'blog_comments', 'comment_id', 2, NULL, 'NO', 'smallint', NULL, NULL, 5, 0, NULL, NULL, 'smallint(3) unsigned', 'PRI', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'blog_images', 'blog_id', 1, NULL, 'NO', 'smallint', NULL, NULL, 5, 0, NULL, NULL, 'smallint(3) unsigned', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'blog_images', 'image_url', 2, NULL, 'NO', 'varchar', 100, 100, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(100)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'blog_images', 'image_alt', 3, NULL, 'NO', 'varchar', 50, 50, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(50)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'blog_images', 'order_index', 4, NULL, 'YES', 'smallint', NULL, NULL, 5, 0, NULL, NULL, 'smallint(3)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'blog_images', 'id', 5, NULL, 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(11)', 'PRI', 'auto_increment', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'blog_logos', 'blog_id', 1, NULL, 'NO', 'smallint', NULL, NULL, 5, 0, NULL, NULL, 'smallint(3) unsigned', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'blog_logos', 'image_url', 2, NULL, 'NO', 'varchar', 50, 50, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(50)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'blog_logos', 'image_alt', 3, NULL, 'NO', 'varchar', 50, 50, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(50)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'blog_logos', 'id', 4, NULL, 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(11)', 'PRI', 'auto_increment', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'blog_relatedlinks', 'blog_id', 1, NULL, 'NO', 'smallint', NULL, NULL, 5, 0, NULL, NULL, 'smallint(3) unsigned', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'blog_relatedlinks', 'url', 2, NULL, 'NO', 'varchar', 200, 200, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(200)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'blog_relatedlinks', 'name', 3, NULL, 'NO', 'varchar', 100, 100, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(100)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'blog_relatedlinks', 'id', 4, NULL, 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(11)', 'PRI', 'auto_increment', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'captcha', 'captcha_id', 1, NULL, 'NO', 'bigint', NULL, NULL, 20, 0, NULL, NULL, 'bigint(13) unsigned', 'PRI', 'auto_increment', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'captcha', 'captcha_time', 2, NULL, 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(10) unsigned', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'captcha', 'ip_address', 3, '0', 'NO', 'varchar', 16, 16, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(16)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'captcha', 'word', 4, NULL, 'NO', 'varchar', 20, 20, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(20)', 'MUL', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'comments', 'comment_id', 1, NULL, 'NO', 'smallint', NULL, NULL, 5, 0, NULL, NULL, 'smallint(3) unsigned', 'PRI', 'auto_increment', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'comments', 'comment', 2, NULL, 'NO', 'longtext', 4294967295, 4294967295, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'longtext', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'comments', 'email', 3, NULL, 'NO', 'varchar', 75, 75, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(75)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'comments', 'name', 4, NULL, 'NO', 'varchar', 50, 50, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(50)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'comments', 'date', 5, 'CURRENT_TIMESTAMP', 'NO', 'timestamp', NULL, NULL, NULL, NULL, NULL, NULL, 'timestamp', '', 'on update CURRENT_TIMESTAMP', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'country', 'id', 1, NULL, 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(11)', 'PRI', 'auto_increment', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'country', 'country', 2, NULL, 'YES', 'varchar', 35, 35, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(35)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'employee_achievements', 'id', 1, NULL, 'NO', 'smallint', NULL, NULL, 5, 0, NULL, NULL, 'smallint(3) unsigned', 'PRI', 'auto_increment', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'employee_achievements', 'achievements', 2, NULL, 'YES', 'longtext', 4294967295, 4294967295, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'longtext', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'employee_achievements', 'employee_id', 3, NULL, 'NO', 'smallint', NULL, NULL, 5, 0, NULL, NULL, 'smallint(3)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'employee_achievements', 'sort', 4, NULL, 'NO', 'smallint', NULL, NULL, 5, 0, NULL, NULL, 'smallint(3)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'employee_blog', 'employee_id', 1, NULL, 'NO', 'smallint', NULL, NULL, 5, 0, NULL, NULL, 'smallint(3) unsigned', 'PRI', 'auto_increment', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'employee_blog', 'blog_id', 2, NULL, 'NO', 'smallint', NULL, NULL, 5, 0, NULL, NULL, 'smallint(3) unsigned', 'PRI', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'employee_cv', 'id', 1, NULL, 'NO', 'smallint', NULL, NULL, 5, 0, NULL, NULL, 'smallint(10)', 'MUL', 'auto_increment', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'employee_cv', 'employee_id', 2, NULL, 'NO', 'smallint', NULL, NULL, 5, 0, NULL, NULL, 'smallint(3) unsigned', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'employee_cv', 'name', 3, NULL, 'NO', 'varchar', 50, 50, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(50)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'employee_expertise', 'employee_id', 1, '0', 'NO', 'smallint', NULL, NULL, 5, 0, NULL, NULL, 'smallint(3) unsigned', 'PRI', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'employee_expertise', 'expertise_id', 2, NULL, 'NO', 'smallint', NULL, NULL, 5, 0, NULL, NULL, 'smallint(3) unsigned', 'PRI', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'employee_showcase', 'employee_id', 1, NULL, 'NO', 'smallint', NULL, NULL, 5, 0, NULL, NULL, 'smallint(3) unsigned', 'PRI', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'employee_showcase', 'showcase_id', 2, NULL, 'NO', 'smallint', NULL, NULL, 5, 0, NULL, NULL, 'smallint(3) unsigned', 'PRI', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'employee_skills', 'id', 1, NULL, 'NO', 'smallint', NULL, NULL, 5, 0, NULL, NULL, 'smallint(3) unsigned', 'PRI', 'auto_increment', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'employee_skills', 'skills', 2, NULL, 'YES', 'longtext', 4294967295, 4294967295, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'longtext', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'employee_skills', 'employee_id', 3, NULL, 'NO', 'smallint', NULL, NULL, 5, 0, NULL, NULL, 'smallint(3)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'employee_skills', 'sort', 4, NULL, 'NO', 'smallint', NULL, NULL, 5, 0, NULL, NULL, 'smallint(3)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'employees', 'employee_id', 1, NULL, 'NO', 'smallint', NULL, NULL, 5, 0, NULL, NULL, 'smallint(3) unsigned', 'PRI', 'auto_increment', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'employees', 'employee_name', 2, NULL, 'YES', 'varchar', 75, 75, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(75)', 'UNI', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'employees_relatedlinks', 'relatedlink_id', 1, NULL, 'NO', 'smallint', NULL, NULL, 5, 0, NULL, NULL, 'smallint(3) unsigned', 'PRI', 'auto_increment', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'employees_relatedlinks', 'name', 2, NULL, 'NO', 'varchar', 50, 50, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(50)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'employees_relatedlinks', 'url', 3, NULL, 'NO', 'varchar', 50, 50, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(50)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'employees_summaries', 'employee_id', 1, NULL, 'NO', 'smallint', NULL, NULL, 5, 0, NULL, NULL, 'smallint(3) unsigned', 'PRI', 'auto_increment', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'employees_summaries', 'photo', 2, NULL, 'NO', 'varchar', 50, 50, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(50)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'employees_summaries', 'photo_back', 3, NULL, 'NO', 'varchar', 50, 50, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(50)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'employees_summaries', 'years_of_experience', 4, NULL, 'NO', 'smallint', NULL, NULL, 5, 0, NULL, NULL, 'smallint(3) unsigned', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'employees_summaries', 'profile', 5, NULL, 'NO', 'longtext', 4294967295, 4294967295, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'longtext', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'experience', 'id', 1, NULL, 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(11)', 'PRI', 'auto_increment', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'experience', 'name', 2, NULL, 'YES', 'varchar', 100, 100, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(100)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'frameworks', 'id', 1, NULL, 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(11)', 'PRI', 'auto_increment', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'frameworks', 'name', 2, NULL, 'YES', 'varchar', 100, 100, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(100)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'languages', 'id', 1, NULL, 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(11)', 'PRI', 'auto_increment', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'languages', 'name', 2, NULL, 'YES', 'varchar', 100, 100, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(100)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'photos', 'id', 1, NULL, 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(10)', 'PRI', 'auto_increment', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'photos', 'name', 2, '0', 'NO', 'varchar', 50, 50, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(50)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'photos', 'alt', 3, '0', 'NO', 'varchar', 50, 50, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(50)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'photos', 'format', 4, NULL, 'NO', 'tinytext', 255, 255, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'tinytext', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'portfolio_versions', 'portfolio_id', 1, NULL, 'NO', 'tinyint', NULL, NULL, 3, 0, NULL, NULL, 'tinyint(3) unsigned', 'PRI', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'portfolio_versions', 'versions_id', 2, NULL, 'NO', 'tinyint', NULL, NULL, 3, 0, NULL, NULL, 'tinyint(3) unsigned', 'PRI', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'showcase', 'id', 1, NULL, 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(11)', 'PRI', 'auto_increment', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'showcase', 'extra_details', 2, NULL, 'YES', 'varchar', 255, 255, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(255)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'showcase', 'title', 3, NULL, 'NO', 'varchar', 200, 200, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(200)', 'UNI', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'showcase', 'image', 4, NULL, 'YES', 'varchar', 255, 255, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(255)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'showcase', 'link', 5, NULL, 'YES', 'varchar', 255, 255, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(255)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'showcase', 'link_title', 6, NULL, 'YES', 'varchar', 50, 50, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(50)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'showcase', 'description', 7, NULL, 'YES', 'text', 65535, 65535, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'text', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'showcase', 'size', 8, NULL, 'YES', 'varchar', 25, 25, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(25)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'showcase', 'deliverable', 9, NULL, 'NO', 'varchar', 200, 200, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(200)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'showcase', 'date_completed', 10, NULL, 'NO', 'datetime', NULL, NULL, NULL, NULL, NULL, NULL, 'datetime', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'showcase', 'date_started', 11, NULL, 'NO', 'datetime', NULL, NULL, NULL, NULL, NULL, NULL, 'datetime', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'showcase', 'contractor', 12, NULL, 'NO', 'varchar', 50, 50, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(50)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'showcase', 'owner', 13, NULL, 'NO', 'varchar', 50, 50, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(50)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'showcase_experience', 'experience_id', 1, '0', 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(11)', 'PRI', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'showcase_experience', 'showcase_id', 2, '0', 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(11)', 'PRI', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'showcase_frameworks', 'showcase_id', 1, '0', 'NO', 'tinyint', NULL, NULL, 3, 0, NULL, NULL, 'tinyint(3) unsigned', 'PRI', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'showcase_frameworks', 'frameworks_id', 2, '0', 'NO', 'tinyint', NULL, NULL, 3, 0, NULL, NULL, 'tinyint(3) unsigned', 'PRI', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'showcase_images', 'showcase_id', 1, NULL, 'NO', 'smallint', NULL, NULL, 5, 0, NULL, NULL, 'smallint(3) unsigned', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'showcase_images', 'image_url', 2, NULL, 'NO', 'varchar', 50, 50, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(50)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'showcase_images', 'image_alt', 3, NULL, 'NO', 'varchar', 100, 100, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(100)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'showcase_images', 'order_index', 4, NULL, 'YES', 'smallint', NULL, NULL, 5, 0, NULL, NULL, 'smallint(3)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'showcase_images', 'id', 5, NULL, 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(11)', 'PRI', 'auto_increment', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'showcase_languages', 'languages_id', 1, '0', 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(11)', 'PRI', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'showcase_languages', 'showcase_id', 2, '0', 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(11)', 'PRI', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'showcase_logos', 'showcase_id', 1, NULL, 'NO', 'smallint', NULL, NULL, 5, 0, NULL, NULL, 'smallint(3) unsigned', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'showcase_logos', 'image_url', 2, NULL, 'NO', 'varchar', 50, 50, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(50)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'showcase_logos', 'image_alt', 3, NULL, 'NO', 'varchar', 50, 50, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(50)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'showcase_logos', 'id', 4, NULL, 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(11)', 'PRI', 'auto_increment', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'showcase_relatedlinks', 'showcase_id', 1, NULL, 'NO', 'smallint', NULL, NULL, 5, 0, NULL, NULL, 'smallint(3) unsigned', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'showcase_relatedlinks', 'url', 2, NULL, 'NO', 'varchar', 100, 100, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(100)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'showcase_relatedlinks', 'name', 3, NULL, 'NO', 'varchar', 50, 50, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(50)', '', '', 'select,insert,update,references', '');
+INSERT INTO `COLUMNS` (`TABLE_CATALOG`, `TABLE_SCHEMA`, `TABLE_NAME`, `COLUMN_NAME`, `ORDINAL_POSITION`, `COLUMN_DEFAULT`, `IS_NULLABLE`, `DATA_TYPE`, `CHARACTER_MAXIMUM_LENGTH`, `CHARACTER_OCTET_LENGTH`, `NUMERIC_PRECISION`, `NUMERIC_SCALE`, `CHARACTER_SET_NAME`, `COLLATION_NAME`, `COLUMN_TYPE`, `COLUMN_KEY`, `EXTRA`, `PRIVILEGES`, `COLUMN_COMMENT`) VALUES
+('def', 'amyvarga', 'showcase_relatedlinks', 'id', 4, NULL, 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(11)', 'PRI', 'auto_increment', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'showcase_skills', 'showcase_id', 1, NULL, 'NO', 'smallint', NULL, NULL, 5, 0, NULL, NULL, 'smallint(3) unsigned', 'PRI', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'showcase_skills', 'skills_id', 2, NULL, 'NO', 'smallint', NULL, NULL, 5, 0, NULL, NULL, 'smallint(3) unsigned', 'PRI', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'showcase_software', 'software_id', 1, '0', 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(11)', 'PRI', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'showcase_software', 'showcase_id', 2, '0', 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(11)', 'PRI', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'showcase_tags', 'tags_id', 1, '0', 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(11)', 'PRI', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'showcase_tags', 'showcase_id', 2, '0', 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(11)', 'PRI', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'skills', 'id', 1, NULL, 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(11)', 'PRI', 'auto_increment', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'skills', 'name', 2, NULL, 'NO', 'varchar', 50, 50, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(50)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'skills', 'expertise', 3, NULL, 'NO', 'varchar', 50, 50, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(50)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'software', 'id', 1, NULL, 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(11)', 'PRI', 'auto_increment', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'software', 'name', 2, NULL, 'YES', 'varchar', 100, 100, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(100)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'tags', 'id', 1, NULL, 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(11)', 'PRI', 'auto_increment', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'tags', 'name', 2, NULL, 'YES', 'varchar', 100, 100, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(100)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'turba_shares_seq', 'id', 1, NULL, 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(11)', 'PRI', 'auto_increment', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'user', 'user_id', 1, NULL, 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(10)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'user', 'email', 2, NULL, 'NO', 'mediumtext', 16777215, 16777215, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'mediumtext', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'user', 'name', 3, NULL, 'NO', 'varchar', 50, 50, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(50)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'versions', 'id', 1, NULL, 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(11)', 'PRI', 'auto_increment', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'versions', 'name', 2, NULL, 'YES', 'varchar', 100, 100, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(100)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'webapp_photos', 'id', 1, NULL, 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(10)', 'PRI', 'auto_increment', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'webapp_photos', 'name', 2, '0', 'NO', 'varchar', 50, 50, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(50)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'webapp_photos', 'alt', 3, '0', 'NO', 'varchar', 50, 50, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(50)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'webapp_photos', 'format', 4, NULL, 'NO', 'tinytext', 255, 255, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'tinytext', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'webapp_users', 'id', 1, NULL, 'NO', 'int', NULL, NULL, 10, 0, NULL, NULL, 'int(10)', 'MUL', 'auto_increment', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'webapp_users', 'name', 2, NULL, 'NO', 'varchar', 50, 50, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(50)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'webapp_users', 'email', 3, NULL, 'NO', 'varchar', 50, 50, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(50)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'webapp_users', 'password', 4, NULL, 'NO', 'varchar', 200, 200, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(200)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'website_sections', 'section_name', 1, NULL, 'YES', 'varchar', 50, 50, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(50)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'website_sections', 'section_content', 2, NULL, 'YES', 'longtext', 4294967295, 4294967295, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'longtext', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'website_sections', 'section_title', 3, NULL, 'NO', 'varchar', 100, 100, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(100)', '', '', 'select,insert,update,references', ''),
+('def', 'amyvarga', 'website_sections', 'section_head', 4, NULL, 'NO', 'varchar', 100, 100, NULL, NULL, 'latin1', 'latin1_swedish_ci', 'varchar(100)', '', '', 'select,insert,update,references', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `COLUMN_PRIVILEGES`
+--
+
+CREATE TEMPORARY TABLE `COLUMN_PRIVILEGES` (
+  `GRANTEE` varchar(81) NOT NULL DEFAULT '',
+  `TABLE_CATALOG` varchar(512) NOT NULL DEFAULT '',
+  `TABLE_SCHEMA` varchar(64) NOT NULL DEFAULT '',
+  `TABLE_NAME` varchar(64) NOT NULL DEFAULT '',
+  `COLUMN_NAME` varchar(64) NOT NULL DEFAULT '',
+  `PRIVILEGE_TYPE` varchar(64) NOT NULL DEFAULT '',
+  `IS_GRANTABLE` varchar(3) NOT NULL DEFAULT ''
+) ENGINE=MEMORY DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ENGINES`
+--
+
+CREATE TEMPORARY TABLE `ENGINES` (
+  `ENGINE` varchar(64) NOT NULL DEFAULT '',
+  `SUPPORT` varchar(8) NOT NULL DEFAULT '',
+  `COMMENT` varchar(80) NOT NULL DEFAULT '',
+  `TRANSACTIONS` varchar(3) DEFAULT NULL,
+  `XA` varchar(3) DEFAULT NULL,
+  `SAVEPOINTS` varchar(3) DEFAULT NULL
+) ENGINE=MEMORY DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `ENGINES`
+--
+
+INSERT INTO `ENGINES` (`ENGINE`, `SUPPORT`, `COMMENT`, `TRANSACTIONS`, `XA`, `SAVEPOINTS`) VALUES
+('FEDERATED', 'NO', 'Federated MySQL storage engine', NULL, NULL, NULL),
+('CSV', 'YES', 'CSV storage engine', 'NO', 'NO', 'NO'),
+('MyISAM', 'YES', 'MyISAM storage engine', 'NO', 'NO', 'NO'),
+('BLACKHOLE', 'YES', '/dev/null storage engine (anything you write to it disappears)', 'NO', 'NO', 'NO'),
+('MEMORY', 'YES', 'Hash based, stored in memory, useful for temporary tables', 'NO', 'NO', 'NO'),
+('MRG_MYISAM', 'YES', 'Collection of identical MyISAM tables', 'NO', 'NO', 'NO'),
+('ARCHIVE', 'YES', 'Archive storage engine', 'NO', 'NO', 'NO'),
+('PERFORMANCE_SCHEMA', 'YES', 'Performance Schema', 'NO', 'NO', 'NO'),
+('InnoDB', 'DEFAULT', 'Supports transactions, row-level locking, and foreign keys', 'YES', 'YES', 'YES');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `EVENTS`
+--
+
+CREATE TEMPORARY TABLE `EVENTS` (
+  `EVENT_CATALOG` varchar(64) NOT NULL DEFAULT '',
+  `EVENT_SCHEMA` varchar(64) NOT NULL DEFAULT '',
+  `EVENT_NAME` varchar(64) NOT NULL DEFAULT '',
+  `DEFINER` varchar(77) NOT NULL DEFAULT '',
+  `TIME_ZONE` varchar(64) NOT NULL DEFAULT '',
+  `EVENT_BODY` varchar(8) NOT NULL DEFAULT '',
+  `EVENT_DEFINITION` longtext NOT NULL,
+  `EVENT_TYPE` varchar(9) NOT NULL DEFAULT '',
+  `EXECUTE_AT` datetime DEFAULT NULL,
+  `INTERVAL_VALUE` varchar(256) DEFAULT NULL,
+  `INTERVAL_FIELD` varchar(18) DEFAULT NULL,
+  `SQL_MODE` varchar(8192) NOT NULL DEFAULT '',
+  `STARTS` datetime DEFAULT NULL,
+  `ENDS` datetime DEFAULT NULL,
+  `STATUS` varchar(18) NOT NULL DEFAULT '',
+  `ON_COMPLETION` varchar(12) NOT NULL DEFAULT '',
+  `CREATED` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `LAST_ALTERED` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `LAST_EXECUTED` datetime DEFAULT NULL,
+  `EVENT_COMMENT` varchar(64) NOT NULL DEFAULT '',
+  `ORIGINATOR` bigint(10) NOT NULL DEFAULT '0',
+  `CHARACTER_SET_CLIENT` varchar(32) NOT NULL DEFAULT '',
+  `COLLATION_CONNECTION` varchar(32) NOT NULL DEFAULT '',
+  `DATABASE_COLLATION` varchar(32) NOT NULL DEFAULT ''
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `FILES`
+--
+
+CREATE TEMPORARY TABLE `FILES` (
+  `FILE_ID` bigint(4) NOT NULL DEFAULT '0',
+  `FILE_NAME` varchar(64) DEFAULT NULL,
+  `FILE_TYPE` varchar(20) NOT NULL DEFAULT '',
+  `TABLESPACE_NAME` varchar(64) DEFAULT NULL,
+  `TABLE_CATALOG` varchar(64) NOT NULL DEFAULT '',
+  `TABLE_SCHEMA` varchar(64) DEFAULT NULL,
+  `TABLE_NAME` varchar(64) DEFAULT NULL,
+  `LOGFILE_GROUP_NAME` varchar(64) DEFAULT NULL,
+  `LOGFILE_GROUP_NUMBER` bigint(4) DEFAULT NULL,
+  `ENGINE` varchar(64) NOT NULL DEFAULT '',
+  `FULLTEXT_KEYS` varchar(64) DEFAULT NULL,
+  `DELETED_ROWS` bigint(4) DEFAULT NULL,
+  `UPDATE_COUNT` bigint(4) DEFAULT NULL,
+  `FREE_EXTENTS` bigint(4) DEFAULT NULL,
+  `TOTAL_EXTENTS` bigint(4) DEFAULT NULL,
+  `EXTENT_SIZE` bigint(4) NOT NULL DEFAULT '0',
+  `INITIAL_SIZE` bigint(21) unsigned DEFAULT NULL,
+  `MAXIMUM_SIZE` bigint(21) unsigned DEFAULT NULL,
+  `AUTOEXTEND_SIZE` bigint(21) unsigned DEFAULT NULL,
+  `CREATION_TIME` datetime DEFAULT NULL,
+  `LAST_UPDATE_TIME` datetime DEFAULT NULL,
+  `LAST_ACCESS_TIME` datetime DEFAULT NULL,
+  `RECOVER_TIME` bigint(4) DEFAULT NULL,
+  `TRANSACTION_COUNTER` bigint(4) DEFAULT NULL,
+  `VERSION` bigint(21) unsigned DEFAULT NULL,
+  `ROW_FORMAT` varchar(10) DEFAULT NULL,
+  `TABLE_ROWS` bigint(21) unsigned DEFAULT NULL,
+  `AVG_ROW_LENGTH` bigint(21) unsigned DEFAULT NULL,
+  `DATA_LENGTH` bigint(21) unsigned DEFAULT NULL,
+  `MAX_DATA_LENGTH` bigint(21) unsigned DEFAULT NULL,
+  `INDEX_LENGTH` bigint(21) unsigned DEFAULT NULL,
+  `DATA_FREE` bigint(21) unsigned DEFAULT NULL,
+  `CREATE_TIME` datetime DEFAULT NULL,
+  `UPDATE_TIME` datetime DEFAULT NULL,
+  `CHECK_TIME` datetime DEFAULT NULL,
+  `CHECKSUM` bigint(21) unsigned DEFAULT NULL,
+  `STATUS` varchar(20) NOT NULL DEFAULT '',
+  `EXTRA` varchar(255) DEFAULT NULL
+) ENGINE=MEMORY DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `GLOBAL_STATUS`
+--
+
+CREATE TEMPORARY TABLE `GLOBAL_STATUS` (
+  `VARIABLE_NAME` varchar(64) NOT NULL DEFAULT '',
+  `VARIABLE_VALUE` varchar(1024) DEFAULT NULL
+) ENGINE=MEMORY DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `GLOBAL_STATUS`
+--
+
+INSERT INTO `GLOBAL_STATUS` (`VARIABLE_NAME`, `VARIABLE_VALUE`) VALUES
+('ABORTED_CLIENTS', '41057'),
+('ABORTED_CONNECTS', '1269'),
+('BINLOG_CACHE_DISK_USE', '0'),
+('BINLOG_CACHE_USE', '0'),
+('BINLOG_STMT_CACHE_DISK_USE', '0'),
+('BINLOG_STMT_CACHE_USE', '0'),
+('BYTES_RECEIVED', '1842799227'),
+('BYTES_SENT', '64565775650'),
+('COM_ADMIN_COMMANDS', '159178'),
+('COM_ASSIGN_TO_KEYCACHE', '0'),
+('COM_ALTER_DB', '1'),
+('COM_ALTER_DB_UPGRADE', '0'),
+('COM_ALTER_EVENT', '0'),
+('COM_ALTER_FUNCTION', '0'),
+('COM_ALTER_PROCEDURE', '0'),
+('COM_ALTER_SERVER', '0'),
+('COM_ALTER_TABLE', '42'),
+('COM_ALTER_TABLESPACE', '0'),
+('COM_ANALYZE', '0'),
+('COM_BEGIN', '0'),
+('COM_BINLOG', '0'),
+('COM_CALL_PROCEDURE', '12'),
+('COM_CHANGE_DB', '1750694'),
+('COM_CHANGE_MASTER', '0'),
+('COM_CHECK', '3'),
+('COM_CHECKSUM', '0'),
+('COM_COMMIT', '5280'),
+('COM_CREATE_DB', '0'),
+('COM_CREATE_EVENT', '0'),
+('COM_CREATE_FUNCTION', '0'),
+('COM_CREATE_INDEX', '51'),
+('COM_CREATE_PROCEDURE', '0'),
+('COM_CREATE_SERVER', '0'),
+('COM_CREATE_TABLE', '196'),
+('COM_CREATE_TRIGGER', '0'),
+('COM_CREATE_UDF', '0'),
+('COM_CREATE_USER', '0'),
+('COM_CREATE_VIEW', '0'),
+('COM_DEALLOC_SQL', '0'),
+('COM_DELETE', '94496'),
+('COM_DELETE_MULTI', '3'),
+('COM_DO', '0'),
+('COM_DROP_DB', '0'),
+('COM_DROP_EVENT', '0'),
+('COM_DROP_FUNCTION', '0'),
+('COM_DROP_INDEX', '0'),
+('COM_DROP_PROCEDURE', '0'),
+('COM_DROP_SERVER', '0'),
+('COM_DROP_TABLE', '193'),
+('COM_DROP_TRIGGER', '0'),
+('COM_DROP_USER', '0'),
+('COM_DROP_VIEW', '0'),
+('COM_EMPTY_QUERY', '0'),
+('COM_EXECUTE_SQL', '0'),
+('COM_FLUSH', '2'),
+('COM_GRANT', '1'),
+('COM_HA_CLOSE', '0'),
+('COM_HA_OPEN', '0'),
+('COM_HA_READ', '0'),
+('COM_HELP', '0'),
+('COM_INSERT', '257791'),
+('COM_INSERT_SELECT', '1583'),
+('COM_INSTALL_PLUGIN', '0'),
+('COM_KILL', '0'),
+('COM_LOAD', '0'),
+('COM_LOCK_TABLES', '2404'),
+('COM_OPTIMIZE', '0'),
+('COM_PRELOAD_KEYS', '0'),
+('COM_PREPARE_SQL', '54'),
+('COM_PURGE', '0'),
+('COM_PURGE_BEFORE_DATE', '0'),
+('COM_RELEASE_SAVEPOINT', '0'),
+('COM_RENAME_TABLE', '0'),
+('COM_RENAME_USER', '0'),
+('COM_REPAIR', '0'),
+('COM_REPLACE', '621'),
+('COM_REPLACE_SELECT', '0'),
+('COM_RESET', '0'),
+('COM_RESIGNAL', '0'),
+('COM_REVOKE', '0'),
+('COM_REVOKE_ALL', '0'),
+('COM_ROLLBACK', '6160'),
+('COM_ROLLBACK_TO_SAVEPOINT', '0'),
+('COM_SAVEPOINT', '0'),
+('COM_SELECT', '2111030'),
+('COM_SET_OPTION', '1247621'),
+('COM_SIGNAL', '0'),
+('COM_SHOW_AUTHORS', '0'),
+('COM_SHOW_BINLOG_EVENTS', '0'),
+('COM_SHOW_BINLOGS', '12'),
+('COM_SHOW_CHARSETS', '0'),
+('COM_SHOW_COLLATIONS', '90654'),
+('COM_SHOW_CONTRIBUTORS', '0'),
+('COM_SHOW_CREATE_DB', '0'),
+('COM_SHOW_CREATE_EVENT', '0'),
+('COM_SHOW_CREATE_FUNC', '10'),
+('COM_SHOW_CREATE_PROC', '30'),
+('COM_SHOW_CREATE_TABLE', '18946'),
+('COM_SHOW_CREATE_TRIGGER', '38'),
+('COM_SHOW_DATABASES', '65'),
+('COM_SHOW_ENGINE_LOGS', '0'),
+('COM_SHOW_ENGINE_MUTEX', '0'),
+('COM_SHOW_ENGINE_STATUS', '0'),
+('COM_SHOW_EVENTS', '794'),
+('COM_SHOW_ERRORS', '0'),
+('COM_SHOW_FIELDS', '96157'),
+('COM_SHOW_FUNCTION_STATUS', '804'),
+('COM_SHOW_GRANTS', '31'),
+('COM_SHOW_KEYS', '521'),
+('COM_SHOW_MASTER_STATUS', '19'),
+('COM_SHOW_OPEN_TABLES', '0'),
+('COM_SHOW_PLUGINS', '449'),
+('COM_SHOW_PRIVILEGES', '0'),
+('COM_SHOW_PROCEDURE_STATUS', '804'),
+('COM_SHOW_PROCESSLIST', '0'),
+('COM_SHOW_PROFILE', '0'),
+('COM_SHOW_PROFILES', '646'),
+('COM_SHOW_RELAYLOG_EVENTS', '0'),
+('COM_SHOW_SLAVE_HOSTS', '0'),
+('COM_SHOW_SLAVE_STATUS', '19'),
+('COM_SHOW_STATUS', '0'),
+('COM_SHOW_STORAGE_ENGINES', '5'),
+('COM_SHOW_TABLE_STATUS', '35758'),
+('COM_SHOW_TABLES', '124055'),
+('COM_SHOW_TRIGGERS', '35120'),
+('COM_SHOW_VARIABLES', '94213'),
+('COM_SHOW_WARNINGS', '5410'),
+('COM_SLAVE_START', '0'),
+('COM_SLAVE_STOP', '0'),
+('COM_STMT_CLOSE', '5572'),
+('COM_STMT_EXECUTE', '6208'),
+('COM_STMT_FETCH', '0'),
+('COM_STMT_PREPARE', '6262'),
+('COM_STMT_REPREPARE', '9'),
+('COM_STMT_RESET', '199'),
+('COM_STMT_SEND_LONG_DATA', '0'),
+('COM_TRUNCATE', '12'),
+('COM_UNINSTALL_PLUGIN', '0'),
+('COM_UNLOCK_TABLES', '2416'),
+('COM_UPDATE', '515910'),
+('COM_UPDATE_MULTI', '0'),
+('COM_XA_COMMIT', '0'),
+('COM_XA_END', '0'),
+('COM_XA_PREPARE', '0'),
+('COM_XA_RECOVER', '0'),
+('COM_XA_ROLLBACK', '0'),
+('COM_XA_START', '0'),
+('COMPRESSION', 'OFF'),
+('CONNECTIONS', '368185'),
+('CREATED_TMP_DISK_TABLES', '369261'),
+('CREATED_TMP_FILES', '726'),
+('CREATED_TMP_TABLES', '808577'),
+('DELAYED_ERRORS', '0'),
+('DELAYED_INSERT_THREADS', '0'),
+('DELAYED_WRITES', '6'),
+('FLUSH_COMMANDS', '1'),
+('HANDLER_COMMIT', '1681228'),
+('HANDLER_DELETE', '57456'),
+('HANDLER_DISCOVER', '0'),
+('HANDLER_PREPARE', '0'),
+('HANDLER_READ_FIRST', '466583'),
+('HANDLER_READ_KEY', '36887048'),
+('HANDLER_READ_LAST', '9493'),
+('HANDLER_READ_NEXT', '170331864'),
+('HANDLER_READ_PREV', '1430436'),
+('HANDLER_READ_RND', '18397425'),
+('HANDLER_READ_RND_NEXT', '2645820806'),
+('HANDLER_ROLLBACK', '7777'),
+('HANDLER_SAVEPOINT', '0'),
+('HANDLER_SAVEPOINT_ROLLBACK', '0'),
+('HANDLER_UPDATE', '261185'),
+('HANDLER_WRITE', '122947291'),
+('INNODB_BUFFER_POOL_PAGES_DATA', '8190'),
+('INNODB_BUFFER_POOL_BYTES_DATA', '134184960'),
+('INNODB_BUFFER_POOL_PAGES_DIRTY', '25'),
+('INNODB_BUFFER_POOL_BYTES_DIRTY', '409600'),
+('INNODB_BUFFER_POOL_PAGES_FLUSHED', '307506'),
+('INNODB_BUFFER_POOL_PAGES_FREE', '0'),
+('INNODB_BUFFER_POOL_PAGES_MISC', '1'),
+('INNODB_BUFFER_POOL_PAGES_TOTAL', '8191'),
+('INNODB_BUFFER_POOL_READ_AHEAD_RND', '0'),
+('INNODB_BUFFER_POOL_READ_AHEAD', '644448662'),
+('INNODB_BUFFER_POOL_READ_AHEAD_EVICTED', '2657577'),
+('INNODB_BUFFER_POOL_READ_REQUESTS', '3090058044'),
+('INNODB_BUFFER_POOL_READS', '12015279'),
+('INNODB_BUFFER_POOL_WAIT_FREE', '0'),
+('INNODB_BUFFER_POOL_WRITE_REQUESTS', '1052534'),
+('INNODB_DATA_FSYNCS', '287165'),
+('INNODB_DATA_PENDING_FSYNCS', '0'),
+('INNODB_DATA_PENDING_READS', '0'),
+('INNODB_DATA_PENDING_WRITES', '0'),
+('INNODB_DATA_READ', '928190464'),
+('INNODB_DATA_READS', '656467762'),
+('INNODB_DATA_WRITES', '560100'),
+('INNODB_DATA_WRITTEN', '1717177344'),
+('INNODB_DBLWR_PAGES_WRITTEN', '307506'),
+('INNODB_DBLWR_WRITES', '13109'),
+('INNODB_HAVE_ATOMIC_BUILTINS', 'ON'),
+('INNODB_LOG_WAITS', '0'),
+('INNODB_LOG_WRITE_REQUESTS', '228687'),
+('INNODB_LOG_WRITES', '227314'),
+('INNODB_OS_LOG_FSYNCS', '237589'),
+('INNODB_OS_LOG_PENDING_FSYNCS', '0'),
+('INNODB_OS_LOG_PENDING_WRITES', '0'),
+('INNODB_OS_LOG_WRITTEN', '225504256'),
+('INNODB_PAGE_SIZE', '16384'),
+('INNODB_PAGES_CREATED', '3589'),
+('INNODB_PAGES_READ', '656465096'),
+('INNODB_PAGES_WRITTEN', '307506'),
+('INNODB_ROW_LOCK_CURRENT_WAITS', '0'),
+('INNODB_ROW_LOCK_TIME', '0'),
+('INNODB_ROW_LOCK_TIME_AVG', '0'),
+('INNODB_ROW_LOCK_TIME_MAX', '0'),
+('INNODB_ROW_LOCK_WAITS', '9'),
+('INNODB_ROWS_DELETED', '1993'),
+('INNODB_ROWS_INSERTED', '195967'),
+('INNODB_ROWS_READ', '1814613536'),
+('INNODB_ROWS_UPDATED', '28493'),
+('INNODB_TRUNCATED_STATUS_WRITES', '0'),
+('KEY_BLOCKS_NOT_FLUSHED', '0'),
+('KEY_BLOCKS_UNUSED', '11450'),
+('KEY_BLOCKS_USED', '14497'),
+('KEY_READ_REQUESTS', '608617181'),
+('KEY_READS', '2059173'),
+('KEY_WRITE_REQUESTS', '100314989'),
+('KEY_WRITES', '2205188'),
+('LAST_QUERY_COST', '0.000000'),
+('MAX_USED_CONNECTIONS', '86'),
+('NOT_FLUSHED_DELAYED_ROWS', '0'),
+('OPEN_FILES', '632'),
+('OPEN_STREAMS', '0'),
+('OPEN_TABLE_DEFINITIONS', '501'),
+('OPEN_TABLES', '512'),
+('OPENED_FILES', '1810123'),
+('OPENED_TABLE_DEFINITIONS', '114772'),
+('OPENED_TABLES', '159361'),
+('PERFORMANCE_SCHEMA_COND_CLASSES_LOST', '0'),
+('PERFORMANCE_SCHEMA_COND_INSTANCES_LOST', '0'),
+('PERFORMANCE_SCHEMA_FILE_CLASSES_LOST', '0'),
+('PERFORMANCE_SCHEMA_FILE_HANDLES_LOST', '0'),
+('PERFORMANCE_SCHEMA_FILE_INSTANCES_LOST', '0'),
+('PERFORMANCE_SCHEMA_LOCKER_LOST', '0'),
+('PERFORMANCE_SCHEMA_MUTEX_CLASSES_LOST', '0'),
+('PERFORMANCE_SCHEMA_MUTEX_INSTANCES_LOST', '0'),
+('PERFORMANCE_SCHEMA_RWLOCK_CLASSES_LOST', '0'),
+('PERFORMANCE_SCHEMA_RWLOCK_INSTANCES_LOST', '0'),
+('PERFORMANCE_SCHEMA_TABLE_HANDLES_LOST', '0'),
+('PERFORMANCE_SCHEMA_TABLE_INSTANCES_LOST', '0'),
+('PERFORMANCE_SCHEMA_THREAD_CLASSES_LOST', '0'),
+('PERFORMANCE_SCHEMA_THREAD_INSTANCES_LOST', '0'),
+('PREPARED_STMT_COUNT', '0'),
+('QCACHE_FREE_BLOCKS', '117'),
+('QCACHE_FREE_MEMORY', '785720'),
+('QCACHE_HITS', '8727180'),
+('QCACHE_INSERTS', '1795402'),
+('QCACHE_LOWMEM_PRUNES', '1068052'),
+('QCACHE_NOT_CACHED', '278296'),
+('QCACHE_QUERIES_IN_CACHE', '3278'),
+('QCACHE_TOTAL_BLOCKS', '8319'),
+('QUERIES', '15571430'),
+('QUESTIONS', '15555339'),
+('RPL_STATUS', 'AUTH_MASTER'),
+('SELECT_FULL_JOIN', '20191'),
+('SELECT_FULL_RANGE_JOIN', '67'),
+('SELECT_RANGE', '215043'),
+('SELECT_RANGE_CHECK', '916'),
+('SELECT_SCAN', '1010356'),
+('SLAVE_HEARTBEAT_PERIOD', '0.000'),
+('SLAVE_OPEN_TEMP_TABLES', '0'),
+('SLAVE_RECEIVED_HEARTBEATS', '0'),
+('SLAVE_RETRIED_TRANSACTIONS', '0'),
+('SLAVE_RUNNING', 'OFF'),
+('SLOW_LAUNCH_THREADS', '0'),
+('SLOW_QUERIES', '69'),
+('SORT_MERGE_PASSES', '309'),
+('SORT_RANGE', '85352'),
+('SORT_ROWS', '25627929'),
+('SORT_SCAN', '169162'),
+('SSL_ACCEPT_RENEGOTIATES', '0'),
+('SSL_ACCEPTS', '0'),
+('SSL_CALLBACK_CACHE_HITS', '0'),
+('SSL_CIPHER', ''),
+('SSL_CIPHER_LIST', ''),
+('SSL_CLIENT_CONNECTS', '0'),
+('SSL_CONNECT_RENEGOTIATES', '0'),
+('SSL_CTX_VERIFY_DEPTH', '0'),
+('SSL_CTX_VERIFY_MODE', '0'),
+('SSL_DEFAULT_TIMEOUT', '0'),
+('SSL_FINISHED_ACCEPTS', '0'),
+('SSL_FINISHED_CONNECTS', '0'),
+('SSL_SESSION_CACHE_HITS', '0'),
+('SSL_SESSION_CACHE_MISSES', '0'),
+('SSL_SESSION_CACHE_MODE', 'NONE'),
+('SSL_SESSION_CACHE_OVERFLOWS', '0'),
+('SSL_SESSION_CACHE_SIZE', '0'),
+('SSL_SESSION_CACHE_TIMEOUTS', '0'),
+('SSL_SESSIONS_REUSED', '0'),
+('SSL_USED_SESSION_CACHE_ENTRIES', '0'),
+('SSL_VERIFY_DEPTH', '0'),
+('SSL_VERIFY_MODE', '0'),
+('SSL_VERSION', ''),
+('TABLE_LOCKS_IMMEDIATE', '3332474'),
+('TABLE_LOCKS_WAITED', '667'),
+('TC_LOG_MAX_PAGES_USED', '0'),
+('TC_LOG_PAGE_SIZE', '0'),
+('TC_LOG_PAGE_WAITS', '0'),
+('THREADS_CACHED', '1'),
+('THREADS_CONNECTED', '36'),
+('THREADS_CREATED', '36946'),
+('THREADS_RUNNING', '1'),
+('UPTIME', '106124'),
+('UPTIME_SINCE_FLUSH_STATUS', '106124');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `GLOBAL_VARIABLES`
+--
+
+CREATE TEMPORARY TABLE `GLOBAL_VARIABLES` (
+  `VARIABLE_NAME` varchar(64) NOT NULL DEFAULT '',
+  `VARIABLE_VALUE` varchar(1024) DEFAULT NULL
+) ENGINE=MEMORY DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `GLOBAL_VARIABLES`
+--
+
+INSERT INTO `GLOBAL_VARIABLES` (`VARIABLE_NAME`, `VARIABLE_VALUE`) VALUES
+('MAX_PREPARED_STMT_COUNT', '16382'),
+('INNODB_BUFFER_POOL_SIZE', '134217728'),
+('HAVE_CRYPT', 'YES'),
+('PERFORMANCE_SCHEMA_EVENTS_WAITS_HISTORY_LONG_SIZE', '10000'),
+('INNODB_VERSION', '5.5.35'),
+('QUERY_PREALLOC_SIZE', '8192'),
+('DELAYED_QUEUE_SIZE', '1000'),
+('PERFORMANCE_SCHEMA_MAX_COND_INSTANCES', '1000'),
+('SSL_CIPHER', ''),
+('COLLATION_SERVER', 'latin1_swedish_ci'),
+('SECURE_FILE_PRIV', ''),
+('TIMED_MUTEXES', 'OFF'),
+('DELAYED_INSERT_TIMEOUT', '300'),
+('PERFORMANCE_SCHEMA_MAX_MUTEX_INSTANCES', '1000000'),
+('LC_TIME_NAMES', 'en_US'),
+('PERFORMANCE_SCHEMA_MAX_RWLOCK_INSTANCES', '1000000'),
+('TIME_FORMAT', '%H:%i:%s'),
+('PERFORMANCE_SCHEMA_MAX_RWLOCK_CLASSES', '30'),
+('BASEDIR', '/usr'),
+('PERFORMANCE_SCHEMA_MAX_MUTEX_CLASSES', '200'),
+('UPDATABLE_VIEWS_WITH_LIMIT', 'YES'),
+('BACK_LOG', '50'),
+('SLOW_LAUNCH_TIME', '2'),
+('EVENT_SCHEDULER', 'OFF'),
+('MAX_SEEKS_FOR_KEY', '4294967295'),
+('PERFORMANCE_SCHEMA_MAX_THREAD_CLASSES', '50'),
+('RELAY_LOG_INDEX', ''),
+('FT_STOPWORD_FILE', '(built-in)'),
+('SQL_QUOTE_SHOW_CREATE', 'ON'),
+('PERFORMANCE_SCHEMA', 'OFF'),
+('QUERY_CACHE_SIZE', '16777216'),
+('BINLOG_FORMAT', 'STATEMENT'),
+('WAIT_TIMEOUT', '90'),
+('LONG_QUERY_TIME', '10.000000'),
+('PERFORMANCE_SCHEMA_MAX_TABLE_HANDLES', '100000'),
+('CHARACTER_SETS_DIR', '/usr/share/mysql/charsets/'),
+('LOWER_CASE_TABLE_NAMES', '1'),
+('BINLOG_CACHE_SIZE', '32768'),
+('REPORT_HOST', ''),
+('CHARACTER_SET_RESULTS', 'latin1'),
+('MYISAM_SORT_BUFFER_SIZE', '8388608'),
+('CHARACTER_SET_CONNECTION', 'latin1'),
+('INNODB_ROLLBACK_SEGMENTS', '128'),
+('PRELOAD_BUFFER_SIZE', '32768'),
+('LARGE_FILES_SUPPORT', 'ON'),
+('MAX_WRITE_LOCK_COUNT', '4294967295'),
+('SQL_SAFE_UPDATES', 'OFF'),
+('MAX_JOIN_SIZE', '18446744073709551615'),
+('NET_BUFFER_LENGTH', '16384'),
+('FT_QUERY_EXPANSION_LIMIT', '20'),
+('SKIP_SHOW_DATABASE', 'OFF'),
+('FT_MAX_WORD_LEN', '84'),
+('GROUP_CONCAT_MAX_LEN', '1024'),
+('MAX_SP_RECURSION_DEPTH', '0'),
+('RANGE_ALLOC_BLOCK_SIZE', '4096'),
+('SYNC_RELAY_LOG', '0'),
+('OPTIMIZER_PRUNE_LEVEL', '1'),
+('HAVE_QUERY_CACHE', 'YES'),
+('INNODB_LOG_FILE_SIZE', '5242880'),
+('DELAY_KEY_WRITE', 'ON'),
+('TRANSACTION_PREALLOC_SIZE', '4096'),
+('INTERACTIVE_TIMEOUT', '28800'),
+('MYISAM_RECOVER_OPTIONS', 'BACKUP'),
+('AUTOMATIC_SP_PRIVILEGES', 'ON'),
+('PROTOCOL_VERSION', '10'),
+('DELAYED_INSERT_LIMIT', '100'),
+('LOW_PRIORITY_UPDATES', 'OFF'),
+('COMPLETION_TYPE', 'NO_CHAIN'),
+('REPORT_PASSWORD', ''),
+('BINLOG_DIRECT_NON_TRANSACTIONAL_UPDATES', 'OFF'),
+('MAX_INSERT_DELAYED_THREADS', '20'),
+('VERSION_COMMENT', '(Debian)'),
+('SQL_BIG_SELECTS', 'ON'),
+('AUTO_INCREMENT_OFFSET', '1'),
+('TRANSACTION_ALLOC_BLOCK_SIZE', '8192'),
+('JOIN_BUFFER_SIZE', '131072'),
+('THREAD_CACHE_SIZE', '4'),
+('CONNECT_TIMEOUT', '10'),
+('INNODB_DOUBLEWRITE', 'ON'),
+('SQL_LOW_PRIORITY_UPDATES', 'OFF'),
+('IGNORE_BUILTIN_INNODB', 'OFF'),
+('INIT_FILE', ''),
+('DEFAULT_WEEK_FORMAT', '0'),
+('LARGE_PAGES', 'OFF'),
+('LOG_OUTPUT', 'FILE'),
+('LARGE_PAGE_SIZE', '0'),
+('INNODB_IO_CAPACITY', '200'),
+('INIT_SLAVE', ''),
+('INNODB_USE_NATIVE_AIO', 'ON'),
+('MAX_BINLOG_SIZE', '1073741824'),
+('HAVE_SYMLINK', 'DISABLED'),
+('MAX_ERROR_COUNT', '64'),
+('TIME_ZONE', 'SYSTEM'),
+('MAX_CONNECTIONS', '500'),
+('INNODB_TABLE_LOCKS', 'ON'),
+('INNODB_AUTOEXTEND_INCREMENT', '8'),
+('READ_BUFFER_SIZE', '131072'),
+('MYISAM_DATA_POINTER_SIZE', '6'),
+('INNODB_THREAD_SLEEP_DELAY', '10000'),
+('LOG_QUERIES_NOT_USING_INDEXES', 'OFF'),
+('SQL_AUTO_IS_NULL', 'OFF'),
+('LOWER_CASE_FILE_SYSTEM', 'OFF'),
+('SLAVE_TRANSACTION_RETRIES', '10'),
+('SORT_BUFFER_SIZE', '2097152'),
+('KEEP_FILES_ON_CREATE', 'OFF'),
+('MAX_HEAP_TABLE_SIZE', '16777216'),
+('SYNC_RELAY_LOG_INFO', '0'),
+('LOCK_WAIT_TIMEOUT', '31536000'),
+('INNODB_REPLICATION_DELAY', '0'),
+('KEY_CACHE_AGE_THRESHOLD', '300'),
+('QUERY_CACHE_MIN_RES_UNIT', '4096'),
+('NET_RETRY_COUNT', '10'),
+('INNODB_STATS_ON_METADATA', 'ON'),
+('LOG_WARNINGS', '1'),
+('INNODB_ROLLBACK_ON_TIMEOUT', 'OFF'),
+('FLUSH', 'OFF'),
+('PROFILING_HISTORY_SIZE', '15'),
+('MAX_LONG_DATA_SIZE', '33554432'),
+('INNODB_CHANGE_BUFFERING', 'all'),
+('CHARACTER_SET_SERVER', 'latin1'),
+('READ_RND_BUFFER_SIZE', '262144'),
+('SLAVE_MAX_ALLOWED_PACKET', '1073741824'),
+('INNODB_FILE_FORMAT', 'Antelope'),
+('FLUSH_TIME', '900'),
+('BIG_TABLES', 'OFF'),
+('CHARACTER_SET_DATABASE', 'latin1'),
+('SQL_SELECT_LIMIT', '18446744073709551615'),
+('BULK_INSERT_BUFFER_SIZE', '8388608'),
+('DATE_FORMAT', '%Y-%m-%d'),
+('CHARACTER_SET_FILESYSTEM', 'binary'),
+('READ_ONLY', 'OFF'),
+('BINLOG_STMT_CACHE_SIZE', '32768'),
+('MAX_BINLOG_CACHE_SIZE', '18446744073709547520'),
+('INNODB_DATA_FILE_PATH', 'ibdata1:10M:autoextend'),
+('PERFORMANCE_SCHEMA_MAX_FILE_CLASSES', '50'),
+('INNODB_PURGE_THREADS', '0'),
+('MAX_SORT_LENGTH', '1024'),
+('PROFILING', 'OFF'),
+('PERFORMANCE_SCHEMA_EVENTS_WAITS_HISTORY_SIZE', '10'),
+('INNODB_STRICT_MODE', 'OFF'),
+('SLAVE_COMPRESSED_PROTOCOL', 'OFF'),
+('KEY_CACHE_DIVISION_LIMIT', '100'),
+('OLD_PASSWORDS', 'OFF'),
+('GENERAL_LOG_FILE', '/var/lib/mysql/bambam.log'),
+('NET_WRITE_TIMEOUT', '60'),
+('PERFORMANCE_SCHEMA_MAX_COND_CLASSES', '80'),
+('QUERY_CACHE_TYPE', 'ON'),
+('AUTO_INCREMENT_INCREMENT', '1'),
+('METADATA_LOCKS_CACHE_SIZE', '1024'),
+('TMPDIR', '/tmp'),
+('QUERY_CACHE_LIMIT', '1048576'),
+('EXPIRE_LOGS_DAYS', '0'),
+('TX_ISOLATION', 'REPEATABLE-READ'),
+('HAVE_PARTITIONING', 'YES'),
+('LOG_ERROR', ''),
+('FOREIGN_KEY_CHECKS', 'ON'),
+('MAX_LENGTH_FOR_SORT_DATA', '1024'),
+('RELAY_LOG_INFO_FILE', 'relay-log.info'),
+('THREAD_STACK', '196608'),
+('INNODB_AUTOINC_LOCK_MODE', '1'),
+('NEW', 'OFF'),
+('INNODB_COMMIT_CONCURRENCY', '0'),
+('SKIP_NAME_RESOLVE', 'OFF'),
+('INNODB_MIRRORED_LOG_GROUPS', '1'),
+('PID_FILE', '/var/run/mysqld/mysqld.pid'),
+('INNODB_PURGE_BATCH_SIZE', '20'),
+('MAX_ALLOWED_PACKET', '33554432'),
+('VERSION', '5.5.35-0+wheezy1-log'),
+('CONCURRENT_INSERT', 'AUTO'),
+('INNODB_SUPPORT_XA', 'ON'),
+('TABLE_DEFINITION_CACHE', '400'),
+('INNODB_SYNC_SPIN_LOOPS', '30'),
+('QUERY_ALLOC_BLOCK_SIZE', '8192'),
+('COLLATION_CONNECTION', 'latin1_swedish_ci'),
+('MYISAM_REPAIR_THREADS', '1'),
+('INNODB_ADAPTIVE_FLUSHING', 'ON'),
+('FT_BOOLEAN_SYNTAX', '+ -><()~*:""&|'),
+('INNODB_ADAPTIVE_HASH_INDEX', 'ON'),
+('VERSION_COMPILE_MACHINE', 'i686'),
+('SYSTEM_TIME_ZONE', 'UTC'),
+('QUERY_CACHE_WLOCK_INVALIDATE', 'OFF'),
+('DIV_PRECISION_INCREMENT', '4'),
+('SYNC_FRM', 'ON'),
+('STORED_PROGRAM_CACHE', '256'),
+('TMP_TABLE_SIZE', '16777216'),
+('INNODB_DATA_HOME_DIR', ''),
+('PERFORMANCE_SCHEMA_MAX_THREAD_INSTANCES', '1000'),
+('INNODB_READ_IO_THREADS', '4'),
+('MULTI_RANGE_COUNT', '256'),
+('INNODB_WRITE_IO_THREADS', '4'),
+('SERVER_ID', '0'),
+('INNODB_BUFFER_POOL_INSTANCES', '1'),
+('SKIP_NETWORKING', 'OFF'),
+('INNODB_FORCE_RECOVERY', '0'),
+('CHARACTER_SET_SYSTEM', 'utf8'),
+('INNODB_LOG_FILES_IN_GROUP', '2'),
+('INIT_CONNECT', ''),
+('OPTIMIZER_SEARCH_DEPTH', '62'),
+('HAVE_DYNAMIC_LOADING', 'YES'),
+('AUTOCOMMIT', 'ON'),
+('SYNC_BINLOG', '0'),
+('SSL_CAPATH', ''),
+('INNODB_PRINT_ALL_DEADLOCKS', 'OFF'),
+('SLAVE_EXEC_MODE', 'STRICT'),
+('INNODB_OPEN_FILES', '300'),
+('GENERAL_LOG', 'OFF'),
+('INNODB_FILE_FORMAT_CHECK', 'ON'),
+('INNODB_READ_AHEAD_THRESHOLD', '56'),
+('HOSTNAME', 'bambam'),
+('KEY_CACHE_BLOCK_SIZE', '1024'),
+('OLD', 'OFF'),
+('KEY_BUFFER_SIZE', '16777216'),
+('REPORT_PORT', '3306'),
+('HAVE_NDBCLUSTER', 'NO'),
+('SQL_LOG_BIN', 'ON'),
+('THREAD_HANDLING', 'one-thread-per-connection'),
+('INNODB_STATS_METHOD', 'nulls_equal'),
+('LOG_BIN', 'OFF'),
+('INNODB_FAST_SHUTDOWN', '1'),
+('RELAY_LOG_SPACE_LIMIT', '0'),
+('SSL_CA', ''),
+('MAX_USER_CONNECTIONS', '50'),
+('INNODB_THREAD_CONCURRENCY', '0'),
+('SQL_MAX_JOIN_SIZE', '18446744073709551615'),
+('SLAVE_NET_TIMEOUT', '3600'),
+('TABLE_OPEN_CACHE', '512'),
+('INNODB_STATS_SAMPLE_PAGES', '8'),
+('SQL_BIG_TABLES', 'OFF'),
+('LOCAL_INFILE', 'OFF'),
+('SQL_BUFFER_RESULT', 'OFF'),
+('HAVE_RTREE_KEYS', 'YES'),
+('ENGINE_CONDITION_PUSHDOWN', 'ON'),
+('HAVE_PROFILING', 'YES'),
+('LC_MESSAGES_DIR', '/usr/share/mysql/'),
+('OLD_ALTER_TABLE', 'OFF'),
+('HAVE_INNODB', 'YES'),
+('MYISAM_MMAP_SIZE', '4294967295'),
+('SQL_MODE', ''),
+('PERFORMANCE_SCHEMA_MAX_FILE_HANDLES', '32768'),
+('RELAY_LOG_RECOVERY', 'OFF'),
+('REPORT_USER', ''),
+('MAX_DELAYED_THREADS', '20'),
+('HAVE_GEOMETRY', 'YES'),
+('DATETIME_FORMAT', '%Y-%m-%d %H:%i:%s'),
+('SLOW_QUERY_LOG', 'ON'),
+('INNODB_FLUSH_LOG_AT_TRX_COMMIT', '1'),
+('LC_MESSAGES', 'en_US'),
+('MAX_RELAY_LOG_SIZE', '0'),
+('LOG', 'OFF'),
+('INNODB_RANDOM_READ_AHEAD', 'OFF'),
+('OPEN_FILES_LIMIT', '8192'),
+('HAVE_CSV', 'YES'),
+('DATADIR', '/var/lib/mysql/'),
+('PORT', '3306'),
+('FT_MIN_WORD_LEN', '4'),
+('INNODB_CONCURRENCY_TICKETS', '500'),
+('VERSION_COMPILE_OS', 'debian-linux-gnu'),
+('LOG_BIN_TRUST_FUNCTION_CREATORS', 'OFF'),
+('INNODB_LOCKS_UNSAFE_FOR_BINLOG', 'OFF'),
+('INNODB_FORCE_LOAD_CORRUPTED', 'OFF'),
+('SQL_WARNINGS', 'OFF'),
+('HAVE_OPENSSL', 'DISABLED'),
+('RELAY_LOG', ''),
+('MAX_BINLOG_STMT_CACHE_SIZE', '18446744073709547520'),
+('PLUGIN_DIR', '/usr/lib/mysql/plugin/'),
+('PERFORMANCE_SCHEMA_MAX_FILE_INSTANCES', '10000'),
+('LOG_SLOW_QUERIES', 'ON'),
+('INNODB_SPIN_WAIT_DELAY', '6'),
+('MAX_TMP_TABLES', '32'),
+('INNODB_FILE_FORMAT_MAX', 'Antelope'),
+('SQL_LOG_OFF', 'OFF'),
+('DEFAULT_STORAGE_ENGINE', 'InnoDB'),
+('SLOW_QUERY_LOG_FILE', '/var/log/mysql/mysql-slow.log'),
+('INNODB_LOCK_WAIT_TIMEOUT', '50'),
+('SQL_SLAVE_SKIP_COUNTER', '0'),
+('INNODB_OLD_BLOCKS_TIME', '0'),
+('SECURE_AUTH', 'OFF'),
+('RPL_RECOVERY_RANK', '0'),
+('NET_READ_TIMEOUT', '30'),
+('MYISAM_STATS_METHOD', 'nulls_unequal'),
+('OPTIMIZER_SWITCH', 'index_merge=on,index_merge_union=on,index_merge_sort_union=on,index_merge_intersection=on,engine_condition_pushdown=on'),
+('MAX_CONNECT_ERRORS', '10'),
+('LOCKED_IN_MEMORY', 'OFF'),
+('INNODB_FLUSH_METHOD', ''),
+('INNODB_LARGE_PREFIX', 'OFF'),
+('INNODB_CHECKSUMS', 'ON'),
+('STORAGE_ENGINE', 'InnoDB'),
+('SSL_KEY', ''),
+('HAVE_SSL', 'DISABLED'),
+('MYISAM_USE_MMAP', 'OFF'),
+('SLAVE_SKIP_ERRORS', 'OFF'),
+('MIN_EXAMINED_ROW_LIMIT', '0'),
+('LOG_SLAVE_UPDATES', 'OFF'),
+('RELAY_LOG_PURGE', 'ON'),
+('SYNC_MASTER_INFO', '0'),
+('COLLATION_DATABASE', 'latin1_swedish_ci'),
+('INNODB_FILE_PER_TABLE', 'ON'),
+('INNODB_LOG_GROUP_HOME_DIR', './'),
+('SSL_CERT', ''),
+('INNODB_LOG_BUFFER_SIZE', '8388608'),
+('SOCKET', '/var/run/mysqld/mysqld.sock'),
+('CHARACTER_SET_CLIENT', 'latin1'),
+('INNODB_MAX_PURGE_LAG', '0'),
+('SKIP_EXTERNAL_LOCKING', 'ON'),
+('MYISAM_MAX_SORT_FILE_SIZE', '2146435072'),
+('SLAVE_LOAD_TMPDIR', '/tmp'),
+('SLAVE_TYPE_CONVERSIONS', ''),
+('INNODB_ADDITIONAL_MEM_POOL_SIZE', '8388608'),
+('SQL_NOTES', 'ON'),
+('INNODB_USE_SYS_MALLOC', 'ON'),
+('LICENSE', 'GPL'),
+('INNODB_MAX_DIRTY_PAGES_PCT', '75'),
+('PERFORMANCE_SCHEMA_MAX_TABLE_INSTANCES', '50000'),
+('THREAD_CONCURRENCY', '10'),
+('UNIQUE_CHECKS', 'ON'),
+('INNODB_OLD_BLOCKS_PCT', '37'),
+('HAVE_COMPRESS', 'YES');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `KEY_COLUMN_USAGE`
+--
+
+CREATE TEMPORARY TABLE `KEY_COLUMN_USAGE` (
+  `CONSTRAINT_CATALOG` varchar(512) NOT NULL DEFAULT '',
+  `CONSTRAINT_SCHEMA` varchar(64) NOT NULL DEFAULT '',
+  `CONSTRAINT_NAME` varchar(64) NOT NULL DEFAULT '',
+  `TABLE_CATALOG` varchar(512) NOT NULL DEFAULT '',
+  `TABLE_SCHEMA` varchar(64) NOT NULL DEFAULT '',
+  `TABLE_NAME` varchar(64) NOT NULL DEFAULT '',
+  `COLUMN_NAME` varchar(64) NOT NULL DEFAULT '',
+  `ORDINAL_POSITION` bigint(10) NOT NULL DEFAULT '0',
+  `POSITION_IN_UNIQUE_CONSTRAINT` bigint(10) DEFAULT NULL,
+  `REFERENCED_TABLE_SCHEMA` varchar(64) DEFAULT NULL,
+  `REFERENCED_TABLE_NAME` varchar(64) DEFAULT NULL,
+  `REFERENCED_COLUMN_NAME` varchar(64) DEFAULT NULL
+) ENGINE=MEMORY DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `KEY_COLUMN_USAGE`
+--
+
+INSERT INTO `KEY_COLUMN_USAGE` (`CONSTRAINT_CATALOG`, `CONSTRAINT_SCHEMA`, `CONSTRAINT_NAME`, `TABLE_CATALOG`, `TABLE_SCHEMA`, `TABLE_NAME`, `COLUMN_NAME`, `ORDINAL_POSITION`, `POSITION_IN_UNIQUE_CONSTRAINT`, `REFERENCED_TABLE_SCHEMA`, `REFERENCED_TABLE_NAME`, `REFERENCED_COLUMN_NAME`) VALUES
+('def', 'amyvarga', 'PRIMARY', 'def', 'amyvarga', 'blog', 'id', 1, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'name', 'def', 'amyvarga', 'blog', 'name', 1, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'PRIMARY', 'def', 'amyvarga', 'blog_comments', 'blog_id', 1, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'PRIMARY', 'def', 'amyvarga', 'blog_comments', 'comment_id', 2, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'PRIMARY', 'def', 'amyvarga', 'blog_images', 'id', 1, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'PRIMARY', 'def', 'amyvarga', 'blog_logos', 'id', 1, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'PRIMARY', 'def', 'amyvarga', 'blog_relatedlinks', 'id', 1, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'PRIMARY', 'def', 'amyvarga', 'captcha', 'captcha_id', 1, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'PRIMARY', 'def', 'amyvarga', 'comments', 'comment_id', 1, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'comment_id', 'def', 'amyvarga', 'comments', 'comment_id', 1, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'PRIMARY', 'def', 'amyvarga', 'country', 'id', 1, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'PRIMARY', 'def', 'amyvarga', 'employee_achievements', 'id', 1, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'PRIMARY', 'def', 'amyvarga', 'employee_blog', 'employee_id', 1, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'PRIMARY', 'def', 'amyvarga', 'employee_blog', 'blog_id', 2, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'PRIMARY', 'def', 'amyvarga', 'employee_expertise', 'employee_id', 1, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'PRIMARY', 'def', 'amyvarga', 'employee_expertise', 'expertise_id', 2, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'PRIMARY', 'def', 'amyvarga', 'employee_showcase', 'employee_id', 1, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'PRIMARY', 'def', 'amyvarga', 'employee_showcase', 'showcase_id', 2, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'PRIMARY', 'def', 'amyvarga', 'employee_skills', 'id', 1, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'PRIMARY', 'def', 'amyvarga', 'employees', 'employee_id', 1, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'name', 'def', 'amyvarga', 'employees', 'employee_name', 1, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'PRIMARY', 'def', 'amyvarga', 'employees_relatedlinks', 'relatedlink_id', 1, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'PRIMARY', 'def', 'amyvarga', 'employees_summaries', 'employee_id', 1, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'PRIMARY', 'def', 'amyvarga', 'experience', 'id', 1, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'PRIMARY', 'def', 'amyvarga', 'frameworks', 'id', 1, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'PRIMARY', 'def', 'amyvarga', 'languages', 'id', 1, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'id', 'def', 'amyvarga', 'photos', 'id', 1, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'PRIMARY', 'def', 'amyvarga', 'portfolio_versions', 'portfolio_id', 1, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'PRIMARY', 'def', 'amyvarga', 'portfolio_versions', 'versions_id', 2, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'PRIMARY', 'def', 'amyvarga', 'showcase', 'id', 1, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'name', 'def', 'amyvarga', 'showcase', 'title', 1, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'PRIMARY', 'def', 'amyvarga', 'showcase_experience', 'experience_id', 1, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'PRIMARY', 'def', 'amyvarga', 'showcase_experience', 'showcase_id', 2, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'PRIMARY', 'def', 'amyvarga', 'showcase_frameworks', 'showcase_id', 1, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'PRIMARY', 'def', 'amyvarga', 'showcase_frameworks', 'frameworks_id', 2, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'PRIMARY', 'def', 'amyvarga', 'showcase_images', 'id', 1, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'PRIMARY', 'def', 'amyvarga', 'showcase_languages', 'languages_id', 1, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'PRIMARY', 'def', 'amyvarga', 'showcase_languages', 'showcase_id', 2, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'PRIMARY', 'def', 'amyvarga', 'showcase_logos', 'id', 1, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'PRIMARY', 'def', 'amyvarga', 'showcase_relatedlinks', 'id', 1, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'PRIMARY', 'def', 'amyvarga', 'showcase_skills', 'showcase_id', 1, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'PRIMARY', 'def', 'amyvarga', 'showcase_skills', 'skills_id', 2, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'PRIMARY', 'def', 'amyvarga', 'showcase_software', 'software_id', 1, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'PRIMARY', 'def', 'amyvarga', 'showcase_software', 'showcase_id', 2, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'PRIMARY', 'def', 'amyvarga', 'showcase_tags', 'tags_id', 1, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'PRIMARY', 'def', 'amyvarga', 'showcase_tags', 'showcase_id', 2, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'PRIMARY', 'def', 'amyvarga', 'skills', 'id', 1, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'expertise_id', 'def', 'amyvarga', 'skills', 'id', 1, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'PRIMARY', 'def', 'amyvarga', 'software', 'id', 1, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'PRIMARY', 'def', 'amyvarga', 'tags', 'id', 1, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'PRIMARY', 'def', 'amyvarga', 'turba_shares_seq', 'id', 1, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'PRIMARY', 'def', 'amyvarga', 'versions', 'id', 1, NULL, NULL, NULL, NULL),
+('def', 'amyvarga', 'id', 'def', 'amyvarga', 'webapp_photos', 'id', 1, NULL, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `PARAMETERS`
+--
+
+CREATE TEMPORARY TABLE `PARAMETERS` (
+  `SPECIFIC_CATALOG` varchar(512) NOT NULL DEFAULT '',
+  `SPECIFIC_SCHEMA` varchar(64) NOT NULL DEFAULT '',
+  `SPECIFIC_NAME` varchar(64) NOT NULL DEFAULT '',
+  `ORDINAL_POSITION` int(21) NOT NULL DEFAULT '0',
+  `PARAMETER_MODE` varchar(5) DEFAULT NULL,
+  `PARAMETER_NAME` varchar(64) DEFAULT NULL,
+  `DATA_TYPE` varchar(64) NOT NULL DEFAULT '',
+  `CHARACTER_MAXIMUM_LENGTH` int(21) DEFAULT NULL,
+  `CHARACTER_OCTET_LENGTH` int(21) DEFAULT NULL,
+  `NUMERIC_PRECISION` int(21) DEFAULT NULL,
+  `NUMERIC_SCALE` int(21) DEFAULT NULL,
+  `CHARACTER_SET_NAME` varchar(64) DEFAULT NULL,
+  `COLLATION_NAME` varchar(64) DEFAULT NULL,
+  `DTD_IDENTIFIER` longtext NOT NULL,
+  `ROUTINE_TYPE` varchar(9) NOT NULL DEFAULT ''
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `PARTITIONS`
+--
+
+CREATE TEMPORARY TABLE `PARTITIONS` (
+  `TABLE_CATALOG` varchar(512) NOT NULL DEFAULT '',
+  `TABLE_SCHEMA` varchar(64) NOT NULL DEFAULT '',
+  `TABLE_NAME` varchar(64) NOT NULL DEFAULT '',
+  `PARTITION_NAME` varchar(64) DEFAULT NULL,
+  `SUBPARTITION_NAME` varchar(64) DEFAULT NULL,
+  `PARTITION_ORDINAL_POSITION` bigint(21) unsigned DEFAULT NULL,
+  `SUBPARTITION_ORDINAL_POSITION` bigint(21) unsigned DEFAULT NULL,
+  `PARTITION_METHOD` varchar(18) DEFAULT NULL,
+  `SUBPARTITION_METHOD` varchar(12) DEFAULT NULL,
+  `PARTITION_EXPRESSION` longtext,
+  `SUBPARTITION_EXPRESSION` longtext,
+  `PARTITION_DESCRIPTION` longtext,
+  `TABLE_ROWS` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `AVG_ROW_LENGTH` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `DATA_LENGTH` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `MAX_DATA_LENGTH` bigint(21) unsigned DEFAULT NULL,
+  `INDEX_LENGTH` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `DATA_FREE` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `CREATE_TIME` datetime DEFAULT NULL,
+  `UPDATE_TIME` datetime DEFAULT NULL,
+  `CHECK_TIME` datetime DEFAULT NULL,
+  `CHECKSUM` bigint(21) unsigned DEFAULT NULL,
+  `PARTITION_COMMENT` varchar(80) NOT NULL DEFAULT '',
+  `NODEGROUP` varchar(12) NOT NULL DEFAULT '',
+  `TABLESPACE_NAME` varchar(64) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `PARTITIONS`
+--
+
+INSERT INTO `PARTITIONS` (`TABLE_CATALOG`, `TABLE_SCHEMA`, `TABLE_NAME`, `PARTITION_NAME`, `SUBPARTITION_NAME`, `PARTITION_ORDINAL_POSITION`, `SUBPARTITION_ORDINAL_POSITION`, `PARTITION_METHOD`, `SUBPARTITION_METHOD`, `PARTITION_EXPRESSION`, `SUBPARTITION_EXPRESSION`, `PARTITION_DESCRIPTION`, `TABLE_ROWS`, `AVG_ROW_LENGTH`, `DATA_LENGTH`, `MAX_DATA_LENGTH`, `INDEX_LENGTH`, `DATA_FREE`, `CREATE_TIME`, `UPDATE_TIME`, `CHECK_TIME`, `CHECKSUM`, `PARTITION_COMMENT`, `NODEGROUP`, `TABLESPACE_NAME`) VALUES
+('def', 'information_schema', 'CHARACTER_SETS', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 384, 0, 16604160, 0, 0, '2014-03-12 17:49:52', NULL, NULL, NULL, '', '', NULL),
+('def', 'information_schema', 'COLLATIONS', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 231, 0, 16704765, 0, 0, '2014-03-12 17:49:52', NULL, NULL, NULL, '', '', NULL),
+('def', 'information_schema', 'COLLATION_CHARACTER_SET_APPLICABILITY', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 195, 0, 16691610, 0, 0, '2014-03-12 17:49:52', NULL, NULL, NULL, '', '', NULL),
+('def', 'information_schema', 'COLUMNS', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 281474976710655, 1024, 0, '2014-03-12 17:49:52', '2014-03-12 17:49:52', NULL, NULL, '', '', NULL),
+('def', 'information_schema', 'COLUMN_PRIVILEGES', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 2565, 0, 16757145, 0, 0, '2014-03-12 17:49:52', NULL, NULL, NULL, '', '', NULL),
+('def', 'information_schema', 'ENGINES', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 490, 0, 16709000, 0, 0, '2014-03-12 17:49:52', NULL, NULL, NULL, '', '', NULL),
+('def', 'information_schema', 'EVENTS', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 281474976710655, 1024, 0, '2014-03-12 17:49:52', '2014-03-12 17:49:52', NULL, NULL, '', '', NULL),
+('def', 'information_schema', 'FILES', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 2677, 0, 16758020, 0, 0, '2014-03-12 17:49:52', NULL, NULL, NULL, '', '', NULL),
+('def', 'information_schema', 'GLOBAL_STATUS', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 3268, 0, 16755036, 0, 0, '2014-03-12 17:49:52', NULL, NULL, NULL, '', '', NULL),
+('def', 'information_schema', 'GLOBAL_VARIABLES', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 3268, 0, 16755036, 0, 0, '2014-03-12 17:49:52', NULL, NULL, NULL, '', '', NULL),
+('def', 'information_schema', 'KEY_COLUMN_USAGE', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 4637, 0, 16762755, 0, 0, '2014-03-12 17:49:52', NULL, NULL, NULL, '', '', NULL),
+('def', 'information_schema', 'PARAMETERS', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 281474976710655, 1024, 0, '2014-03-12 17:49:52', '2014-03-12 17:49:52', NULL, NULL, '', '', NULL),
+('def', 'information_schema', 'PARTITIONS', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 281474976710655, 1024, 0, '2014-03-12 17:49:52', '2014-03-12 17:49:52', NULL, NULL, '', '', NULL),
+('def', 'information_schema', 'PLUGINS', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 281474976710655, 1024, 0, '2014-03-12 17:49:52', '2014-03-12 17:49:52', NULL, NULL, '', '', NULL),
+('def', 'information_schema', 'PROCESSLIST', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 281474976710655, 1024, 0, '2014-03-12 17:49:52', '2014-03-12 17:49:52', NULL, NULL, '', '', NULL),
+('def', 'information_schema', 'PROFILING', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 308, 0, 16562084, 0, 0, '2014-03-12 17:49:52', NULL, NULL, NULL, '', '', NULL),
+('def', 'information_schema', 'REFERENTIAL_CONSTRAINTS', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 4814, 0, 16767162, 0, 0, '2014-03-12 17:49:52', NULL, NULL, NULL, '', '', NULL),
+('def', 'information_schema', 'ROUTINES', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 281474976710655, 1024, 0, '2014-03-12 17:49:52', '2014-03-12 17:49:52', NULL, NULL, '', '', NULL),
+('def', 'information_schema', 'SCHEMATA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 3464, 0, 16755368, 0, 0, '2014-03-12 17:49:52', NULL, NULL, NULL, '', '', NULL),
+('def', 'information_schema', 'SCHEMA_PRIVILEGES', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 2179, 0, 16767405, 0, 0, '2014-03-12 17:49:52', NULL, NULL, NULL, '', '', NULL),
+('def', 'information_schema', 'SESSION_STATUS', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 3268, 0, 16755036, 0, 0, '2014-03-12 17:49:52', NULL, NULL, NULL, '', '', NULL),
+('def', 'information_schema', 'SESSION_VARIABLES', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 3268, 0, 16755036, 0, 0, '2014-03-12 17:49:52', NULL, NULL, NULL, '', '', NULL),
+('def', 'information_schema', 'STATISTICS', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 5753, 0, 16764242, 0, 0, '2014-03-12 17:49:52', NULL, NULL, NULL, '', '', NULL),
+('def', 'information_schema', 'TABLES', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 9450, 0, 16764300, 0, 0, '2014-03-12 17:49:52', NULL, NULL, NULL, '', '', NULL),
+('def', 'information_schema', 'TABLESPACES', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 6951, 0, 16772763, 0, 0, '2014-03-12 17:49:52', NULL, NULL, NULL, '', '', NULL),
+('def', 'information_schema', 'TABLE_CONSTRAINTS', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 2504, 0, 16749256, 0, 0, '2014-03-12 17:49:52', NULL, NULL, NULL, '', '', NULL),
+('def', 'information_schema', 'TABLE_PRIVILEGES', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 2372, 0, 16748692, 0, 0, '2014-03-12 17:49:52', NULL, NULL, NULL, '', '', NULL),
+('def', 'information_schema', 'TRIGGERS', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 281474976710655, 1024, 0, '2014-03-12 17:49:52', '2014-03-12 17:49:52', NULL, NULL, '', '', NULL),
+('def', 'information_schema', 'USER_PRIVILEGES', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 1986, 0, 16759854, 0, 0, '2014-03-12 17:49:52', NULL, NULL, NULL, '', '', NULL),
+('def', 'information_schema', 'VIEWS', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 281474976710655, 1024, 0, '2014-03-12 17:49:52', '2014-03-12 17:49:52', NULL, NULL, '', '', NULL),
+('def', 'information_schema', 'INNODB_BUFFER_PAGE', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 6852, 0, 16766844, 0, 0, '2014-03-12 17:49:52', NULL, NULL, NULL, '', '', NULL),
+('def', 'information_schema', 'INNODB_TRX', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 4534, 0, 16766732, 0, 0, '2014-03-12 17:49:52', NULL, NULL, NULL, '', '', NULL),
+('def', 'information_schema', 'INNODB_BUFFER_POOL_STATS', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 257, 0, 16583439, 0, 0, '2014-03-12 17:49:52', NULL, NULL, NULL, '', '', NULL),
+('def', 'information_schema', 'INNODB_LOCK_WAITS', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 599, 0, 16749238, 0, 0, '2014-03-12 17:49:52', NULL, NULL, NULL, '', '', NULL),
+('def', 'information_schema', 'INNODB_CMPMEM', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 29, 0, 15204352, 0, 0, '2014-03-12 17:49:52', NULL, NULL, NULL, '', '', NULL),
+('def', 'information_schema', 'INNODB_CMP', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 25, 0, 14979650, 0, 0, '2014-03-12 17:49:52', NULL, NULL, NULL, '', '', NULL),
+('def', 'information_schema', 'INNODB_LOCKS', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 31244, 0, 16746784, 0, 0, '2014-03-12 17:49:52', NULL, NULL, NULL, '', '', NULL),
+('def', 'information_schema', 'INNODB_CMPMEM_RESET', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 29, 0, 15204352, 0, 0, '2014-03-12 17:49:52', NULL, NULL, NULL, '', '', NULL),
+('def', 'information_schema', 'INNODB_CMP_RESET', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 25, 0, 14979650, 0, 0, '2014-03-12 17:49:52', NULL, NULL, NULL, '', '', NULL),
+('def', 'information_schema', 'INNODB_BUFFER_PAGE_LRU', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 6669, 0, 16765866, 0, 0, '2014-03-12 17:49:52', NULL, NULL, NULL, '', '', NULL),
+('def', 'amyvarga', 'blog', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 13, 6301, 81920, NULL, 16384, 0, '2014-03-12 15:10:15', NULL, NULL, NULL, '', '', NULL),
+('def', 'amyvarga', 'blog_comments', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 8, 2048, 16384, NULL, 16384, 0, '2014-02-26 00:49:23', NULL, NULL, NULL, '', '', NULL),
+('def', 'amyvarga', 'blog_images', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 6, 2730, 16384, NULL, 0, 0, '2014-02-26 00:49:23', NULL, NULL, NULL, '', '', NULL),
+('def', 'amyvarga', 'blog_logos', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 9, 1820, 16384, NULL, 0, 0, '2014-02-26 00:49:23', NULL, NULL, NULL, '', '', NULL),
+('def', 'amyvarga', 'blog_relatedlinks', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 70, 234, 16384, NULL, 0, 0, '2014-02-26 00:49:23', NULL, NULL, NULL, '', '', NULL),
+('def', 'amyvarga', 'captcha', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 22925, 42, 971068, 281474976710655, 392192, 0, '2013-11-29 01:01:31', '2013-11-29 01:01:31', '2013-11-29 01:01:31', NULL, '', '', NULL),
+('def', 'amyvarga', 'comments', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 16384, NULL, 32768, 0, '2014-02-26 00:49:23', NULL, NULL, NULL, '', '', NULL),
+('def', 'amyvarga', 'country', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 83, 197, 16384, NULL, 0, 0, '2014-02-26 00:49:23', NULL, NULL, NULL, '', '', NULL),
+('def', 'amyvarga', 'employee_achievements', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 16384, NULL, 16384, 0, '2014-02-26 00:49:23', NULL, NULL, NULL, '', '', NULL),
+('def', 'amyvarga', 'employee_blog', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 14, 1170, 16384, NULL, 16384, 0, '2014-02-26 00:49:23', NULL, NULL, NULL, '', '', NULL),
+('def', 'amyvarga', 'employee_cv', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 4, 4096, 16384, NULL, 16384, 0, '2014-02-26 00:49:23', NULL, NULL, NULL, '', '', NULL),
+('def', 'amyvarga', 'employee_expertise', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 5461, 16384, NULL, 16384, 0, '2014-02-26 00:49:23', NULL, NULL, NULL, '', '', NULL),
+('def', 'amyvarga', 'employee_showcase', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 11, 1489, 16384, NULL, 16384, 0, '2014-02-26 00:49:23', NULL, NULL, NULL, '', '', NULL),
+('def', 'amyvarga', 'employee_skills', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 12, 1365, 16384, NULL, 16384, 0, '2014-02-26 00:49:23', NULL, NULL, NULL, '', '', NULL),
+('def', 'amyvarga', 'employees', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 8192, 16384, NULL, 16384, 0, '2014-02-26 00:49:23', NULL, NULL, NULL, '', '', NULL),
+('def', 'amyvarga', 'employees_relatedlinks', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 8192, 16384, NULL, 16384, 0, '2014-02-26 00:49:23', NULL, NULL, NULL, '', '', NULL),
+('def', 'amyvarga', 'employees_summaries', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 8192, 16384, NULL, 16384, 0, '2014-02-26 00:49:23', NULL, NULL, NULL, '', '', NULL),
+('def', 'amyvarga', 'experience', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 5461, 16384, NULL, 0, 0, '2014-02-26 00:49:23', NULL, NULL, NULL, '', '', NULL),
+('def', 'amyvarga', 'frameworks', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 11, 1489, 16384, NULL, 0, 0, '2014-02-26 00:49:23', NULL, NULL, NULL, '', '', NULL),
+('def', 'amyvarga', 'languages', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 14, 1170, 16384, NULL, 0, 0, '2014-02-26 00:49:23', NULL, NULL, NULL, '', '', NULL),
+('def', 'amyvarga', 'photos', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 15, 1092, 16384, NULL, 0, 0, '2014-02-26 00:49:23', NULL, NULL, NULL, '', '', NULL),
+('def', 'amyvarga', 'portfolio_versions', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 19, 862, 16384, NULL, 0, 0, '2014-02-26 00:49:23', NULL, NULL, NULL, '', '', NULL),
+('def', 'amyvarga', 'showcase', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 11, 1489, 16384, NULL, 16384, 0, '2014-02-26 00:49:23', NULL, NULL, NULL, '', '', NULL),
+('def', 'amyvarga', 'showcase_experience', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 10, 1638, 16384, NULL, 0, 0, '2014-02-26 00:49:23', NULL, NULL, NULL, '', '', NULL),
+('def', 'amyvarga', 'showcase_frameworks', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 27, 606, 16384, NULL, 0, 0, '2014-02-26 00:49:23', NULL, NULL, NULL, '', '', NULL),
+('def', 'amyvarga', 'showcase_images', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 22, 744, 16384, NULL, 0, 0, '2014-02-26 00:49:23', NULL, NULL, NULL, '', '', NULL),
+('def', 'amyvarga', 'showcase_languages', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 36, 455, 16384, NULL, 0, 0, '2014-02-26 00:49:23', NULL, NULL, NULL, '', '', NULL),
+('def', 'amyvarga', 'showcase_logos', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 11, 1489, 16384, NULL, 0, 0, '2014-02-26 00:49:23', NULL, NULL, NULL, '', '', NULL),
+('def', 'amyvarga', 'showcase_relatedlinks', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 5461, 16384, NULL, 0, 0, '2014-02-26 00:49:23', NULL, NULL, NULL, '', '', NULL),
+('def', 'amyvarga', 'showcase_skills', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 19, 862, 16384, NULL, 16384, 0, '2014-02-26 00:49:23', NULL, NULL, NULL, '', '', NULL),
+('def', 'amyvarga', 'showcase_software', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 20, 819, 16384, NULL, 0, 0, '2014-02-26 00:49:23', NULL, NULL, NULL, '', '', NULL),
+('def', 'amyvarga', 'showcase_tags', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 16384, NULL, 0, 0, '2014-02-26 00:49:23', NULL, NULL, NULL, '', '', NULL),
+('def', 'amyvarga', 'skills', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 7, 2340, 16384, NULL, 32768, 0, '2014-02-26 00:49:23', NULL, NULL, NULL, '', '', NULL),
+('def', 'amyvarga', 'software', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 21, 780, 16384, NULL, 0, 0, '2014-02-26 00:49:23', NULL, NULL, NULL, '', '', NULL),
+('def', 'amyvarga', 'tags', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 4, 4096, 16384, NULL, 0, 0, '2014-02-26 00:49:23', NULL, NULL, NULL, '', '', NULL),
+('def', 'amyvarga', 'turba_shares_seq', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 7, 14, 1970324836974591, 2048, 7, '2013-11-29 01:01:31', '2014-03-12 17:46:15', NULL, NULL, '', '', NULL),
+('def', 'amyvarga', 'user', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 8192, 16384, NULL, 0, 0, '2014-02-26 00:49:23', NULL, NULL, NULL, '', '', NULL),
+('def', 'amyvarga', 'versions', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 5461, 16384, NULL, 0, 0, '2014-02-26 00:49:23', NULL, NULL, NULL, '', '', NULL),
+('def', 'amyvarga', 'webapp_photos', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 120, 136, 16384, NULL, 0, 0, '2014-02-26 00:49:23', NULL, NULL, NULL, '', '', NULL),
+('def', 'amyvarga', 'webapp_users', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 16384, 16384, NULL, 16384, 0, '2014-02-26 00:49:23', NULL, NULL, NULL, '', '', NULL),
+('def', 'amyvarga', 'website_sections', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 7, 2340, 16384, NULL, 0, 0, '2014-02-26 00:49:23', NULL, NULL, NULL, '', '', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `PLUGINS`
+--
+
+CREATE TEMPORARY TABLE `PLUGINS` (
+  `PLUGIN_NAME` varchar(64) NOT NULL DEFAULT '',
+  `PLUGIN_VERSION` varchar(20) NOT NULL DEFAULT '',
+  `PLUGIN_STATUS` varchar(10) NOT NULL DEFAULT '',
+  `PLUGIN_TYPE` varchar(80) NOT NULL DEFAULT '',
+  `PLUGIN_TYPE_VERSION` varchar(20) NOT NULL DEFAULT '',
+  `PLUGIN_LIBRARY` varchar(64) DEFAULT NULL,
+  `PLUGIN_LIBRARY_VERSION` varchar(20) DEFAULT NULL,
+  `PLUGIN_AUTHOR` varchar(64) DEFAULT NULL,
+  `PLUGIN_DESCRIPTION` longtext,
+  `PLUGIN_LICENSE` varchar(80) DEFAULT NULL,
+  `LOAD_OPTION` varchar(64) NOT NULL DEFAULT ''
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `PLUGINS`
+--
+
+INSERT INTO `PLUGINS` (`PLUGIN_NAME`, `PLUGIN_VERSION`, `PLUGIN_STATUS`, `PLUGIN_TYPE`, `PLUGIN_TYPE_VERSION`, `PLUGIN_LIBRARY`, `PLUGIN_LIBRARY_VERSION`, `PLUGIN_AUTHOR`, `PLUGIN_DESCRIPTION`, `PLUGIN_LICENSE`, `LOAD_OPTION`) VALUES
+('binlog', '1.0', 'ACTIVE', 'STORAGE ENGINE', '50535.0', NULL, NULL, 'MySQL AB', 'This is a pseudo storage engine to represent the binlog in a transaction', 'GPL', 'FORCE'),
+('mysql_native_password', '1.0', 'ACTIVE', 'AUTHENTICATION', '1.0', NULL, NULL, 'R.J.Silk, Sergei Golubchik', 'Native MySQL authentication', 'GPL', 'FORCE'),
+('mysql_old_password', '1.0', 'ACTIVE', 'AUTHENTICATION', '1.0', NULL, NULL, 'R.J.Silk, Sergei Golubchik', 'Old MySQL-4.0 authentication', 'GPL', 'FORCE'),
+('MRG_MYISAM', '1.0', 'ACTIVE', 'STORAGE ENGINE', '50535.0', NULL, NULL, 'MySQL AB', 'Collection of identical MyISAM tables', 'GPL', 'FORCE'),
+('MEMORY', '1.0', 'ACTIVE', 'STORAGE ENGINE', '50535.0', NULL, NULL, 'MySQL AB', 'Hash based, stored in memory, useful for temporary tables', 'GPL', 'FORCE'),
+('CSV', '1.0', 'ACTIVE', 'STORAGE ENGINE', '50535.0', NULL, NULL, 'Brian Aker, MySQL AB', 'CSV storage engine', 'GPL', 'FORCE'),
+('MyISAM', '1.0', 'ACTIVE', 'STORAGE ENGINE', '50535.0', NULL, NULL, 'MySQL AB', 'MyISAM storage engine', 'GPL', 'FORCE'),
+('BLACKHOLE', '1.0', 'ACTIVE', 'STORAGE ENGINE', '50535.0', NULL, NULL, 'MySQL AB', '/dev/null storage engine (anything you write to it disappears)', 'GPL', 'ON'),
+('FEDERATED', '1.0', 'DISABLED', 'STORAGE ENGINE', '50535.0', NULL, NULL, 'Patrick Galbraith and Brian Aker, MySQL AB', 'Federated MySQL storage engine', 'GPL', 'OFF'),
+('ARCHIVE', '3.0', 'ACTIVE', 'STORAGE ENGINE', '50535.0', NULL, NULL, 'Brian Aker, MySQL AB', 'Archive storage engine', 'GPL', 'ON'),
+('PERFORMANCE_SCHEMA', '0.1', 'ACTIVE', 'STORAGE ENGINE', '50535.0', NULL, NULL, 'Marc Alff, Oracle', 'Performance Schema', 'GPL', 'FORCE'),
+('InnoDB', '5.5', 'ACTIVE', 'STORAGE ENGINE', '50535.0', NULL, NULL, 'Oracle Corporation', 'Supports transactions, row-level locking, and foreign keys', 'GPL', 'ON'),
+('INNODB_TRX', '5.5', 'ACTIVE', 'INFORMATION SCHEMA', '50535.0', NULL, NULL, 'Oracle Corporation', 'InnoDB transactions', 'GPL', 'ON'),
+('INNODB_LOCKS', '5.5', 'ACTIVE', 'INFORMATION SCHEMA', '50535.0', NULL, NULL, 'Oracle Corporation', 'InnoDB conflicting locks', 'GPL', 'ON'),
+('INNODB_LOCK_WAITS', '5.5', 'ACTIVE', 'INFORMATION SCHEMA', '50535.0', NULL, NULL, 'Oracle Corporation', 'InnoDB which lock is blocking which', 'GPL', 'ON'),
+('INNODB_CMP', '5.5', 'ACTIVE', 'INFORMATION SCHEMA', '50535.0', NULL, NULL, 'Oracle Corporation', 'Statistics for the InnoDB compression', 'GPL', 'ON'),
+('INNODB_CMP_RESET', '5.5', 'ACTIVE', 'INFORMATION SCHEMA', '50535.0', NULL, NULL, 'Oracle Corporation', 'Statistics for the InnoDB compression; reset cumulated counts', 'GPL', 'ON'),
+('INNODB_CMPMEM', '5.5', 'ACTIVE', 'INFORMATION SCHEMA', '50535.0', NULL, NULL, 'Oracle Corporation', 'Statistics for the InnoDB compressed buffer pool', 'GPL', 'ON'),
+('INNODB_CMPMEM_RESET', '5.5', 'ACTIVE', 'INFORMATION SCHEMA', '50535.0', NULL, NULL, 'Oracle Corporation', 'Statistics for the InnoDB compressed buffer pool; reset cumulated counts', 'GPL', 'ON'),
+('INNODB_BUFFER_PAGE', '5.5', 'ACTIVE', 'INFORMATION SCHEMA', '50535.0', NULL, NULL, 'Oracle Corporation', 'InnoDB Buffer Page Information', 'GPL', 'ON'),
+('INNODB_BUFFER_PAGE_LRU', '5.5', 'ACTIVE', 'INFORMATION SCHEMA', '50535.0', NULL, NULL, 'Oracle Corporation', 'InnoDB Buffer Page in LRU', 'GPL', 'ON'),
+('INNODB_BUFFER_POOL_STATS', '5.5', 'ACTIVE', 'INFORMATION SCHEMA', '50535.0', NULL, NULL, 'Oracle Corporation', 'InnoDB Buffer Pool Statistics Information ', 'GPL', 'ON'),
+('partition', '1.0', 'ACTIVE', 'STORAGE ENGINE', '50535.0', NULL, NULL, 'Mikael Ronstrom, MySQL AB', 'Partition Storage Engine Helper', 'GPL', 'ON');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `PROCESSLIST`
+--
+
+CREATE TEMPORARY TABLE `PROCESSLIST` (
+  `ID` bigint(4) NOT NULL DEFAULT '0',
+  `USER` varchar(16) NOT NULL DEFAULT '',
+  `HOST` varchar(64) NOT NULL DEFAULT '',
+  `DB` varchar(64) DEFAULT NULL,
+  `COMMAND` varchar(16) NOT NULL DEFAULT '',
+  `TIME` int(7) NOT NULL DEFAULT '0',
+  `STATE` varchar(64) DEFAULT NULL,
+  `INFO` longtext
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `PROCESSLIST`
+--
+
+INSERT INTO `PROCESSLIST` (`ID`, `USER`, `HOST`, `DB`, `COMMAND`, `TIME`, `STATE`, `INFO`) VALUES
+(368177, 'amyvarga', 'localhost', 'amyvarga', 'Query', 0, 'executing', 'SELECT * FROM `information_schema`.`PROCESSLIST`');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `PROFILING`
+--
+
+CREATE TEMPORARY TABLE `PROFILING` (
+  `QUERY_ID` int(20) NOT NULL DEFAULT '0',
+  `SEQ` int(20) NOT NULL DEFAULT '0',
+  `STATE` varchar(30) NOT NULL DEFAULT '',
+  `DURATION` decimal(9,6) NOT NULL DEFAULT '0.000000',
+  `CPU_USER` decimal(9,6) DEFAULT NULL,
+  `CPU_SYSTEM` decimal(9,6) DEFAULT NULL,
+  `CONTEXT_VOLUNTARY` int(20) DEFAULT NULL,
+  `CONTEXT_INVOLUNTARY` int(20) DEFAULT NULL,
+  `BLOCK_OPS_IN` int(20) DEFAULT NULL,
+  `BLOCK_OPS_OUT` int(20) DEFAULT NULL,
+  `MESSAGES_SENT` int(20) DEFAULT NULL,
+  `MESSAGES_RECEIVED` int(20) DEFAULT NULL,
+  `PAGE_FAULTS_MAJOR` int(20) DEFAULT NULL,
+  `PAGE_FAULTS_MINOR` int(20) DEFAULT NULL,
+  `SWAPS` int(20) DEFAULT NULL,
+  `SOURCE_FUNCTION` varchar(30) DEFAULT NULL,
+  `SOURCE_FILE` varchar(20) DEFAULT NULL,
+  `SOURCE_LINE` int(20) DEFAULT NULL
+) ENGINE=MEMORY DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `REFERENTIAL_CONSTRAINTS`
+--
+
+CREATE TEMPORARY TABLE `REFERENTIAL_CONSTRAINTS` (
+  `CONSTRAINT_CATALOG` varchar(512) NOT NULL DEFAULT '',
+  `CONSTRAINT_SCHEMA` varchar(64) NOT NULL DEFAULT '',
+  `CONSTRAINT_NAME` varchar(64) NOT NULL DEFAULT '',
+  `UNIQUE_CONSTRAINT_CATALOG` varchar(512) NOT NULL DEFAULT '',
+  `UNIQUE_CONSTRAINT_SCHEMA` varchar(64) NOT NULL DEFAULT '',
+  `UNIQUE_CONSTRAINT_NAME` varchar(64) DEFAULT NULL,
+  `MATCH_OPTION` varchar(64) NOT NULL DEFAULT '',
+  `UPDATE_RULE` varchar(64) NOT NULL DEFAULT '',
+  `DELETE_RULE` varchar(64) NOT NULL DEFAULT '',
+  `TABLE_NAME` varchar(64) NOT NULL DEFAULT '',
+  `REFERENCED_TABLE_NAME` varchar(64) NOT NULL DEFAULT ''
+) ENGINE=MEMORY DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ROUTINES`
+--
+
+CREATE TEMPORARY TABLE `ROUTINES` (
+  `SPECIFIC_NAME` varchar(64) NOT NULL DEFAULT '',
+  `ROUTINE_CATALOG` varchar(512) NOT NULL DEFAULT '',
+  `ROUTINE_SCHEMA` varchar(64) NOT NULL DEFAULT '',
+  `ROUTINE_NAME` varchar(64) NOT NULL DEFAULT '',
+  `ROUTINE_TYPE` varchar(9) NOT NULL DEFAULT '',
+  `DATA_TYPE` varchar(64) NOT NULL DEFAULT '',
+  `CHARACTER_MAXIMUM_LENGTH` int(21) DEFAULT NULL,
+  `CHARACTER_OCTET_LENGTH` int(21) DEFAULT NULL,
+  `NUMERIC_PRECISION` int(21) DEFAULT NULL,
+  `NUMERIC_SCALE` int(21) DEFAULT NULL,
+  `CHARACTER_SET_NAME` varchar(64) DEFAULT NULL,
+  `COLLATION_NAME` varchar(64) DEFAULT NULL,
+  `DTD_IDENTIFIER` longtext,
+  `ROUTINE_BODY` varchar(8) NOT NULL DEFAULT '',
+  `ROUTINE_DEFINITION` longtext,
+  `EXTERNAL_NAME` varchar(64) DEFAULT NULL,
+  `EXTERNAL_LANGUAGE` varchar(64) DEFAULT NULL,
+  `PARAMETER_STYLE` varchar(8) NOT NULL DEFAULT '',
+  `IS_DETERMINISTIC` varchar(3) NOT NULL DEFAULT '',
+  `SQL_DATA_ACCESS` varchar(64) NOT NULL DEFAULT '',
+  `SQL_PATH` varchar(64) DEFAULT NULL,
+  `SECURITY_TYPE` varchar(7) NOT NULL DEFAULT '',
+  `CREATED` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `LAST_ALTERED` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `SQL_MODE` varchar(8192) NOT NULL DEFAULT '',
+  `ROUTINE_COMMENT` longtext NOT NULL,
+  `DEFINER` varchar(77) NOT NULL DEFAULT '',
+  `CHARACTER_SET_CLIENT` varchar(32) NOT NULL DEFAULT '',
+  `COLLATION_CONNECTION` varchar(32) NOT NULL DEFAULT '',
+  `DATABASE_COLLATION` varchar(32) NOT NULL DEFAULT ''
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `SCHEMATA`
+--
+
+CREATE TEMPORARY TABLE `SCHEMATA` (
+  `CATALOG_NAME` varchar(512) NOT NULL DEFAULT '',
+  `SCHEMA_NAME` varchar(64) NOT NULL DEFAULT '',
+  `DEFAULT_CHARACTER_SET_NAME` varchar(32) NOT NULL DEFAULT '',
+  `DEFAULT_COLLATION_NAME` varchar(32) NOT NULL DEFAULT '',
+  `SQL_PATH` varchar(512) DEFAULT NULL
+) ENGINE=MEMORY DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `SCHEMATA`
+--
+
+INSERT INTO `SCHEMATA` (`CATALOG_NAME`, `SCHEMA_NAME`, `DEFAULT_CHARACTER_SET_NAME`, `DEFAULT_COLLATION_NAME`, `SQL_PATH`) VALUES
+('def', 'information_schema', 'utf8', 'utf8_general_ci', NULL),
+('def', 'amyvarga', 'utf8', 'utf8_general_ci', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `SCHEMA_PRIVILEGES`
+--
+
+CREATE TEMPORARY TABLE `SCHEMA_PRIVILEGES` (
+  `GRANTEE` varchar(81) NOT NULL DEFAULT '',
+  `TABLE_CATALOG` varchar(512) NOT NULL DEFAULT '',
+  `TABLE_SCHEMA` varchar(64) NOT NULL DEFAULT '',
+  `PRIVILEGE_TYPE` varchar(64) NOT NULL DEFAULT '',
+  `IS_GRANTABLE` varchar(3) NOT NULL DEFAULT ''
+) ENGINE=MEMORY DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `SCHEMA_PRIVILEGES`
+--
+
+INSERT INTO `SCHEMA_PRIVILEGES` (`GRANTEE`, `TABLE_CATALOG`, `TABLE_SCHEMA`, `PRIVILEGE_TYPE`, `IS_GRANTABLE`) VALUES
+('''amyvarga''@''localhost''', 'def', 'amyvarga', 'SELECT', 'NO'),
+('''amyvarga''@''localhost''', 'def', 'amyvarga', 'INSERT', 'NO'),
+('''amyvarga''@''localhost''', 'def', 'amyvarga', 'UPDATE', 'NO'),
+('''amyvarga''@''localhost''', 'def', 'amyvarga', 'DELETE', 'NO'),
+('''amyvarga''@''localhost''', 'def', 'amyvarga', 'CREATE', 'NO'),
+('''amyvarga''@''localhost''', 'def', 'amyvarga', 'DROP', 'NO'),
+('''amyvarga''@''localhost''', 'def', 'amyvarga', 'REFERENCES', 'NO'),
+('''amyvarga''@''localhost''', 'def', 'amyvarga', 'INDEX', 'NO'),
+('''amyvarga''@''localhost''', 'def', 'amyvarga', 'ALTER', 'NO'),
+('''amyvarga''@''localhost''', 'def', 'amyvarga', 'CREATE TEMPORARY TABLES', 'NO'),
+('''amyvarga''@''localhost''', 'def', 'amyvarga', 'LOCK TABLES', 'NO'),
+('''amyvarga''@''localhost''', 'def', 'amyvarga', 'EXECUTE', 'NO'),
+('''amyvarga''@''localhost''', 'def', 'amyvarga', 'CREATE VIEW', 'NO'),
+('''amyvarga''@''localhost''', 'def', 'amyvarga', 'SHOW VIEW', 'NO'),
+('''amyvarga''@''localhost''', 'def', 'amyvarga', 'CREATE ROUTINE', 'NO'),
+('''amyvarga''@''localhost''', 'def', 'amyvarga', 'ALTER ROUTINE', 'NO'),
+('''amyvarga''@''localhost''', 'def', 'amyvarga', 'EVENT', 'NO'),
+('''amyvarga''@''localhost''', 'def', 'amyvarga', 'TRIGGER', 'NO');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `SESSION_STATUS`
+--
+
+CREATE TEMPORARY TABLE `SESSION_STATUS` (
+  `VARIABLE_NAME` varchar(64) NOT NULL DEFAULT '',
+  `VARIABLE_VALUE` varchar(1024) DEFAULT NULL
+) ENGINE=MEMORY DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `SESSION_STATUS`
+--
+
+INSERT INTO `SESSION_STATUS` (`VARIABLE_NAME`, `VARIABLE_VALUE`) VALUES
+('ABORTED_CLIENTS', '41057'),
+('ABORTED_CONNECTS', '1269'),
+('BINLOG_CACHE_DISK_USE', '0'),
+('BINLOG_CACHE_USE', '0'),
+('BINLOG_STMT_CACHE_DISK_USE', '0'),
+('BINLOG_STMT_CACHE_USE', '0'),
+('BYTES_RECEIVED', '19337'),
+('BYTES_SENT', '1520473'),
+('COM_ADMIN_COMMANDS', '0'),
+('COM_ASSIGN_TO_KEYCACHE', '0'),
+('COM_ALTER_DB', '0'),
+('COM_ALTER_DB_UPGRADE', '0'),
+('COM_ALTER_EVENT', '0'),
+('COM_ALTER_FUNCTION', '0'),
+('COM_ALTER_PROCEDURE', '0'),
+('COM_ALTER_SERVER', '0'),
+('COM_ALTER_TABLE', '0'),
+('COM_ALTER_TABLESPACE', '0'),
+('COM_ANALYZE', '0'),
+('COM_BEGIN', '0'),
+('COM_BINLOG', '0'),
+('COM_CALL_PROCEDURE', '0'),
+('COM_CHANGE_DB', '2'),
+('COM_CHANGE_MASTER', '0'),
+('COM_CHECK', '0'),
+('COM_CHECKSUM', '0'),
+('COM_COMMIT', '0'),
+('COM_CREATE_DB', '0'),
+('COM_CREATE_EVENT', '0'),
+('COM_CREATE_FUNCTION', '0'),
+('COM_CREATE_INDEX', '0'),
+('COM_CREATE_PROCEDURE', '0'),
+('COM_CREATE_SERVER', '0'),
+('COM_CREATE_TABLE', '0'),
+('COM_CREATE_TRIGGER', '0'),
+('COM_CREATE_UDF', '0'),
+('COM_CREATE_USER', '0'),
+('COM_CREATE_VIEW', '0'),
+('COM_DEALLOC_SQL', '0'),
+('COM_DELETE', '0'),
+('COM_DELETE_MULTI', '0'),
+('COM_DO', '0'),
+('COM_DROP_DB', '0'),
+('COM_DROP_EVENT', '0'),
+('COM_DROP_FUNCTION', '0'),
+('COM_DROP_INDEX', '0'),
+('COM_DROP_PROCEDURE', '0'),
+('COM_DROP_SERVER', '0'),
+('COM_DROP_TABLE', '0'),
+('COM_DROP_TRIGGER', '0'),
+('COM_DROP_USER', '0'),
+('COM_DROP_VIEW', '0'),
+('COM_EMPTY_QUERY', '0'),
+('COM_EXECUTE_SQL', '0'),
+('COM_FLUSH', '0'),
+('COM_GRANT', '0'),
+('COM_HA_CLOSE', '0'),
+('COM_HA_OPEN', '0'),
+('COM_HA_READ', '0'),
+('COM_HELP', '0'),
+('COM_INSERT', '0'),
+('COM_INSERT_SELECT', '0'),
+('COM_INSTALL_PLUGIN', '0'),
+('COM_KILL', '0'),
+('COM_LOAD', '0'),
+('COM_LOCK_TABLES', '0'),
+('COM_OPTIMIZE', '0'),
+('COM_PRELOAD_KEYS', '0'),
+('COM_PREPARE_SQL', '0'),
+('COM_PURGE', '0'),
+('COM_PURGE_BEFORE_DATE', '0'),
+('COM_RELEASE_SAVEPOINT', '0'),
+('COM_RENAME_TABLE', '0'),
+('COM_RENAME_USER', '0'),
+('COM_REPAIR', '0'),
+('COM_REPLACE', '0'),
+('COM_REPLACE_SELECT', '0'),
+('COM_RESET', '0'),
+('COM_RESIGNAL', '0'),
+('COM_REVOKE', '0'),
+('COM_REVOKE_ALL', '0'),
+('COM_ROLLBACK', '0'),
+('COM_ROLLBACK_TO_SAVEPOINT', '0'),
+('COM_SAVEPOINT', '0'),
+('COM_SELECT', '64'),
+('COM_SET_OPTION', '66'),
+('COM_SIGNAL', '0'),
+('COM_SHOW_AUTHORS', '0'),
+('COM_SHOW_BINLOG_EVENTS', '0'),
+('COM_SHOW_BINLOGS', '0'),
+('COM_SHOW_CHARSETS', '0'),
+('COM_SHOW_COLLATIONS', '0'),
+('COM_SHOW_CONTRIBUTORS', '0'),
+('COM_SHOW_CREATE_DB', '0'),
+('COM_SHOW_CREATE_EVENT', '0'),
+('COM_SHOW_CREATE_FUNC', '0'),
+('COM_SHOW_CREATE_PROC', '0'),
+('COM_SHOW_CREATE_TABLE', '62'),
+('COM_SHOW_CREATE_TRIGGER', '0'),
+('COM_SHOW_DATABASES', '1'),
+('COM_SHOW_ENGINE_LOGS', '0'),
+('COM_SHOW_ENGINE_MUTEX', '0'),
+('COM_SHOW_ENGINE_STATUS', '0'),
+('COM_SHOW_EVENTS', '0'),
+('COM_SHOW_ERRORS', '0'),
+('COM_SHOW_FIELDS', '0'),
+('COM_SHOW_FUNCTION_STATUS', '2'),
+('COM_SHOW_GRANTS', '0'),
+('COM_SHOW_KEYS', '0'),
+('COM_SHOW_MASTER_STATUS', '0'),
+('COM_SHOW_OPEN_TABLES', '0'),
+('COM_SHOW_PLUGINS', '1'),
+('COM_SHOW_PRIVILEGES', '0'),
+('COM_SHOW_PROCEDURE_STATUS', '2'),
+('COM_SHOW_PROCESSLIST', '0'),
+('COM_SHOW_PROFILE', '0'),
+('COM_SHOW_PROFILES', '0'),
+('COM_SHOW_RELAYLOG_EVENTS', '0'),
+('COM_SHOW_SLAVE_HOSTS', '0'),
+('COM_SHOW_SLAVE_STATUS', '0'),
+('COM_SHOW_STATUS', '0'),
+('COM_SHOW_STORAGE_ENGINES', '0'),
+('COM_SHOW_TABLE_STATUS', '109'),
+('COM_SHOW_TABLES', '2'),
+('COM_SHOW_TRIGGERS', '61'),
+('COM_SHOW_VARIABLES', '1'),
+('COM_SHOW_WARNINGS', '0'),
+('COM_SLAVE_START', '0'),
+('COM_SLAVE_STOP', '0'),
+('COM_STMT_CLOSE', '0'),
+('COM_STMT_EXECUTE', '0'),
+('COM_STMT_FETCH', '0'),
+('COM_STMT_PREPARE', '0'),
+('COM_STMT_REPREPARE', '0'),
+('COM_STMT_RESET', '0'),
+('COM_STMT_SEND_LONG_DATA', '0'),
+('COM_TRUNCATE', '0'),
+('COM_UNINSTALL_PLUGIN', '0'),
+('COM_UNLOCK_TABLES', '0'),
+('COM_UPDATE', '0'),
+('COM_UPDATE_MULTI', '0'),
+('COM_XA_COMMIT', '0'),
+('COM_XA_END', '0'),
+('COM_XA_PREPARE', '0'),
+('COM_XA_RECOVER', '0'),
+('COM_XA_ROLLBACK', '0'),
+('COM_XA_START', '0'),
+('COMPRESSION', 'OFF'),
+('CONNECTIONS', '368185'),
+('CREATED_TMP_DISK_TABLES', '138'),
+('CREATED_TMP_FILES', '726'),
+('CREATED_TMP_TABLES', '444'),
+('DELAYED_ERRORS', '0'),
+('DELAYED_INSERT_THREADS', '0'),
+('DELAYED_WRITES', '6'),
+('FLUSH_COMMANDS', '1'),
+('HANDLER_COMMIT', '39'),
+('HANDLER_DELETE', '0'),
+('HANDLER_DISCOVER', '0'),
+('HANDLER_PREPARE', '0'),
+('HANDLER_READ_FIRST', '46'),
+('HANDLER_READ_KEY', '39'),
+('HANDLER_READ_LAST', '0'),
+('HANDLER_READ_NEXT', '277'),
+('HANDLER_READ_PREV', '0'),
+('HANDLER_READ_RND', '0'),
+('HANDLER_READ_RND_NEXT', '25706'),
+('HANDLER_ROLLBACK', '0'),
+('HANDLER_SAVEPOINT', '0'),
+('HANDLER_SAVEPOINT_ROLLBACK', '0'),
+('HANDLER_UPDATE', '0'),
+('HANDLER_WRITE', '2267'),
+('INNODB_BUFFER_POOL_PAGES_DATA', '8190'),
+('INNODB_BUFFER_POOL_BYTES_DATA', '134184960'),
+('INNODB_BUFFER_POOL_PAGES_DIRTY', '25'),
+('INNODB_BUFFER_POOL_BYTES_DIRTY', '409600'),
+('INNODB_BUFFER_POOL_PAGES_FLUSHED', '307506'),
+('INNODB_BUFFER_POOL_PAGES_FREE', '0'),
+('INNODB_BUFFER_POOL_PAGES_MISC', '1'),
+('INNODB_BUFFER_POOL_PAGES_TOTAL', '8191'),
+('INNODB_BUFFER_POOL_READ_AHEAD_RND', '0'),
+('INNODB_BUFFER_POOL_READ_AHEAD', '644448662'),
+('INNODB_BUFFER_POOL_READ_AHEAD_EVICTED', '2657577'),
+('INNODB_BUFFER_POOL_READ_REQUESTS', '3090059486'),
+('INNODB_BUFFER_POOL_READS', '12015414'),
+('INNODB_BUFFER_POOL_WAIT_FREE', '0'),
+('INNODB_BUFFER_POOL_WRITE_REQUESTS', '1052534'),
+('INNODB_DATA_FSYNCS', '287165'),
+('INNODB_DATA_PENDING_FSYNCS', '0'),
+('INNODB_DATA_PENDING_READS', '0'),
+('INNODB_DATA_PENDING_WRITES', '0'),
+('INNODB_DATA_READ', '930402304'),
+('INNODB_DATA_READS', '656467897'),
+('INNODB_DATA_WRITES', '560100'),
+('INNODB_DATA_WRITTEN', '1717177344'),
+('INNODB_DBLWR_PAGES_WRITTEN', '307506'),
+('INNODB_DBLWR_WRITES', '13109'),
+('INNODB_HAVE_ATOMIC_BUILTINS', 'ON'),
+('INNODB_LOG_WAITS', '0'),
+('INNODB_LOG_WRITE_REQUESTS', '228687'),
+('INNODB_LOG_WRITES', '227314'),
+('INNODB_OS_LOG_FSYNCS', '237589'),
+('INNODB_OS_LOG_PENDING_FSYNCS', '0'),
+('INNODB_OS_LOG_PENDING_WRITES', '0'),
+('INNODB_OS_LOG_WRITTEN', '225504256'),
+('INNODB_PAGE_SIZE', '16384'),
+('INNODB_PAGES_CREATED', '3589'),
+('INNODB_PAGES_READ', '656465231'),
+('INNODB_PAGES_WRITTEN', '307506'),
+('INNODB_ROW_LOCK_CURRENT_WAITS', '0'),
+('INNODB_ROW_LOCK_TIME', '0'),
+('INNODB_ROW_LOCK_TIME_AVG', '0'),
+('INNODB_ROW_LOCK_TIME_MAX', '0'),
+('INNODB_ROW_LOCK_WAITS', '9'),
+('INNODB_ROWS_DELETED', '1993'),
+('INNODB_ROWS_INSERTED', '195967'),
+('INNODB_ROWS_READ', '1814613541'),
+('INNODB_ROWS_UPDATED', '28493'),
+('INNODB_TRUNCATED_STATUS_WRITES', '0'),
+('KEY_BLOCKS_NOT_FLUSHED', '0'),
+('KEY_BLOCKS_UNUSED', '11450'),
+('KEY_BLOCKS_USED', '14497'),
+('KEY_READ_REQUESTS', '608617189'),
+('KEY_READS', '2059173'),
+('KEY_WRITE_REQUESTS', '100314989'),
+('KEY_WRITES', '2205188'),
+('LAST_QUERY_COST', '10.499000'),
+('MAX_USED_CONNECTIONS', '86'),
+('NOT_FLUSHED_DELAYED_ROWS', '0'),
+('OPEN_FILES', '632'),
+('OPEN_STREAMS', '0'),
+('OPEN_TABLE_DEFINITIONS', '501'),
+('OPEN_TABLES', '512'),
+('OPENED_FILES', '1810379'),
+('OPENED_TABLE_DEFINITIONS', '43'),
+('OPENED_TABLES', '84'),
+('PERFORMANCE_SCHEMA_COND_CLASSES_LOST', '0'),
+('PERFORMANCE_SCHEMA_COND_INSTANCES_LOST', '0'),
+('PERFORMANCE_SCHEMA_FILE_CLASSES_LOST', '0'),
+('PERFORMANCE_SCHEMA_FILE_HANDLES_LOST', '0'),
+('PERFORMANCE_SCHEMA_FILE_INSTANCES_LOST', '0'),
+('PERFORMANCE_SCHEMA_LOCKER_LOST', '0'),
+('PERFORMANCE_SCHEMA_MUTEX_CLASSES_LOST', '0'),
+('PERFORMANCE_SCHEMA_MUTEX_INSTANCES_LOST', '0'),
+('PERFORMANCE_SCHEMA_RWLOCK_CLASSES_LOST', '0'),
+('PERFORMANCE_SCHEMA_RWLOCK_INSTANCES_LOST', '0'),
+('PERFORMANCE_SCHEMA_TABLE_HANDLES_LOST', '0'),
+('PERFORMANCE_SCHEMA_TABLE_INSTANCES_LOST', '0'),
+('PERFORMANCE_SCHEMA_THREAD_CLASSES_LOST', '0'),
+('PERFORMANCE_SCHEMA_THREAD_INSTANCES_LOST', '0'),
+('PREPARED_STMT_COUNT', '0'),
+('QCACHE_FREE_BLOCKS', '116'),
+('QCACHE_FREE_MEMORY', '781504'),
+('QCACHE_HITS', '8727180'),
+('QCACHE_INSERTS', '1795406'),
+('QCACHE_LOWMEM_PRUNES', '1068052'),
+('QCACHE_NOT_CACHED', '278308'),
+('QCACHE_QUERIES_IN_CACHE', '3282'),
+('QCACHE_TOTAL_BLOCKS', '8326'),
+('QUERIES', '15571506'),
+('QUESTIONS', '373'),
+('RPL_STATUS', 'AUTH_MASTER'),
+('SELECT_FULL_JOIN', '0'),
+('SELECT_FULL_RANGE_JOIN', '0'),
+('SELECT_RANGE', '0'),
+('SELECT_RANGE_CHECK', '0'),
+('SELECT_SCAN', '241'),
+('SLAVE_HEARTBEAT_PERIOD', '0.000'),
+('SLAVE_OPEN_TEMP_TABLES', '0'),
+('SLAVE_RECEIVED_HEARTBEATS', '0'),
+('SLAVE_RETRIED_TRANSACTIONS', '0'),
+('SLAVE_RUNNING', 'OFF'),
+('SLOW_LAUNCH_THREADS', '0'),
+('SLOW_QUERIES', '0'),
+('SORT_MERGE_PASSES', '0'),
+('SORT_RANGE', '0'),
+('SORT_ROWS', '0'),
+('SORT_SCAN', '0'),
+('SSL_ACCEPT_RENEGOTIATES', '0'),
+('SSL_ACCEPTS', '0'),
+('SSL_CALLBACK_CACHE_HITS', '0'),
+('SSL_CIPHER', ''),
+('SSL_CIPHER_LIST', ''),
+('SSL_CLIENT_CONNECTS', '0'),
+('SSL_CONNECT_RENEGOTIATES', '0'),
+('SSL_CTX_VERIFY_DEPTH', '0'),
+('SSL_CTX_VERIFY_MODE', '0'),
+('SSL_DEFAULT_TIMEOUT', '0'),
+('SSL_FINISHED_ACCEPTS', '0'),
+('SSL_FINISHED_CONNECTS', '0'),
+('SSL_SESSION_CACHE_HITS', '0'),
+('SSL_SESSION_CACHE_MISSES', '0'),
+('SSL_SESSION_CACHE_MODE', 'NONE'),
+('SSL_SESSION_CACHE_OVERFLOWS', '0'),
+('SSL_SESSION_CACHE_SIZE', '0'),
+('SSL_SESSION_CACHE_TIMEOUTS', '0'),
+('SSL_SESSIONS_REUSED', '0'),
+('SSL_USED_SESSION_CACHE_ENTRIES', '0'),
+('SSL_VERIFY_DEPTH', '0'),
+('SSL_VERIFY_MODE', '0'),
+('SSL_VERSION', ''),
+('TABLE_LOCKS_IMMEDIATE', '3332480'),
+('TABLE_LOCKS_WAITED', '667'),
+('TC_LOG_MAX_PAGES_USED', '0'),
+('TC_LOG_PAGE_SIZE', '0'),
+('TC_LOG_PAGE_WAITS', '0'),
+('THREADS_CACHED', '1'),
+('THREADS_CONNECTED', '36'),
+('THREADS_CREATED', '36946'),
+('THREADS_RUNNING', '1'),
+('UPTIME', '106124'),
+('UPTIME_SINCE_FLUSH_STATUS', '106124');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `SESSION_VARIABLES`
+--
+
+CREATE TEMPORARY TABLE `SESSION_VARIABLES` (
+  `VARIABLE_NAME` varchar(64) NOT NULL DEFAULT '',
+  `VARIABLE_VALUE` varchar(1024) DEFAULT NULL
+) ENGINE=MEMORY DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `SESSION_VARIABLES`
+--
+
+INSERT INTO `SESSION_VARIABLES` (`VARIABLE_NAME`, `VARIABLE_VALUE`) VALUES
+('MAX_PREPARED_STMT_COUNT', '16382'),
+('INNODB_BUFFER_POOL_SIZE', '134217728'),
+('HAVE_CRYPT', 'YES'),
+('PERFORMANCE_SCHEMA_EVENTS_WAITS_HISTORY_LONG_SIZE', '10000'),
+('INNODB_VERSION', '5.5.35'),
+('QUERY_PREALLOC_SIZE', '8192'),
+('DELAYED_QUEUE_SIZE', '1000'),
+('PERFORMANCE_SCHEMA_MAX_COND_INSTANCES', '1000'),
+('SSL_CIPHER', ''),
+('COLLATION_SERVER', 'latin1_swedish_ci'),
+('SECURE_FILE_PRIV', ''),
+('TIMED_MUTEXES', 'OFF'),
+('DELAYED_INSERT_TIMEOUT', '300'),
+('PERFORMANCE_SCHEMA_MAX_MUTEX_INSTANCES', '1000000'),
+('LC_TIME_NAMES', 'en_US'),
+('PERFORMANCE_SCHEMA_MAX_RWLOCK_INSTANCES', '1000000'),
+('TIME_FORMAT', '%H:%i:%s'),
+('PERFORMANCE_SCHEMA_MAX_RWLOCK_CLASSES', '30'),
+('BASEDIR', '/usr'),
+('PERFORMANCE_SCHEMA_MAX_MUTEX_CLASSES', '200'),
+('UPDATABLE_VIEWS_WITH_LIMIT', 'YES'),
+('BACK_LOG', '50'),
+('SLOW_LAUNCH_TIME', '2'),
+('EVENT_SCHEDULER', 'OFF'),
+('MAX_SEEKS_FOR_KEY', '4294967295'),
+('PERFORMANCE_SCHEMA_MAX_THREAD_CLASSES', '50'),
+('RELAY_LOG_INDEX', ''),
+('FT_STOPWORD_FILE', '(built-in)'),
+('SQL_QUOTE_SHOW_CREATE', 'ON'),
+('PERFORMANCE_SCHEMA', 'OFF'),
+('QUERY_CACHE_SIZE', '16777216'),
+('BINLOG_FORMAT', 'STATEMENT'),
+('WAIT_TIMEOUT', '90'),
+('LONG_QUERY_TIME', '10.000000'),
+('PERFORMANCE_SCHEMA_MAX_TABLE_HANDLES', '100000'),
+('CHARACTER_SETS_DIR', '/usr/share/mysql/charsets/'),
+('LOWER_CASE_TABLE_NAMES', '1'),
+('BINLOG_CACHE_SIZE', '32768'),
+('REPORT_HOST', ''),
+('CHARACTER_SET_RESULTS', 'utf8'),
+('MYISAM_SORT_BUFFER_SIZE', '8388608'),
+('CHARACTER_SET_CONNECTION', 'utf8'),
+('INNODB_ROLLBACK_SEGMENTS', '128'),
+('PRELOAD_BUFFER_SIZE', '32768'),
+('LARGE_FILES_SUPPORT', 'ON'),
+('MAX_WRITE_LOCK_COUNT', '4294967295'),
+('SQL_SAFE_UPDATES', 'OFF'),
+('MAX_JOIN_SIZE', '18446744073709551615'),
+('NET_BUFFER_LENGTH', '16384'),
+('FT_QUERY_EXPANSION_LIMIT', '20'),
+('SKIP_SHOW_DATABASE', 'OFF'),
+('FT_MAX_WORD_LEN', '84'),
+('GROUP_CONCAT_MAX_LEN', '1024'),
+('MAX_SP_RECURSION_DEPTH', '0'),
+('RANGE_ALLOC_BLOCK_SIZE', '4096'),
+('SYNC_RELAY_LOG', '0'),
+('OPTIMIZER_PRUNE_LEVEL', '1'),
+('HAVE_QUERY_CACHE', 'YES'),
+('INNODB_LOG_FILE_SIZE', '5242880'),
+('DELAY_KEY_WRITE', 'ON'),
+('TRANSACTION_PREALLOC_SIZE', '4096'),
+('INTERACTIVE_TIMEOUT', '28800'),
+('MYISAM_RECOVER_OPTIONS', 'BACKUP'),
+('AUTOMATIC_SP_PRIVILEGES', 'ON'),
+('PROTOCOL_VERSION', '10'),
+('DELAYED_INSERT_LIMIT', '100'),
+('LOW_PRIORITY_UPDATES', 'OFF'),
+('COMPLETION_TYPE', 'NO_CHAIN'),
+('REPORT_PASSWORD', ''),
+('BINLOG_DIRECT_NON_TRANSACTIONAL_UPDATES', 'OFF'),
+('MAX_INSERT_DELAYED_THREADS', '20'),
+('VERSION_COMMENT', '(Debian)'),
+('SQL_BIG_SELECTS', 'ON'),
+('AUTO_INCREMENT_OFFSET', '1'),
+('TRANSACTION_ALLOC_BLOCK_SIZE', '8192'),
+('JOIN_BUFFER_SIZE', '131072'),
+('THREAD_CACHE_SIZE', '4'),
+('CONNECT_TIMEOUT', '10'),
+('INNODB_DOUBLEWRITE', 'ON'),
+('SQL_LOW_PRIORITY_UPDATES', 'OFF'),
+('IGNORE_BUILTIN_INNODB', 'OFF'),
+('INIT_FILE', ''),
+('DEFAULT_WEEK_FORMAT', '0'),
+('LARGE_PAGES', 'OFF'),
+('LOG_OUTPUT', 'FILE'),
+('LARGE_PAGE_SIZE', '0'),
+('INNODB_IO_CAPACITY', '200'),
+('INIT_SLAVE', ''),
+('INNODB_USE_NATIVE_AIO', 'ON'),
+('MAX_BINLOG_SIZE', '1073741824'),
+('HAVE_SYMLINK', 'DISABLED'),
+('MAX_ERROR_COUNT', '64'),
+('TIME_ZONE', '+00:00'),
+('MAX_CONNECTIONS', '500'),
+('INNODB_TABLE_LOCKS', 'ON'),
+('PROXY_USER', ''),
+('INNODB_AUTOEXTEND_INCREMENT', '8'),
+('READ_BUFFER_SIZE', '131072'),
+('MYISAM_DATA_POINTER_SIZE', '6'),
+('PSEUDO_THREAD_ID', '368177'),
+('INNODB_THREAD_SLEEP_DELAY', '10000'),
+('LOG_QUERIES_NOT_USING_INDEXES', 'OFF'),
+('SQL_AUTO_IS_NULL', 'OFF'),
+('LOWER_CASE_FILE_SYSTEM', 'OFF'),
+('SLAVE_TRANSACTION_RETRIES', '10'),
+('SORT_BUFFER_SIZE', '2097152'),
+('KEEP_FILES_ON_CREATE', 'OFF'),
+('MAX_HEAP_TABLE_SIZE', '16777216'),
+('SYNC_RELAY_LOG_INFO', '0'),
+('LOCK_WAIT_TIMEOUT', '31536000'),
+('INNODB_REPLICATION_DELAY', '0'),
+('KEY_CACHE_AGE_THRESHOLD', '300'),
+('QUERY_CACHE_MIN_RES_UNIT', '4096'),
+('NET_RETRY_COUNT', '10'),
+('INNODB_STATS_ON_METADATA', 'ON'),
+('LOG_WARNINGS', '1'),
+('INNODB_ROLLBACK_ON_TIMEOUT', 'OFF'),
+('FLUSH', 'OFF'),
+('PROFILING_HISTORY_SIZE', '15'),
+('MAX_LONG_DATA_SIZE', '33554432'),
+('INNODB_CHANGE_BUFFERING', 'all'),
+('CHARACTER_SET_SERVER', 'latin1'),
+('READ_RND_BUFFER_SIZE', '262144'),
+('SLAVE_MAX_ALLOWED_PACKET', '1073741824'),
+('INNODB_FILE_FORMAT', 'Antelope'),
+('FLUSH_TIME', '900'),
+('BIG_TABLES', 'OFF'),
+('CHARACTER_SET_DATABASE', 'utf8'),
+('SQL_SELECT_LIMIT', '18446744073709551615'),
+('BULK_INSERT_BUFFER_SIZE', '8388608'),
+('DATE_FORMAT', '%Y-%m-%d'),
+('CHARACTER_SET_FILESYSTEM', 'binary'),
+('READ_ONLY', 'OFF'),
+('BINLOG_STMT_CACHE_SIZE', '32768'),
+('RAND_SEED1', '0'),
+('MAX_BINLOG_CACHE_SIZE', '18446744073709547520'),
+('INNODB_DATA_FILE_PATH', 'ibdata1:10M:autoextend'),
+('PERFORMANCE_SCHEMA_MAX_FILE_CLASSES', '50'),
+('INNODB_PURGE_THREADS', '0'),
+('MAX_SORT_LENGTH', '1024'),
+('PROFILING', 'OFF'),
+('PERFORMANCE_SCHEMA_EVENTS_WAITS_HISTORY_SIZE', '10'),
+('INNODB_STRICT_MODE', 'OFF'),
+('SLAVE_COMPRESSED_PROTOCOL', 'OFF'),
+('KEY_CACHE_DIVISION_LIMIT', '100'),
+('OLD_PASSWORDS', 'OFF'),
+('GENERAL_LOG_FILE', '/var/lib/mysql/bambam.log'),
+('NET_WRITE_TIMEOUT', '60'),
+('PERFORMANCE_SCHEMA_MAX_COND_CLASSES', '80'),
+('QUERY_CACHE_TYPE', 'ON'),
+('AUTO_INCREMENT_INCREMENT', '1'),
+('METADATA_LOCKS_CACHE_SIZE', '1024'),
+('TMPDIR', '/tmp'),
+('QUERY_CACHE_LIMIT', '1048576'),
+('EXPIRE_LOGS_DAYS', '0'),
+('TX_ISOLATION', 'REPEATABLE-READ'),
+('HAVE_PARTITIONING', 'YES'),
+('LOG_ERROR', ''),
+('FOREIGN_KEY_CHECKS', 'ON'),
+('MAX_LENGTH_FOR_SORT_DATA', '1024'),
+('RELAY_LOG_INFO_FILE', 'relay-log.info'),
+('THREAD_STACK', '196608'),
+('INNODB_AUTOINC_LOCK_MODE', '1'),
+('NEW', 'OFF'),
+('INNODB_COMMIT_CONCURRENCY', '0'),
+('SKIP_NAME_RESOLVE', 'OFF'),
+('INNODB_MIRRORED_LOG_GROUPS', '1'),
+('PID_FILE', '/var/run/mysqld/mysqld.pid'),
+('INNODB_PURGE_BATCH_SIZE', '20'),
+('MAX_ALLOWED_PACKET', '33554432'),
+('VERSION', '5.5.35-0+wheezy1-log'),
+('CONCURRENT_INSERT', 'AUTO'),
+('INNODB_SUPPORT_XA', 'ON'),
+('TABLE_DEFINITION_CACHE', '400'),
+('INNODB_SYNC_SPIN_LOOPS', '30'),
+('QUERY_ALLOC_BLOCK_SIZE', '8192'),
+('COLLATION_CONNECTION', 'utf8_general_ci'),
+('MYISAM_REPAIR_THREADS', '1'),
+('INNODB_ADAPTIVE_FLUSHING', 'ON'),
+('FT_BOOLEAN_SYNTAX', '+ -><()~*:""&|'),
+('INNODB_ADAPTIVE_HASH_INDEX', 'ON'),
+('VERSION_COMPILE_MACHINE', 'i686'),
+('SYSTEM_TIME_ZONE', 'UTC'),
+('QUERY_CACHE_WLOCK_INVALIDATE', 'OFF'),
+('DIV_PRECISION_INCREMENT', '4'),
+('SYNC_FRM', 'ON'),
+('STORED_PROGRAM_CACHE', '256'),
+('TMP_TABLE_SIZE', '16777216'),
+('INNODB_DATA_HOME_DIR', ''),
+('PERFORMANCE_SCHEMA_MAX_THREAD_INSTANCES', '1000'),
+('INNODB_READ_IO_THREADS', '4'),
+('MULTI_RANGE_COUNT', '256'),
+('INNODB_WRITE_IO_THREADS', '4'),
+('SERVER_ID', '0'),
+('INNODB_BUFFER_POOL_INSTANCES', '1'),
+('SKIP_NETWORKING', 'OFF'),
+('INNODB_FORCE_RECOVERY', '0'),
+('CHARACTER_SET_SYSTEM', 'utf8'),
+('INNODB_LOG_FILES_IN_GROUP', '2'),
+('INIT_CONNECT', ''),
+('ERROR_COUNT', '0'),
+('OPTIMIZER_SEARCH_DEPTH', '62'),
+('HAVE_DYNAMIC_LOADING', 'YES'),
+('AUTOCOMMIT', 'ON'),
+('SYNC_BINLOG', '0'),
+('SSL_CAPATH', ''),
+('INNODB_PRINT_ALL_DEADLOCKS', 'OFF'),
+('SLAVE_EXEC_MODE', 'STRICT'),
+('INNODB_OPEN_FILES', '300'),
+('GENERAL_LOG', 'OFF'),
+('INNODB_FILE_FORMAT_CHECK', 'ON'),
+('LAST_INSERT_ID', '0'),
+('INNODB_READ_AHEAD_THRESHOLD', '56'),
+('HOSTNAME', 'bambam'),
+('KEY_CACHE_BLOCK_SIZE', '1024'),
+('OLD', 'OFF'),
+('KEY_BUFFER_SIZE', '16777216'),
+('REPORT_PORT', '3306'),
+('HAVE_NDBCLUSTER', 'NO'),
+('SQL_LOG_BIN', 'ON'),
+('PSEUDO_SLAVE_MODE', 'OFF'),
+('THREAD_HANDLING', 'one-thread-per-connection'),
+('INNODB_STATS_METHOD', 'nulls_equal'),
+('LOG_BIN', 'OFF'),
+('INNODB_FAST_SHUTDOWN', '1'),
+('RELAY_LOG_SPACE_LIMIT', '0'),
+('SSL_CA', ''),
+('MAX_USER_CONNECTIONS', '50'),
+('INNODB_THREAD_CONCURRENCY', '0'),
+('SQL_MAX_JOIN_SIZE', '18446744073709551615'),
+('SLAVE_NET_TIMEOUT', '3600'),
+('TABLE_OPEN_CACHE', '512'),
+('INNODB_STATS_SAMPLE_PAGES', '8'),
+('SQL_BIG_TABLES', 'OFF'),
+('LOCAL_INFILE', 'OFF'),
+('SQL_BUFFER_RESULT', 'OFF'),
+('HAVE_RTREE_KEYS', 'YES'),
+('ENGINE_CONDITION_PUSHDOWN', 'ON'),
+('HAVE_PROFILING', 'YES'),
+('LC_MESSAGES_DIR', '/usr/share/mysql/'),
+('OLD_ALTER_TABLE', 'OFF'),
+('HAVE_INNODB', 'YES'),
+('MYISAM_MMAP_SIZE', '4294967295'),
+('SQL_MODE', ''),
+('PERFORMANCE_SCHEMA_MAX_FILE_HANDLES', '32768'),
+('TIMESTAMP', '1394646592'),
+('RELAY_LOG_RECOVERY', 'OFF'),
+('REPORT_USER', ''),
+('MAX_DELAYED_THREADS', '20'),
+('HAVE_GEOMETRY', 'YES'),
+('DATETIME_FORMAT', '%Y-%m-%d %H:%i:%s'),
+('SLOW_QUERY_LOG', 'ON'),
+('INNODB_FLUSH_LOG_AT_TRX_COMMIT', '1'),
+('LC_MESSAGES', 'en_US'),
+('MAX_RELAY_LOG_SIZE', '0'),
+('LOG', 'OFF'),
+('INNODB_RANDOM_READ_AHEAD', 'OFF'),
+('OPEN_FILES_LIMIT', '8192'),
+('HAVE_CSV', 'YES'),
+('DATADIR', '/var/lib/mysql/'),
+('PORT', '3306'),
+('FT_MIN_WORD_LEN', '4'),
+('INNODB_CONCURRENCY_TICKETS', '500'),
+('VERSION_COMPILE_OS', 'debian-linux-gnu'),
+('LOG_BIN_TRUST_FUNCTION_CREATORS', 'OFF'),
+('INNODB_LOCKS_UNSAFE_FOR_BINLOG', 'OFF'),
+('INNODB_FORCE_LOAD_CORRUPTED', 'OFF'),
+('SQL_WARNINGS', 'OFF'),
+('HAVE_OPENSSL', 'DISABLED'),
+('RELAY_LOG', ''),
+('MAX_BINLOG_STMT_CACHE_SIZE', '18446744073709547520'),
+('PLUGIN_DIR', '/usr/lib/mysql/plugin/'),
+('PERFORMANCE_SCHEMA_MAX_FILE_INSTANCES', '10000'),
+('LOG_SLOW_QUERIES', 'ON'),
+('INNODB_SPIN_WAIT_DELAY', '6'),
+('MAX_TMP_TABLES', '32'),
+('INNODB_FILE_FORMAT_MAX', 'Antelope'),
+('SQL_LOG_OFF', 'OFF'),
+('DEFAULT_STORAGE_ENGINE', 'InnoDB'),
+('SLOW_QUERY_LOG_FILE', '/var/log/mysql/mysql-slow.log'),
+('INNODB_LOCK_WAIT_TIMEOUT', '50'),
+('SQL_SLAVE_SKIP_COUNTER', '0'),
+('INNODB_OLD_BLOCKS_TIME', '0'),
+('SECURE_AUTH', 'OFF'),
+('RPL_RECOVERY_RANK', '0'),
+('NET_READ_TIMEOUT', '30'),
+('WARNING_COUNT', '0'),
+('MYISAM_STATS_METHOD', 'nulls_unequal'),
+('OPTIMIZER_SWITCH', 'index_merge=on,index_merge_union=on,index_merge_sort_union=on,index_merge_intersection=on,engine_condition_pushdown=on'),
+('MAX_CONNECT_ERRORS', '10'),
+('LOCKED_IN_MEMORY', 'OFF'),
+('INNODB_FLUSH_METHOD', ''),
+('EXTERNAL_USER', ''),
+('INNODB_LARGE_PREFIX', 'OFF'),
+('INNODB_CHECKSUMS', 'ON'),
+('STORAGE_ENGINE', 'InnoDB'),
+('SSL_KEY', ''),
+('HAVE_SSL', 'DISABLED'),
+('MYISAM_USE_MMAP', 'OFF'),
+('RAND_SEED2', '0'),
+('SLAVE_SKIP_ERRORS', 'OFF'),
+('MIN_EXAMINED_ROW_LIMIT', '0'),
+('INSERT_ID', '0'),
+('LOG_SLAVE_UPDATES', 'OFF'),
+('RELAY_LOG_PURGE', 'ON'),
+('SYNC_MASTER_INFO', '0'),
+('COLLATION_DATABASE', 'utf8_general_ci'),
+('INNODB_FILE_PER_TABLE', 'ON'),
+('INNODB_LOG_GROUP_HOME_DIR', './'),
+('SSL_CERT', ''),
+('INNODB_LOG_BUFFER_SIZE', '8388608'),
+('SOCKET', '/var/run/mysqld/mysqld.sock'),
+('CHARACTER_SET_CLIENT', 'utf8'),
+('IDENTITY', '0'),
+('INNODB_MAX_PURGE_LAG', '0'),
+('SKIP_EXTERNAL_LOCKING', 'ON'),
+('MYISAM_MAX_SORT_FILE_SIZE', '2146435072'),
+('SLAVE_LOAD_TMPDIR', '/tmp'),
+('SLAVE_TYPE_CONVERSIONS', ''),
+('INNODB_ADDITIONAL_MEM_POOL_SIZE', '8388608'),
+('SQL_NOTES', 'ON'),
+('INNODB_USE_SYS_MALLOC', 'ON'),
+('LICENSE', 'GPL'),
+('INNODB_MAX_DIRTY_PAGES_PCT', '75'),
+('PERFORMANCE_SCHEMA_MAX_TABLE_INSTANCES', '50000'),
+('THREAD_CONCURRENCY', '10'),
+('UNIQUE_CHECKS', 'ON'),
+('INNODB_OLD_BLOCKS_PCT', '37'),
+('HAVE_COMPRESS', 'YES');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `STATISTICS`
+--
+
+CREATE TEMPORARY TABLE `STATISTICS` (
+  `TABLE_CATALOG` varchar(512) NOT NULL DEFAULT '',
+  `TABLE_SCHEMA` varchar(64) NOT NULL DEFAULT '',
+  `TABLE_NAME` varchar(64) NOT NULL DEFAULT '',
+  `NON_UNIQUE` bigint(1) NOT NULL DEFAULT '0',
+  `INDEX_SCHEMA` varchar(64) NOT NULL DEFAULT '',
+  `INDEX_NAME` varchar(64) NOT NULL DEFAULT '',
+  `SEQ_IN_INDEX` bigint(2) NOT NULL DEFAULT '0',
+  `COLUMN_NAME` varchar(64) NOT NULL DEFAULT '',
+  `COLLATION` varchar(1) DEFAULT NULL,
+  `CARDINALITY` bigint(21) DEFAULT NULL,
+  `SUB_PART` bigint(3) DEFAULT NULL,
+  `PACKED` varchar(10) DEFAULT NULL,
+  `NULLABLE` varchar(3) NOT NULL DEFAULT '',
+  `INDEX_TYPE` varchar(16) NOT NULL DEFAULT '',
+  `COMMENT` varchar(16) DEFAULT NULL,
+  `INDEX_COMMENT` varchar(1024) NOT NULL DEFAULT ''
+) ENGINE=MEMORY DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `STATISTICS`
+--
+
+INSERT INTO `STATISTICS` (`TABLE_CATALOG`, `TABLE_SCHEMA`, `TABLE_NAME`, `NON_UNIQUE`, `INDEX_SCHEMA`, `INDEX_NAME`, `SEQ_IN_INDEX`, `COLUMN_NAME`, `COLLATION`, `CARDINALITY`, `SUB_PART`, `PACKED`, `NULLABLE`, `INDEX_TYPE`, `COMMENT`, `INDEX_COMMENT`) VALUES
+('def', 'amyvarga', 'blog', 0, 'amyvarga', 'PRIMARY', 1, 'id', 'A', 13, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'blog', 0, 'amyvarga', 'name', 1, 'name', 'A', 13, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'blog_comments', 0, 'amyvarga', 'PRIMARY', 1, 'blog_id', 'A', 8, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'blog_comments', 0, 'amyvarga', 'PRIMARY', 2, 'comment_id', 'A', 8, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'blog_comments', 1, 'amyvarga', 'blog_id', 1, 'blog_id', 'A', 8, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'blog_comments', 1, 'amyvarga', 'blog_id', 2, 'comment_id', 'A', 8, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'blog_images', 0, 'amyvarga', 'PRIMARY', 1, 'id', 'A', 6, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'blog_logos', 0, 'amyvarga', 'PRIMARY', 1, 'id', 'A', 9, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'blog_relatedlinks', 0, 'amyvarga', 'PRIMARY', 1, 'id', 'A', 70, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'captcha', 0, 'amyvarga', 'PRIMARY', 1, 'captcha_id', 'A', 22925, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'captcha', 1, 'amyvarga', 'word', 1, 'word', 'A', 467, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'comments', 0, 'amyvarga', 'PRIMARY', 1, 'comment_id', 'A', 0, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'comments', 0, 'amyvarga', 'comment_id', 1, 'comment_id', 'A', 0, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'comments', 1, 'amyvarga', 'comment_id_2', 1, 'comment_id', 'A', 0, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'country', 0, 'amyvarga', 'PRIMARY', 1, 'id', 'A', 83, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'employee_achievements', 0, 'amyvarga', 'PRIMARY', 1, 'id', 'A', 0, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'employee_achievements', 1, 'amyvarga', 'id', 1, 'id', 'A', 0, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'employee_blog', 0, 'amyvarga', 'PRIMARY', 1, 'employee_id', 'A', 4, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'employee_blog', 0, 'amyvarga', 'PRIMARY', 2, 'blog_id', 'A', 14, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'employee_blog', 1, 'amyvarga', 'employee_id', 1, 'employee_id', 'A', 4, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'employee_blog', 1, 'amyvarga', 'employee_id', 2, 'blog_id', 'A', 14, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'employee_cv', 1, 'amyvarga', 'id', 1, 'id', 'A', 4, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'employee_expertise', 0, 'amyvarga', 'PRIMARY', 1, 'employee_id', 'A', 3, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'employee_expertise', 0, 'amyvarga', 'PRIMARY', 2, 'expertise_id', 'A', 3, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'employee_expertise', 1, 'amyvarga', 'name_id', 1, 'employee_id', 'A', 3, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'employee_expertise', 1, 'amyvarga', 'name_id', 2, 'expertise_id', 'A', 3, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'employee_showcase', 0, 'amyvarga', 'PRIMARY', 1, 'employee_id', 'A', 5, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'employee_showcase', 0, 'amyvarga', 'PRIMARY', 2, 'showcase_id', 'A', 11, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'employee_showcase', 1, 'amyvarga', 'employee_id', 1, 'employee_id', 'A', 5, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'employee_showcase', 1, 'amyvarga', 'employee_id', 2, 'showcase_id', 'A', 11, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'employee_skills', 0, 'amyvarga', 'PRIMARY', 1, 'id', 'A', 12, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'employee_skills', 1, 'amyvarga', 'id', 1, 'id', 'A', 12, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'employees', 0, 'amyvarga', 'PRIMARY', 1, 'employee_id', 'A', 2, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'employees', 0, 'amyvarga', 'name', 1, 'employee_name', 'A', 2, NULL, NULL, 'YES', 'BTREE', '', ''),
+('def', 'amyvarga', 'employees_relatedlinks', 0, 'amyvarga', 'PRIMARY', 1, 'relatedlink_id', 'A', 2, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'employees_relatedlinks', 1, 'amyvarga', 'relatedLink_id', 1, 'relatedlink_id', 'A', 2, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'employees_summaries', 0, 'amyvarga', 'PRIMARY', 1, 'employee_id', 'A', 2, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'employees_summaries', 1, 'amyvarga', 'name_id', 1, 'employee_id', 'A', 2, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'experience', 0, 'amyvarga', 'PRIMARY', 1, 'id', 'A', 3, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'frameworks', 0, 'amyvarga', 'PRIMARY', 1, 'id', 'A', 11, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'languages', 0, 'amyvarga', 'PRIMARY', 1, 'id', 'A', 14, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'photos', 0, 'amyvarga', 'id', 1, 'id', 'A', 15, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'portfolio_versions', 0, 'amyvarga', 'PRIMARY', 1, 'portfolio_id', 'A', 19, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'portfolio_versions', 0, 'amyvarga', 'PRIMARY', 2, 'versions_id', 'A', 19, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'showcase', 0, 'amyvarga', 'PRIMARY', 1, 'id', 'A', 11, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'showcase', 0, 'amyvarga', 'name', 1, 'title', 'A', 11, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'showcase_experience', 0, 'amyvarga', 'PRIMARY', 1, 'experience_id', 'A', 2, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'showcase_experience', 0, 'amyvarga', 'PRIMARY', 2, 'showcase_id', 'A', 10, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'showcase_frameworks', 0, 'amyvarga', 'PRIMARY', 1, 'showcase_id', 'A', 27, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'showcase_frameworks', 0, 'amyvarga', 'PRIMARY', 2, 'frameworks_id', 'A', 27, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'showcase_images', 0, 'amyvarga', 'PRIMARY', 1, 'id', 'A', 22, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'showcase_languages', 0, 'amyvarga', 'PRIMARY', 1, 'languages_id', 'A', 36, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'showcase_languages', 0, 'amyvarga', 'PRIMARY', 2, 'showcase_id', 'A', 36, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'showcase_logos', 0, 'amyvarga', 'PRIMARY', 1, 'id', 'A', 11, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'showcase_relatedlinks', 0, 'amyvarga', 'PRIMARY', 1, 'id', 'A', 3, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'showcase_skills', 0, 'amyvarga', 'PRIMARY', 1, 'showcase_id', 'A', 19, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'showcase_skills', 0, 'amyvarga', 'PRIMARY', 2, 'skills_id', 'A', 19, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'showcase_skills', 1, 'amyvarga', 'portfolio_id', 1, 'showcase_id', 'A', 19, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'showcase_skills', 1, 'amyvarga', 'portfolio_id', 2, 'skills_id', 'A', 19, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'showcase_software', 0, 'amyvarga', 'PRIMARY', 1, 'software_id', 'A', 20, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'showcase_software', 0, 'amyvarga', 'PRIMARY', 2, 'showcase_id', 'A', 20, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'showcase_tags', 0, 'amyvarga', 'PRIMARY', 1, 'tags_id', 'A', 0, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'showcase_tags', 0, 'amyvarga', 'PRIMARY', 2, 'showcase_id', 'A', 0, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'skills', 0, 'amyvarga', 'PRIMARY', 1, 'id', 'A', 7, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'skills', 0, 'amyvarga', 'expertise_id', 1, 'id', 'A', 7, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'skills', 1, 'amyvarga', 'expertise_id_2', 1, 'id', 'A', 7, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'software', 0, 'amyvarga', 'PRIMARY', 1, 'id', 'A', 21, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'tags', 0, 'amyvarga', 'PRIMARY', 1, 'id', 'A', 4, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'turba_shares_seq', 0, 'amyvarga', 'PRIMARY', 1, 'id', 'A', 1, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'versions', 0, 'amyvarga', 'PRIMARY', 1, 'id', 'A', 3, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'webapp_photos', 0, 'amyvarga', 'id', 1, 'id', 'A', 120, NULL, NULL, '', 'BTREE', '', ''),
+('def', 'amyvarga', 'webapp_users', 1, 'amyvarga', 'id', 1, 'id', 'A', 1, NULL, NULL, '', 'BTREE', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `TABLES`
+--
+
+CREATE TEMPORARY TABLE `TABLES` (
+  `TABLE_CATALOG` varchar(512) NOT NULL DEFAULT '',
+  `TABLE_SCHEMA` varchar(64) NOT NULL DEFAULT '',
+  `TABLE_NAME` varchar(64) NOT NULL DEFAULT '',
+  `TABLE_TYPE` varchar(64) NOT NULL DEFAULT '',
+  `ENGINE` varchar(64) DEFAULT NULL,
+  `VERSION` bigint(21) unsigned DEFAULT NULL,
+  `ROW_FORMAT` varchar(10) DEFAULT NULL,
+  `TABLE_ROWS` bigint(21) unsigned DEFAULT NULL,
+  `AVG_ROW_LENGTH` bigint(21) unsigned DEFAULT NULL,
+  `DATA_LENGTH` bigint(21) unsigned DEFAULT NULL,
+  `MAX_DATA_LENGTH` bigint(21) unsigned DEFAULT NULL,
+  `INDEX_LENGTH` bigint(21) unsigned DEFAULT NULL,
+  `DATA_FREE` bigint(21) unsigned DEFAULT NULL,
+  `AUTO_INCREMENT` bigint(21) unsigned DEFAULT NULL,
+  `CREATE_TIME` datetime DEFAULT NULL,
+  `UPDATE_TIME` datetime DEFAULT NULL,
+  `CHECK_TIME` datetime DEFAULT NULL,
+  `TABLE_COLLATION` varchar(32) DEFAULT NULL,
+  `CHECKSUM` bigint(21) unsigned DEFAULT NULL,
+  `CREATE_OPTIONS` varchar(255) DEFAULT NULL,
+  `TABLE_COMMENT` varchar(2048) NOT NULL DEFAULT ''
+) ENGINE=MEMORY DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `TABLES`
+--
+
+INSERT INTO `TABLES` (`TABLE_CATALOG`, `TABLE_SCHEMA`, `TABLE_NAME`, `TABLE_TYPE`, `ENGINE`, `VERSION`, `ROW_FORMAT`, `TABLE_ROWS`, `AVG_ROW_LENGTH`, `DATA_LENGTH`, `MAX_DATA_LENGTH`, `INDEX_LENGTH`, `DATA_FREE`, `AUTO_INCREMENT`, `CREATE_TIME`, `UPDATE_TIME`, `CHECK_TIME`, `TABLE_COLLATION`, `CHECKSUM`, `CREATE_OPTIONS`, `TABLE_COMMENT`) VALUES
+('def', 'information_schema', 'CHARACTER_SETS', 'SYSTEM VIEW', 'MEMORY', 10, 'Fixed', NULL, 384, 0, 16604160, 0, 0, NULL, '2014-03-12 17:49:52', NULL, NULL, 'utf8_general_ci', NULL, 'max_rows=43690', ''),
+('def', 'information_schema', 'COLLATIONS', 'SYSTEM VIEW', 'MEMORY', 10, 'Fixed', NULL, 231, 0, 16704765, 0, 0, NULL, '2014-03-12 17:49:52', NULL, NULL, 'utf8_general_ci', NULL, 'max_rows=72628', ''),
+('def', 'information_schema', 'COLLATION_CHARACTER_SET_APPLICABILITY', 'SYSTEM VIEW', 'MEMORY', 10, 'Fixed', NULL, 195, 0, 16691610, 0, 0, NULL, '2014-03-12 17:49:52', NULL, NULL, 'utf8_general_ci', NULL, 'max_rows=86037', ''),
+('def', 'information_schema', 'COLUMNS', 'SYSTEM VIEW', 'MyISAM', 10, 'Dynamic', NULL, 0, 0, 281474976710655, 1024, 0, NULL, '2014-03-12 17:49:52', '2014-03-12 17:49:52', NULL, 'utf8_general_ci', NULL, 'max_rows=2802', ''),
+('def', 'information_schema', 'COLUMN_PRIVILEGES', 'SYSTEM VIEW', 'MEMORY', 10, 'Fixed', NULL, 2565, 0, 16757145, 0, 0, NULL, '2014-03-12 17:49:52', NULL, NULL, 'utf8_general_ci', NULL, 'max_rows=6540', ''),
+('def', 'information_schema', 'ENGINES', 'SYSTEM VIEW', 'MEMORY', 10, 'Fixed', NULL, 490, 0, 16709000, 0, 0, NULL, '2014-03-12 17:49:52', NULL, NULL, 'utf8_general_ci', NULL, 'max_rows=34239', ''),
+('def', 'information_schema', 'EVENTS', 'SYSTEM VIEW', 'MyISAM', 10, 'Dynamic', NULL, 0, 0, 281474976710655, 1024, 0, NULL, '2014-03-12 17:49:52', '2014-03-12 17:49:52', NULL, 'utf8_general_ci', NULL, 'max_rows=618', ''),
+('def', 'information_schema', 'FILES', 'SYSTEM VIEW', 'MEMORY', 10, 'Fixed', NULL, 2677, 0, 16758020, 0, 0, NULL, '2014-03-12 17:49:52', NULL, NULL, 'utf8_general_ci', NULL, 'max_rows=6267', ''),
+('def', 'information_schema', 'GLOBAL_STATUS', 'SYSTEM VIEW', 'MEMORY', 10, 'Fixed', NULL, 3268, 0, 16755036, 0, 0, NULL, '2014-03-12 17:49:52', NULL, NULL, 'utf8_general_ci', NULL, 'max_rows=5133', ''),
+('def', 'information_schema', 'GLOBAL_VARIABLES', 'SYSTEM VIEW', 'MEMORY', 10, 'Fixed', NULL, 3268, 0, 16755036, 0, 0, NULL, '2014-03-12 17:49:52', NULL, NULL, 'utf8_general_ci', NULL, 'max_rows=5133', ''),
+('def', 'information_schema', 'KEY_COLUMN_USAGE', 'SYSTEM VIEW', 'MEMORY', 10, 'Fixed', NULL, 4637, 0, 16762755, 0, 0, NULL, '2014-03-12 17:49:52', NULL, NULL, 'utf8_general_ci', NULL, 'max_rows=3618', ''),
+('def', 'information_schema', 'PARAMETERS', 'SYSTEM VIEW', 'MyISAM', 10, 'Dynamic', NULL, 0, 0, 281474976710655, 1024, 0, NULL, '2014-03-12 17:49:52', '2014-03-12 17:49:52', NULL, 'utf8_general_ci', NULL, 'max_rows=6050', ''),
+('def', 'information_schema', 'PARTITIONS', 'SYSTEM VIEW', 'MyISAM', 10, 'Dynamic', NULL, 0, 0, 281474976710655, 1024, 0, NULL, '2014-03-12 17:49:52', '2014-03-12 17:49:52', NULL, 'utf8_general_ci', NULL, 'max_rows=5579', ''),
+('def', 'information_schema', 'PLUGINS', 'SYSTEM VIEW', 'MyISAM', 10, 'Dynamic', NULL, 0, 0, 281474976710655, 1024, 0, NULL, '2014-03-12 17:49:52', '2014-03-12 17:49:52', NULL, 'utf8_general_ci', NULL, 'max_rows=11328', ''),
+('def', 'information_schema', 'PROCESSLIST', 'SYSTEM VIEW', 'MyISAM', 10, 'Dynamic', NULL, 0, 0, 281474976710655, 1024, 0, NULL, '2014-03-12 17:49:52', '2014-03-12 17:49:52', NULL, 'utf8_general_ci', NULL, 'max_rows=23899', ''),
+('def', 'information_schema', 'PROFILING', 'SYSTEM VIEW', 'MEMORY', 10, 'Fixed', NULL, 308, 0, 16562084, 0, 0, NULL, '2014-03-12 17:49:52', NULL, NULL, 'utf8_general_ci', NULL, 'max_rows=54471', ''),
+('def', 'information_schema', 'REFERENTIAL_CONSTRAINTS', 'SYSTEM VIEW', 'MEMORY', 10, 'Fixed', NULL, 4814, 0, 16767162, 0, 0, NULL, '2014-03-12 17:49:52', NULL, NULL, 'utf8_general_ci', NULL, 'max_rows=3485', ''),
+('def', 'information_schema', 'ROUTINES', 'SYSTEM VIEW', 'MyISAM', 10, 'Dynamic', NULL, 0, 0, 281474976710655, 1024, 0, NULL, '2014-03-12 17:49:52', '2014-03-12 17:49:52', NULL, 'utf8_general_ci', NULL, 'max_rows=583', ''),
+('def', 'information_schema', 'SCHEMATA', 'SYSTEM VIEW', 'MEMORY', 10, 'Fixed', NULL, 3464, 0, 16755368, 0, 0, NULL, '2014-03-12 17:49:52', NULL, NULL, 'utf8_general_ci', NULL, 'max_rows=4843', ''),
+('def', 'information_schema', 'SCHEMA_PRIVILEGES', 'SYSTEM VIEW', 'MEMORY', 10, 'Fixed', NULL, 2179, 0, 16767405, 0, 0, NULL, '2014-03-12 17:49:52', NULL, NULL, 'utf8_general_ci', NULL, 'max_rows=7699', ''),
+('def', 'information_schema', 'SESSION_STATUS', 'SYSTEM VIEW', 'MEMORY', 10, 'Fixed', NULL, 3268, 0, 16755036, 0, 0, NULL, '2014-03-12 17:49:52', NULL, NULL, 'utf8_general_ci', NULL, 'max_rows=5133', ''),
+('def', 'information_schema', 'SESSION_VARIABLES', 'SYSTEM VIEW', 'MEMORY', 10, 'Fixed', NULL, 3268, 0, 16755036, 0, 0, NULL, '2014-03-12 17:49:52', NULL, NULL, 'utf8_general_ci', NULL, 'max_rows=5133', ''),
+('def', 'information_schema', 'STATISTICS', 'SYSTEM VIEW', 'MEMORY', 10, 'Fixed', NULL, 5753, 0, 16764242, 0, 0, NULL, '2014-03-12 17:49:52', NULL, NULL, 'utf8_general_ci', NULL, 'max_rows=2916', ''),
+('def', 'information_schema', 'TABLES', 'SYSTEM VIEW', 'MEMORY', 10, 'Fixed', NULL, 9450, 0, 16764300, 0, 0, NULL, '2014-03-12 17:49:52', NULL, NULL, 'utf8_general_ci', NULL, 'max_rows=1775', ''),
+('def', 'information_schema', 'TABLESPACES', 'SYSTEM VIEW', 'MEMORY', 10, 'Fixed', NULL, 6951, 0, 16772763, 0, 0, NULL, '2014-03-12 17:49:52', NULL, NULL, 'utf8_general_ci', NULL, 'max_rows=2413', ''),
+('def', 'information_schema', 'TABLE_CONSTRAINTS', 'SYSTEM VIEW', 'MEMORY', 10, 'Fixed', NULL, 2504, 0, 16749256, 0, 0, NULL, '2014-03-12 17:49:52', NULL, NULL, 'utf8_general_ci', NULL, 'max_rows=6700', ''),
+('def', 'information_schema', 'TABLE_PRIVILEGES', 'SYSTEM VIEW', 'MEMORY', 10, 'Fixed', NULL, 2372, 0, 16748692, 0, 0, NULL, '2014-03-12 17:49:52', NULL, NULL, 'utf8_general_ci', NULL, 'max_rows=7073', ''),
+('def', 'information_schema', 'TRIGGERS', 'SYSTEM VIEW', 'MyISAM', 10, 'Dynamic', NULL, 0, 0, 281474976710655, 1024, 0, NULL, '2014-03-12 17:49:52', '2014-03-12 17:49:52', NULL, 'utf8_general_ci', NULL, 'max_rows=569', ''),
+('def', 'information_schema', 'USER_PRIVILEGES', 'SYSTEM VIEW', 'MEMORY', 10, 'Fixed', NULL, 1986, 0, 16759854, 0, 0, NULL, '2014-03-12 17:49:52', NULL, NULL, 'utf8_general_ci', NULL, 'max_rows=8447', ''),
+('def', 'information_schema', 'VIEWS', 'SYSTEM VIEW', 'MyISAM', 10, 'Dynamic', NULL, 0, 0, 281474976710655, 1024, 0, NULL, '2014-03-12 17:49:52', '2014-03-12 17:49:52', NULL, 'utf8_general_ci', NULL, 'max_rows=6935', ''),
+('def', 'information_schema', 'INNODB_BUFFER_PAGE', 'SYSTEM VIEW', 'MEMORY', 10, 'Fixed', NULL, 6852, 0, 16766844, 0, 0, NULL, '2014-03-12 17:49:52', NULL, NULL, 'utf8_general_ci', NULL, 'max_rows=2448', ''),
+('def', 'information_schema', 'INNODB_TRX', 'SYSTEM VIEW', 'MEMORY', 10, 'Fixed', NULL, 4534, 0, 16766732, 0, 0, NULL, '2014-03-12 17:49:52', NULL, NULL, 'utf8_general_ci', NULL, 'max_rows=3700', ''),
+('def', 'information_schema', 'INNODB_BUFFER_POOL_STATS', 'SYSTEM VIEW', 'MEMORY', 10, 'Fixed', NULL, 257, 0, 16583439, 0, 0, NULL, '2014-03-12 17:49:52', NULL, NULL, 'utf8_general_ci', NULL, 'max_rows=65280', ''),
+('def', 'information_schema', 'INNODB_LOCK_WAITS', 'SYSTEM VIEW', 'MEMORY', 10, 'Fixed', NULL, 599, 0, 16749238, 0, 0, NULL, '2014-03-12 17:49:52', NULL, NULL, 'utf8_general_ci', NULL, 'max_rows=28008', ''),
+('def', 'information_schema', 'INNODB_CMPMEM', 'SYSTEM VIEW', 'MEMORY', 10, 'Fixed', NULL, 29, 0, 15204352, 0, 0, NULL, '2014-03-12 17:49:52', NULL, NULL, 'utf8_general_ci', NULL, 'max_rows=578524', ''),
+('def', 'information_schema', 'INNODB_CMP', 'SYSTEM VIEW', 'MEMORY', 10, 'Fixed', NULL, 25, 0, 14979650, 0, 0, NULL, '2014-03-12 17:49:52', NULL, NULL, 'utf8_general_ci', NULL, 'max_rows=671088', ''),
+('def', 'information_schema', 'INNODB_LOCKS', 'SYSTEM VIEW', 'MEMORY', 10, 'Fixed', NULL, 31244, 0, 16746784, 0, 0, NULL, '2014-03-12 17:49:52', NULL, NULL, 'utf8_general_ci', NULL, 'max_rows=536', ''),
+('def', 'information_schema', 'INNODB_CMPMEM_RESET', 'SYSTEM VIEW', 'MEMORY', 10, 'Fixed', NULL, 29, 0, 15204352, 0, 0, NULL, '2014-03-12 17:49:52', NULL, NULL, 'utf8_general_ci', NULL, 'max_rows=578524', ''),
+('def', 'information_schema', 'INNODB_CMP_RESET', 'SYSTEM VIEW', 'MEMORY', 10, 'Fixed', NULL, 25, 0, 14979650, 0, 0, NULL, '2014-03-12 17:49:52', NULL, NULL, 'utf8_general_ci', NULL, 'max_rows=671088', ''),
+('def', 'information_schema', 'INNODB_BUFFER_PAGE_LRU', 'SYSTEM VIEW', 'MEMORY', 10, 'Fixed', NULL, 6669, 0, 16765866, 0, 0, NULL, '2014-03-12 17:49:52', NULL, NULL, 'utf8_general_ci', NULL, 'max_rows=2515', ''),
+('def', 'amyvarga', 'blog', 'BASE TABLE', 'InnoDB', 10, 'Compact', 13, 6301, 81920, 0, 16384, 0, 40, '2014-03-12 15:10:15', NULL, NULL, 'latin1_swedish_ci', NULL, '', ''),
+('def', 'amyvarga', 'blog_comments', 'BASE TABLE', 'InnoDB', 10, 'Compact', 8, 2048, 16384, 0, 16384, 0, NULL, '2014-02-26 00:49:23', NULL, NULL, 'latin1_swedish_ci', NULL, '', ''),
+('def', 'amyvarga', 'blog_images', 'BASE TABLE', 'InnoDB', 10, 'Compact', 6, 2730, 16384, 0, 0, 0, 18, '2014-02-26 00:49:23', NULL, NULL, 'latin1_swedish_ci', NULL, '', ''),
+('def', 'amyvarga', 'blog_logos', 'BASE TABLE', 'InnoDB', 10, 'Compact', 9, 1820, 16384, 0, 0, 0, 11, '2014-02-26 00:49:23', NULL, NULL, 'latin1_swedish_ci', NULL, '', ''),
+('def', 'amyvarga', 'blog_relatedlinks', 'BASE TABLE', 'InnoDB', 10, 'Compact', 70, 234, 16384, 0, 0, 0, 99, '2014-02-26 00:49:23', NULL, NULL, 'latin1_swedish_ci', NULL, '', ''),
+('def', 'amyvarga', 'captcha', 'BASE TABLE', 'MyISAM', 10, 'Dynamic', 22925, 42, 971068, 281474976710655, 392192, 0, 23742, '2013-11-29 01:01:31', '2013-11-29 01:01:31', '2013-11-29 01:01:31', 'latin1_swedish_ci', NULL, '', ''),
+('def', 'amyvarga', 'comments', 'BASE TABLE', 'InnoDB', 10, 'Compact', 0, 0, 16384, 0, 32768, 0, 1, '2014-02-26 00:49:23', NULL, NULL, 'latin1_swedish_ci', NULL, '', ''),
+('def', 'amyvarga', 'country', 'BASE TABLE', 'InnoDB', 10, 'Compact', 83, 197, 16384, 0, 0, 0, 89, '2014-02-26 00:49:23', NULL, NULL, 'latin1_swedish_ci', NULL, '', ''),
+('def', 'amyvarga', 'employee_achievements', 'BASE TABLE', 'InnoDB', 10, 'Compact', 0, 0, 16384, 0, 16384, 0, 1, '2014-02-26 00:49:23', NULL, NULL, 'latin1_swedish_ci', NULL, 'row_format=COMPACT', ''),
+('def', 'amyvarga', 'employee_blog', 'BASE TABLE', 'InnoDB', 10, 'Compact', 14, 1170, 16384, 0, 16384, 0, 2, '2014-02-26 00:49:23', NULL, NULL, 'latin1_swedish_ci', NULL, 'row_format=COMPACT', ''),
+('def', 'amyvarga', 'employee_cv', 'BASE TABLE', 'InnoDB', 10, 'Compact', 4, 4096, 16384, 0, 16384, 0, 8, '2014-02-26 00:49:23', NULL, NULL, 'latin1_swedish_ci', NULL, '', ''),
+('def', 'amyvarga', 'employee_expertise', 'BASE TABLE', 'InnoDB', 10, 'Compact', 3, 5461, 16384, 0, 16384, 0, NULL, '2014-02-26 00:49:23', NULL, NULL, 'latin1_swedish_ci', NULL, '', ''),
+('def', 'amyvarga', 'employee_showcase', 'BASE TABLE', 'InnoDB', 10, 'Compact', 11, 1489, 16384, 0, 16384, 0, NULL, '2014-02-26 00:49:23', NULL, NULL, 'latin1_swedish_ci', NULL, '', ''),
+('def', 'amyvarga', 'employee_skills', 'BASE TABLE', 'InnoDB', 10, 'Compact', 12, 1365, 16384, 0, 16384, 0, 20, '2014-02-26 00:49:23', NULL, NULL, 'latin1_swedish_ci', NULL, '', ''),
+('def', 'amyvarga', 'employees', 'BASE TABLE', 'InnoDB', 10, 'Compact', 2, 8192, 16384, 0, 16384, 0, 3, '2014-02-26 00:49:23', NULL, NULL, 'latin1_swedish_ci', NULL, '', ''),
+('def', 'amyvarga', 'employees_relatedlinks', 'BASE TABLE', 'InnoDB', 10, 'Compact', 2, 8192, 16384, 0, 16384, 0, 3, '2014-02-26 00:49:23', NULL, NULL, 'latin1_swedish_ci', NULL, '', ''),
+('def', 'amyvarga', 'employees_summaries', 'BASE TABLE', 'InnoDB', 10, 'Compact', 2, 8192, 16384, 0, 16384, 0, 3, '2014-02-26 00:49:23', NULL, NULL, 'latin1_swedish_ci', NULL, '', ''),
+('def', 'amyvarga', 'experience', 'BASE TABLE', 'InnoDB', 10, 'Compact', 3, 5461, 16384, 0, 0, 0, 15, '2014-02-26 00:49:23', NULL, NULL, 'latin1_swedish_ci', NULL, '', ''),
+('def', 'amyvarga', 'frameworks', 'BASE TABLE', 'InnoDB', 10, 'Compact', 11, 1489, 16384, 0, 0, 0, 18, '2014-02-26 00:49:23', NULL, NULL, 'latin1_swedish_ci', NULL, '', ''),
+('def', 'amyvarga', 'languages', 'BASE TABLE', 'InnoDB', 10, 'Compact', 14, 1170, 16384, 0, 0, 0, 49, '2014-02-26 00:49:23', NULL, NULL, 'latin1_swedish_ci', NULL, '', ''),
+('def', 'amyvarga', 'photos', 'BASE TABLE', 'InnoDB', 10, 'Compact', 15, 1092, 16384, 0, 0, 0, 476, '2014-02-26 00:49:23', NULL, NULL, 'latin1_swedish_ci', NULL, '', ''),
+('def', 'amyvarga', 'portfolio_versions', 'BASE TABLE', 'InnoDB', 10, 'Compact', 19, 862, 16384, 0, 0, 0, NULL, '2014-02-26 00:49:23', NULL, NULL, 'latin1_swedish_ci', NULL, '', ''),
+('def', 'amyvarga', 'showcase', 'BASE TABLE', 'InnoDB', 10, 'Compact', 11, 1489, 16384, 0, 16384, 0, 84, '2014-02-26 00:49:23', NULL, NULL, 'latin1_swedish_ci', NULL, 'row_format=COMPACT', ''),
+('def', 'amyvarga', 'showcase_experience', 'BASE TABLE', 'InnoDB', 10, 'Compact', 10, 1638, 16384, 0, 0, 0, NULL, '2014-02-26 00:49:23', NULL, NULL, 'latin1_swedish_ci', NULL, '', ''),
+('def', 'amyvarga', 'showcase_frameworks', 'BASE TABLE', 'InnoDB', 10, 'Compact', 27, 606, 16384, 0, 0, 0, NULL, '2014-02-26 00:49:23', NULL, NULL, 'latin1_swedish_ci', NULL, '', ''),
+('def', 'amyvarga', 'showcase_images', 'BASE TABLE', 'InnoDB', 10, 'Compact', 22, 744, 16384, 0, 0, 0, 101, '2014-02-26 00:49:23', NULL, NULL, 'latin1_swedish_ci', NULL, '', ''),
+('def', 'amyvarga', 'showcase_languages', 'BASE TABLE', 'InnoDB', 10, 'Compact', 36, 455, 16384, 0, 0, 0, NULL, '2014-02-26 00:49:23', NULL, NULL, 'latin1_swedish_ci', NULL, '', ''),
+('def', 'amyvarga', 'showcase_logos', 'BASE TABLE', 'InnoDB', 10, 'Compact', 11, 1489, 16384, 0, 0, 0, 100, '2014-02-26 00:49:23', NULL, NULL, 'latin1_swedish_ci', NULL, '', ''),
+('def', 'amyvarga', 'showcase_relatedlinks', 'BASE TABLE', 'InnoDB', 10, 'Compact', 3, 5461, 16384, 0, 0, 0, 4, '2014-02-26 00:49:23', NULL, NULL, 'latin1_swedish_ci', NULL, '', ''),
+('def', 'amyvarga', 'showcase_skills', 'BASE TABLE', 'InnoDB', 10, 'Compact', 19, 862, 16384, 0, 16384, 0, NULL, '2014-02-26 00:49:23', NULL, NULL, 'latin1_swedish_ci', NULL, 'row_format=COMPACT', ''),
+('def', 'amyvarga', 'showcase_software', 'BASE TABLE', 'InnoDB', 10, 'Compact', 20, 819, 16384, 0, 0, 0, NULL, '2014-02-26 00:49:23', NULL, NULL, 'latin1_swedish_ci', NULL, '', ''),
+('def', 'amyvarga', 'showcase_tags', 'BASE TABLE', 'InnoDB', 10, 'Compact', 0, 0, 16384, 0, 0, 0, NULL, '2014-02-26 00:49:23', NULL, NULL, 'latin1_swedish_ci', NULL, '', ''),
+('def', 'amyvarga', 'skills', 'BASE TABLE', 'InnoDB', 10, 'Compact', 7, 2340, 16384, 0, 32768, 0, 28, '2014-02-26 00:49:23', NULL, NULL, 'latin1_swedish_ci', NULL, '', ''),
+('def', 'amyvarga', 'software', 'BASE TABLE', 'InnoDB', 10, 'Compact', 21, 780, 16384, 0, 0, 0, 42, '2014-02-26 00:49:23', NULL, NULL, 'latin1_swedish_ci', NULL, '', ''),
+('def', 'amyvarga', 'tags', 'BASE TABLE', 'InnoDB', 10, 'Compact', 4, 4096, 16384, 0, 0, 0, 17, '2014-02-26 00:49:23', NULL, NULL, 'latin1_swedish_ci', NULL, '', ''),
+('def', 'amyvarga', 'turba_shares_seq', 'BASE TABLE', 'MyISAM', 10, 'Fixed', 1, 7, 14, 1970324836974591, 2048, 7, 2198, '2013-11-29 01:01:31', '2014-03-12 17:46:15', NULL, 'utf8_general_ci', NULL, '', ''),
+('def', 'amyvarga', 'user', 'BASE TABLE', 'InnoDB', 10, 'Compact', 2, 8192, 16384, 0, 0, 0, NULL, '2014-02-26 00:49:23', NULL, NULL, 'latin1_swedish_ci', NULL, '', ''),
+('def', 'amyvarga', 'versions', 'BASE TABLE', 'InnoDB', 10, 'Compact', 3, 5461, 16384, 0, 0, 0, 12, '2014-02-26 00:49:23', NULL, NULL, 'latin1_swedish_ci', NULL, '', ''),
+('def', 'amyvarga', 'webapp_photos', 'BASE TABLE', 'InnoDB', 10, 'Compact', 120, 136, 16384, 0, 0, 0, 491, '2014-02-26 00:49:23', NULL, NULL, 'latin1_swedish_ci', NULL, '', ''),
+('def', 'amyvarga', 'webapp_users', 'BASE TABLE', 'InnoDB', 10, 'Compact', 1, 16384, 16384, 0, 16384, 0, 4, '2014-02-26 00:49:23', NULL, NULL, 'latin1_swedish_ci', NULL, '', ''),
+('def', 'amyvarga', 'website_sections', 'BASE TABLE', 'InnoDB', 10, 'Compact', 7, 2340, 16384, 0, 0, 0, NULL, '2014-02-26 00:49:23', NULL, NULL, 'latin1_swedish_ci', NULL, '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `TABLESPACES`
+--
+
+CREATE TEMPORARY TABLE `TABLESPACES` (
+  `TABLESPACE_NAME` varchar(64) NOT NULL DEFAULT '',
+  `ENGINE` varchar(64) NOT NULL DEFAULT '',
+  `TABLESPACE_TYPE` varchar(64) DEFAULT NULL,
+  `LOGFILE_GROUP_NAME` varchar(64) DEFAULT NULL,
+  `EXTENT_SIZE` bigint(21) unsigned DEFAULT NULL,
+  `AUTOEXTEND_SIZE` bigint(21) unsigned DEFAULT NULL,
+  `MAXIMUM_SIZE` bigint(21) unsigned DEFAULT NULL,
+  `NODEGROUP_ID` bigint(21) unsigned DEFAULT NULL,
+  `TABLESPACE_COMMENT` varchar(2048) DEFAULT NULL
+) ENGINE=MEMORY DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `TABLE_CONSTRAINTS`
+--
+
+CREATE TEMPORARY TABLE `TABLE_CONSTRAINTS` (
+  `CONSTRAINT_CATALOG` varchar(512) NOT NULL DEFAULT '',
+  `CONSTRAINT_SCHEMA` varchar(64) NOT NULL DEFAULT '',
+  `CONSTRAINT_NAME` varchar(64) NOT NULL DEFAULT '',
+  `TABLE_SCHEMA` varchar(64) NOT NULL DEFAULT '',
+  `TABLE_NAME` varchar(64) NOT NULL DEFAULT '',
+  `CONSTRAINT_TYPE` varchar(64) NOT NULL DEFAULT ''
+) ENGINE=MEMORY DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `TABLE_CONSTRAINTS`
+--
+
+INSERT INTO `TABLE_CONSTRAINTS` (`CONSTRAINT_CATALOG`, `CONSTRAINT_SCHEMA`, `CONSTRAINT_NAME`, `TABLE_SCHEMA`, `TABLE_NAME`, `CONSTRAINT_TYPE`) VALUES
+('def', 'amyvarga', 'PRIMARY', 'amyvarga', 'blog', 'PRIMARY KEY'),
+('def', 'amyvarga', 'name', 'amyvarga', 'blog', 'UNIQUE'),
+('def', 'amyvarga', 'PRIMARY', 'amyvarga', 'blog_comments', 'PRIMARY KEY'),
+('def', 'amyvarga', 'PRIMARY', 'amyvarga', 'blog_images', 'PRIMARY KEY'),
+('def', 'amyvarga', 'PRIMARY', 'amyvarga', 'blog_logos', 'PRIMARY KEY'),
+('def', 'amyvarga', 'PRIMARY', 'amyvarga', 'blog_relatedlinks', 'PRIMARY KEY'),
+('def', 'amyvarga', 'PRIMARY', 'amyvarga', 'captcha', 'PRIMARY KEY'),
+('def', 'amyvarga', 'PRIMARY', 'amyvarga', 'comments', 'PRIMARY KEY'),
+('def', 'amyvarga', 'comment_id', 'amyvarga', 'comments', 'UNIQUE'),
+('def', 'amyvarga', 'PRIMARY', 'amyvarga', 'country', 'PRIMARY KEY'),
+('def', 'amyvarga', 'PRIMARY', 'amyvarga', 'employee_achievements', 'PRIMARY KEY'),
+('def', 'amyvarga', 'PRIMARY', 'amyvarga', 'employee_blog', 'PRIMARY KEY'),
+('def', 'amyvarga', 'PRIMARY', 'amyvarga', 'employee_expertise', 'PRIMARY KEY'),
+('def', 'amyvarga', 'PRIMARY', 'amyvarga', 'employee_showcase', 'PRIMARY KEY'),
+('def', 'amyvarga', 'PRIMARY', 'amyvarga', 'employee_skills', 'PRIMARY KEY'),
+('def', 'amyvarga', 'PRIMARY', 'amyvarga', 'employees', 'PRIMARY KEY'),
+('def', 'amyvarga', 'name', 'amyvarga', 'employees', 'UNIQUE'),
+('def', 'amyvarga', 'PRIMARY', 'amyvarga', 'employees_relatedlinks', 'PRIMARY KEY'),
+('def', 'amyvarga', 'PRIMARY', 'amyvarga', 'employees_summaries', 'PRIMARY KEY'),
+('def', 'amyvarga', 'PRIMARY', 'amyvarga', 'experience', 'PRIMARY KEY'),
+('def', 'amyvarga', 'PRIMARY', 'amyvarga', 'frameworks', 'PRIMARY KEY'),
+('def', 'amyvarga', 'PRIMARY', 'amyvarga', 'languages', 'PRIMARY KEY'),
+('def', 'amyvarga', 'id', 'amyvarga', 'photos', 'UNIQUE'),
+('def', 'amyvarga', 'PRIMARY', 'amyvarga', 'portfolio_versions', 'PRIMARY KEY'),
+('def', 'amyvarga', 'PRIMARY', 'amyvarga', 'showcase', 'PRIMARY KEY'),
+('def', 'amyvarga', 'name', 'amyvarga', 'showcase', 'UNIQUE'),
+('def', 'amyvarga', 'PRIMARY', 'amyvarga', 'showcase_experience', 'PRIMARY KEY'),
+('def', 'amyvarga', 'PRIMARY', 'amyvarga', 'showcase_frameworks', 'PRIMARY KEY'),
+('def', 'amyvarga', 'PRIMARY', 'amyvarga', 'showcase_images', 'PRIMARY KEY'),
+('def', 'amyvarga', 'PRIMARY', 'amyvarga', 'showcase_languages', 'PRIMARY KEY'),
+('def', 'amyvarga', 'PRIMARY', 'amyvarga', 'showcase_logos', 'PRIMARY KEY'),
+('def', 'amyvarga', 'PRIMARY', 'amyvarga', 'showcase_relatedlinks', 'PRIMARY KEY'),
+('def', 'amyvarga', 'PRIMARY', 'amyvarga', 'showcase_skills', 'PRIMARY KEY'),
+('def', 'amyvarga', 'PRIMARY', 'amyvarga', 'showcase_software', 'PRIMARY KEY'),
+('def', 'amyvarga', 'PRIMARY', 'amyvarga', 'showcase_tags', 'PRIMARY KEY'),
+('def', 'amyvarga', 'PRIMARY', 'amyvarga', 'skills', 'PRIMARY KEY'),
+('def', 'amyvarga', 'expertise_id', 'amyvarga', 'skills', 'UNIQUE'),
+('def', 'amyvarga', 'PRIMARY', 'amyvarga', 'software', 'PRIMARY KEY'),
+('def', 'amyvarga', 'PRIMARY', 'amyvarga', 'tags', 'PRIMARY KEY'),
+('def', 'amyvarga', 'PRIMARY', 'amyvarga', 'turba_shares_seq', 'PRIMARY KEY'),
+('def', 'amyvarga', 'PRIMARY', 'amyvarga', 'versions', 'PRIMARY KEY'),
+('def', 'amyvarga', 'id', 'amyvarga', 'webapp_photos', 'UNIQUE');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `TABLE_PRIVILEGES`
+--
+
+CREATE TEMPORARY TABLE `TABLE_PRIVILEGES` (
+  `GRANTEE` varchar(81) NOT NULL DEFAULT '',
+  `TABLE_CATALOG` varchar(512) NOT NULL DEFAULT '',
+  `TABLE_SCHEMA` varchar(64) NOT NULL DEFAULT '',
+  `TABLE_NAME` varchar(64) NOT NULL DEFAULT '',
+  `PRIVILEGE_TYPE` varchar(64) NOT NULL DEFAULT '',
+  `IS_GRANTABLE` varchar(3) NOT NULL DEFAULT ''
+) ENGINE=MEMORY DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `TRIGGERS`
+--
+
+CREATE TEMPORARY TABLE `TRIGGERS` (
+  `TRIGGER_CATALOG` varchar(512) NOT NULL DEFAULT '',
+  `TRIGGER_SCHEMA` varchar(64) NOT NULL DEFAULT '',
+  `TRIGGER_NAME` varchar(64) NOT NULL DEFAULT '',
+  `EVENT_MANIPULATION` varchar(6) NOT NULL DEFAULT '',
+  `EVENT_OBJECT_CATALOG` varchar(512) NOT NULL DEFAULT '',
+  `EVENT_OBJECT_SCHEMA` varchar(64) NOT NULL DEFAULT '',
+  `EVENT_OBJECT_TABLE` varchar(64) NOT NULL DEFAULT '',
+  `ACTION_ORDER` bigint(4) NOT NULL DEFAULT '0',
+  `ACTION_CONDITION` longtext,
+  `ACTION_STATEMENT` longtext NOT NULL,
+  `ACTION_ORIENTATION` varchar(9) NOT NULL DEFAULT '',
+  `ACTION_TIMING` varchar(6) NOT NULL DEFAULT '',
+  `ACTION_REFERENCE_OLD_TABLE` varchar(64) DEFAULT NULL,
+  `ACTION_REFERENCE_NEW_TABLE` varchar(64) DEFAULT NULL,
+  `ACTION_REFERENCE_OLD_ROW` varchar(3) NOT NULL DEFAULT '',
+  `ACTION_REFERENCE_NEW_ROW` varchar(3) NOT NULL DEFAULT '',
+  `CREATED` datetime DEFAULT NULL,
+  `SQL_MODE` varchar(8192) NOT NULL DEFAULT '',
+  `DEFINER` varchar(77) NOT NULL DEFAULT '',
+  `CHARACTER_SET_CLIENT` varchar(32) NOT NULL DEFAULT '',
+  `COLLATION_CONNECTION` varchar(32) NOT NULL DEFAULT '',
+  `DATABASE_COLLATION` varchar(32) NOT NULL DEFAULT ''
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `USER_PRIVILEGES`
+--
+
+CREATE TEMPORARY TABLE `USER_PRIVILEGES` (
+  `GRANTEE` varchar(81) NOT NULL DEFAULT '',
+  `TABLE_CATALOG` varchar(512) NOT NULL DEFAULT '',
+  `PRIVILEGE_TYPE` varchar(64) NOT NULL DEFAULT '',
+  `IS_GRANTABLE` varchar(3) NOT NULL DEFAULT ''
+) ENGINE=MEMORY DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `USER_PRIVILEGES`
+--
+
+INSERT INTO `USER_PRIVILEGES` (`GRANTEE`, `TABLE_CATALOG`, `PRIVILEGE_TYPE`, `IS_GRANTABLE`) VALUES
+('''amyvarga''@''localhost''', 'def', 'USAGE', 'NO');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `VIEWS`
+--
+
+CREATE TEMPORARY TABLE `VIEWS` (
+  `TABLE_CATALOG` varchar(512) NOT NULL DEFAULT '',
+  `TABLE_SCHEMA` varchar(64) NOT NULL DEFAULT '',
+  `TABLE_NAME` varchar(64) NOT NULL DEFAULT '',
+  `VIEW_DEFINITION` longtext NOT NULL,
+  `CHECK_OPTION` varchar(8) NOT NULL DEFAULT '',
+  `IS_UPDATABLE` varchar(3) NOT NULL DEFAULT '',
+  `DEFINER` varchar(77) NOT NULL DEFAULT '',
+  `SECURITY_TYPE` varchar(7) NOT NULL DEFAULT '',
+  `CHARACTER_SET_CLIENT` varchar(32) NOT NULL DEFAULT '',
+  `COLLATION_CONNECTION` varchar(32) NOT NULL DEFAULT ''
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `INNODB_BUFFER_PAGE`
+--
+
+CREATE TEMPORARY TABLE `INNODB_BUFFER_PAGE` (
+  `POOL_ID` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `BLOCK_ID` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `SPACE` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `PAGE_NUMBER` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `PAGE_TYPE` varchar(64) DEFAULT NULL,
+  `FLUSH_TYPE` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `FIX_COUNT` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `IS_HASHED` varchar(3) DEFAULT NULL,
+  `NEWEST_MODIFICATION` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `OLDEST_MODIFICATION` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `ACCESS_TIME` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `TABLE_NAME` varchar(1024) DEFAULT NULL,
+  `INDEX_NAME` varchar(1024) DEFAULT NULL,
+  `NUMBER_RECORDS` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `DATA_SIZE` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `COMPRESSED_SIZE` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `PAGE_STATE` varchar(64) DEFAULT NULL,
+  `IO_FIX` varchar(64) DEFAULT NULL,
+  `IS_OLD` varchar(3) DEFAULT NULL,
+  `FREE_PAGE_CLOCK` bigint(21) unsigned NOT NULL DEFAULT '0'
+) ENGINE=MEMORY DEFAULT CHARSET=utf8;
+-- in use (#1227 - Access denied; you need (at least one of) the PROCESS privilege(s) for this operation)
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `INNODB_TRX`
+--
+
+CREATE TEMPORARY TABLE `INNODB_TRX` (
+  `trx_id` varchar(18) NOT NULL DEFAULT '',
+  `trx_state` varchar(13) NOT NULL DEFAULT '',
+  `trx_started` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `trx_requested_lock_id` varchar(81) DEFAULT NULL,
+  `trx_wait_started` datetime DEFAULT NULL,
+  `trx_weight` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `trx_mysql_thread_id` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `trx_query` varchar(1024) DEFAULT NULL,
+  `trx_operation_state` varchar(64) DEFAULT NULL,
+  `trx_tables_in_use` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `trx_tables_locked` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `trx_lock_structs` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `trx_lock_memory_bytes` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `trx_rows_locked` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `trx_rows_modified` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `trx_concurrency_tickets` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `trx_isolation_level` varchar(16) NOT NULL DEFAULT '',
+  `trx_unique_checks` int(1) NOT NULL DEFAULT '0',
+  `trx_foreign_key_checks` int(1) NOT NULL DEFAULT '0',
+  `trx_last_foreign_key_error` varchar(256) DEFAULT NULL,
+  `trx_adaptive_hash_latched` int(1) NOT NULL DEFAULT '0',
+  `trx_adaptive_hash_timeout` bigint(21) unsigned NOT NULL DEFAULT '0'
+) ENGINE=MEMORY DEFAULT CHARSET=utf8;
+-- in use (#1227 - Access denied; you need (at least one of) the PROCESS privilege(s) for this operation)
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `INNODB_BUFFER_POOL_STATS`
+--
+
+CREATE TEMPORARY TABLE `INNODB_BUFFER_POOL_STATS` (
+  `POOL_ID` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `POOL_SIZE` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `FREE_BUFFERS` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `DATABASE_PAGES` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `OLD_DATABASE_PAGES` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `MODIFIED_DATABASE_PAGES` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `PENDING_DECOMPRESS` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `PENDING_READS` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `PENDING_FLUSH_LRU` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `PENDING_FLUSH_LIST` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `PAGES_MADE_YOUNG` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `PAGES_NOT_MADE_YOUNG` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `PAGES_MADE_YOUNG_RATE` double NOT NULL DEFAULT '0',
+  `PAGES_MADE_NOT_YOUNG_RATE` double NOT NULL DEFAULT '0',
+  `NUMBER_PAGES_READ` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `NUMBER_PAGES_CREATED` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `NUMBER_PAGES_WRITTEN` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `PAGES_READ_RATE` double NOT NULL DEFAULT '0',
+  `PAGES_CREATE_RATE` double NOT NULL DEFAULT '0',
+  `PAGES_WRITTEN_RATE` double NOT NULL DEFAULT '0',
+  `NUMBER_PAGES_GET` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `HIT_RATE` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `YOUNG_MAKE_PER_THOUSAND_GETS` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `NOT_YOUNG_MAKE_PER_THOUSAND_GETS` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `NUMBER_PAGES_READ_AHEAD` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `NUMBER_READ_AHEAD_EVICTED` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `READ_AHEAD_RATE` double NOT NULL DEFAULT '0',
+  `READ_AHEAD_EVICTED_RATE` double NOT NULL DEFAULT '0',
+  `LRU_IO_TOTAL` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `LRU_IO_CURRENT` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `UNCOMPRESS_TOTAL` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `UNCOMPRESS_CURRENT` bigint(21) unsigned NOT NULL DEFAULT '0'
+) ENGINE=MEMORY DEFAULT CHARSET=utf8;
+-- in use (#1227 - Access denied; you need (at least one of) the PROCESS privilege(s) for this operation)
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `INNODB_LOCK_WAITS`
+--
+
+CREATE TEMPORARY TABLE `INNODB_LOCK_WAITS` (
+  `requesting_trx_id` varchar(18) NOT NULL DEFAULT '',
+  `requested_lock_id` varchar(81) NOT NULL DEFAULT '',
+  `blocking_trx_id` varchar(18) NOT NULL DEFAULT '',
+  `blocking_lock_id` varchar(81) NOT NULL DEFAULT ''
+) ENGINE=MEMORY DEFAULT CHARSET=utf8;
+-- in use (#1227 - Access denied; you need (at least one of) the PROCESS privilege(s) for this operation)
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `INNODB_CMPMEM`
+--
+
+CREATE TEMPORARY TABLE `INNODB_CMPMEM` (
+  `page_size` int(5) NOT NULL DEFAULT '0',
+  `buffer_pool_instance` int(11) NOT NULL DEFAULT '0',
+  `pages_used` int(11) NOT NULL DEFAULT '0',
+  `pages_free` int(11) NOT NULL DEFAULT '0',
+  `relocation_ops` bigint(21) NOT NULL DEFAULT '0',
+  `relocation_time` int(11) NOT NULL DEFAULT '0'
+) ENGINE=MEMORY DEFAULT CHARSET=utf8;
+-- in use (#1227 - Access denied; you need (at least one of) the PROCESS privilege(s) for this operation)
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `INNODB_CMP`
+--
+
+CREATE TEMPORARY TABLE `INNODB_CMP` (
+  `page_size` int(5) NOT NULL DEFAULT '0',
+  `compress_ops` int(11) NOT NULL DEFAULT '0',
+  `compress_ops_ok` int(11) NOT NULL DEFAULT '0',
+  `compress_time` int(11) NOT NULL DEFAULT '0',
+  `uncompress_ops` int(11) NOT NULL DEFAULT '0',
+  `uncompress_time` int(11) NOT NULL DEFAULT '0'
+) ENGINE=MEMORY DEFAULT CHARSET=utf8;
+-- in use (#1227 - Access denied; you need (at least one of) the PROCESS privilege(s) for this operation)
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `INNODB_LOCKS`
+--
+
+CREATE TEMPORARY TABLE `INNODB_LOCKS` (
+  `lock_id` varchar(81) NOT NULL DEFAULT '',
+  `lock_trx_id` varchar(18) NOT NULL DEFAULT '',
+  `lock_mode` varchar(32) NOT NULL DEFAULT '',
+  `lock_type` varchar(32) NOT NULL DEFAULT '',
+  `lock_table` varchar(1024) NOT NULL DEFAULT '',
+  `lock_index` varchar(1024) DEFAULT NULL,
+  `lock_space` bigint(21) unsigned DEFAULT NULL,
+  `lock_page` bigint(21) unsigned DEFAULT NULL,
+  `lock_rec` bigint(21) unsigned DEFAULT NULL,
+  `lock_data` varchar(8192) DEFAULT NULL
+) ENGINE=MEMORY DEFAULT CHARSET=utf8;
+-- in use (#1227 - Access denied; you need (at least one of) the PROCESS privilege(s) for this operation)
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `INNODB_CMPMEM_RESET`
+--
+
+CREATE TEMPORARY TABLE `INNODB_CMPMEM_RESET` (
+  `page_size` int(5) NOT NULL DEFAULT '0',
+  `buffer_pool_instance` int(11) NOT NULL DEFAULT '0',
+  `pages_used` int(11) NOT NULL DEFAULT '0',
+  `pages_free` int(11) NOT NULL DEFAULT '0',
+  `relocation_ops` bigint(21) NOT NULL DEFAULT '0',
+  `relocation_time` int(11) NOT NULL DEFAULT '0'
+) ENGINE=MEMORY DEFAULT CHARSET=utf8;
+-- in use (#1227 - Access denied; you need (at least one of) the PROCESS privilege(s) for this operation)
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `INNODB_CMP_RESET`
+--
+
+CREATE TEMPORARY TABLE `INNODB_CMP_RESET` (
+  `page_size` int(5) NOT NULL DEFAULT '0',
+  `compress_ops` int(11) NOT NULL DEFAULT '0',
+  `compress_ops_ok` int(11) NOT NULL DEFAULT '0',
+  `compress_time` int(11) NOT NULL DEFAULT '0',
+  `uncompress_ops` int(11) NOT NULL DEFAULT '0',
+  `uncompress_time` int(11) NOT NULL DEFAULT '0'
+) ENGINE=MEMORY DEFAULT CHARSET=utf8;
+-- in use (#1227 - Access denied; you need (at least one of) the PROCESS privilege(s) for this operation)
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `INNODB_BUFFER_PAGE_LRU`
+--
+
+CREATE TEMPORARY TABLE `INNODB_BUFFER_PAGE_LRU` (
+  `POOL_ID` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `LRU_POSITION` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `SPACE` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `PAGE_NUMBER` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `PAGE_TYPE` varchar(64) DEFAULT NULL,
+  `FLUSH_TYPE` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `FIX_COUNT` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `IS_HASHED` varchar(3) DEFAULT NULL,
+  `NEWEST_MODIFICATION` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `OLDEST_MODIFICATION` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `ACCESS_TIME` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `TABLE_NAME` varchar(1024) DEFAULT NULL,
+  `INDEX_NAME` varchar(1024) DEFAULT NULL,
+  `NUMBER_RECORDS` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `DATA_SIZE` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `COMPRESSED_SIZE` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `COMPRESSED` varchar(3) DEFAULT NULL,
+  `IO_FIX` varchar(64) DEFAULT NULL,
+  `IS_OLD` varchar(3) DEFAULT NULL,
+  `FREE_PAGE_CLOCK` bigint(21) unsigned NOT NULL DEFAULT '0'
+) ENGINE=MEMORY DEFAULT CHARSET=utf8;
+-- in use (#1227 - Access denied; you need (at least one of) the PROCESS privilege(s) for this operation)
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

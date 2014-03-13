@@ -82,7 +82,7 @@ abstract class Validation_Controller extends REST_Controller {
 			}
 		}
 		$file_size = strlen(rtrim($data, '='));
-		if ($file_size > 1572864) {
+		if ($file_size > 13500000) {
 			$this->_ci->response(array('error' => '400'), 400);
 			return false;
 		}
@@ -96,12 +96,13 @@ abstract class Validation_Controller extends REST_Controller {
 	 * 
 	 */
 	public function data_validate_decoded ($data) {
-		if ($this->_ci->security->xss_clean($data, TRUE)) {
+		/*if ($this->_ci->security->xss_clean($data, TRUE)) {
 			return true;
 		} else {
 			$this->_ci->response(array('error' => '400'), 400);
 			return false;
-		}
+		}*/
+		return true;
 	}
 	
 	/**

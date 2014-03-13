@@ -1,11 +1,10 @@
 define(['use!Backbone', 'Lang'], function(Backbone, Lang){
 	var login = Backbone.Model.extend ({
-		urlRoot: "./api/login/validate/format/json",
+		urlRoot: "/api/login/validate/format/json",
 		defaults: {
 			'email': '',
 			'password': '',
-			'csrf_secure': '',
-			'status': ''
+			'csrf_secure': ''
 		},
 		validate: function (attr) {
 			var failed = false;

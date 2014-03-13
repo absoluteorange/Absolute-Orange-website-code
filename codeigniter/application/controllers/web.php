@@ -21,7 +21,7 @@ class Web extends CI_Controller {
 		$this->session();
 		$this->registerUrl = site_url('/web/register');
 		$this->loginUrl = site_url('/web/login');
-		$this->lang->load('form_validation', 'english');
+		$this->lang->load('form', 'english');
 		$this->author = "Amy Varga";
 		$this->keywords = "Responsive web design, Web app protoype";
 		$this->copyright = "&copy; 2006 - 2013 All Rights Reserved";
@@ -88,19 +88,18 @@ class Web extends CI_Controller {
 			$this->curl->post($_POST);
 			$this->curl->execute();
 			$result = $this->curl->info['http_code'];
-			var_dump($result);
 			if ($result == 200) {
 				redirect(site_url('web/gallery'));
 			} else if ($result == 400) {
 				$loginData['response'] = array('result'=> $this->lang->line('password_incorrect'));
 			} else if ($result == 404) {
-				var_dump($this->lang->line('email_not_recognised'));
 				$loginData['response'] = array('result'=> $this->lang->line('email_not_recognised'));
 			} else if ($result == 403) {
 				echo 'Post does not validate';
 				echo 'TO DO: retrieve errors strings from rest API';
 			}
 			foreach ($formValues as $value) {
+				echo $value;
 				$loginData['values'][$value] = $_POST[$value];
 			}
 		}
@@ -124,20 +123,21 @@ class Web extends CI_Controller {
 		$result = $this->curl->execute();
 		$galleryData['photos'] = json_decode($result);
 		//set photo size
-		switch($this->deviceGroup) {
+//not using scale anymore
+		/*switch($this->deviceGroup) {
 			case '':
-				$galleryData['scale'] = 'med';
+				$galleryData['scale'] = '200';
 				break;
 			case 'large' :
-				$galleryData['scale'] = 'med';
+				$galleryData['scale'] = '400';
 				break;
 			case 'compact' :
-				$galleryData['scale'] = 'small';
+				$galleryData['scale'] = '200';
 				break;
 			case 'smart' :
-				$galleryData['scale'] = 'thumb';
+				$galleryData['scale'] = '200';
 				break;
-		}
+		}*/
 		//set photo directory
 		$galleryData['imageUrl'] = site_url('images/webapp');
 		$container=$this->templateparser->parseTemplate('webapp/gallery.html', $galleryData, true);

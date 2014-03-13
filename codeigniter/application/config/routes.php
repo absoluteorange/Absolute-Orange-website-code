@@ -44,9 +44,12 @@ $route['404_override'] = '';*/
 
 $root="site/";
 $route['default_controller'] = 'site';
-  
-//-----------------------admin ---------------------------------
 
+$route['amyvarga'] = "amyvarga/home";
+$route['amyvarga/work'] = "amyvarga/work";
+
+
+//-----------------------admin ---------------------------------
 $route['admin'] = "admin/admin";
 $route['admin/clear'] = "admin/admin/clear";
 $route['admin/showcases'] = "admin/showcase/showcases";
@@ -62,10 +65,9 @@ $route['admin/(:any)/editShowcase/experience'] = "admin/showcase/experience";
 $route['admin/profile'] = "admin/profile/yourProfile";
 $route['admin/blogs'] = "admin/blog/blogs";
 $route['admin/blogs/editBlog'] = "admin/blog/editBlog";
-$route['^(home|blog|work|developers|cv)(/:any)?$'] = "site/$0";
-$route['downloadCV'] = "site/downloadCV";
+//$route['^(home|blog|work|developers|cv)(/:any)?$'] = "site/$0";
+
 $route['fileAPIUpload'] = "site/fileAPIUpload";
-$route['flashmobs'] = "flashmobs";
 
 $route['auth'] = "auth";
 

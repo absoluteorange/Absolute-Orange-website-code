@@ -1,31 +1,31 @@
 <section class="toggle-list-section-style-b">
 	<div class="major-text-wrapper">
-		<h2 class="wrapper-head">Our work</h2>
+		<h2 class="wrapper-head">{{employeeName}}'s work</h2>
 	</div>
 	<div class="content-wrapper">
 		<ol>
 			{{#items}}
 				<a name="{{anchor}}"></a>
 				<li class="detail-list">
-					<a class="image-wrapper" href="../work
+					<a class="image-wrapper" href="/{{employeeUrl}}/work
 						{{^showcase}}
 							/{{title}}#selected-content
 						{{/showcase}}
 						" title="{{title}}">
 						{{#logos.0}}
 							{{#logos}}
-							<img class="{{class}}" src="../images/showcase/logos/thumb/{{image_url}}" title="{{image_alt}}" />
+							<img class="{{class}}" src="/images/showcase/logos/thumb/{{image_url}}" title="{{image_alt}}" />
 							{{/logos}}
 						{{/logos.0}}
 					</a>
 					<div class="widget-summary  {{class}}">
-						<a class="widget-body" href="../work
+						<a class="widget-body" href="/{{employeeUrl}}/work
 						{{^showcase}}
 							/{{title}}#selected-content
 						{{/showcase}}
 						" title="{{title}}">
 							<div class="text-wrapper">
-									<h4 class="wrapper-head">{{title}}</h4>
+									<h3 class="wrapper-head">{{title}}</h3>
 									<p class="wrapper-body"><strong>Deliverable: </strong>
 										<span>
 											<span>{{deliverable}}</span>

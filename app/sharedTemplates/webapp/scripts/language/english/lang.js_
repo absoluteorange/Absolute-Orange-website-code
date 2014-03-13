@@ -26,7 +26,11 @@ define([],function() {
 		helper_successfully_registered: "Welcome, you have successfully registered.  Please login.",
 		email: "Your email",
 		password: "Your password",
-		username: "Your username"		
+		username: "Your username",
+		thankyou_one: "As a girl I didn't fascinate over my wedding day, I prayed for a perfect husband.  When Jon and I were finally able to discuss our marriage plans it was a commitment ceremony that rang true us us.  For me a commitment ceremony provides a platform to vocalise and make public our love for one another and should we be fortunate enough, surrounded by witnesses of family and friends whom we hold most dear to our hearts.",
+		thankyou_two: "I feel most fortunate to have held my wedding in the country Jon and I met and on the beach we spend our first months together.  Most importantly to be surrounded by so many loved ones. Each of you made huge commitments to be so far from home and to take the time to witness our commitments. Each of you contributed to our circle of love and I feel that I can never quite express how grateful I am for you for being there on such an important occasion in my life.",
+		thankyou_three: "This is a reminder of that beautiful time exactly one year ago and an opportunity to thank each and every one of you for your contribution.",
+		thankyou_four: "All my love always, Ames xx"		
 	};
 	return messages;
 });

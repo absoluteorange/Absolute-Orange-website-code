@@ -91,6 +91,27 @@
 	        </div>
 	    </div>
 	</fieldset>
+    <fieldset>
+        <legend>Blog implementation</legend>
+        <div class="control-group <?php if (form_error('implementation')): echo 'error'; endif; ?>">
+            <label class="control-label" for="implementation">Implementation</label>
+            <div class="controls">
+                <textarea class="span11" name="implementation" id="implementation" rows="20"><?php if (set_value('implementation')): echo set_value('implementation'); else: echo $implementation; endif; ?></textarea>
+                <?php if (form_error('implementation')): ?>
+                    <span class="help-inline error"><?=form_error('implementation'); ?></span>
+                <?php endif; ?>
+            </div>
+        </div>
+        <div class="control-group <?php if (form_error('code')): echo 'error'; endif; ?>">
+            <label class="control-label" for="code">Code</label>
+            <div class="controls">
+                <textarea class="span11" name="code" id="code" rows="20"><?php if (set_value('code')): echo set_value('code'); else: echo $code; endif; ?></textarea>
+                <?php if (form_error('code')): ?>
+                    <span class="help-inline error"><?=form_error('code'); ?></span>
+                <?php endif; ?>
+            </div>
+        </div>
+    </fieldset>
 	<fieldset>
 		<legend>Screenshots / photos</legend>
 		<?php if (!empty($blogImages)): ?>

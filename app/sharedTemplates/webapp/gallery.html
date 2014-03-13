@@ -1,9 +1,24 @@
 <section id="photoGallery">
-	<h2>My photos</h2>
+	<div class="navigation">
+		<a href="{{thankyouUrl}}" class="btn btn-warning btn-first" title="thank you" id="openThankyou">Thank you</a>
+		<input type="button" class="btn btn-warning js-only" id="openLogin" value="Add images">
+	</div>
 	<div id="photoContainer">
 		<div id="photos" class="fluid clearfix">
 			{{#photos}}
-				<img src="{{imageUrl}}/{{scale}}/{{name}}.{{format}}" title="{{alt}}" alt="{{alt}}" />
+				<div class="item">
+					<script type="text/javascript">
+						if (cookieEnabled === false) {
+							document.write('<img src="{{imageUrl}}/{{scale}}/{{name}}.{{format}}" title="{{alt}}" alt="{{alt}}" />');
+						}
+					</script>
+					<a class="js-only" href="{{imageUrl}}/xlarge/{{name}}.{{format}}" data-lightbox="wedding">
+				    	<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{imageUrl}}/{{scale}}/{{name}}.{{format}}" title="{{alt}}" alt="{{alt}}" />
+				    </a>
+					<noscript>
+						<img src="{{imageUrl}}/{{scale}}/{{name}}.{{format}}" title="{{alt}}" alt="{{alt}}" />
+					</noscript>
+				</div>
 			{{/photos}}
 		</div>
 	</div>

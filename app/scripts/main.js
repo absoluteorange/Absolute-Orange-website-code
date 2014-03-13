@@ -4,12 +4,12 @@ require.config ({
 		'text': 'plugins/text',
 		'order': 'plugins/order',
 		'globals': '../dynamicScripts/jsGlobals',
-		'InputClearer': 'InputClearer',
 		'utils': 'utils',
 		'features': 'features',
-		'IsotopeLoader': 'isotopeLoader',
-		'Isotope': 'jquery.isotope',
+		'isotope': 'jquery.isotope',
 		'domready': 'plugins/domReady',
+		'unveil': 'plugins/jquery.unveil.min',
+		'lightbox': 'plugins/lightbox-2.6.min',
 		'jquery': 'libs/jquery-1.7.1.min',
 		'underscore': 'libs/underscore',
 		'Backbone': 'libs/backbone-min',
@@ -23,15 +23,14 @@ require.config ({
 		'LoginView': 'app/views/LoginView',
 		'User': 'app/models/User',
 		'RegisterView': 'app/views/RegisterView',
+		'ThankyouView': 'app/views/ThankyouView',
+		'Authenticate': 'app/models/Authenticate',
 		'Router': 'app/Router',
 		'AppView': 'app/appview',
 		'Lang': '../dynamicScripts/jsLanguage',
 		'templates': '../sharedTemplates/webapp'
 	},
 	use: {
-		'InputClearer': {
-			attach: 'InputClearer'
-		},
 		'underscore': {
 	        attach: "_"
 		},
@@ -42,8 +41,8 @@ require.config ({
 	        }
 		},
 		'utils': {
-			deps: ['use!InputClearer', 'use!underscore', 'use!Backbone'],
-			attach: function (InputClearer, _, Backbone) {
+			deps: ['use!underscore', 'use!Backbone'],
+			attach: function (_, Backbone) {
 				return utils;
 			}
 		},
@@ -55,6 +54,24 @@ require.config ({
 		},
 		'Mustache': {
 			attach: 'Mustache'
+		},
+		'unveil': {
+			deps: ['jquery'],
+	        attach: function($) {
+	          return $;
+	        }
+		},
+		'isotope': {
+			deps: ['jquery'],
+	        attach: function($) {
+	          return window.$.Isotope;
+	        }
+		},
+		'lightbox': {
+			deps: ['jquery'],
+	        attach: function($) {
+	          return $;
+	        }
 		}
 	},
 	baseUrl: '/scripts/',

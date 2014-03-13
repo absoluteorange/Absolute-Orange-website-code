@@ -43,6 +43,8 @@ class Blog extends CI_Controller {
 		$data['url']=$blog->url;
 		$data['image']=$blog->image;
 		$data['description']=$blog->description;
+        $data['implementation']=$blog->implementation;
+        $data['code']=$blog->code;
         $data['dateCompleted']=$blog->date_completed;
 		$data['blogLogos'] = $this->blog_model->getLogos($data['id']);
 		$data['blogImages'] = $this->blog_model->getImages($data['id']);
@@ -94,7 +96,9 @@ class Blog extends CI_Controller {
 		$data = array('name' => $_POST['title'], 
 					  'url' => $_POST['url'],
 					  'date_completed' => $_POST['date_completed'],
-					  'description' => $_POST['description']);
+					  'description' => $_POST['description'],
+                      'implementation' => $_POST['implementation'],
+                      'code' => $_POST['code']);
 		$where = 'id = '.$id;
 		$this->db->update('blog', $data, $where);
 		//screenshots order

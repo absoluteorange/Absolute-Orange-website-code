@@ -11,7 +11,9 @@ h1, h2, h3, h4, h5 {
 h1{
 	color: #535353;
 }
-h1,h2 {
+h1,
+h2,
+h2 a{
 	@include font-size(40);
 	@include breakpoint($second) {
 		@include font-size(35);
@@ -20,11 +22,18 @@ h1,h2 {
 		@include font-size(25);
 	}
 }
-h3,h4{
-	@include font-size(20);
+h3{
+	@include font-size(30);
 	@include breakpoint($first) {
-	   @include font-size(16);
+	   @include font-size(25);
 	}
+}
+
+h4{
+  @include font-size(20);
+  @include breakpoint($first) {
+    @include font-size(20);
+  }
 }
 
 h5{

@@ -51,6 +51,7 @@ $db['default']['hostname'] = '127.0.0.1';
 $db['default']['username'] = getenv('MYSQL_USERNAME');
 $db['default']['password'] = getenv('MYSQL_PASSWORD');
 $db['default']['database'] = getenv('MYSQL_DB_NAME');
+$db['default']['port'] = getenv('MYSQL_PORT');
 
 if($db['default']['username']==""){
     $db['default']['username'] ="amyvarga";

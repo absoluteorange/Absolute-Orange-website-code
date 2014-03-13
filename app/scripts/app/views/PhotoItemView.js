@@ -4,13 +4,13 @@ define(['globals', 'use!Backbone', 'Photo', 'text!app/templates/photoItem.html',
 		 template: _.template(PhotoItemTemplate),
 		 initialize:function () {
 			 this.deviceGroup = utils.getCookie('deviceGroup');
-			 this.siteUrl = globals.domain+'images/webapp/';
+			 this.siteUrl = globals.domain+'images/webapp';
 		 },
 		 render:function (eventName) {
 			 if (this.deviceGroup == 'large' || this.deviceGroup == 'compact') {
 				 this.scale = 'med';
 			 } else if (this.deviceGroup == 'smart') {
-				 this.scale = 'small';
+				 this.scale = 'thumb';
 			 } else  {
 				 this.scale = 'small';
 			 }
