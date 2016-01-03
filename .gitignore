@@ -4,6 +4,7 @@ temp
 dist
 .sass-cache
 .ai-cache
+app/ai-cache
 .settings
 .tmp
 app/styles/icons/*.*
