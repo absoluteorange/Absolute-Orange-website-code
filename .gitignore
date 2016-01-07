@@ -4,8 +4,10 @@ temp
 dist
 .sass-cache
 .ai-cache
-app/ai-cache
 .settings
 .tmp
 app/styles/icons/*.*
 app/components
+app/ai-cache
+app/images/web-app
+

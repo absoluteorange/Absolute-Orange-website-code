@@ -55,7 +55,7 @@ $db['default']['port'] = getenv('MYSQL_PORT');
 
 if($db['default']['username']==""){
     $db['default']['username'] ="amyvarga";
-    $db['default']['password'] = " 0range";
+    $db['default']['password'] = "0range";
     $db['default']['database'] = "amyvarga";
 
 }
