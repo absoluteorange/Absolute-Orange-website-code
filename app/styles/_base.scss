@@ -15,37 +15,37 @@ h1,
 h2,
 h2 a{
 	@include font-size(40);
-	@include breakpoint($second) {
+	@include media($second) {
 		@include font-size(35);
 	}
-	@include breakpoint($first) {
+	@include media($first) {
 		@include font-size(25);
 	}
 }
 h3{
 	@include font-size(30);
-	@include breakpoint($first) {
+	@include media($first) {
 	   @include font-size(25);
 	}
 }
 
 h4{
   @include font-size(20);
-  @include breakpoint($first) {
+  @include media($first) {
     @include font-size(20);
   }
 }
 
 h5{
 	@include font-size(16);
-	@include breakpoint($first) {
+	@include media($first) {
 	   @include font-size(12);
 	}
 }
 
 p, a, button, select, li {
 	@include font-size(15);
-	@include breakpoint($first) {
+	@include media($first) {
 		@include font-size(16);
 	}
 	font-family: Arial, sans-serif;

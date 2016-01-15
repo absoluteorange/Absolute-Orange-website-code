@@ -50,6 +50,7 @@ class AmyVarga extends CI_Controller {
 	}
 
 	public function getHome() {
+        $data = new stdClass();
         $data->blogs = $this->getAllLabs();
         $data->tweets = $this->templateparser->parseTemplate('layout/tweets.html');
         $data->title = $this->employeeName."'s labs";

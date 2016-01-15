@@ -5,7 +5,7 @@ header {
 		@extend .texture1;
 		border-bottom: 1px solid #444;
 		padding: 0.5em;
-		@include breakpoint($first) {
+		@include media($first) {
 		 	padding: 0.2em;
 		}
 		h1.wrapper-head,  p.wrapper-body {
@@ -14,7 +14,7 @@ header {
 		h1.wrapper-head {
 			 margin-bottom: 0.1em;
              float: right;
-			 @include breakpoint($first) {
+			 @include media($first) {
 			 	margin-bottom: 0.2em;
 			}
 		}
@@ -46,7 +46,7 @@ nav {
 		border-top: 1px solid #e2dfe2;
 		.wrapper-body {			
 			@include font-size(20);
-			@include breakpoint($first) {
+			@include media($first) {
 				@include font-size(16);
 			}			
 		}
@@ -92,10 +92,10 @@ footer {
 			@include font-size($grid-columns);
 			color: #ff7c27;
 			margin: 0;
-			@include breakpoint($first) {
+			@include media($first) {
 		 		@include font-size(14);
 			}
-			@include breakpoint($second) {
+			@include media($second) {
 		 		@include font-size(18);
 			}
 		}
@@ -106,7 +106,7 @@ footer {
         .wrapper-body {
             color: #ff7c27;
             margin-bottom: 0;
-            @include breakpoint($second) {
+            @include media($second) {
               @include font-size(12);
             }
             @include font-size(13);
@@ -232,7 +232,7 @@ p.top-link{
   		@include transition-duration(1s); 
     	@include transition-timing-function(ease-out);
     	@include transform(rotateY(0deg));
-    	@include breakpoint($third) {
+    	@include media($third) {
 				 @include transform(rotateY(90deg));				
 		}
 	}
