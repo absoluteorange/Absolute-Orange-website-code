@@ -1,43 +1,51 @@
 /* general page styles */
-/* line 2, ../../app/styles/blog-specific.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/app\/styles\/blog-specific\.scss}line{font-family:\000032}}
 body {
   font-family: "Helvetica", "Arial", "FreeSans", "Verdana", "Tahoma", "Lucida Sans", "Lucida Sans Unicode", "Luxi Sans", sans-serif;
   font-size: 0.9rem;
 }
 
-/* line 6, ../../app/styles/blog-specific.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/app\/styles\/blog-specific\.scss}line{font-family:\000036}}
 #inner-page {
   width: 100%;
 }
 
-/* line 10, ../../app/styles/blog-specific.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/app\/styles\/blog-specific\.scss}line{font-family:\0000310}}
 #implementation, #code {
   width: 50%;
-  float: left;
   height: 100%;
 }
-/* line 14, ../../app/styles/blog-specific.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/app\/styles\/blog-specific\.scss}line{font-family:\0000313}}
 #implementation .borderbox, #code .borderbox {
   border: 1px solid #C0C0C0;
-  box-shadow: inset 0 1px 2px #e4e4e4;
   padding: 10px;
 }
 
-/* line 22, ../../app/styles/blog-specific.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/app\/styles\/blog-specific\.scss}line{font-family:\0000319}}
+#code {
+  width: 100%;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/app\/styles\/blog-specific\.scss}line{font-family:\0000321}}
 #code pre {
-  overflow-x: scroll;
-  width: 95%;
-  margin: 10px;
-  padding-bottom: 10px;
+  font-size: 1.5em;
+  word-wrap: break-word;
+  line-height: 1.5em;
+  background: linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
+  background: -webkit-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
+  background: -moz-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
+  background: -ms-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
+  background: -o-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
+  background: linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
+  background-size: 100% 1.5em;
 }
 
-/* line 31, ../../app/styles/blog-specific.scss */
-#implementation .borderbox {
-  margin-right: 10px;
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/app\/styles\/blog-specific\.scss}line{font-family:\0000335}}
+footer {
+  clear: both;
 }
 
 /* file API */
-/* line 38, ../../app/styles/blog-specific.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/app\/styles\/blog-specific\.scss}line{font-family:\0000340}}
 #dropbox, #uploadedImages {
   height: 250px;
   margin-bottom: 10px;
@@ -45,17 +53,17 @@ body {
   padding: 10px;
   overflow: hidden;
 }
-/* line 44, ../../app/styles/blog-specific.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/app\/styles\/blog-specific\.scss}line{font-family:\0000346}}
 #dropbox img, #uploadedImages img {
   height: 100%;
 }
-/* line 47, ../../app/styles/blog-specific.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/app\/styles\/blog-specific\.scss}line{font-family:\0000349}}
 #dropbox p, #uploadedImages p {
   color: #fff;
 }
 
 /* map API */
-/* line 54, ../../app/styles/blog-specific.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/app\/styles\/blog-specific\.scss}line{font-family:\0000356}}
 #map-canvas {
   height: 40em;
   width: 90%;
@@ -63,22 +71,22 @@ body {
   border: 1px solid #19a388;
 }
 
-/* line 60, ../../app/styles/blog-specific.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/app\/styles\/blog-specific\.scss}line{font-family:\0000362}}
 #map-canvas #map_logo {
   border: none !important;
 }
 
-/* line 63, ../../app/styles/blog-specific.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/app\/styles\/blog-specific\.scss}line{font-family:\0000365}}
 #map-canvas .gmnoprint p {
   color: #FF7D27;
 }
 
-/* line 66, ../../app/styles/blog-specific.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/app\/styles\/blog-specific\.scss}line{font-family:\0000368}}
 .map-form {
   margin: 1em 0;
 }
 
-/* line 69, ../../app/styles/blog-specific.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/app\/styles\/blog-specific\.scss}line{font-family:\0000371}}
 .map-form .map-inline-form {
   border: 1px solid #19a388;
   color: #535353;
@@ -87,7 +95,7 @@ body {
   margin-right: 10px;
 }
 
-/* line 76, ../../app/styles/blog-specific.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/app\/styles\/blog-specific\.scss}line{font-family:\0000378}}
 .map-form a#code_address {
   border: none;
   background-color: #19a388;
@@ -100,7 +108,7 @@ body {
 }
 
 /* code styles */
-/* line 88, ../../app/styles/blog-specific.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/app\/styles\/blog-specific\.scss}line{font-family:\0000390}}
 pre {
   display: block;
 }

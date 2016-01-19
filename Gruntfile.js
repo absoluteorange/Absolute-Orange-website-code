@@ -32,16 +32,30 @@ module.exports = function(grunt) {
                 pngfolder:'app/images/icons/',
                 enhanceSVG: true
             }
+        },
+        copy: {
+            dest: {
+                files: [{
+                    src: '.tmp/styles/blog-specific.css',
+                    dest: 'app/styles/blog-specific.css'
+                }]
+            }
         }
     });
 
     grunt.loadNpmTasks('grunt-grunticon');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-compass');
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
     grunt.registerTask('build', [
         'grunticon',
-        'compass',
+        'compass:dist',
         'cssmin'
+    ]);
+    
+    grunt.registerTask('watch', [
+        'compass:server',
+        'copy'
     ]);
 };
