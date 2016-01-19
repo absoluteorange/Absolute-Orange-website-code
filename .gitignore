@@ -6,6 +6,7 @@ dist
 .ai-cache
 .settings
 .tmp
+.DS_Store
 app/styles/icons/*.*
 app/components
 app/ai-cache
