@@ -14,7 +14,7 @@ h1{
 h1,
 h2,
 h2 a{
-	@include font-size(40);
+	@include font-size(30);
 	@include media($second) {
 		@include font-size(35);
 	}

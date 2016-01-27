@@ -1,1 +1,45 @@
-.masonry,.masonry .masonry-brick{-webkit-transition-duration:.7s;-moz-transition-duration:.7s;-ms-transition-duration:.7s;-o-transition-duration:.7s;transition-duration:.7s}.masonry{-webkit-transition-property:width,height;-moz-transition-property:width,height;-ms-transition-property:width,height;-o-transition-property:width,height;transition-property:width,height}.masonry .masonry-brick{-webkit-transition-property:left,right,top;-moz-transition-property:left,right,top;-ms-transition-property:left,right,top;-o-transition-property:left,right,top;transition-property:left,right,top}#form-helper{-webkit-transition:height 2s width 2s ease-in;-moz-transition:height 2s width 2s ease-in;-ms-transition:height 2s width 2s ease-in;-o-transition:height 2s width 2s ease-in;transition:height 2s width 2s ease-in}#form-helper.expanded{-webkit-transform:height 2s width 2s ease-in;-moz-transform:height 2s width 2s ease-in;-ms-transform:height 2s width 2s ease-in;-o-transform:height 2s width 2s ease-in;transform:height 2s width 2s ease-in}
+/* line 1, ../../sass/webapp/transitions.scss */
+.masonry,
+.masonry .masonry-brick {
+  -webkit-transition-duration: 0.7s;
+  -moz-transition-duration: 0.7s;
+  -ms-transition-duration: 0.7s;
+  -o-transition-duration: 0.7s;
+  transition-duration: 0.7s;
+}
+
+/* line 9, ../../sass/webapp/transitions.scss */
+.masonry {
+  -webkit-transition-property: width, height;
+  -moz-transition-property: width, height;
+  -ms-transition-property: width, height;
+  -o-transition-property: width, height;
+  transition-property: width, height;
+}
+
+/* line 16, ../../sass/webapp/transitions.scss */
+.masonry .masonry-brick {
+  -webkit-transition-property: left, right, top;
+  -moz-transition-property: left, right, top;
+  -ms-transition-property: left, right, top;
+  -o-transition-property: left, right, top;
+  transition-property: left, right, top;
+}
+
+/* line 27, ../../sass/webapp/transitions.scss */
+#form-helper {
+  -webkit-transition: height 2s width 2s ease-in;
+  -moz-transition: height 2s width 2s ease-in;
+  -ms-transition: height 2s width 2s ease-in;
+  -o-transition: height 2s width 2s ease-in;
+  transition: height 2s width 2s ease-in;
+}
+
+/* line 35, ../../sass/webapp/transitions.scss */
+#form-helper.expanded {
+  -webkit-transform: height 2s width 2s ease-in;
+  -moz-transform: height 2s width 2s ease-in;
+  -ms-transform: height 2s width 2s ease-in;
+  -o-transform: height 2s width 2s ease-in;
+  transform: height 2s width 2s ease-in;
+}

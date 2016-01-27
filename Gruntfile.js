@@ -1,3 +1,4 @@
+
 module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -6,16 +7,9 @@ module.exports = function(grunt) {
                 config: 'config.rb'
             },
             dist: {},
-            server: {
+            dev: {
                 options: {
                     debugInfo: true
-                }
-            }
-        },
-        cssmin: {
-            target: {
-                files: {
-                    'app/styles/main.css': [ '.tmp/styles/*.css' ]
                 }
             }
         },
@@ -23,26 +17,28 @@ module.exports = function(grunt) {
             icons: {
                 files: [{
                     expand: true,
-                    cwd: 'app/styles/icons/svgs/',
+                    cwd: 'svgs/',
                     src: '*.svg',
-                    dest: 'app/styles/icons'
+                    dest: 'app/icon'
                 }]
             },
             options: {
-                pngfolder:'app/images/icons/',
                 enhanceSVG: true
             }
         },
-        copy: {
-            dest: {
-                files: [{
-                    src: '.tmp/styles/blog-specific.css',
-                    dest: 'app/styles/blog-specific.css'
-                }]
-            }
-        }
+       
+        watch: {
+          sass: {
+            files: ['app/sass/**'],
+            tasks: ['compass:dev'],
+            options: {
+              spawn: false,
+            },
+          },
+    },
     });
 
+    grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-grunticon');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-compass');
@@ -50,12 +46,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('build', [
         'grunticon',
-        'compass:dist',
-        'cssmin'
+        'compass:dist'
     ]);
     
-    grunt.registerTask('watch', [
-        'compass:server',
-        'copy'
-    ]);
 };

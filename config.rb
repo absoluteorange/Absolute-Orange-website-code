@@ -3,8 +3,8 @@ require 'compass/import-once/activate'
 
 # Set this to the root of your project when deployed:
 http_path = "/vagrant/www"
-css_dir = ".tmp/styles"
-sass_dir = "app/styles"
+css_dir = "app/styles"
+sass_dir = "app/sass"
 images_dir = "app/images"
 javascripts_dir = "app/scripts"
 font = "app/fonts"

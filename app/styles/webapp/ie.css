@@ -1,1 +1,9 @@
-.js #photos{display:block}.js .loading{display:none}
+/* line 1, ../../sass/webapp/ie.scss */
+.js #photos {
+  display: block;
+}
+
+/* line 4, ../../sass/webapp/ie.scss */
+.js .loading {
+  display: none;
+}

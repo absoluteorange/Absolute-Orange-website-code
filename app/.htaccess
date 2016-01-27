@@ -984,7 +984,7 @@ FileETag None
 # </IfModule>
 RewriteEngine on
 
-RewriteCond $1 !^(index\.php|images|user_guide|styles|cv|favicon.ico|scripts|blogs|maps\.js|fonts|adaptive-images\.php|ai-cache|sharedTemplates|components|preview\.html)
+RewriteCond $1 !^(index\.php|images|icon|styles|user_guide|icons|cv|favicon.ico|scripts|blogs|maps\.js|fonts|adaptive-images\.php|ai-cache|sharedTemplates|components|preview\.html)
 RewriteRule  ^(.*)$ /index.php/site/$1 [L]
 
 RewriteCond %{REQUEST_URI} !images/bg
