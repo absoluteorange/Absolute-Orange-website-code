@@ -1,4 +1,4 @@
-/* line 1, ../../sass/webapp/transitions.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/sass\/webapp\/transitions\.scss}line{font-family:\000031}}
 .masonry,
 .masonry .masonry-brick {
   -webkit-transition-duration: 0.7s;
@@ -8,7 +8,7 @@
   transition-duration: 0.7s;
 }
 
-/* line 9, ../../sass/webapp/transitions.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/sass\/webapp\/transitions\.scss}line{font-family:\000039}}
 .masonry {
   -webkit-transition-property: width, height;
   -moz-transition-property: width, height;
@@ -17,7 +17,7 @@
   transition-property: width, height;
 }
 
-/* line 16, ../../sass/webapp/transitions.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/sass\/webapp\/transitions\.scss}line{font-family:\0000316}}
 .masonry .masonry-brick {
   -webkit-transition-property: left, right, top;
   -moz-transition-property: left, right, top;
@@ -26,7 +26,7 @@
   transition-property: left, right, top;
 }
 
-/* line 27, ../../sass/webapp/transitions.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/sass\/webapp\/transitions\.scss}line{font-family:\0000327}}
 #form-helper {
   -webkit-transition: height 2s width 2s ease-in;
   -moz-transition: height 2s width 2s ease-in;
@@ -35,7 +35,7 @@
   transition: height 2s width 2s ease-in;
 }
 
-/* line 35, ../../sass/webapp/transitions.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/sass\/webapp\/transitions\.scss}line{font-family:\0000335}}
 #form-helper.expanded {
   -webkit-transform: height 2s width 2s ease-in;
   -moz-transform: height 2s width 2s ease-in;

@@ -2,7 +2,7 @@
 /* http://meyerweb.com/eric/tools/css/reset/
  * v2.0 | 20110126
  * License: none (public domain) */
-/* line 5, ../../sass/flashmobs/_reset.sass */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/sass\/flashmobs\/_reset\.sass}line{font-family:\000035}}
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -25,35 +25,35 @@ time, mark, audio, video {
 }
 
 /* HTML5 display-role reset for older browsers */
-/* line 26, ../../sass/flashmobs/_reset.sass */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/sass\/flashmobs\/_reset\.sass}line{font-family:\0000326}}
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
 }
 
-/* line 30, ../../sass/flashmobs/_reset.sass */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/sass\/flashmobs\/_reset\.sass}line{font-family:\0000330}}
 body {
   line-height: 1;
 }
 
-/* line 33, ../../sass/flashmobs/_reset.sass */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/sass\/flashmobs\/_reset\.sass}line{font-family:\0000333}}
 ol, ul {
   list-style: none;
 }
 
-/* line 36, ../../sass/flashmobs/_reset.sass */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/sass\/flashmobs\/_reset\.sass}line{font-family:\0000336}}
 blockquote, q {
   quotes: none;
 }
 
-/* line 39, ../../sass/flashmobs/_reset.sass */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/sass\/flashmobs\/_reset\.sass}line{font-family:\0000339}}
 blockquote:before, blockquote:after,
 q:before, q:after {
   content: "";
   content: none;
 }
 
-/* line 44, ../../sass/flashmobs/_reset.sass */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/sass\/flashmobs\/_reset\.sass}line{font-family:\0000344}}
 table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -66,71 +66,71 @@ table {
   font-weight: normal;
   font-style: normal;
 }
-/* line 4, ../../sass/flashmobs/flashmobs.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/sass\/flashmobs\/flashmobs\.scss}line{font-family:\000034}}
 * {
   line-height: 16px;
 }
 
-/* line 8, ../../sass/flashmobs/flashmobs.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/sass\/flashmobs\/flashmobs\.scss}line{font-family:\000038}}
 p, h1, h2, a {
   color: #fff;
   margin: 0 0 18px;
 }
 
-/* line 13, ../../sass/flashmobs/flashmobs.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/sass\/flashmobs\/flashmobs\.scss}line{font-family:\0000313}}
 h1, h2 {
   font-family: 'UbuntuBoldItalics', Helvetica, Arial, sans-serif;
   font-size: 4em;
 }
 
-/* line 17, ../../sass/flashmobs/flashmobs.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/sass\/flashmobs\/flashmobs\.scss}line{font-family:\0000317}}
 h2 {
   font-size: 2em;
   font-weight: bold;
 }
 
-/* line 22, ../../sass/flashmobs/flashmobs.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/sass\/flashmobs\/flashmobs\.scss}line{font-family:\0000322}}
 p {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 1.077em;
 }
 
-/* line 27, ../../sass/flashmobs/flashmobs.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/sass\/flashmobs\/flashmobs\.scss}line{font-family:\0000327}}
 span.italics {
   font-style: italic;
 }
 
-/* line 30, ../../sass/flashmobs/flashmobs.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/sass\/flashmobs\/flashmobs\.scss}line{font-family:\0000330}}
 strong {
   font-weight: bold;
 }
 
-/* line 34, ../../sass/flashmobs/flashmobs.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/sass\/flashmobs\/flashmobs\.scss}line{font-family:\0000334}}
 body {
   background-color: #151e5c;
   margin: 1em;
 }
 
-/* line 39, ../../sass/flashmobs/flashmobs.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/sass\/flashmobs\/flashmobs\.scss}line{font-family:\0000339}}
 header {
   float: left;
   width: 100%;
   margin-bottom: 2em;
 }
-/* line 43, ../../sass/flashmobs/flashmobs.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/sass\/flashmobs\/flashmobs\.scss}line{font-family:\0000343}}
 header h1, header img {
   float: left;
 }
-/* line 46, ../../sass/flashmobs/flashmobs.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/sass\/flashmobs\/flashmobs\.scss}line{font-family:\0000346}}
 header h1 {
   padding-top: 0.25em;
 }
 
-/* line 83, ../../sass/flashmobs/flashmobs.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/sass\/flashmobs\/flashmobs\.scss}line{font-family:\0000383}}
 footer {
   text-align: center;
 }
-/* line 85, ../../sass/flashmobs/flashmobs.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/sass\/flashmobs\/flashmobs\.scss}line{font-family:\0000385}}
 footer p {
   font-size: 0.77em;
 }

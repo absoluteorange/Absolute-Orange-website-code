@@ -1,31 +1,31 @@
 /* general page styles */
-/* line 2, ../sass/blog-specific.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/sass\/blog-specific\.scss}line{font-family:\000032}}
 body {
   font-family: "Helvetica", "Arial", "FreeSans", "Verdana", "Tahoma", "Lucida Sans", "Lucida Sans Unicode", "Luxi Sans", sans-serif;
   font-size: 0.9rem;
 }
 
-/* line 6, ../sass/blog-specific.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/sass\/blog-specific\.scss}line{font-family:\000036}}
 #inner-page {
   width: 100%;
 }
 
-/* line 10, ../sass/blog-specific.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/sass\/blog-specific\.scss}line{font-family:\0000310}}
 #implementation, #code {
   width: 50%;
   height: 100%;
 }
-/* line 13, ../sass/blog-specific.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/sass\/blog-specific\.scss}line{font-family:\0000313}}
 #implementation .borderbox, #code .borderbox {
   border: 1px solid #C0C0C0;
   padding: 10px;
 }
 
-/* line 19, ../sass/blog-specific.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/sass\/blog-specific\.scss}line{font-family:\0000319}}
 #code {
   width: 100%;
 }
-/* line 21, ../sass/blog-specific.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/sass\/blog-specific\.scss}line{font-family:\0000321}}
 #code pre {
   font-size: 1.5em;
   word-wrap: break-word;
@@ -39,13 +39,13 @@ body {
   background-size: 100% 1.5em;
 }
 
-/* line 35, ../sass/blog-specific.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/sass\/blog-specific\.scss}line{font-family:\0000335}}
 footer {
   clear: both;
 }
 
 /* file API */
-/* line 40, ../sass/blog-specific.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/sass\/blog-specific\.scss}line{font-family:\0000340}}
 #dropbox, #uploadedImages {
   height: 250px;
   margin-bottom: 10px;
@@ -53,17 +53,17 @@ footer {
   padding: 10px;
   overflow: hidden;
 }
-/* line 46, ../sass/blog-specific.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/sass\/blog-specific\.scss}line{font-family:\0000346}}
 #dropbox img, #uploadedImages img {
   height: 100%;
 }
-/* line 49, ../sass/blog-specific.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/sass\/blog-specific\.scss}line{font-family:\0000349}}
 #dropbox p, #uploadedImages p {
   color: #fff;
 }
 
 /* map API */
-/* line 56, ../sass/blog-specific.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/sass\/blog-specific\.scss}line{font-family:\0000356}}
 #map-canvas {
   height: 40em;
   width: 90%;
@@ -71,22 +71,22 @@ footer {
   border: 1px solid #19a388;
 }
 
-/* line 62, ../sass/blog-specific.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/sass\/blog-specific\.scss}line{font-family:\0000362}}
 #map-canvas #map_logo {
   border: none !important;
 }
 
-/* line 65, ../sass/blog-specific.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/sass\/blog-specific\.scss}line{font-family:\0000365}}
 #map-canvas .gmnoprint p {
   color: #FF7D27;
 }
 
-/* line 68, ../sass/blog-specific.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/sass\/blog-specific\.scss}line{font-family:\0000368}}
 .map-form {
   margin: 1em 0;
 }
 
-/* line 71, ../sass/blog-specific.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/sass\/blog-specific\.scss}line{font-family:\0000371}}
 .map-form .map-inline-form {
   border: 1px solid #19a388;
   color: #535353;
@@ -95,7 +95,7 @@ footer {
   margin-right: 10px;
 }
 
-/* line 78, ../sass/blog-specific.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/sass\/blog-specific\.scss}line{font-family:\0000378}}
 .map-form a#code_address {
   border: none;
   background-color: #19a388;
@@ -108,7 +108,7 @@ footer {
 }
 
 /* code styles */
-/* line 90, ../sass/blog-specific.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/sass\/blog-specific\.scss}line{font-family:\0000390}}
 pre {
   display: block;
 }

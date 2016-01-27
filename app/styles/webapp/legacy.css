@@ -1,14 +1,14 @@
-/* line 1, ../../sass/webapp/legacy.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/sass\/webapp\/legacy\.scss}line{font-family:\000031}}
 .js #photos {
   display: none;
 }
 
-/* line 4, ../../sass/webapp/legacy.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/sass\/webapp\/legacy\.scss}line{font-family:\000034}}
 .no-cookie #photos {
   display: block;
 }
 
-/* line 7, ../../sass/webapp/legacy.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/vagrant\/www\/sass\/webapp\/legacy\.scss}line{font-family:\000037}}
 .js .loading {
   display: block;
 }
