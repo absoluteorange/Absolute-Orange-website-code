@@ -7,7 +7,9 @@ dist
 .settings
 .tmp
 .DS_Store
-app/styles/icons/*.*
+app/styles
+app/scripts
+app/icon
 app/components
 app/ai-cache
 app/images/web-app
