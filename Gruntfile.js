@@ -48,7 +48,7 @@ module.exports = function(grunt) {
             },
         },
         uglify: {
-            my_target: {
+            scripts: {
               files: [{
                   expand: true,
                   cwd: 'app/scripts',
@@ -73,6 +73,13 @@ module.exports = function(grunt) {
             options: {
               spawn: false,
             },
+          },
+          icons: {
+            files: ['svgs/**'],
+            tasks: ['grunticon'],
+            options: {
+              spawn: false,
+            },
           }
         
         },
@@ -92,10 +99,17 @@ module.exports = function(grunt) {
     ]);
 
     grunt.registerTask('build', [
-        'grunticon',
+        'compass:dev',
+        'prepare_scripts',
+        'grunticon'
+    ]);
+
+    grunt.registerTask('dist', [
+       
         'compass:dist',
         'prepare_scripts',
-        'uglify_scipts'
+        'grunticon',
+        'uglify:scripts'
     ]);
     
 };

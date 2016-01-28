@@ -1,3 +1,12 @@
+
+
+.js nav {
+  display: none;
+}
+.no-js nav {
+  display: block;
+}
+
 nav {
 	@extend .drop-shadow;
 	.wrapper {
@@ -35,3 +44,4 @@ nav {
       display: block;
     }
 }
+
