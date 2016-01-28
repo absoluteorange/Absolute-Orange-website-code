@@ -16,4 +16,5 @@
     }
 }(jQuery));
 
+
 var myMobile = new Mobile.MobileViewModel();

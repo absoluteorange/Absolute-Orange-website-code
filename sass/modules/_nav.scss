@@ -1,0 +1,37 @@
+nav {
+	@extend .drop-shadow;
+	.wrapper {
+		@extend .texture2;
+	}
+	@extend .list-touch;
+	li {
+		@include  row();
+		border-top: 1px solid #e2dfe2;
+		.wrapper-body {			
+			@include font-size(20);
+			@include media($first) {
+				@include font-size(16);
+			}			
+		}
+		.touch-list-title{
+			@include span-columns(15);
+			@include omega();
+			padding: 0.5em;
+			color:  #e2dfe2;
+		}
+		&.selected{
+			border-top: 1px solid  #ff7c27;
+			.touch-list-title{
+					color:  #ff7c27;
+			}
+		}
+		a:hover {
+			.touch-list-title{
+				color:  #ff7c27;
+			}
+		}
+	}
+    &.mobile-enabled {
+      display: block;
+    }
+}

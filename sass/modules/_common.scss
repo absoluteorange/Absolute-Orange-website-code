@@ -1,0 +1,25 @@
+.major-text-wrapper {
+	@extend .extend-nested-margins-padding;
+	h2.wrapper-head,
+    h2.wrapper-head a {
+		color: #e2dfe2;
+	}
+}
+
+
+section.page-section {
+	padding-bottom:0.5em;
+	.content-wrapper {
+		border-top: 5px solid #19a388; 
+		 margin: 0 0.5em;
+		.text-wrapper { 
+			@extend .content-style-a;
+			@extend .text-wrapper-style-b;
+		}
+	}
+}
+
+p.top-link{
+	@include font-size(20);
+	margin-top: 1em;
+}

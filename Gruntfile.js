@@ -26,6 +26,38 @@ module.exports = function(grunt) {
                 enhanceSVG: true
             }
         },
+        copy: {
+          scripts: {
+            files: [
+             
+              // makes all src relative to cwd
+              {expand: true, cwd: 'scripts/blogs/', src: ['**.js'], dest: 'app/scripts/blogs'},
+                {expand: true, cwd: 'scripts/libs/', src: ['**.js'], dest: 'app/scripts/libs'},
+
+            ],
+          },
+        },
+
+        concat: {
+            options: {
+              separator: ';',
+            },
+            scripts: {
+              src: ['scripts/Mobile.js'],
+              dest: 'app/scripts/main.js',
+            },
+        },
+        uglify: {
+            my_target: {
+              files: [{
+                  expand: true,
+                  cwd: 'app/scripts',
+                  src: '**/*.js',
+                  dest: 'app/scripts'
+              }]
+            }
+        },
+             
        
         watch: {
           sass: {
@@ -35,18 +67,35 @@ module.exports = function(grunt) {
               spawn: false,
             },
           },
-    },
+           scripts: {
+            files: ['scripts/**'],
+            tasks: ['prepare_scripts'],
+            options: {
+              spawn: false,
+            },
+          }
+        
+        },
     });
 
+    grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-grunticon');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-compass');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-concat');
+
+    grunt.registerTask('prepare_scripts', [
+        'copy:scripts',
+        'concat:scripts'
+    ]);
 
     grunt.registerTask('build', [
         'grunticon',
-        'compass:dist'
+        'compass:dist',
+        'prepare_scripts',
+        'uglify_scipts'
     ]);
     
 };

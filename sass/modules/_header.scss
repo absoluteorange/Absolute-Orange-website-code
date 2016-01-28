@@ -1,0 +1,30 @@
+header {
+	@extend .drop-shadow;
+	.wrapper {
+        min-height: 55px;
+		@extend .texture1;
+		border-bottom: 1px solid #444;
+		padding: 0.5em;
+		@include media($first) {
+		 	padding: 0.2em;
+		}
+		h1.wrapper-head,  p.wrapper-body {
+			color: #ff7c27;
+		}
+		h1.wrapper-head {
+			 margin-bottom: 0.1em;
+             float: right;
+			 @include media($first) {
+			 	margin-bottom: 0.2em;
+			}
+		}
+		p.wrapper-body {
+			margin: -0.5em 0 0 0.5em;
+		}
+        .icon-mobile-menu {
+          height: 50px;
+          width: 50px;
+          display:block;
+        }
+	}
+}
