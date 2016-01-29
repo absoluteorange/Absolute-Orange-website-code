@@ -31,11 +31,11 @@ class DisplayContent {
     public function display($container, $title, $showNav){
         $this->headerData['displayMenu'] = false;
         $nav = '';
-        if ($showNav == true) {
+        //if ($showNav == true) {
             $navData=$this->getNav();
             $nav=$this->_ci->templateparser->parseTemplate('layout/nav.html',$navData,true);
             $this->headerData['displayMenu'] = true;
-        }
+       // }
         $this->scriptData['title'] = $title;
         $headScript=$this->_ci->templateparser->parseTemplate('layout/headScript.html',$this->scriptData,true);
         $header=$this->_ci->templateparser->parseTemplate('layout/logo.html',$this->headerData,true);
@@ -72,35 +72,40 @@ class DisplayContent {
      * Displays main navigation
      */
     private function getNav() {
-        $section = $this->_ci->uri->segment(2);
-        $section = str_replace('#menu', '', $section);
+      
         $data['items'] = array(
             '0' => array(
+                'url' => site_url(''),
+                'class' => '',
+                'title' => 'home'
+            ),
+            '1' => array(
                 'url' => site_url('AmyVarga/'),
                 'class' => '',
                 'title' => 'labs'
             ),
-            '1' => array(
+            '2' => array(
                 'url' => 'http://www.github.com/absoluteorange',
                 'class' => '',
                 'title' => 'github'
             ),
-            '2' => array(
+            '3' => array(
                 'url' => site_url('/cv/Amy_Varga.pdf'),
                 'class' => '',
                 'title' => 'cv'
             ),
-            '3' => array(
+            '4' => array(
                 'url' => site_url('AmyVarga/work'),
                 'class' => '',
                 'title' => 'work'
             )
         );
+        $URL= site_url($this->_ci->uri->uri_string());
         ksort($data['items']);
         for ($i=0; $i<count($data['items']); $i++):
-            if ($data['items'][$i]['url'] == site_url("/AmyVarga/".$section)):
+            if ($data['items'][$i]['url'] == $URL){
                 $data['items'][$i]['class'] = 'selected';
-            endif;
+            }
         endfor;
         return $data;
     }

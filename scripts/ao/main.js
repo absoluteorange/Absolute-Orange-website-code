@@ -1,0 +1,1 @@
+var myNavigation = new Navigation();

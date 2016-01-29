@@ -3,6 +3,7 @@
  */
 (function($) {
     "use strict";
+    /*
     window.Mobile = (window.Mobile || {});
     Mobile.MobileViewModel = function() {
         var _mobileMenu = function () {
@@ -14,6 +15,7 @@
         }
         _mobileMenu();
     }
+    */
 }(jQuery));
 
 

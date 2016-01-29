@@ -44,7 +44,7 @@ module.exports = function(grunt) {
               separator: ';',
             },
             scripts: {
-              src: ['scripts/Mobile.js'],
+              src: ['scripts/ao/nav.js','scripts/ao/main.js'],
               dest: 'app/scripts/main.js',
             },
         },
