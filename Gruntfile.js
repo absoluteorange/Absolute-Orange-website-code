@@ -9,7 +9,8 @@ module.exports = function(grunt) {
             dist: {},
             dev: {
                 options: {
-                    debugInfo: true
+                    debugInfo: true,
+                    sourcemap:true
                 }
             }
         },
@@ -65,7 +66,9 @@ module.exports = function(grunt) {
             tasks: ['compass:dev'],
             options: {
               spawn: false,
+              livereload: true,
             },
+
           },
            scripts: {
             files: ['scripts/**'],
