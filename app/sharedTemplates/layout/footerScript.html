@@ -1,9 +1,18 @@
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/requirejs.js"></script>
 <script type="text/javascript">
-    if (typeof jQuery == 'undefined') {
-        document.write(unescape("%3Cscript src='/scripts/libs/jquery-1.7.1.min.js' type='text/javascript'%3E%3C/script%3E"));
-    }
-</script>
-<script type="text/javascript" src="/scripts/main.js"></script>
 
+requirejs.config({
+    baseUrl: '/scripts',
+    paths: {
+      
+        jquery: 'lib/jquery-1.12.0'
+    }
+});
+
+requirejs(['main'], function(  ) {
+    console.log( 'ddd' ) // OK
+});
+
+
+</script>

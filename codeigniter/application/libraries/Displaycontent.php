@@ -31,11 +31,11 @@ class DisplayContent {
     public function display($container, $title, $showNav){
         $this->headerData['displayMenu'] = false;
         $nav = '';
-        //if ($showNav == true) {
+        if ($showNav == true) {
             $navData=$this->getNav();
             $nav=$this->_ci->templateparser->parseTemplate('layout/nav.html',$navData,true);
             $this->headerData['displayMenu'] = true;
-       // }
+       }
         $this->scriptData['title'] = $title;
         $headScript=$this->_ci->templateparser->parseTemplate('layout/headScript.html',$this->scriptData,true);
         $header=$this->_ci->templateparser->parseTemplate('layout/logo.html',$this->headerData,true);

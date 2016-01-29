@@ -33,21 +33,13 @@ module.exports = function(grunt) {
              
               // makes all src relative to cwd
               {expand: true, cwd: 'scripts/blogs/', src: ['**.js'], dest: 'app/scripts/blogs'},
-                {expand: true, cwd: 'scripts/libs/', src: ['**.js'], dest: 'app/scripts/libs'},
+              {expand: true, cwd: 'scripts/ao', src: ['**/**.js'], dest: 'app/scripts'},
+              {src: ['scripts/html5shiv.min.js'], dest: 'app/scripts/html5shiv.min.js'},
 
             ],
           },
         },
 
-        concat: {
-            options: {
-              separator: ';',
-            },
-            scripts: {
-              src: ['scripts/ao/nav.js','scripts/ao/main.js'],
-              dest: 'app/scripts/main.js',
-            },
-        },
         uglify: {
             scripts: {
               files: [{
@@ -57,6 +49,21 @@ module.exports = function(grunt) {
                   dest: 'app/scripts'
               }]
             }
+        },
+
+        requirejs: {
+          compile: {
+            options: {
+              baseUrl: "scripts/ao",
+              paths:{
+                jquery:"empty:"
+              },
+              out: "app/scripts/main.js",
+              name:"main"
+            
+
+            }
+          }
         },
              
        
@@ -88,6 +95,7 @@ module.exports = function(grunt) {
         },
     });
 
+  grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-grunticon');
@@ -97,8 +105,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
 
     grunt.registerTask('prepare_scripts', [
-        'copy:scripts',
-        'concat:scripts'
+        'copy:scripts'
     ]);
 
     grunt.registerTask('build', [
@@ -111,8 +118,10 @@ module.exports = function(grunt) {
        
         'compass:dist',
         'prepare_scripts',
-        'grunticon',
-        'uglify:scripts'
+        'requirejs:compile',
+         'uglify:scripts',
+        'grunticon'
+       
     ]);
     
 };
