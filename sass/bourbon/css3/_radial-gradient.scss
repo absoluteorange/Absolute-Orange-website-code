@@ -24,8 +24,8 @@
   $shape-size-spec: _shape-size-stripper($shape-size);
 
   // Set $G1 as the default fallback color
-  $first-color: nth($full, 1);
-  $fallback-color: nth($first-color, 1);
+  $group_1-color: nth($full, 1);
+  $fallback-color: nth($group_1-color, 1);
 
   @if (type-of($fallback) == color) or ($fallback == "transparent") {
     $fallback-color: $fallback;

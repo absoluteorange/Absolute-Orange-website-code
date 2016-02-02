@@ -1,22 +1,47 @@
-header {
+#primary-header{
+	.icon-fish{
+		display: none;
+		width:120px;
+		height:120px;
+		position: absolute;
+		left:0;
+		top:10px;
+		@include media ($group_3){
+			display: block;
+		}
+
+	}
+	
+	
 	@extend .drop-shadow;
 	.wrapper {
+		
         min-height: 55px;
 		@extend .texture1;
 		border-bottom: 1px solid #444;
-		padding: 0.5em;
-		@include media($first) {
-		 	padding: 0.2em;
-		}
 		h1.wrapper-head,  p.wrapper-body {
 			color: #ff7c27;
 		}
+		@include media($group_1) {
+		 	padding: 0.2em;
+		}
 		h1.wrapper-head {
+			
 			 margin-bottom: 0.1em;
-             float: right;
-			 @include media($first) {
+			 margin-top: 0.2em;
+			 @include media($group_1) {
 			 	margin-bottom: 0.2em;
 			}
+			 @include media($group_1_2){
+			 	 float: right;
+			 }
+			 @include media($group_3){
+			 	@include font-size(40);
+				margin-top: 2em;
+				margin-bottom: 0.5em;
+				@include shift(6);
+			}            
+			
 		}
 		p.wrapper-body {
 			margin: -0.5em 0 0 0.5em;
@@ -24,7 +49,11 @@ header {
         .icon-mobile-menu {
           height: 50px;
           width: 50px;
-          display:block;
+          display:none;
+          @include media($group_1_2) {
+				display:block;
+			}	
         }
+
 	}
 }

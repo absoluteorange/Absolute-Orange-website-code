@@ -1,12 +1,15 @@
 @import 'neat/neat-helpers';
 
-$column: 8px;
-$gutter: 8px;
-$grid-columns: 15;
+
+$column: modular-scale(4, 1em, $golden) !default;
+$gutter: modular-scale(0.5, 1em, $golden) !default;
+$grid-columns: 16;
 
 $max-width: 976px;
 
 
-$first: new-breakpoint(max-width 260px $grid-columns);
-$second: new-breakpoint(max-width 400px $grid-columns);
-$third: new-breakpoint(max-width 960px $grid-columns);
+$group_1: new-breakpoint(max-width 399px $grid-columns);
+$group_2: new-breakpoint(min-width 400px max-width 599px $grid-columns);
+$group_1_2: new-breakpoint(max-width 599px $grid-columns);
+$group_3: new-breakpoint(min-width 600px  $grid-columns);
+

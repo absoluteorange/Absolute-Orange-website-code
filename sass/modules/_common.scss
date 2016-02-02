@@ -11,7 +11,7 @@ section.page-section {
 	padding-bottom:0.5em;
 	.content-wrapper {
 		border-top: 5px solid #19a388; 
-		 margin: 0 0.5em;
+		 //margin: 0 0.5em;
 		.text-wrapper { 
 			@extend .content-style-a;
 			@extend .text-wrapper-style-b;
@@ -22,4 +22,7 @@ section.page-section {
 p.top-link{
 	@include font-size(20);
 	margin-top: 1em;
+}
+.clearfix{
+	clear:both;
 }

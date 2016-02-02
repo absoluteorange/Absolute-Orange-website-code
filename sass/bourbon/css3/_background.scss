@@ -54,17 +54,17 @@
 
     // If shorthand is a list (gradient)
     @if $type == list {
-      $first-member: nth($shorthand, 1); // Get first member of shorthand
+      $group_1-member: nth($shorthand, 1); // Get first member of shorthand
 
       // Linear Gradient
-      @if index(linear radial, nth($first-member, 1)) {
-        $gradient-type: nth($first-member, 1); // linear || radial
+      @if index(linear radial, nth($group_1-member, 1)) {
+        $gradient-type: nth($group_1-member, 1); // linear || radial
         $gradient-args:      false;
         $gradient-positions: false;
         $shorthand-start:    false;
-        @if type-of($first-member) == list { // Linear gradient plus additional shorthand values — lg(red,orange)repeat,...
-          $gradient-positions: nth($first-member, 2);
-          $gradient-args:      nth($first-member, 3);
+        @if type-of($group_1-member) == list { // Linear gradient plus additional shorthand values — lg(red,orange)repeat,...
+          $gradient-positions: nth($group_1-member, 2);
+          $gradient-args:      nth($group_1-member, 3);
           $shorthand-start: 2;
         }
         @else { // Linear gradient only — lg(red,orange),...

@@ -8,5 +8,32 @@
 }
 
 #inner-page{
-	@include row();
+	@include outer-container;
 }
+
+@include media($group_3) {
+	
+
+	.primary-page-content{
+		@include span-columns(10);
+	 	@include omega;
+
+	}
+
+	.secondary-page-content{
+		@include span-columns(6);
+
+	}
+}
+
+.grid-container{
+	@include row();
+	margin-left:10px;
+	margin-right:10px;
+}
+
+@mixin outdent-grid-container{
+		margin-left:-10px;
+	margin-right:-10px;
+}
+

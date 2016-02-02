@@ -399,11 +399,11 @@
 }
 
 // Gradient Bar Colors for buttons and alerts
-@mixin gradientBar($primaryColor, $secondaryColor, $textColor: #fff, $textShadow: 0 -1px 0 rgba(0,0,0,.25)) {
+@mixin gradientBar($primaryColor, $group_2aryColor, $textColor: #fff, $textShadow: 0 -1px 0 rgba(0,0,0,.25)) {
   color: $textColor;
   text-shadow: $textShadow;
-  @include gradient-vertical($primaryColor, $secondaryColor);
-  border-color: $secondaryColor $secondaryColor darken($secondaryColor, 15%);
+  @include gradient-vertical($primaryColor, $group_2aryColor);
+  border-color: $group_2aryColor $group_2aryColor darken($group_2aryColor, 15%);
   border-color: rgba(0,0,0,.1) rgba(0,0,0,.1) fade-in(rgba(0,0,0,.1), 0.15);
 }
 

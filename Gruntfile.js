@@ -59,13 +59,11 @@ module.exports = function(grunt) {
                 jquery:"empty:"
               },
               out: "app/scripts/main.js",
-              name:"main"
-            
+              name:"main"           
 
             }
           }
-        },
-             
+        },             
        
         watch: {
           sass: {

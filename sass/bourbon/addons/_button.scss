@@ -115,9 +115,9 @@
   $border-bottom: adjust-color($base-color, $red: -126, $green: -127, $blue: -122);
   $fourth-stop:   adjust-color($base-color, $red: -79,  $green: -70,  $blue: -46);
   $inset-shadow:  adjust-color($base-color, $red:  37,  $green:  29,  $blue:  12);
-  $second-stop:   adjust-color($base-color, $red: -56,  $green: -50,  $blue: -33);
+  $group_2-stop:   adjust-color($base-color, $red: -56,  $green: -50,  $blue: -33);
   $text-shadow:   adjust-color($base-color, $red: -140, $green: -141, $blue: -114);
-  $third-stop:    adjust-color($base-color, $red: -86,  $green: -75,  $blue: -48);
+  $group_3-stop:    adjust-color($base-color, $red: -86,  $green: -75,  $blue: -48);
 
   @if lightness($base-color) > 70% {
     $color:       hsl(0, 0, 20%);
@@ -129,9 +129,9 @@
     $border-bottom: grayscale($border-bottom);
     $fourth-stop:   grayscale($fourth-stop);
     $inset-shadow:  grayscale($inset-shadow);
-    $second-stop:   grayscale($second-stop);
+    $group_2-stop:   grayscale($group_2-stop);
     $text-shadow:   grayscale($text-shadow);
-    $third-stop:    grayscale($third-stop);
+    $group_3-stop:    grayscale($group_3-stop);
   }
 
   border: 1px solid $border;
@@ -142,29 +142,29 @@
   display: inline-block;
   font-size: 14px;
   font-weight: bold;
-  @include linear-gradient(top, $base-color 0%, $second-stop 50%, $third-stop 50%, $fourth-stop 100%);
+  @include linear-gradient(top, $base-color 0%, $group_2-stop 50%, $group_3-stop 50%, $fourth-stop 100%);
   padding: 8px 20px;
   text-align: center;
   text-decoration: none;
   text-shadow: 0 -1px 1px $text-shadow;
 
   &:hover:not(:disabled) {
-    $first-stop-hover:  adjust-color($base-color, $red: -13, $green: -15, $blue: -18);
-    $second-stop-hover: adjust-color($base-color, $red: -66, $green: -62, $blue: -51);
-    $third-stop-hover:  adjust-color($base-color, $red: -93, $green: -85, $blue: -66);
+    $group_1-stop-hover:  adjust-color($base-color, $red: -13, $green: -15, $blue: -18);
+    $group_2-stop-hover: adjust-color($base-color, $red: -66, $green: -62, $blue: -51);
+    $group_3-stop-hover:  adjust-color($base-color, $red: -93, $green: -85, $blue: -66);
     $fourth-stop-hover: adjust-color($base-color, $red: -86, $green: -80, $blue: -63);
 
     @if $grayscale == true {
-      $first-stop-hover:  grayscale($first-stop-hover);
-      $second-stop-hover: grayscale($second-stop-hover);
-      $third-stop-hover:  grayscale($third-stop-hover);
+      $group_1-stop-hover:  grayscale($group_1-stop-hover);
+      $group_2-stop-hover: grayscale($group_2-stop-hover);
+      $group_3-stop-hover:  grayscale($group_3-stop-hover);
       $fourth-stop-hover: grayscale($fourth-stop-hover);
     }
 
     cursor: pointer;
-    @include linear-gradient(top, $first-stop-hover  0%,
-                                  $second-stop-hover 50%,
-                                  $third-stop-hover  50%,
+    @include linear-gradient(top, $group_1-stop-hover  0%,
+                                  $group_2-stop-hover 50%,
+                                  $group_3-stop-hover  50%,
                                   $fourth-stop-hover 100%);
   }
 

@@ -8,11 +8,11 @@
 @function _border-add-prefix($images, $vendor: false) {
   $border-image: ();
   $images-type:  type-of(nth($images, 1));
-  $first-var:    nth(nth($images, 1), 1);          // Get type of Gradient (Linear || radial)
+  $group_1-var:    nth(nth($images, 1), 1);          // Get type of Gradient (Linear || radial)
 
   // If input is a gradient
   @if $images-type == string {
-    @if ($first-var == "linear") or ($first-var == "radial") {
+    @if ($group_1-var == "linear") or ($group_1-var == "radial") {
       @for $i from 2 through length($images) {
         $gradient-type: nth($images, 1);           // Get type of gradient (linear || radial)
         $gradient-args: nth($images, $i);          // Get actual gradient (red, blue)

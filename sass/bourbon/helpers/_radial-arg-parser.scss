@@ -1,7 +1,7 @@
 @function _radial-arg-parser($G1, $G2, $pos, $shape-size) {
   @each $value in $G1, $G2 {
-    $first-val: nth($value, 1);
-    $pos-type:  type-of($first-val);
+    $group_1-val: nth($value, 1);
+    $pos-type:  type-of($group_1-val);
     $spec-at-index: null;
 
     // Determine if spec was passed to mixin
@@ -27,13 +27,13 @@
 
     // If not spec calculate correct values
     @else {
-      @if ($pos-type != color) or ($first-val != "transparent") {
+      @if ($pos-type != color) or ($group_1-val != "transparent") {
         @if ($pos-type == number)
-        or ($first-val == "center")
-        or ($first-val == "top")
-        or ($first-val == "right")
-        or ($first-val == "bottom")
-        or ($first-val == "left") {
+        or ($group_1-val == "center")
+        or ($group_1-val == "top")
+        or ($group_1-val == "right")
+        or ($group_1-val == "bottom")
+        or ($group_1-val == "left") {
 
           $pos: $value;
 
@@ -43,14 +43,14 @@
         }
 
         @else if
-           ($first-val == "ellipse")
-        or ($first-val == "circle")
-        or ($first-val == "closest-side")
-        or ($first-val == "closest-corner")
-        or ($first-val == "farthest-side")
-        or ($first-val == "farthest-corner")
-        or ($first-val == "contain")
-        or ($first-val == "cover") {
+           ($group_1-val == "ellipse")
+        or ($group_1-val == "circle")
+        or ($group_1-val == "closest-side")
+        or ($group_1-val == "closest-corner")
+        or ($group_1-val == "farthest-side")
+        or ($group_1-val == "farthest-corner")
+        or ($group_1-val == "contain")
+        or ($group_1-val == "cover") {
 
           $shape-size: $value;
 

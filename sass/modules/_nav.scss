@@ -8,17 +8,26 @@
 }
 
 nav {
-	@extend .drop-shadow;
-	.wrapper {
+
+	.wrapper{
+		
+		//@extend .drop-shadow;
 		@extend .texture2;
+		@extend .list-touch;
+		@include media($group_3) {
+		
+			margin-top:0.5em;
+		}
 	}
-	@extend .list-touch;
+	
+
+		
 	li {
 		@include  row();
 		border-top: 1px solid #e2dfe2;
 		.wrapper-body {			
 			@include font-size(20);
-			@include media($first) {
+			@include media($group_1) {
 				@include font-size(16);
 			}			
 		}
@@ -40,8 +49,12 @@ nav {
 			}
 		}
 	}
-    &.mobile-enabled {
-      display: block;
-    }
+	@include media($group_1_2) {
+		display:none;
+	 	&.mobile-enabled {
+      		display: block;
+    	}
+	}
+   
 }
 
