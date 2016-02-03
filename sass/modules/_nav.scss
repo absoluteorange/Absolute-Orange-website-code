@@ -9,22 +9,23 @@
 
 nav {
 
+	 @include media($group_1_2) {
+			@include outdent-grid-container;
+	}	
+
 	.wrapper{
-		
-		//@extend .drop-shadow;
-		@extend .texture2;
+		@extend .texture1;
 		@extend .list-touch;
-		@include media($group_3) {
-		
-			margin-top:0.5em;
+		@include media($group_3){
+			  margin-left: -16px;
+    		
 		}
-	}
-	
+	}	
 
 		
 	li {
 		@include  row();
-		border-top: 1px solid #e2dfe2;
+		border-top: 1px solid mix(#e2dfe2 ,#111);
 		.wrapper-body {			
 			@include font-size(20);
 			@include media($group_1) {
@@ -32,9 +33,12 @@ nav {
 			}			
 		}
 		.touch-list-title{
-			@include span-columns(15);
-			@include omega();
-			padding: 0.5em;
+			
+		@include transition-property(color);
+		@include transition-duration(0.7s);
+			padding: 1em ;
+			@include padding-horizontal-match-gutter;
+			
 			color:  #e2dfe2;
 		}
 		&.selected{
@@ -42,6 +46,12 @@ nav {
 			.touch-list-title{
 					color:  #ff7c27;
 			}
+		}
+
+	  	@include transition-property(background-color);
+		@include transition-duration(0.7s);
+		&:hover {
+			background-color:rgba(black,0.2);
 		}
 		a:hover {
 			.touch-list-title{
