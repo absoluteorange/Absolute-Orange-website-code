@@ -49,7 +49,8 @@ class DisplayContent {
                 'contact'=>$contact,
                 'container'=>$container,
                 'footerScript'=>$footerScript,
-                'footer'=>$footer
+                'footer'=>$footer,
+                'tweets'=>  $this->_ci->templateparser->parseTemplate('layout/tweets.html')
             )
         );
         echo preg_replace('/[\t\s\n]*(<.*>)[\t\s\n]*/', '$1', $output);

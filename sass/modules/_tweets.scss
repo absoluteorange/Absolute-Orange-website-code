@@ -1,12 +1,15 @@
+#additional-modules-group_3{
+	.tweets{
+		@include margin-top-match-gutter;
+		margin-right: 0;
+	}
+}
 .tweets {
 	@include outdent-grid-container;
-
-	@extend .clearfix;
-
-	@extend .drop-shadow;
 	border-top: 5px solid #ff7c27;
-	padding-bottom: 0.5em;
 	.content-wrapper {
+		@include padding-vertical-match-gutter;
+		
 		@extend .texture1;
 		.head-wrapper {
 			@extend .extend-heading-wrapper-style-a;

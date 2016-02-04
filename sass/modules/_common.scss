@@ -1,14 +1,16 @@
 .major-text-wrapper {
-	@extend .extend-nested-margins-padding;
+
 	h2.wrapper-head,
     h2.wrapper-head a {
 		color: #e2dfe2;
+		margin-top:0.75em;
 	}
 }
 
 
 section.page-section {
-	padding-bottom:0.5em;
+		@include clearfix;
+	
 	.content-wrapper {
 		border-top: 5px solid #19a388; 
 		 //margin: 0 0.5em;
@@ -22,7 +24,4 @@ section.page-section {
 p.top-link{
 	@include font-size(20);
 	margin-top: 1em;
-}
-.clearfix{
-	clear:both;
 }

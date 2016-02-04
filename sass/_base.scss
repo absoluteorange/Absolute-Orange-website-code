@@ -8,6 +8,11 @@ html{
 h1, h2, h3, h4, h5 {
 	font-family: "GothicB", CenturyGothic, AppleGothic, sans-serif;
 }
+
+span, p, h1, h2, h3, h4, li {
+	margin: 0 0 18px;
+}
+
 h1{
 	color: #535353;
 }
@@ -63,9 +68,7 @@ button, select {
 	color: #535353;
 } 
 
-span, p, h1, h2, h3, h4, li {
-	margin: 0 0 18px;
-}
+
 
 strong {
 	font-weight: bold;

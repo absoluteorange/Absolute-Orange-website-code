@@ -1,22 +1,135 @@
 @import "grid-settings";
 @import "neat/neat";
 
+@mixin outdent-grid-container{
+	margin-left:-8px;
+	margin-right:-8px;
+	@include media($group_3){
+		margin-left:-16px;
+		margin-right:-16px;
+	}
+}
+
+@mixin margin-top-match-gutter{
+	margin-top:8px;
+	@include media($group_3){
+		margin-top:16px;
+	}
+}
+
+@mixin margin-bottom-match-gutter{
+	margin-bottom:8px;
+	@include media($group_3){
+
+		margin-bottom:16px;
+	}
+}
+
+@mixin margin-left-match-gutter{
+	margin-left:8px;
+	@include media($group_3){
+		margin-left:16px;
+	}
+}
+
+@mixin margin-right-match-gutter{
+	margin-right:8px;
+	@include media($group_3){
+
+		margin-right:16px;
+	}
+}
+
+@mixin margin-vertical-match-gutter{
+	@include margin-bottom-match-gutter;
+	@include margin-top-match-gutter;
+}
+
+@mixin margin-horizontal-match-gutter{
+	@include margin-left-match-gutter;
+	@include margin-right-match-gutter;
+}
+
+@mixin margin-match-gutter{
+	@include margin-vertical-match-gutter;
+	@include margin-horizontal-match-gutter;
+}
+
+
+@mixin padding-top-match-gutter{
+	padding-top:8px;
+	@include media($group_3){
+		padding-top:16px;
+	}
+}
+
+@mixin padding-bottom-match-gutter{
+	padding-bottom:8px;
+	@include media($group_3){
+
+		padding-bottom:16px;
+	}
+}
+
+@mixin padding-left-match-gutter{
+	padding-left:8px;
+	@include media($group_3){
+		padding-left:16px;
+	}
+}
+
+@mixin padding-right-match-gutter{
+	padding-right:8px;
+	@include media($group_3){
+
+		padding-right:16px;
+	}
+}
+
+@mixin padding-vertical-match-gutter{
+	@include padding-bottom-match-gutter;
+	@include padding-top-match-gutter;
+}
+
+@mixin padding-horizontal-match-gutter{
+	@include padding-left-match-gutter;
+	@include padding-right-match-gutter;
+}
+
+@mixin padding-match-gutter{
+	@include padding-vertical-match-gutter;
+	@include padding-horizontal-match-gutter;
+}
+
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
 #page {
 	//$visual-grid: true; 
 	@include outer-container; 
 	position:relative;
 }
-
+.clearfix{
+	@include clearfix;
+}
 #inner-page{
 	@include outer-container;
 }
 
-@include media($group_3) {
-	
+@include media($group_3) {	
 
 	.primary-page-content{
+
 		@include span-columns(10);
 	 	@include omega;
+	 	@include clearfix;
+	 	float:right;
 
 	}
 
@@ -28,12 +141,26 @@
 
 .grid-container{
 	@include row();
-	margin-left:10px;
-	margin-right:10px;
+	margin-left:8px;
+	margin-right:8px;
+	@include media($group_3){
+		margin-left:16px;
+		margin-right:16px;
+	}
+	
+}
+#page-content-container{
 }
 
-@mixin outdent-grid-container{
-		margin-left:-10px;
-	margin-right:-10px;
+.page-content{
+	//float:left;
+	@include margin-bottom-match-gutter;
+
+
 }
+
+
+
+
+
 

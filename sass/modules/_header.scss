@@ -4,42 +4,43 @@
 		width:120px;
 		height:120px;
 		position: absolute;
-		left:0;
+		left:8px;
 		top:10px;
 		@include media ($group_3){
 			display: block;
+			left:16px;
 		}
-
-	}
+	}	
 	
-	
-	@extend .drop-shadow;
 	.wrapper {
-		
-        min-height: 55px;
+
+		min-height: 69px;
 		@extend .texture1;
-		border-bottom: 1px solid #444;
 		h1.wrapper-head,  p.wrapper-body {
 			color: #ff7c27;
 		}
 		@include media($group_1) {
 		 	padding: 0.2em;
 		}
+		@include media($group_1_2){
+					position: relative;	
+				}
 		h1.wrapper-head {
+			display: inline-block;
 			
-			 margin-bottom: 0.1em;
-			 margin-top: 0.2em;
-			 @include media($group_1) {
-			 	margin-bottom: 0.2em;
-			}
 			 @include media($group_1_2){
 			 	 float: right;
+			 	 position: absolute;
+			    top: 50%;
+			    left: 8px;
+			    margin-top: -0.5em;
 			 }
 			 @include media($group_3){
+			 	position:inherit;
 			 	@include font-size(40);
 				margin-top: 2em;
 				margin-bottom: 0.5em;
-				@include shift(6);
+				margin-left:132px;
 			}            
 			
 		}
@@ -47,11 +48,15 @@
 			margin: -0.5em 0 0 0.5em;
 		}
         .icon-mobile-menu {
+
+			@include margin-vertical-match-gutter;
           height: 50px;
           width: 50px;
+
           display:none;
           @include media($group_1_2) {
 				display:block;
+				float: right;
 			}	
         }
 

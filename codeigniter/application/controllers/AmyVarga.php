@@ -51,8 +51,7 @@ class AmyVarga extends CI_Controller {
 
 	public function getHome() {
         $data = new stdClass();
-        $data->blogs = $this->getAllLabs();
-        $data->tweets = $this->templateparser->parseTemplate('layout/tweets.html');
+        $data->blogs = $this->getAllLabs();       
         $data->title = $this->employeeName."'s labs";
 		return $this->templateparser->parseTemplate('home.html', $data);
 	}
@@ -144,9 +143,12 @@ class AmyVarga extends CI_Controller {
 		$data->logo = $this->showcases->getLogo($data->id);
 		$data->developer = $this->showcases->getDeveloper($data->id);
 		$data->skillset = $this->showcases->getSkills($data->id);
-		$data->technical->languages = $this->showcases->getLanguages($data->id);
-		$data->technical->software = $this->showcases->getSoftware($data->id);
-		$data->technical->frameworks = $this->showcases->getFrameworks($data->id);
+		if(property_exists ($data,'technical')){
+			$data->technical->languages = $this->showcases->getLanguages($data->id);
+			$data->technical->software = $this->showcases->getSoftware($data->id);
+			$data->technical->frameworks = $this->showcases->getFrameworks($data->id);
+		}
+		
         $data->relatedlinks = $this->showcases->getRelatedlinks($data->id);
 		$data->images = $this->showcases->getImages($data->id);
 		return $this->templateparser->parseTemplate('showcase.html', $data);

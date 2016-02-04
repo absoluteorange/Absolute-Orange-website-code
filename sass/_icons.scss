@@ -38,7 +38,7 @@ $icon-mobile-menu : "header .wrapper .icon-mobile-menu";
 
 #{$icon-mobile-menu} {
   @extend .icon;
-  box-shadow: 0px 0px 2px #e2dfe2;
+  box-shadow: 0px 0px 1px rgba(#e2dfe2,0.5);
 }
 
 $icon-infographic-1 : ".infographics img.icon-infographic-1";

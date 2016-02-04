@@ -1,5 +1,5 @@
 footer {
-	@extend .clearfix;
+	//@include clearfix;
 	border-top: 1px solid #e2dfe2;
 	margin-bottom: 0.2em;
 	.border {
@@ -27,6 +27,7 @@ footer {
 		}
 	}
     .copy-wrapper {
+    	@include margin-vertical-match-gutter;
         text-align: center;
         .wrapper-body {
             color: #ff7c27;
@@ -36,6 +37,9 @@ footer {
             }
             @include font-size(13);
         }
+    }
+    h4{
+    	margin-top: 0.5em;
     }
 
 }
