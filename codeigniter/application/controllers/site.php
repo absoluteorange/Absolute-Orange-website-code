@@ -37,7 +37,7 @@ class Site extends CI_Controller {
         );
 	    $container=$this->templateparser->parseTemplate('layout/container.html',$data );
         $title = "Absolute Orange : our developers";
-	    $this->displaycontent->display($container, $title, false);
+	    $this->displaycontent->display($container, $title, true);
 	}
 
 

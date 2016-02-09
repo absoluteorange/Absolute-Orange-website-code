@@ -14,6 +14,13 @@ class Profiles extends CI_Model {
         return $query->result_array();
     }
     
+    function getEmployeeNames() {
+        $sql = "SELECT employee_name
+				FROM employees";
+        $query= $this->db->query($sql);
+        return $query->result_array();
+    }
+    
 	function getName($id) {
         $sql = "SELECT employee_name
 				FROM employees WHERE employee_id=$id";

@@ -7,7 +7,7 @@
  * @package		Legacy
  *
  */
-class AmyVarga extends CI_Controller {
+class JonReading extends CI_Controller {
 
     public function __construct() {
             parent::__construct();
@@ -15,9 +15,9 @@ class AmyVarga extends CI_Controller {
 
             $this->load->library(array('profiledisplay'));
             $this->version='1.2';
-            $this->employeeId = 1;
-            $this->employeeName = 'Amy Varga';
-            $this->employeeUrl = 'AmyVarga';
+            $this->employeeId = 2;
+            $this->employeeName = 'JonReading';
+            $this->employeeUrl = 'JonReading';
     }
 
     /**
@@ -40,7 +40,7 @@ class AmyVarga extends CI_Controller {
     }
     
     public function lab() {
-        $this->profiledisplay->lab();
+        $this->profiledisplay->lab($this->employeeName, $this->employeeId, $this->employeeUrl);
     }
 
 }

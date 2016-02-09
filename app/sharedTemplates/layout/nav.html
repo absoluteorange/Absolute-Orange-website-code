@@ -8,6 +8,17 @@
 					    <div class="touch-list-title">{{title}}</div>
 					</a>
 				</li>
+                {{#subnav.0}}
+                <ul>
+                {{#subnav}}
+                    <li class="touch-list {{class}}">
+                        <a class="wrapper-body" href="{{url}}">
+                            <div class="touch-list-title">{{title}}</div>
+                        </a>
+                    </li>
+                {{/subnav}}
+                </ul>
+                {{/subnav.0}}
 			{{/items}}
 		</ul>
 	</div>

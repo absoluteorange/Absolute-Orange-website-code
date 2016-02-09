@@ -7,6 +7,7 @@ class DisplayContent {
         $this->_ci =& get_instance();
         $this->_ci->load->helper('url');
         $this->_ci->load->library(array('templateparser'));
+        $this->_ci->load->model(array('profiles'));
         $this->version='1.2';
         $this->scriptData=array(
             'script'=>'app/main',
@@ -20,7 +21,70 @@ class DisplayContent {
         $this->headerData=array(
             'heading'=>'absolute orange'
         );
-        $this->footerData['copy']='&copy; 2006 - 2014 Absolute Orange Ltd, all rights reserved';
+        $this->footerData['copy']='&copy; 2006 - 2016 Absolute Orange Ltd, all rights reserved';
+	    $this->arrDevelopers  = $this->_ci->profiles->getEmployeeNames();
+        //TO DO: use $this-arrDevelopers to dynamically build up navMain
+        $this->navMain=array(
+            'home' => array(
+                'url' => site_url(''),
+                'class' => '',
+                'title' => 'home'
+            ),
+            'github' => array(
+                'url' => 'http://www.github.com/absoluteorange',
+                'class' => '',
+                'title' => 'absolute orange github'
+            ),
+            'amyvarga' => array(
+                'url' => site_url('/AmyVarga/work'),
+                'class' => '',
+                'title' => "amy varga",
+                'subnav' => array(
+                    '0' => array(
+                        'url' => 'http://www.github.com/amyvarga',
+                        'class' => '',
+                        'title' => "amy's github"
+                        ),
+                    '1' => array(
+                        'url' => site_url('/cv/Amy_Varga.pdf'),
+                        'class' => '',
+                        'title' => "amy's cv"
+                        ),
+                    '2' => array(
+                        'url' => site_url('AmyVarga/labs'),
+                        'class' => '',
+                        'title' => "amy's labs"
+                        )
+                )
+            ),
+            'jonreading' => array(
+                'url' => site_url('/JonReading/work'),
+                'class' => '',
+                'title' => 'jon reading',
+                'subnav' => array(
+                    '0' => array(
+                        'url' => 'http://www.github.com/jonreading',
+                        'class' => '',
+                        'title' => "jon's github"
+                        ),
+                    '1' => array(
+                        'url' => site_url('/cv/Jon_Reading.pdf'),
+                        'class' => '',
+                        'title' => "jon's cv"
+                        ),
+                    '2' => array(
+                        'url' => site_url('JonReading/labs'),
+                        'class' => '',
+                        'title' => "jon's Labs"
+                        )
+                )
+            ),
+            'contact' => array(
+                    'url' => site_url($this->_ci->uri->uri_string())."#contact",
+                    'class' => '',
+                    'title' => 'contact absolute orange'
+                ),
+            );
     }
 
     /**
@@ -32,7 +96,7 @@ class DisplayContent {
         $this->headerData['displayMenu'] = false;
         $nav = '';
         if ($showNav == true) {
-            $navData=$this->getNav();
+            $navData['items']=$this->getNav();
             $nav=$this->_ci->templateparser->parseTemplate('layout/nav.html',$navData,true);
             $this->headerData['displayMenu'] = true;
        }
@@ -73,42 +137,45 @@ class DisplayContent {
      * Displays main navigation
      */
     private function getNav() {
-      
-        $data['items'] = array(
-            '0' => array(
-                'url' => site_url(''),
-                'class' => '',
-                'title' => 'home'
-            ),
-            '1' => array(
-                'url' => site_url('AmyVarga/'),
-                'class' => '',
-                'title' => 'labs'
-            ),
-            '2' => array(
-                'url' => 'http://www.github.com/absoluteorange',
-                'class' => '',
-                'title' => 'github'
-            ),
-            '3' => array(
-                'url' => site_url('/cv/Amy_Varga.pdf'),
-                'class' => '',
-                'title' => 'cv'
-            ),
-            '4' => array(
-                'url' => site_url('AmyVarga/work'),
-                'class' => '',
-                'title' => 'work'
-            )
-        );
         $URL= site_url($this->_ci->uri->uri_string());
-        ksort($data['items']);
-        for ($i=0; $i<count($data['items']); $i++):
-            if ($data['items'][$i]['url'] == $URL){
-                $data['items'][$i]['class'] = 'selected';
+        $page = strtolower($this->_ci->uri->segment(1));
+        if ($page == "") {
+           $data = $this->reIndexArray($this->navMain);
+        } else {
+            $data['home'] = $this->navMain['home']; 
+            foreach ($this->arrDevelopers as $developer) {
+                $subnav = array();
+                $developer = str_replace(' ', '', strtolower($developer['employee_name']));
+                $data[$developer] = $this->navMain[$developer];
+                if ($page == $developer) {
+                    $subnav = $this->navMain[$developer]['subnav'];
+                    $index = array_search($developer, array_keys($this->navMain));
+                    array_splice($data, $index+1, 0, $subnav);
+                }
+                unset($data[$developer]['subnav']);
             }
-        endfor;
+            $data['contact'] = $this->navMain['contact'];
+            $data = $this->reIndexArray($data);
+        }
+        foreach ($data as $key => $value) {
+            if ($value['url'] == $URL){
+                $data[$key]['class'] = 'selected';
+            }
+        }
         return $data;
     }
+
+    /**
+    * Creates indexed arrays for Moustache
+    */
+    private function reIndexArray($array) {
+        $index = 0;
+        foreach ($array as $value) {
+            $data[$index] = $value;
+            $index = $index+1;
+        }
+        return $data;
+    }
+
 }
 ?>
