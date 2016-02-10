@@ -10,23 +10,8 @@ class ProfileDisplay {
 	}
 	
 	public function home($employeeName, $employeeId, $employeeUrl) {
-	    $data = array(
-            'contentPanels' => array (
-                '0' => array(
-                    'content'=>$this->getHome($employeeName, $employeeId, $employeeUrl)
-                )
-            )
-        );
-        $container=$this->_ci->templateparser->parseTemplate('layout/container.html',$data );
-        $title = $employeeName."'s work";
-        $this->_ci->displaycontent->display($container, $title, true);
-	}
-
-	private function getHome($employeeName, $employeeId, $employeeUrl) {
-        $data = new stdClass();
-		$data->work = $this->getAllShowcases($employeeName, $employeeId, $employeeUrl);
-		return $this->_ci->templateparser->parseTemplate('home.html', $data);
-	}
+	    $this->work($employeeName, $employeeId, $employeeUrl);
+    }
 
 	/**
 	 * Display work
