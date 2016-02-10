@@ -41,3 +41,12 @@ section.toggle-list-section-style-c {
 		}
 	}
 }
+
+section.toggle-list-section-style-a {
+	@extend .toggle-list-section;
+	.content-wrapper {
+		li.detail-list {
+			@extend .list-toggle-style-a;
+		}
+	}
+}

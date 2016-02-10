@@ -123,19 +123,15 @@
 }
 
 @include media($group_3) {	
-
 	.primary-page-content{
-
 		@include span-columns(10);
 	 	@include omega;
 	 	@include clearfix;
 	 	float:right;
-
 	}
 
 	.secondary-page-content{
 		@include span-columns(6);
-
 	}
 }
 
@@ -147,16 +143,13 @@
 		margin-left:16px;
 		margin-right:16px;
 	}
-	
 }
+
 #page-content-container{
 }
 
 .page-content{
-	//float:left;
 	@include margin-bottom-match-gutter;
-
-
 }
 
 
