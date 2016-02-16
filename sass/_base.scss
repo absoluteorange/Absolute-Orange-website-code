@@ -16,7 +16,9 @@ span, p, h1, h2, h3, h4, li {
 h1{
 	color: #535353;
 }
-h1{
+h1, 
+h1 a{
+	font-family: "GothicB", CenturyGothic, AppleGothic, sans-serif!important;
 	@include font-size(35);
 	@include media($group_2) {
 		@include font-size(30);

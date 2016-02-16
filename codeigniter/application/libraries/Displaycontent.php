@@ -19,7 +19,8 @@ class DisplayContent {
             'tel'=>'+44 (0)75322 75 361'
         );
         $this->headerData=array(
-            'heading'=>'absolute orange'
+            'heading'=>'absolute orange',
+            'homeUrl' => site_url('')
         );
         $this->footerData['copy']='&copy; 2006 - 2016 Absolute Orange Ltd, all rights reserved';
 	    $this->arrDevelopers  = $this->_ci->profiles->getEmployeeNames();

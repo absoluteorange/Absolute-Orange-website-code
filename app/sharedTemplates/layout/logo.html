@@ -1,9 +1,11 @@
 <header id="primary-header">
 	<div class="wrapper">
 		<div class="grid-container">
-			<div class="icon-fish"></div>
+			<a href="{{homeUrl}}" class="icon-fish"></a>
 
-			<h1 class="wrapper-head">{{heading}}</h1>
+			<h1 class="wrapper-head">
+                <a class="heading" href="{{homeUrl}}">{{heading}}</a>
+            </h1>
 	        {{#displayMenu}}
 	            <a class="icon-mobile-menu" href="#primary-navigation"></a>
 	        {{/displayMenu}}

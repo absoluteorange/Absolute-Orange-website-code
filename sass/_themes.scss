@@ -306,14 +306,19 @@ img.text-img {
 /**** LISTS *****/
 
 .list-touch {
-	li.touch-list {
-		min-height: 2em;
-		a.wrapper-body {
-			display: block;
-		}
-		a.wrapper-body.selected {
-		}
-		margin-bottom: 0;
+	ul {
+        li.touch-list {
+            min-height: 2em;
+            a.wrapper-body {
+                display: block;
+            }
+            a.wrapper-body.selected {
+            }
+            margin-bottom: 0;
+        }
+        ul li a.wrapper-body {
+            @include margin-left-match-gutter;
+        }
 	}
 }
 

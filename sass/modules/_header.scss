@@ -16,16 +16,16 @@
 
 		min-height: 69px;
 		@extend .texture1;
-		h1.wrapper-head,  p.wrapper-body {
+		h1.wrapper-head a,  p.wrapper-body {
 			color: #ff7c27;
 		}
 		@include media($group_1) {
 		 	padding: 0.2em;
 		}
 		@include media($group_1_2){
-					position: relative;	
-				}
-		h1.wrapper-head {
+                position: relative;	
+            }
+		h1.wrapper-head a {
 			display: inline-block;
 			
 			 @include media($group_1_2){

@@ -35,7 +35,6 @@
 @mixin margin-right-match-gutter{
 	margin-right:8px;
 	@include media($group_3){
-
 		margin-right:16px;
 	}
 }
