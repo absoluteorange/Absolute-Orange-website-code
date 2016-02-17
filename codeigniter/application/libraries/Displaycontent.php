@@ -16,7 +16,8 @@ class DisplayContent {
         );
         $this->contactData=array(
             'email'=>'info@absoluteorange.com',
-            'tel'=>'+44 (0)75322 75 361'
+            'tel'=>'+44 (0)75322 75 361',
+            'twitter' => 'absolute_orange'
         );
         $this->headerData=array(
             'heading'=>'absolute orange',
@@ -141,7 +142,12 @@ class DisplayContent {
         $URL= site_url($this->_ci->uri->uri_string());
         $page = strtolower($this->_ci->uri->segment(1));
         if ($page == "") {
-           $data = $this->reIndexArray($this->navMain);
+           $data = $this->navMain;
+           foreach ($this->arrDevelopers as $developer) {
+                $subnav = array();
+                $developer = str_replace(' ', '', strtolower($developer['employee_name']));
+                unset($data[$developer]['subnav']);
+            }
         } else {
             $data['home'] = $this->navMain['home']; 
             foreach ($this->arrDevelopers as $developer) {
@@ -156,8 +162,8 @@ class DisplayContent {
                 unset($data[$developer]['subnav']);
             }
             $data['contact'] = $this->navMain['contact'];
-            $data = $this->reIndexArray($data);
         }
+        $data = $this->reIndexArray($data);
         foreach ($data as $key => $value) {
             if ($value['url'] == $URL){
                 $data[$key]['class'] = 'selected';

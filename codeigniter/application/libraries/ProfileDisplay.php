@@ -36,7 +36,7 @@ class ProfileDisplay {
         $data = array(
             'contentPanels' => array (
                 '0' => array(
-                    'content'=> $this->getAllLabs($employeeId, $employeeUrl)
+                    'content'=> $this->getAllLabs($employeeName, $employeeId, $employeeUrl)
                 )
             )
         );
@@ -48,11 +48,12 @@ class ProfileDisplay {
 	/**
 	 * Get labs
 	 */
-	private function getAllLabs($employeeId, $employeeUrl) {
+	private function getAllLabs($employeeName, $employeeId, $employeeUrl) {
 		$data['items'] = $this->_ci->blogs->getAll($employeeId);
 		foreach ($data['items'] as $key => $item):
             $data['description'] = $item['description'];
 		endforeach;
+        $data['employeeName'] = $employeeName;
         $data['employeeUrl'] = $employeeUrl;
 		return $this->_ci->templateparser->parseTemplate('labs.html', $data);
 	}

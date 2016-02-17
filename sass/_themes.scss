@@ -11,6 +11,7 @@
 
 .drop-shadow {
 	display:block;
+    margin-bottom: margin-bottom-match-gutter;
 }
 
 .texture1 {
@@ -334,7 +335,6 @@ img.text-img {
 		}
 	}
 	@extend .toggle-widget-style-a;
-	margin: 0;
 }
 
 .list-toggle-style-b {

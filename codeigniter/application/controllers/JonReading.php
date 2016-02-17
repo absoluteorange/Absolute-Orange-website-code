@@ -16,7 +16,7 @@ class JonReading extends CI_Controller {
             $this->load->library(array('profiledisplay'));
             $this->version='1.2';
             $this->employeeId = 2;
-            $this->employeeName = 'JonReading';
+            $this->employeeName = 'Jon Reading';
             $this->employeeUrl = 'JonReading';
     }
 

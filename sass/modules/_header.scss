@@ -48,17 +48,27 @@
 			margin: -0.5em 0 0 0.5em;
 		}
         .icon-mobile-menu {
-
-			@include margin-vertical-match-gutter;
-          height: 50px;
-          width: 50px;
-
-          display:none;
-          @include media($group_1_2) {
-				display:block;
-				float: right;
-			}	
+            @include margin-vertical-match-gutter;
+            height: 50px;
+            width: 50px;
+            display:none;
+            @include media($group_1_2) {
+                display:block;
+                float: right;
+            }	
         }
-
+        .icon-twitter {
+            @include margin-vertical-match-gutter;
+            height: 40px;
+            width: 40px;
+            display:block;
+            float: right;
+            @include media($group_1_2) {
+                display: none;
+            }	
+			@include media($group_3){
+                display: block;
+            }
+        }
 	}
 }

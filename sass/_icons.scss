@@ -1,4 +1,5 @@
 $icon-phone : ".icon-phone";
+$icon-twitter-button : ".icon-twitter-button";
 $icon-twitter : ".icon-twitter";
 $icon-email : ".icon-email";
 $icon-arrow-nav :"touch-list";
@@ -32,15 +33,14 @@ $icon-mobile-menu : "header .wrapper .icon-mobile-menu";
 	background-position:right;
 }
 
-#{$icon-phone},#{$icon-email},#{$icon-twitter}{
+#{$icon-phone},#{$icon-email},#{$icon-twitter-button}{
 	@extend .footer-icon;
 }
 
-#{$icon-mobile-menu} {
-  @extend .icon;
-  box-shadow: 0px 0px 1px rgba(#e2dfe2,0.5);
+#{$icon-twitter}, #{$icon-mobile-menu} {
+    @extend .icon;
 }
-
+    
 $icon-infographic-1 : ".infographics img.icon-infographic-1";
 $icon-infographic-2 : ".infographics img.icon-infographic-2";
 $icon-infographic-3 : ".infographics img.icon-infographic-3";
