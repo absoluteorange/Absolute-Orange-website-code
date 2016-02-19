@@ -18,7 +18,7 @@
 							{{/logos}}
 						{{/logos.0}}
 					</a>
-					<div class="widget-summary icon-arrow-a{{#class}}-selected{{/class}} {{class}}">
+					<div class="showcase widget-summary icon-arrow-a{{#class}}-selected{{/class}} {{class}}">
 						<a class="widget-body" href="/{{employeeUrl}}/work
 						{{^showcase}}
 							/{{title}}#selected-content
@@ -26,17 +26,21 @@
 						" title="{{title}}">
 							<div class="text-wrapper">
 									<h3 class="wrapper-head">{{title}}</h3>
-									<p class="wrapper-body"><strong>Deliverable: </strong>
-										<span>
-											<span>{{deliverable}}</span>
-										</span>
-									</p>
+                                    <div class="heading">
+                                        <strong>Deliverable: </strong>
+                                    </div>
+                                    <div class="description">
+                                        <p class="wrapper-body">{{deliverable}}</p>
+                                    </div>
 								{{#skills.0}}
-									<p class="wrapper-body"><strong>Skillset: </strong>
+                                    <div class="heading">
+                                        <strong>Skillset: </strong>
+                                    </div>
+                                    <div class="description">
 									{{#skills}}
 										<span>{{expertise}}</span>{{^last}}, {{/last}}
 									{{/skills}}
-									</p>
+                                    </div>
 								{{/skills.0}}
 							</div>
 						</a>

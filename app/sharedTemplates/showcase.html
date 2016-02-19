@@ -1,21 +1,29 @@
 <div class="widget-detail">
 	<div class="text-wrapper">
-		<div>
-            {{#relatedlinks.0}}
-                <p class="wrapper-body"><strong>Link: </strong>
-                    {{#relatedlinks}}
-                    <span><a href="{{url}}">{{name}}</a></span>{{^last}}, {{/last}}
-                    {{/relatedlinks}}
-                </p>
-            {{/relatedlinks.0}}
-		</div>
-		<div>
-			<h4 class="wrapper-head">Description</h4>
+		<div class="heading">
+        {{#relatedlinks.0}}
+            <strong>Websites: </strong>
+        </div>
+        <div class="description">
+            <p class="wrapper-body">
+                {{#relatedlinks}}
+                    <a href="{{url}}">{{name}}</a></br>
+                {{/relatedlinks}}
+            </p>
+        </div>
+        {{/relatedlinks.0}}
+		<div class="heading">
+			<strong>Description:</strong>
+        </div>
+        <div class="description">
 			<p class="wrapper-body">{{{description}}}</p>
 		</div>
 		{{#technical}}
 		<div>
+		<div class="heading">
 			<h4 class="wrapper-head">Technologies</h4>
+		</div>
+        <div class="description">
 			{{#languages.0}}
 			<div class="nested-wrapper">
 				<h5 class="wrapper-head">Languages:</h5>
@@ -26,6 +34,7 @@
 				</ul>
 			</div>
 			{{/languages.0}}
+        </div>
 			{{#software.0}}
 			<div class="nested-wrapper">
 				<h5 class="wrapper-head">Software:</h5>

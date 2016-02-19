@@ -44,17 +44,17 @@ class DisplayContent {
                 'subnav' => array(
                     '0' => array(
                         'url' => 'http://www.github.com/amyvarga',
-                        'class' => '',
+                        'class' => 'subnav',
                         'title' => "amy's github"
                         ),
                     '1' => array(
                         'url' => site_url('/cv/Amy_Varga.pdf'),
-                        'class' => '',
+                        'class' => 'subnav',
                         'title' => "amy's cv"
                         ),
                     '2' => array(
                         'url' => site_url('AmyVarga/labs'),
-                        'class' => '',
+                        'class' => 'subnav',
                         'title' => "amy's labs"
                         )
                 )
@@ -66,17 +66,17 @@ class DisplayContent {
                 'subnav' => array(
                     '0' => array(
                         'url' => 'http://www.github.com/jonreading',
-                        'class' => '',
+                        'class' => 'subnav',
                         'title' => "jon's github"
                         ),
                     '1' => array(
                         'url' => site_url('/cv/Jon_Reading.pdf'),
-                        'class' => '',
+                        'class' => 'subnav',
                         'title' => "jon's cv"
                         ),
                     '2' => array(
                         'url' => site_url('JonReading/labs'),
-                        'class' => '',
+                        'class' => 'subnav',
                         'title' => "jon's Labs"
                         )
                 )
@@ -165,6 +165,10 @@ class DisplayContent {
         }
         $data = $this->reIndexArray($data);
         foreach ($data as $key => $value) {
+            if ($this->_ci->uri->total_segments() == 3) {
+                $thirdSeg = $this->_ci->uri->slash_segment(3, 'leading');
+                $URL = str_replace($thirdSeg, '', $URL);
+            }
             if ($value['url'] == $URL){
                 $data[$key]['class'] = 'selected';
             }

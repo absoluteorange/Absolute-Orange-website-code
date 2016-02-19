@@ -112,7 +112,7 @@ class ProfileDisplay {
 	/**
 	 * Get showcase
 	 */
-	private function getShowcase($name) {
+	public function getShowcase($name) {
 		$data = $this->_ci->showcases->getShowcase($name);
 		$data->logo = $this->_ci->showcases->getLogo($data->id);
 		$data->developer = $this->_ci->showcases->getDeveloper($data->id);
@@ -127,5 +127,6 @@ class ProfileDisplay {
 		$data->images = $this->_ci->showcases->getImages($data->id);
 		return $this->_ci->templateparser->parseTemplate('showcase.html', $data);
 	}
+
 }
 ?>

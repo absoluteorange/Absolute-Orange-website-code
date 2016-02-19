@@ -1,5 +1,4 @@
 .major-text-wrapper {
-
 	h2.wrapper-head,
     h2.wrapper-head a {
 		color: #e2dfe2;
@@ -9,11 +8,9 @@
 
 
 section.page-section {
-		@include clearfix;
-	
+    @include clearfix;
 	.content-wrapper {
 		border-top: 5px solid #19a388; 
-		 //margin: 0 0.5em;
 		.text-wrapper { 
 			@extend .content-style-a;
 			@extend .text-wrapper-style-b;
@@ -22,6 +19,9 @@ section.page-section {
 }
 
 p.top-link{
-	@include font-size(20);
-	margin-top: 1em;
+	@include font-size(15);
+    float: right;
+    a {
+        @include font-size(13);
+    }
 }

@@ -43,5 +43,9 @@ class AmyVarga extends CI_Controller {
         $this->profiledisplay->lab();
     }
 
+    public function jsonShowcase() {
+        echo($this->profiledisplay->getShowcase($_GET['name']));
+    }
+
 }
 ?>
