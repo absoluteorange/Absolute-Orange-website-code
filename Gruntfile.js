@@ -43,8 +43,8 @@ module.exports = function(grunt) {
              
               // makes all src relative to cwd
               {expand: true, cwd: 'scripts/blogs/', src: ['**.js'], dest: 'app/scripts/blogs'},
-              {expand: true, cwd: 'scripts/ao', src: ['**/**'], dest: 'app/scripts'},
-              {src: ['scripts/html5shiv.min.js'], dest: 'app/scripts/html5shiv.min.js'},
+              {expand: true, cwd: 'scripts/', src: ['**/**'], dest: 'app/scripts'},
+              {src: ['scripts/lib/html5shiv.min.js'], dest: 'app/scripts/lib/html5shiv.min.js'},
 
             ],
           },
