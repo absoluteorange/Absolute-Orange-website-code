@@ -13,7 +13,7 @@ class JonReading extends CI_Controller {
             parent::__construct();
             // Your own constructor code
 
-            $this->load->library(array('profiledisplay'));
+            $this->load->library(array('ProfileDisplay'));
             $this->version='1.2';
             $this->employeeId = 2;
             $this->employeeName = 'Jon Reading';

@@ -13,7 +13,7 @@ class Showcase extends CI_Controller {
             parent::__construct();
             // Your own constructor code
 
-            $this->load->library(array('profiledisplay'));
+            $this->load->library(array('ProfileDisplay'));
     }
 
     public function getShowcase() {
