@@ -13,7 +13,7 @@ class AmyVarga extends CI_Controller {
             parent::__construct();
             // Your own constructor code
 
-            $this->load->library(array('profiledisplay'));
+            $this->load->library(array('Profiledisplay'));
             $this->version='1.2';
             $this->employeeId = 1;
             $this->employeeName = 'Amy Varga';
