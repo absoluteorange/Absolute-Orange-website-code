@@ -1,4 +1,4 @@
-BIN = ./node_modules/.bin
+
 
 clean:
 	@npm uninstall 
@@ -7,7 +7,7 @@ install-npm:
 	@npm install
 
 compile:
-	$(BIN)/grunt dist
+	grunt dist
 
 
 install: install-npm compile
