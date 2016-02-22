@@ -1,23 +1,25 @@
-/* general page styles */
-body {
-  font-family: "Helvetica", "Arial", "FreeSans", "Verdana", "Tahoma", "Lucida Sans", "Lucida Sans Unicode", "Luxi Sans", sans-serif;
-  font-size: 0.9rem;
-}
-#inner-page {
-    width: 100%;
-}
+@import 'reset.sass';
+@import 'fonts.scss';
+@import 'bourbon/bourbon';
+@import "grid-settings";
+@import "neat/neat";
+@import 'layout.scss';
+@import 'base.scss';
+@import 'themes.scss';
+@import 'modules/base.scss';
+@import 'icons.scss';
+@import 'modules/header.scss';
 
 #implementation, #code {
   width: 50%;
   height: 100%;
-  .borderbox {
-    border: 1px solid #C0C0C0;
-    padding: 10px;
-  }
+  float: left;
 }
 
 #code {
-  width: 100%;
+  .major-text-wrapper , .borderbox{
+    margin-left: 10px;
+  }
   pre {
     font-size: 1.5em;
     word-wrap: break-word;
@@ -55,7 +57,6 @@ footer {
 /* map API */
 #map-canvas {
 	height: 40em;
-	width: 90%;
 	margin: 0 auto;
 	border: 1px solid #19a388;
 }
@@ -73,17 +74,18 @@ footer {
     color: #535353;
     padding: 1em;
     width: 75%;
-    margin-right: 10px;
 }
-.map-form a#code_address {
+.map-form #code_address {
     border: none;
     background-color: #19a388;
     color: #fff;
     display: inline-block;
-    line-height: 1.8em;
-    padding: 0.5em;
+    line-height: 2em;
+    padding-top: 0.3em;
     vertical-align: top;
     text-decoration: none;
+    width: 25%;
+    text-align: center;
 }
 
 /* code styles */

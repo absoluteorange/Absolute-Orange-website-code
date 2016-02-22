@@ -45,7 +45,7 @@ class Blog extends CI_Controller {
 		$data['description']=$blog->description;
         $data['implementation']=$blog->implementation;
         $data['code']=$blog->code;
-        $data['dateCompleted']=$blog->date_completed;
+        $data['dateCompleted']= str_replace(' 00:00:00', '', $blog->date_completed);
 		$data['blogLogos'] = $this->blog_model->getLogos($data['id']);
 		$data['blogImages'] = $this->blog_model->getImages($data['id']);
 		$data['relatedLinks'] = $this->blog_model->getLinks($data['id']);

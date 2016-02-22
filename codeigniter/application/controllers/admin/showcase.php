@@ -46,8 +46,8 @@ class Showcase extends CI_Controller {
 		$data['image'] = $showcase->image;
 		$data['link'] = $showcase->link;
 		$data['description'] = $showcase->description;
-		$data['dateStarted'] = $showcase->date_started;
-        $data['dateCompleted'] = $showcase->date_completed;
+        $data['dateStarted'] = str_replace(' 00:00:00', '', $showcase->date_started);
+        $data['dateCompleted'] = str_replace(' 00:00:00', '',$showcase->date_completed);
         $data['deliverable'] = $showcase->deliverable;
         $data['contractor'] = $showcase->contractor;
         $data['owner'] = $showcase->owner;

@@ -1,10 +1,10 @@
 <div class="widget-detail">
 	<div class="text-wrapper">
-		<div class="heading">
         {{#relatedlinks.0}}
+		<div class="define-term">
             <strong>Websites: </strong>
         </div>
-        <div class="description">
+        <div class="define-description">
             <p class="wrapper-body">
                 {{#relatedlinks}}
                     <a href="{{url}}">{{name}}</a></br>
@@ -12,52 +12,56 @@
             </p>
         </div>
         {{/relatedlinks.0}}
-		<div class="heading">
+		<div class="define-term">
 			<strong>Description:</strong>
         </div>
-        <div class="description">
+        <div class="define-description">
 			<p class="wrapper-body">{{{description}}}</p>
 		</div>
 		{{#technical}}
-		<div>
-		<div class="heading">
-			<h4 class="wrapper-head">Technologies</h4>
-		</div>
-        <div class="description">
-			{{#languages.0}}
-			<div class="nested-wrapper">
-				<h5 class="wrapper-head">Languages:</h5>
-				<ul class="wrapper-body">
-					{{#languages}}
-						<li>{{name}}</li>
-					{{/languages}}
-				</ul>
-			</div>
-			{{/languages.0}}
-        </div>
+            <div class="heading">
+                <h4 class="wrapper-head">Technologies</h4>
+            </div>
+            <div class="description">
+                {{#languages.0}}
+                <div class="nested-wrapper">
+                    <div class="define-term">Languages:</div>
+                    <div class="define-description">
+                        <ul class="wrapper-body">
+                            {{#languages}}
+                                <li>{{name}}</li>
+                            {{/languages}}
+                        </ul>
+                    </div>
+                </div>
+                {{/languages.0}}
+            </div>
 			{{#software.0}}
 			<div class="nested-wrapper">
-				<h5 class="wrapper-head">Software:</h5>
-				<ul ul class="wrapper-body">
-					{{#software}}
-						<li>{{name}}</li>
-					{{/software}}
-				</ul>
+				<div class="define-term">Software:</div>
+                <div class="define-description">
+                    <ul class="wrapper-body">
+                        {{#software}}
+                            <li>{{name}}</li>
+                        {{/software}}
+                    </ul>
+                </div>
 			</div>
 			{{/software.0}}
 			{{#frameworks.0}}
 			<div class="nested-wrapper">
-				<h5 class="wrapper-head">Frameworks:</h5>
-				<ul ul class="wrapper-body">
-					{{#frameworks}}
-						<li>{{name}}</li>
-					{{/frameworks}}
-				</ul>
+				<div class="define-term">Frameworks:</div>
+                <div class="define-description">
+                    <ul class="wrapper-body">
+                        {{#frameworks}}
+                            <li>{{name}}</li>
+                        {{/frameworks}}
+                    </ul>
+                </div>
 			</div>
 			{{/frameworks.0}}
-		</div>
 		{{/technical}}
-        <!--{{#images.0}}
+        {{#images.0}}
         <div>
             <h4 class="wrapper-head">Screenshots</h4>
             <div class="nested-wrapper">
@@ -74,7 +78,7 @@
                 </ol>
             </div>
         </div>
-        {{/images.0}}-->
+        {{/images.0}}
 		<p class="top-link"><a href="#top">Jump to top</a></p>
 	</div>
 </div>

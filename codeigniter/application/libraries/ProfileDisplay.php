@@ -117,12 +117,10 @@ class ProfileDisplay {
 		$data->logo = $this->_ci->showcases->getLogo($data->id);
 		$data->developer = $this->_ci->showcases->getDeveloper($data->id);
 		$data->skillset = $this->_ci->showcases->getSkills($data->id);
-		if(property_exists ($data,'technical')){
-			$data->technical->languages = $this->showcases->getLanguages($data->id);
-			$data->technical->software = $this->showcases->getSoftware($data->id);
-			$data->technical->frameworks = $this->showcases->getFrameworks($data->id);
-		}
-		
+        $data->technical = new stdClass();
+        $data->technical->languages = $this->_ci->showcases->getLanguages($data->id);
+        $data->technical->software = $this->_ci->showcases->getSoftware($data->id);
+        $data->technical->frameworks = $this->_ci->showcases->getFrameworks($data->id);
         $data->relatedlinks = $this->_ci->showcases->getRelatedlinks($data->id);
 		$data->images = $this->_ci->showcases->getImages($data->id);
 		return $this->_ci->templateparser->parseTemplate('showcase.html', $data);

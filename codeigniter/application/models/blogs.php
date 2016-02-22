@@ -40,6 +40,14 @@ class Blogs extends CI_Model {
        $query= $this->db->query($sql);
        return $query->first_row();
     }
+	
+    function getCode($name) {
+       $sql = "SELECT code
+				FROM blog
+				WHERE name = '$name'";
+       $query= $this->db->query($sql);
+       return $query->first_row();
+    }
     
     function getLogo($id) {
     	$sql = "SELECT *

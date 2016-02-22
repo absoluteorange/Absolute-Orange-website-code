@@ -21,11 +21,11 @@ class DisplayContent {
         );
         $this->headerData=array(
             'heading'=>'absolute orange',
-            'homeUrl' => site_url('')
+            'homeUrl' => site_url(''),
+            'displayTweets' => true
         );
-        $this->footerData['copy']='&copy; 2006 - 2016 Absolute Orange Ltd, all rights reserved';
+        $this->footerData['copy']='&copy; 2006 - '.date('Y').' Absolute Orange Ltd, all rights reserved';
 	    $this->arrDevelopers  = $this->_ci->profiles->getEmployeeNames();
-        //TO DO: use $this-arrDevelopers to dynamically build up navMain
         $this->navMain=array(
             'home' => array(
                 'url' => site_url(''),
@@ -123,13 +123,16 @@ class DisplayContent {
     }
 
     public function displayLab ($container, $title) {
+        $this->headerData['displayTweets'] = false;
         $header=$this->_ci->templateparser->parseTemplate('layout/logo.html',$this->headerData,true);
         $footer=$this->_ci->templateparser->parseTemplate('layout/footer.html',$this->footerData,true);
+        $footerScript=$this->_ci->templateparser->parseTemplate('layout/footerScript.html',$this->scriptData,true);
         $output=$this->_ci->templateparser->parseTemplate('layout/labLayout.html',array(
                 'title'=>$title,
                 'header'=>$header,
                 'container'=>$container,
-                'footer'=>$footer
+                'footer'=>$footer,
+                'footerScript'=>$footerScript,
             )
         );
         echo preg_replace('/[\t\s\n]*(<.*>)[\t\s\n]*/', '$1', $output);
