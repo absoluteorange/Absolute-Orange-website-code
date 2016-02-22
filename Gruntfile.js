@@ -6,13 +6,23 @@ module.exports = function(grunt) {
             options: {
                 config: 'config.rb'
             },
-            dist: {},
+            clean: {
+                options: {
+                clean:true
+                }
+                },
+            dist: {
+                options: {
+
+                }
+                },
             dev: {
                 options: {
                     debugInfo: true,
                     sourcemap:true
                 }
             }
+
         },
         grunticon: {
             icons: {
@@ -114,6 +124,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('dist', [
        
+       'compass:clean',
         'compass:dist',
         'prepare_scripts',
         'requirejs:compile',
