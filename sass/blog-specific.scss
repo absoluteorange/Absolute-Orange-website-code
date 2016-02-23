@@ -14,22 +14,28 @@
   width: 50%;
   height: 100%;
   float: left;
+  h4.wrapper-head {
+      color: #fff;
+  }
 }
 
 #code {
   .major-text-wrapper , .borderbox{
-    margin-left: 10px;
+	@include padding-left-match-gutter;
   }
   pre {
+	@include padding-horizontal-match-gutter;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
     font-size: 1.5em;
     word-wrap: break-word;
     line-height: 1.5em;
-    background: linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
-    background: -webkit-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
-    background: -moz-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
-    background: -ms-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
-    background: -o-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
-    background: linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
+    background: linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 1.5em;
+    background: -webkit-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 1.5em;
+    background: -moz-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 1.5em;
+    background: -ms-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 1.5em;
+    background: -o-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 1.5em;
+    background: linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 1.5em;
     background-size: 100% 1.5em;
   }
 }
