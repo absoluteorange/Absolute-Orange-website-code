@@ -20,7 +20,7 @@
 }
 
 #code {
-  .major-text-wrapper , .borderbox{
+  .wrapper-head, .borderbox{
 	@include padding-left-match-gutter;
   }
   pre {
@@ -66,8 +66,14 @@ footer {
 	margin: 0 auto;
 	border: 1px solid #19a388;
 }
-#map-canvas #map_logo {
+#map-canvas {
+    img#map_logo {
     border: none!important;
+    }
+    a {
+        color: #ff7c27;
+        text-decoration: underline;
+   }
 }
 #map-canvas .gmnoprint p {
     color: #FF7D27;

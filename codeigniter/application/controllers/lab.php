@@ -15,9 +15,7 @@ class Lab extends CI_Controller {
     }
 
     public function getCode() {
-        $arrCode = explode(">>", $this->blogs->getCode($_GET['name'])->code);
-        //var_dump($arrCode);
-
+        $arrCode = explode(">>", $this->blogs->getCode($_GET['name'])->code, -1);
         echo json_encode($arrCode);
     }
 }

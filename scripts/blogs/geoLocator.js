@@ -1,5 +1,6 @@
 var geoLocator = (function () {
     "use strict";
+
     var markersArray = [];
     var img = "<img id='map_logo' src='http://www.absoluteorange.com/images/bg/logo.png' title='Absolute Orange' height='35' />"
     var mypolylineOptions = {
@@ -23,7 +24,7 @@ var geoLocator = (function () {
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     var map = new google.maps.Map(document.getElementById('map-canvas'), myOptions);
-    var contentString = [img, "<p>This is Absolute Orange's location : <a href='javascript:void(0)' onclick='geoLocator.getCurrentPos();' title='find your location'>What's yours?</a></p>"].join("");
+    var contentString = [img, "<p>This is Absolute Orange's location : <a href='javascript:void(0)' onclick='geoLocator.getCurrentPos();' title='find your location' id='findLocation'>What's yours?</a></p>"].join("");
     map.setCenter(myLocation);
     infowindow.setContent(contentString);
     infowindow.setPosition(myLocation);
@@ -183,6 +184,7 @@ var geoLocator = (function () {
     }
 
     return {
+        myLocation: myLocation,
         addMarker: addMarker,
         getCurrentPos: getCurrentPos,
         codeAddress: codeAddress
