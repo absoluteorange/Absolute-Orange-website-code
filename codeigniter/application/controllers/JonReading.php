@@ -40,7 +40,7 @@ class JonReading extends CI_Controller {
     }
     
     public function lab() {
-        $this->profiledisplay->lab($this->employeeName, $this->employeeId, $this->employeeUrl);
+        $this->profiledisplay->lab($this->employeeName);
     }
 
 }

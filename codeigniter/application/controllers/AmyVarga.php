@@ -40,7 +40,7 @@ class AmyVarga extends CI_Controller {
     }
     
     public function lab() {
-        $this->profiledisplay->lab();
+        $this->profiledisplay->lab($this->employeeName);
     }
 
     public function jsonShowcase() {

@@ -61,13 +61,14 @@ class ProfileDisplay {
 	/**
 	 * Display lab
 	 */
-	public function lab() {
+	public function lab($employeeName) {
         $name = urldecode($this->_ci->uri->segment(3));
-		$lab = $this->_ci->blogs->getBlog($name);
+		$labData['lab'] = $this->_ci->blogs->getBlog($name);
+        $labData['employeeName'] = $employeeName;
         $data = array(
             'contentPanels' => array (
                 '0' => array(
-                    'content'=> $this->_ci->templateparser->parseTemplate('lab.html', $lab)
+                    'content'=> $this->_ci->templateparser->parseTemplate('lab.html', $labData)
                 )
             )
         );
