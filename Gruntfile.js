@@ -42,9 +42,7 @@ module.exports = function(grunt) {
             files: [
              
               // makes all src relative to cwd
-              {expand: true, cwd: 'scripts/blogs/', src: ['**.js'], dest: 'app/scripts/blogs'},
-              {expand: true, cwd: 'scripts/', src: ['**/**'], dest: 'app/scripts'},
-              {src: ['scripts/lib/html5shiv.min.js'], dest: 'app/scripts/lib/html5shiv.min.js'},
+              {expand: true, cwd: 'scripts/', src: ['**/**'], dest: 'app/scripts'}
 
             ],
           },
@@ -64,9 +62,11 @@ module.exports = function(grunt) {
         requirejs: {
           compile: {
             options: {
-              baseUrl: "scripts/ao",
+              baseUrl: "scripts",
               paths:{
-                jquery:"empty:"
+                jquery:"empty:",
+                text: 'plugins/text',
+                domReady: 'plugins/domReady'
               },
               out: "app/scripts/main.js",
               name:"main"           
