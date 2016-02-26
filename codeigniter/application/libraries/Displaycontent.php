@@ -65,19 +65,9 @@ class DisplayContent {
                 'title' => 'jon reading',
                 'subnav' => array(
                     '0' => array(
-                        'url' => 'http://www.github.com/jonreading',
-                        'class' => 'subnav',
-                        'title' => "jon's github"
-                        ),
-                    '1' => array(
-                        'url' => site_url('/cv/Jon_Reading.pdf'),
+                        'url' => site_url('/cv/jon_reading.pdf'),
                         'class' => 'subnav',
                         'title' => "jon's cv"
-                        ),
-                    '2' => array(
-                        'url' => site_url('JonReading/labs'),
-                        'class' => 'subnav',
-                        'title' => "jon's Labs"
                         )
                 )
             ),
