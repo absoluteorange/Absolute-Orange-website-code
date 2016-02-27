@@ -1,10 +1,15 @@
-define(['jquery', 'lib/dom-ready', 'lib/signals', 'lib/lodash'], function ($, domReady, Signals, _) {
+define(['jquery', 'lib/dom-ready'], function ($, domReady) {
      codeRevealer = function () {
-        this.codeEvents = ['domReady', 'click'];
-        this.eventElements = ['', '#findLocation'];
-        this.$eleCodeDisplay = $('#code').find('pre');
-        this.$eleCodeHeading = $('#code').find('h4');
+        var codeEvents;
+        var eventElements;
+        var blogName = $('h2').data('blog-name');
+        var eleCodeDisplay = $('#code').find('pre');
+        var eleCodeHeading = $('#code').find('h4');
         this.init=function(){
+            if (blogName === 'HTML5 Geolocation API') {
+                codeEvents = ['domReady', 'click', 'GeoLocator.subscribe', 'GeoLocator.subscribe'];
+                eventElements = ['', '#findLocation', 'allow', 'deny'];
+            }
             var getData = $.ajax({
                 dataType: 'json',
                 url: '/lab/getCode', 
@@ -12,30 +17,35 @@ define(['jquery', 'lib/dom-ready', 'lib/signals', 'lib/lodash'], function ($, do
                     name: 'HTML5 Geolocation API'
                 }
             });
-            var thisObj = this;
             getData.complete(function(codeArray) {
                 var codeArray = codeArray.responseJSON;
                 for(var i=0, len=codeArray.length; i<len; i++) {
-                    if (thisObj.codeEvents[i] === 'domReady') {
+                    if (codeEvents[i] === 'domReady') {
                         $(document).ready(function() {
-                            thisObj.$eleCodeDisplay.empty();
-                            thisObj.$eleCodeHeading.empty();
-                            thisObj.$eleCodeHeading.html('Code executed on DOM event, DOM ready');
-                            thisObj.$eleCodeDisplay.append(codeArray[i]);
+                            var title = 'Code executed on DOM event, DOM ready';
+                            displayCode(title, codeArray[i]);
                         });
+                    } else if (codeEvents[i].indexOf('subscribe') > -1) {
+                        eval(codeEvents[i])(eventElements[i], function(i) {
+                            var title = 'Code executed on '+eventElements[i]+' being clicked';
+                            displayCode(title, codeArray[i]);
+                        }.bind(this, i));
                     } else {
-                        $(thisObj.eventElements[i]).on(thisObj.codeEvents[i], {index: i}, function(event) {
+                        $(eventElements[i]).on(codeEvents[i], {index: i}, function(event) {
                             var index = event.data.index;
-                            thisObj.$eleCodeDisplay.empty();
-                            thisObj.$eleCodeHeading.empty();
-                            thisObj.$eleCodeHeading.html('Code executed on '+thisObj.codeEvents[index]+' of '+thisObj.eventElements[index]);
-                            thisObj.$eleCodeDisplay.append(codeArray[index]);
+                            var title = 'Code executed on '+codeEvents[index]+' of '+eventElements[index];
+                            displayCode(title, codeArray[index]);
                         });
                     }
                 }
             });
         };
-        
+        displayCode = function (title, code) {
+            eleCodeDisplay.empty();
+            eleCodeHeading.empty();
+            eleCodeHeading.html(title);
+            eleCodeDisplay.append(code);
+        };
         domReady(this.init.bind(this));
     };
     if ($('#lab').length > 0) {

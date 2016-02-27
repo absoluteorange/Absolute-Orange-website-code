@@ -122,11 +122,12 @@ class DisplayContent {
         echo preg_replace('/[\t\s\n]*(<.*>)[\t\s\n]*/', '$1', $output);
     }
 
-    public function displayLab ($container, $title) {
+    public function displayLab ($container, $title, $labScripts) {
         $this->headerData['displayTweets'] = false;
-        $header=$this->_ci->templateparser->parseTemplate('layout/logo.html',$this->headerData,true);
-        $footer=$this->_ci->templateparser->parseTemplate('layout/footer.html',$this->footerData,true);
-        $footerScript=$this->_ci->templateparser->parseTemplate('layout/footerScript.html',$this->scriptData,true);
+        $this->scriptData['labScripts'] = $labScripts;
+        $header=$this->_ci->templateparser->parseTemplate('layout/logo.html', $this->headerData, true);
+        $footer=$this->_ci->templateparser->parseTemplate('layout/footer.html', $this->footerData, true);
+        $footerScript=$this->_ci->templateparser->parseTemplate('layout/footerScript.html', $this->scriptData, true);
         $output=$this->_ci->templateparser->parseTemplate('layout/labLayout.html',array(
                 'title'=>$title,
                 'header'=>$header,

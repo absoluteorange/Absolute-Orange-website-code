@@ -67,8 +67,10 @@ footer {
 	border: 1px solid #19a388;
 }
 #map-canvas {
-    img#map_logo {
-    border: none!important;
+    div.icon-fish {
+        height: 35px;
+        margin-bottom: 5px;
+        border: none!important;
     }
     a {
         color: #ff7c27;
