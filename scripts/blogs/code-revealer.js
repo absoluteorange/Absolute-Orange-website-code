@@ -7,8 +7,8 @@ define(['jquery', 'lib/dom-ready'], function ($, domReady) {
         var eleCodeHeading = $('#code').find('h4');
         this.init=function(){
             if (blogName === 'HTML5 Geolocation API') {
-                codeEvents = ['domReady', 'click', 'GeoLocator.subscribe', 'GeoLocator.subscribe'];
-                eventElements = ['', '#findLocation', 'allow', 'deny'];
+                codeEvents = ['domReady', 'click', 'GeoLocator.subscribe', 'GeoLocator.subscribe', 'focus', 'click'];
+                eventElements = ['', '#findLocation', 'allow', 'deny', '#address', '#code_address'];
             }
             var getData = $.ajax({
                 dataType: 'json',
@@ -27,7 +27,7 @@ define(['jquery', 'lib/dom-ready'], function ($, domReady) {
                         });
                     } else if (codeEvents[i].indexOf('subscribe') > -1) {
                         eval(codeEvents[i])(eventElements[i], function(i) {
-                            var title = 'Code executed on '+eventElements[i]+' being clicked';
+                            var title = 'Code executed on '+eventElements[i]+' '+codeEvents[i];
                             displayCode(title, codeArray[i]);
                         }.bind(this, i));
                     } else {

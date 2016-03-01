@@ -21,9 +21,6 @@ define(['lib/dom-ready', 'lib/signals'], function (domReady, Signals) {
             suppressMarkers : true,
             polylineOptions : mypolylineOptions
         };
-        var directionsDisplay = new google.maps.DirectionsRenderer(directionsRendererOptions);
-        var directionsService = new google.maps.DirectionsService();
-        var geocoder = new google.maps.Geocoder();
         var infowindow = new google.maps.InfoWindow({
             width:150,
             height:270
@@ -37,10 +34,10 @@ define(['lib/dom-ready', 'lib/signals'], function (domReady, Signals) {
         var map = new google.maps.Map(document.getElementById('map-canvas'), myOptions);
         var contentString = [img, "<p>This is Absolute Orange's location : <a href='javascript:void(0)' onclick='GeoLocator.getCurrentPos();' title='find your location' id='findLocation'>What's yours?</a></p>"].join("");
         function init () {
+            var marker = addMarker(myLocation, "Absolute Orange's location");
             infowindow.setContent(contentString);
             infowindow.setPosition(myLocation);
-            infowindow.open(map);
-            addMarker(myLocation, "Absolute Orange's location");
+            infowindow.open(map, marker);
         }
 
         function addMarker(marker_position, marker_title) {
@@ -56,6 +53,7 @@ define(['lib/dom-ready', 'lib/signals'], function (domReady, Signals) {
                 infowindow.open(map, marker);
             });
             markersArray.push(marker);
+            return marker;
         }
         
         function deleteMarkers () {
@@ -73,26 +71,18 @@ define(['lib/dom-ready', 'lib/signals'], function (domReady, Signals) {
             }
         }
 
-        function googleGears () {
-            var geo = google.gears.factory.create('beta.geolocation');
-            geo.getCurrentPosition(showPosition(), onError());
-        }
-
-        function geoYahoo () {
-            yqlgeo.get('visitor', normalizeYqlResponse());
-        }
-
         function codeAddress () {
             var address = document.getElementById("address").value;
-            if (geocoder) {
-                geocoder.geocode( {'address': address}, function(results, status) {
-                    if (status === google.maps.GeocoderStatus.OK) {
-                        displayPosition(results[0].geometry.location.lat(), results[0].geometry.location.lng());
-                    } else {
-                        giveFeedback('error', '', status);
-                    }
-                });
+            if (typeof geocoder === 'undefined') {
+                var geocoder = new google.maps.Geocoder();
             }
+            geocoder.geocode( {'address': address}, function(results, status) {
+                if (status === google.maps.GeocoderStatus.OK) {
+                    displayPosition(results[0].geometry.location.lat(), results[0].geometry.location.lng());
+                } else {
+                    giveFeedback('error', '', status);
+                }
+            });
         }
 
         function showPosition (position) {
@@ -105,34 +95,42 @@ define(['lib/dom-ready', 'lib/signals'], function (domReady, Signals) {
         function displayPosition (lat, lng) {
             var latlng = new google.maps.LatLng(lat, lng);
             deleteMarkers();
-            addMarker(latlng, "Your location");
-            displayDirections(latlng);
+            var marker = addMarker(latlng, "Your location");
+            infowindow.close();
+            displayDirections(latlng, marker);
         }
 
-        function displayDirections(latlng) {
+        function displayDirections(latlng, marker) {
             var request = {
                 origin: latlng,
                 destination: myLocation,
                 travelMode: google.maps.DirectionsTravelMode.DRIVING
             };
+            if (typeof directionsService === 'undefined') {
+                var directionsService = new google.maps.DirectionsService();
+            }
             directionsService.route(request, function(response, status) {
                 if (status == 'ZERO_RESULTS' ) {
                     contentString = giveFeedback('relocation','', '');
                 }
                 else if (status == google.maps.DirectionsStatus.OK) {
                     var distance = response.routes[0].legs[0].distance.value/1000;
+                    if (typeof directionsDisplay === 'undefined') {
+                        var directionsDisplay = new google.maps.DirectionsRenderer(directionsRendererOptions);
+                    }
                     directionsDisplay.setDirections(response);
-                    if (distance <= '10') {
+                    if (distance <= 10) {
                       contentString  = giveFeedback('feasible', distance, '');
-                    } else {
+                    } else if (distance <= 80) {
                       contentString = giveFeedback('not feasible', distance, '');
+                    } else {
+                      contentString = giveFeedback('relocation', distance, '');
                     }
                 }
                 infowindow.setContent(contentString);
                 infowindow.setPosition(latlng);
-                infowindow.open(map);
+                infowindow.open(map, marker);
                 directionsDisplay.setMap(map);
-                document.body.scrollTop = document.documentElement.scrollTop = 0;
             });
         }
 
@@ -150,35 +148,11 @@ define(['lib/dom-ready', 'lib/signals'], function (domReady, Signals) {
         function onError (error) {
             denyGeoLocatorSignal.dispatch($(this));
             if (error.message == 'User denied Geolocation') {
-                contentString = [img, "<p>Error: User denied Geolocation.  You will need to allow the browser to find your location or update your browser.  Now trying Google gears to find your location.</p>"].join("");
-                timer = setTimeout("if (google.gears) { GeoLocator.googleGears(); } else { GeoLocator.onError('Google gears'); }", 5000);
-            } else if (error == 'Google gears') {
-                contentString = [img, "<p>Error: Google gears is not supported.<br />Now trying Yahoo Geo to find your<br />location using your IP address.</p>"].join("");
-                timer = setTimeout("GeoLocator.geoYahoo();", 5000);
+                contentString = [img, "<p>Error: User denied Geolocation.  You will need to allow the browser to find your location or update your browser.</p>"].join("");
             }
-            map.setCenter(myLocation);
             infowindow.setContent(contentString);
             infowindow.setPosition(myLocation);
             infowindow.open(map);
-        }
-
-        function normalizeYqlResponse (response)  {
-            if (response.error)  {
-                var error = {code : 0};
-                onError(error);
-                return;
-            }
-            var position = {
-                coords : {
-                latitude: response.place.centroid.latitude,
-                longitude: response.place.centroid.longitude
-            },
-            address :  {
-                city: response.place.locality2.content,
-                region: response.place.admin1.content,
-                country: response.place.country.content
-            }};
-            handleGeolocationQuery(position);
         }
 
         function handleGeolocationQuery (position){
@@ -189,9 +163,7 @@ define(['lib/dom-ready', 'lib/signals'], function (domReady, Signals) {
              if (message == 'feasible') {
                 contentString ="" + img +"<p>Your location is approximately "+distance+" km's from<br />Absolute Orange.  This is a feasible journey for<br />Absolute Orange.</p>"
              } else if (message == 'relocation') {
-                contentString ="" + img +"<p>Your location is miles away from Absolute Orange.<br />Absolute Orange would have to relocate.</p>"
-             } else if (message == 'error') {
-                contentString ="" + img +"<p>Geo Yahoo was unsuccessful for<br />the following reason: " +status+".</p>";
+                contentString ="" + img +"<p>Your location is "+distance+" miles away from Absolute Orange.<br />Absolute Orange would have to relocate.</p>"
              } else if (message == 'not feasible') {
                  contentString ="" + img +"<p>Your location is approximately "+distance+" km's from<br />Absolute Orange.  This is might not be a feasible<br />journey for Absolute Orange.</p>";
              }

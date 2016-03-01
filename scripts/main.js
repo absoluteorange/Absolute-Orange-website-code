@@ -4,7 +4,8 @@ define(['navigation',
 	'text!templates/tweets.html',
     'showcase',
     'blogs/code-revealer', 
-    'blogs/geoLocator'
+    'blogs/geoLocator',
+    'utils/InputClearer'
 
 	], function (Navigation,
 		MediaQuery,
@@ -12,7 +13,8 @@ define(['navigation',
 		tweets,
         Showcase,
         CodeRevealer,
-        GeoLocator
+        GeoLocator,
+        InputClearer
 		) {
 
  	var myNavigation = new Navigation();
