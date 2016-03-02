@@ -2,7 +2,7 @@ define(['jquery','lib/dom-ready', 'lib/signals'], function ($, domReady, Signals
     var showcase = function() {
         var _showcaseClickedSignal = new Signals.Signal()
         this.init=function(){
-            $('.detail-list').each(function(i) {
+            $('.showcase , .showcase-image ').each(function(i) {
                 $(this).on('click', function(e) {
                     e.preventDefault();
                     _showcaseClickedSignal.dispatch($(this));
@@ -11,9 +11,10 @@ define(['jquery','lib/dom-ready', 'lib/signals'], function ($, domReady, Signals
         };
         _showcaseClickedSignal.add(onClicked);
         function onClicked(element) {
-            var eleListItem =element;
+            var eleListItem = element.parents('.detail-list');
+
             if (eleListItem.hasClass('selected') === false) {
-                var _showcase = element.find('h3').html();
+                var _showcase = eleListItem.find('h3').html();
                 $.ajax({
                     dataType: 'html',
                     url: '/Showcase/getShowcase', 
