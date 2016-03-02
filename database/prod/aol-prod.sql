@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.5.46, for debian-linux-gnu (x86_64)
+-- MySQL dump 10.13  Distrib 5.5.47, for debian-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: amyvarga
 -- ------------------------------------------------------
--- Server version	5.5.46-0ubuntu0.14.04.2
+-- Server version	5.5.47-0ubuntu0.14.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -14,14 +14,6 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
---
--- Current Database: `amyvarga`
---
-
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `amyvarga` /*!40100 DEFAULT CHARACTER SET latin1 */;
-
-USE `amyvarga`;
 
 --
 -- Table structure for table `blog`
@@ -360,7 +352,7 @@ CREATE TABLE `employee_showcase` (
 
 LOCK TABLES `employee_showcase` WRITE;
 /*!40000 ALTER TABLE `employee_showcase` DISABLE KEYS */;
-INSERT INTO `employee_showcase` VALUES (1,73),(1,74),(1,75),(1,76),(1,77),(1,83),(1,84),(2,78),(2,79),(2,80),(2,81),(2,82);
+INSERT INTO `employee_showcase` VALUES (1,73),(1,74),(1,75),(1,76),(1,77),(1,83),(1,84),(2,78),(2,79),(2,81),(2,85);
 /*!40000 ALTER TABLE `employee_showcase` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -505,7 +497,7 @@ CREATE TABLE `frameworks` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -514,7 +506,7 @@ CREATE TABLE `frameworks` (
 
 LOCK TABLES `frameworks` WRITE;
 /*!40000 ALTER TABLE `frameworks` DISABLE KEYS */;
-INSERT INTO `frameworks` VALUES (7,'RequireJs'),(8,'jQuery'),(9,'Backbone'),(10,'Modernizr'),(11,'SASS'),(12,'LESS'),(13,'Codeigniter'),(14,'Zend'),(15,'Facebook API'),(16,'Box 2D'),(17,'Restkit');
+INSERT INTO `frameworks` VALUES (7,'RequireJs'),(8,'jQuery'),(9,'Backbone'),(10,'Modernizr'),(11,'SASS'),(12,'LESS'),(13,'Codeigniter'),(14,'Zend'),(15,'Facebook API'),(16,'Box 2D'),(17,'Restkit'),(18,'Mocha'),(19,'Lodash'),(20,'Sinon/Chai'),(21,'Express'),(22,'Hogan');
 /*!40000 ALTER TABLE `frameworks` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -529,7 +521,7 @@ CREATE TABLE `languages` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -538,7 +530,7 @@ CREATE TABLE `languages` (
 
 LOCK TABLES `languages` WRITE;
 /*!40000 ALTER TABLE `languages` DISABLE KEYS */;
-INSERT INTO `languages` VALUES (7,'MySQL'),(8,'Native Javascript'),(9,'JSTL'),(15,'Apache Struts'),(22,'XHTML 1.0 MP'),(38,'HTML 5'),(39,'CSS 1, 2 and 3'),(41,'PHP'),(42,'XML'),(43,'XHTML'),(44,'OO Javascript'),(46,'Mustache templates'),(47,'REST API'),(48,'Objective-C');
+INSERT INTO `languages` VALUES (7,'MySQL'),(8,'Native Javascript'),(9,'JSTL'),(15,'Apache Struts'),(22,'XHTML 1.0 MP'),(38,'HTML 5'),(39,'CSS 1, 2 and 3'),(41,'PHP'),(42,'XML'),(43,'XHTML'),(44,'OO Javascript'),(46,'Mustache templates'),(47,'REST API'),(48,'Objective-C'),(49,'Grunt'),(50,'NodeJS'),(51,'Varnish');
 /*!40000 ALTER TABLE `languages` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -615,7 +607,7 @@ CREATE TABLE `showcase` (
   `owner` varchar(50) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`title`)
-) ENGINE=InnoDB AUTO_INCREMENT=85 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=86 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -624,7 +616,7 @@ CREATE TABLE `showcase` (
 
 LOCK TABLES `showcase` WRITE;
 /*!40000 ALTER TABLE `showcase` DISABLE KEYS */;
-INSERT INTO `showcase` VALUES (73,NULL,'Three',NULL,'',NULL,'A video-on-demand mobile subscription service offered by Three to its customers ',NULL,'Mobile website delivering Three video-ondemand service','2012-06-01 00:00:00','2010-09-01 00:00:00','Ondemand!','Three'),(74,NULL,'Virgin Shorts',NULL,'',NULL,'The Virgin Shorts website is an integral part of the Virgin Shorts competition allowing competitors to upload and showcase their entries.',NULL,'Website showcasing short films for the Virgin Shorts competition','2010-06-01 00:00:00','2010-01-01 00:00:00','Virgin Media','Virgin Media'),(75,NULL,'UK Web Archive',NULL,'',NULL,'Redesign and improve the UK Web Archive website so that it is more usable and communicates the brand better.',NULL,'Redesign on UK Web Archive website','2009-12-15 00:00:00','2009-11-01 00:00:00','UK Web Archive','British Library'),(76,NULL,'Clipper Teas',NULL,'',NULL,'Provide an e-commerce website for Clipper Teas',NULL,'Clipper Teas shopping website','2010-12-23 00:00:00','2009-10-01 00:00:00','Big Fish ','Clipper Teas'),(77,NULL,'TJ Hughes',NULL,'',NULL,'Provide an e-commerce website for TJ Hughes',NULL,'TJ Hughes shopping website','2009-07-30 00:00:00','2009-02-01 00:00:00','BT Fresca','TJ Hughes'),(78,NULL,'BBC Radio Iplayer',NULL,'',NULL,'HTML5 mobile web application with native IOS wrapper',NULL,'Hybrid HTML5 App','2012-01-31 00:00:00','2011-11-01 00:00:00','KentLyons','BBC'),(79,NULL,'Channel 4 Toyota Aygo Mashup',NULL,'http://toyotaaygo.channel4.com/',NULL,'Channel 4 competition website to win a Toyota Aygo',NULL,'HTML5 web application','2013-04-26 00:00:00','2013-03-28 00:00:00','KentLyons','Channel 4'),(80,NULL,'The Run To',NULL,'http://therunto.com/',NULL,'<p class=\'wrapper-body\'>Responsive HTML5 website</p>',NULL,'HTML5 website','2012-10-19 00:00:00','2012-09-03 00:00:00','KentLyons','The Run To'),(81,NULL,'Happy Face',NULL,'http://www.kentlyons.com/happyface/',NULL,'Native IOS parenting app',NULL,'IOS app','2012-04-13 00:00:00','2012-02-01 00:00:00','KentLyons','KentLyons'),(82,NULL,'Film London',NULL,'http://filmlondon.org.uk/',NULL,'Content Managed Website',NULL,'Website','2010-04-30 00:00:00','2010-01-01 00:00:00','KentLyons','Film London'),(83,NULL,'News International',NULL,'http://news.co.uk/',NULL,'News International acquisition web pages',NULL,'The Sun+, The Times and The Sunday Times subscription pages','2013-08-30 00:00:00','2013-06-03 00:00:00','Nice Agency','News International'),(84,NULL,'AkzoNobel',NULL,'https://www.dulux.co.uk/en',NULL,'One website for the world]',NULL,'Responsive global consumer facing website','2015-06-12 00:00:00','2014-03-03 00:00:00','Salmon Ltd','AkzoNobel');
+INSERT INTO `showcase` VALUES (73,NULL,'Three',NULL,'',NULL,'A video-on-demand mobile subscription service offered by Three to its customers ',NULL,'Mobile website delivering Three video-ondemand service','2012-06-01 00:00:00','2010-09-01 00:00:00','Ondemand!','Three'),(74,NULL,'Virgin Shorts',NULL,'',NULL,'The Virgin Shorts website is an integral part of the Virgin Shorts competition allowing competitors to upload and showcase their entries.',NULL,'Website showcasing short films for the Virgin Shorts competition','2010-06-01 00:00:00','2010-01-01 00:00:00','Virgin Media','Virgin Media'),(75,NULL,'UK Web Archive',NULL,'',NULL,'Redesign and improve the UK Web Archive website so that it is more usable and communicates the brand better.',NULL,'Redesign on UK Web Archive website','2009-12-15 00:00:00','2009-11-01 00:00:00','UK Web Archive','British Library'),(76,NULL,'Clipper Teas',NULL,'',NULL,'Provide an e-commerce website for Clipper Teas',NULL,'Clipper Teas shopping website','2010-12-23 00:00:00','2009-10-01 00:00:00','Big Fish ','Clipper Teas'),(77,NULL,'TJ Hughes',NULL,'',NULL,'Provide an e-commerce website for TJ Hughes',NULL,'TJ Hughes shopping website','2009-07-30 00:00:00','2009-02-01 00:00:00','BT Fresca','TJ Hughes'),(78,NULL,'BBC Radio Iplayer',NULL,'',NULL,'HTML5 mobile web application with native IOS wrapper',NULL,'Hybrid HTML5 App','2012-01-31 00:00:00','2011-11-01 00:00:00','KentLyons','BBC'),(79,NULL,'Channel 4 Toyota Aygo Mashup',NULL,'http://toyotaaygo.channel4.com/',NULL,'Channel 4 competition website to win a Toyota Aygo',NULL,'HTML5 web application','2013-04-26 00:00:00','2013-03-28 00:00:00','KentLyons','Channel 4'),(81,NULL,'Happy Face',NULL,'http://www.kentlyons.com/happyface/',NULL,'Native IOS parenting app,  Winner of 2012 W3 Gold award',NULL,'IOS app','2012-04-13 00:00:00','2012-02-01 00:00:00','KentLyons','KentLyons'),(83,NULL,'News International',NULL,'http://news.co.uk/',NULL,'News International acquisition web pages',NULL,'The Sun+, The Times and The Sunday Times subscription pages','2013-08-30 00:00:00','2013-06-03 00:00:00','Nice Agency','News International'),(84,NULL,'AkzoNobel',NULL,'https://www.dulux.co.uk/en',NULL,'One website for the world]',NULL,'Responsive global consumer facing website','2015-06-12 00:00:00','2014-03-03 00:00:00','Salmon Ltd','AkzoNobel'),(85,NULL,'BBC Glass Framework',NULL,'http://www.bbc.com/culture',NULL,'Framework supporting multiple high traffic BBC Websites\n<ul class=\'wrapper-body\'>\n<li>Mobile first approach</li>\n<li>Core, responsive and fixed width experience based on feature detection</li>\n<li>Shared client / server architecture</li>\n<li>Integrated  numerous micro services</li>\n</ul>\n',NULL,'NodeJS Responsive Website','2015-05-01 00:00:00','2013-04-01 00:00:00','BBC','BBC');
 /*!40000 ALTER TABLE `showcase` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -648,7 +640,7 @@ CREATE TABLE `showcase_experience` (
 
 LOCK TABLES `showcase_experience` WRITE;
 /*!40000 ALTER TABLE `showcase_experience` DISABLE KEYS */;
-INSERT INTO `showcase_experience` VALUES (14,74),(14,75),(14,76),(14,77),(14,78),(14,79),(14,80),(14,81),(14,82),(14,83);
+INSERT INTO `showcase_experience` VALUES (7,85),(14,74),(14,75),(14,76),(14,77),(14,78),(14,79),(14,81),(14,83);
 /*!40000 ALTER TABLE `showcase_experience` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -672,7 +664,7 @@ CREATE TABLE `showcase_frameworks` (
 
 LOCK TABLES `showcase_frameworks` WRITE;
 /*!40000 ALTER TABLE `showcase_frameworks` DISABLE KEYS */;
-INSERT INTO `showcase_frameworks` VALUES (73,8),(73,12),(74,8),(74,13),(75,8),(76,8),(77,8),(78,8),(78,12),(79,8),(79,9),(79,12),(79,15),(80,7),(80,8),(80,9),(80,10),(80,12),(80,13),(81,16),(82,8),(82,13),(82,14),(83,8),(83,9),(83,10),(83,12),(84,8),(84,11);
+INSERT INTO `showcase_frameworks` VALUES (73,8),(73,12),(74,8),(74,13),(75,8),(76,8),(77,8),(78,7),(78,8),(78,9),(78,12),(79,8),(79,9),(79,12),(79,15),(81,16),(83,8),(83,9),(83,10),(83,12),(84,8),(84,11),(85,7),(85,8),(85,12),(85,14),(85,18),(85,19),(85,20),(85,21),(85,22);
 /*!40000 ALTER TABLE `showcase_frameworks` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -690,7 +682,7 @@ CREATE TABLE `showcase_images` (
   `order_index` smallint(3) DEFAULT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=104 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -699,7 +691,7 @@ CREATE TABLE `showcase_images` (
 
 LOCK TABLES `showcase_images` WRITE;
 /*!40000 ALTER TABLE `showcase_images` DISABLE KEYS */;
-INSERT INTO `showcase_images` VALUES (75,'UK_Web_Archive_website_web_archive_1.jpg','UK_Web_Archive_website > UK Web Archive home',1,79),(74,'Virgin_shorts_website_virgin_shorts_3.jpg','Virgin_shorts_website > Virgin Shorts',1,80),(74,'Virgin_shorts_website_virgin_shorts_1.jpg','Virgin_shorts_website > Virgin Shorts',1,81),(76,'Clipper_Teas_clipper_1.jpg','Clipper_Teas > Clipper Teas shopping home page',1,82),(76,'Clipper_Teas_clipper_2.jpg','Clipper_Teas > Clipper teas shopping web page',1,83),(78,'BBC_IMG_0042.jpg','BBC > BBC iPlayer dial',1,84),(78,'BBC_IMG_0049.jpg','BBC > BBC iPlayer prototype',3,85),(78,'BBC_IMG_0048.jpg','BBC > BBC iPlayer prototype',2,86),(79,'Channel_4_t4-1.jpg','Channel_4 > Channel 4 Toyota Aygo',1,87),(79,'Channel_4_t4-2.jpg','Channel_4 > Channel 4 Toyota Aygo',2,88),(80,'The_Run_To_runto-2.jpg','The_Run_To > The Run To',1,89),(80,'The_Run_To_runto-3.jpg','The_Run_To > The Run To',1,90),(81,'Happy_Face_IMG_0053.jpg','Happy_Face > Happy Face app',1,91),(81,'Happy_Face_IMG_0055.jpg','Happy_Face > Happy Face app',1,92),(82,'Film_London_screenshot1.jpg','Film_London > Film London',1,93),(73,'Three_htc.jpg','Three > Three ondemand video website HTC',5,94),(73,'Three_htc2.jpg','Three > Three ondemand video website HTC',4,95),(73,'Three_htc3.jpg','Three > Three ondemand video website HTC',3,96),(73,'Three_iphone.jpg','Three > Three ondemand video website iPhone',2,97),(73,'Three_iphone2.jpg','Three > Three ondemand video website iPhone',2,98),(83,'News_International_the-sun-accountCreation.gif','News_International > The Sun - account creation',1,99),(83,'News_International_the-times-accountCreation.gif','News_International > The Times - account creation',1,100);
+INSERT INTO `showcase_images` VALUES (75,'UK_Web_Archive_website_web_archive_1.jpg','UK_Web_Archive_website > UK Web Archive home',1,79),(74,'Virgin_shorts_website_virgin_shorts_3.jpg','Virgin_shorts_website > Virgin Shorts',1,80),(74,'Virgin_shorts_website_virgin_shorts_1.jpg','Virgin_shorts_website > Virgin Shorts',1,81),(76,'Clipper_Teas_clipper_1.jpg','Clipper_Teas > Clipper Teas shopping home page',1,82),(76,'Clipper_Teas_clipper_2.jpg','Clipper_Teas > Clipper teas shopping web page',1,83),(78,'BBC_IMG_0042.jpg','BBC > BBC iPlayer dial',1,84),(78,'BBC_IMG_0049.jpg','BBC > BBC iPlayer prototype',3,85),(78,'BBC_IMG_0048.jpg','BBC > BBC iPlayer prototype',2,86),(79,'Channel_4_t4-1.jpg','Channel_4 > Channel 4 Toyota Aygo',1,87),(79,'Channel_4_t4-2.jpg','Channel_4 > Channel 4 Toyota Aygo',2,88),(81,'Happy_Face_IMG_0053.jpg','Happy_Face > Happy Face app',1,91),(81,'Happy_Face_IMG_0055.jpg','Happy_Face > Happy Face app',1,92),(73,'Three_htc.jpg','Three > Three ondemand video website HTC',5,94),(73,'Three_htc2.jpg','Three > Three ondemand video website HTC',4,95),(73,'Three_htc3.jpg','Three > Three ondemand video website HTC',3,96),(73,'Three_iphone.jpg','Three > Three ondemand video website iPhone',2,97),(73,'Three_iphone2.jpg','Three > Three ondemand video website iPhone',2,98),(83,'News_International_the-sun-accountCreation.gif','News_International > The Sun - account creation',1,99),(83,'News_International_the-times-accountCreation.gif','News_International > The Times - account creation',1,100),(85,'BBC_Glass_Framework_desktop.png','BBC_Glass_Framework > desktop',1,101),(85,'BBC_Glass_Framework_tablet.png','BBC_Glass_Framework > tablet',1,102),(85,'BBC_Glass_Framework_mobile.png','BBC_Glass_Framework > mobile',1,103);
 /*!40000 ALTER TABLE `showcase_images` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -723,7 +715,7 @@ CREATE TABLE `showcase_languages` (
 
 LOCK TABLES `showcase_languages` WRITE;
 /*!40000 ALTER TABLE `showcase_languages` DISABLE KEYS */;
-INSERT INTO `showcase_languages` VALUES (7,82),(9,73),(9,75),(9,77),(15,73),(38,73),(38,78),(38,79),(38,80),(38,83),(38,84),(39,73),(39,75),(39,76),(39,77),(39,78),(39,79),(39,80),(39,82),(39,83),(39,84),(41,74),(41,80),(41,82),(43,75),(43,76),(43,77),(43,82),(44,78),(44,79),(44,80),(44,82),(44,83),(44,84),(46,80),(47,73),(47,80),(48,78),(48,81);
+INSERT INTO `showcase_languages` VALUES (8,85),(9,73),(9,75),(9,77),(15,73),(38,73),(38,78),(38,79),(38,83),(38,84),(38,85),(39,73),(39,75),(39,76),(39,77),(39,78),(39,79),(39,83),(39,84),(41,74),(43,75),(43,76),(43,77),(44,78),(44,79),(44,83),(44,84),(44,85),(46,85),(47,73),(47,85),(48,78),(48,81),(49,85),(50,85),(51,85);
 /*!40000 ALTER TABLE `showcase_languages` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -740,7 +732,7 @@ CREATE TABLE `showcase_logos` (
   `image_alt` varchar(50) NOT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=103 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -749,7 +741,7 @@ CREATE TABLE `showcase_logos` (
 
 LOCK TABLES `showcase_logos` WRITE;
 /*!40000 ALTER TABLE `showcase_logos` DISABLE KEYS */;
-INSERT INTO `showcase_logos` VALUES (73,'three.png','Three',82),(74,'Virgin_Media.png','Virgin Media',83),(75,'british-library.gif','British Library',85),(76,'clipper_tea.jpg','Clipper Teas',86),(77,'T_J_Hughes.png','TJ Hughes',87),(80,'R1.png','The Run To',90),(78,'bbc.png','BBC',92),(79,'channel-4-logo.png','Channel 4',93),(81,'IMG_0051-thumb.jpg','Happy Face',94),(82,'film-london-logo.png','Film London',96),(83,'news_int_logos.jpg','News International',99);
+INSERT INTO `showcase_logos` VALUES (73,'three.png','Three',82),(74,'Virgin_Media.png','Virgin Media',83),(75,'british-library.gif','British Library',85),(76,'clipper_tea.jpg','Clipper Teas',86),(77,'T_J_Hughes.png','TJ Hughes',87),(78,'bbc.png','BBC',92),(79,'channel-4-logo.png','Channel 4',93),(81,'IMG_0051-thumb.jpg','Happy Face',94),(83,'news_int_logos.jpg','News International',99),(85,'bbc.png','bbc',102);
 /*!40000 ALTER TABLE `showcase_logos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -766,7 +758,7 @@ CREATE TABLE `showcase_relatedlinks` (
   `name` varchar(50) NOT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -775,7 +767,7 @@ CREATE TABLE `showcase_relatedlinks` (
 
 LOCK TABLES `showcase_relatedlinks` WRITE;
 /*!40000 ALTER TABLE `showcase_relatedlinks` DISABLE KEYS */;
-INSERT INTO `showcase_relatedlinks` VALUES (83,'https://join.thesundaytimes.co.uk','The Sunday Times subscription',1),(83,'https://join.thesun.co.uk','The Sun subscription',2),(83,'https://join.thetimes.co.uk','The Times subscription',3),(74,'http://www.virginmediashorts.co.uk','Virgin Media Shorts',4),(77,'http://www.tjhughes.co.uk/','TJ Hughes',5),(75,'http://www.webarchive.org.uk/ukwa/','UK Web Archive',6),(76,'http://shop.clipper-teas.com/','Clipper Teas',7),(73,'http://mobile.three.co.uk/935a/portal-web/whats-hot','Three Ondemand',8),(84,'https://www.dulux.co.uk/en','Dulux England',11),(84,'https://www.duluxvalentine.com/fr','Dulux France',12),(80,'http://therunto.com/','The FT Run To',15);
+INSERT INTO `showcase_relatedlinks` VALUES (83,'https://join.thesundaytimes.co.uk','The Sunday Times subscription',1),(83,'https://join.thesun.co.uk','The Sun subscription',2),(83,'https://join.thetimes.co.uk','The Times subscription',3),(74,'http://www.virginmediashorts.co.uk','Virgin Media Shorts',4),(77,'http://www.tjhughes.co.uk/','TJ Hughes',5),(75,'http://www.webarchive.org.uk/ukwa/','UK Web Archive',6),(76,'http://shop.clipper-teas.com/','Clipper Teas',7),(73,'http://mobile.three.co.uk/935a/portal-web/whats-hot','Three Ondemand',8),(84,'https://www.dulux.co.uk/en','Dulux England',11),(84,'https://www.duluxvalentine.com/fr','Dulux France',12),(85,'http://www.bbc.com/culture','BBC Culture',16),(85,'http://www.bbc.com/capital','BBC Capital',17),(85,'http://www.bbc.com/earth/world','BBC Earth',18),(85,'http://www.bbc.com/future','BBC Future',19),(85,'http://www.bbc.com/travel','BBC Travel',20);
 /*!40000 ALTER TABLE `showcase_relatedlinks` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -800,7 +792,7 @@ CREATE TABLE `showcase_skills` (
 
 LOCK TABLES `showcase_skills` WRITE;
 /*!40000 ALTER TABLE `showcase_skills` DISABLE KEYS */;
-INSERT INTO `showcase_skills` VALUES (73,25),(74,25),(75,25),(76,25),(77,25),(78,24),(78,25),(78,26),(79,25),(79,26),(80,24),(80,25),(81,24),(81,26),(82,19),(82,24),(82,25),(82,27),(83,25),(84,25);
+INSERT INTO `showcase_skills` VALUES (73,25),(74,25),(75,25),(76,25),(77,25),(78,24),(78,25),(78,26),(79,25),(81,24),(81,26),(83,25),(84,25),(85,19),(85,24),(85,25);
 /*!40000 ALTER TABLE `showcase_skills` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -824,7 +816,7 @@ CREATE TABLE `showcase_software` (
 
 LOCK TABLES `showcase_software` WRITE;
 /*!40000 ALTER TABLE `showcase_software` DISABLE KEYS */;
-INSERT INTO `showcase_software` VALUES (9,75),(9,84),(15,73),(15,75),(15,83),(24,73),(27,73),(27,74),(27,82),(30,73),(30,83),(30,84),(32,73),(32,74),(32,75),(32,82),(32,83),(33,76),(34,78),(35,73),(36,73),(37,73),(40,84);
+INSERT INTO `showcase_software` VALUES (9,75),(9,84),(15,73),(15,75),(15,83),(24,73),(27,73),(27,74),(30,73),(30,83),(30,84),(30,85),(32,73),(32,74),(32,75),(32,83),(33,76),(34,78),(35,73),(36,73),(37,73),(40,84),(42,85),(43,85);
 /*!40000 ALTER TABLE `showcase_software` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -889,7 +881,7 @@ CREATE TABLE `software` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -898,7 +890,7 @@ CREATE TABLE `software` (
 
 LOCK TABLES `software` WRITE;
 /*!40000 ALTER TABLE `software` DISABLE KEYS */;
-INSERT INTO `software` VALUES (8,'Adobe Dreamweaver'),(9,'Adobe Illustrator'),(15,'Adobe Photoshop'),(19,'Net Beans IDE'),(22,'Bare Tail log monitoring tool'),(23,'Wireshark network protocol analyser'),(24,'WURFL data repository'),(27,'SVN versioning system'),(28,'Adobe Video Encoders'),(30,'Jira'),(31,'Axure wireframing and prototying '),(32,'Eclipse IDE'),(33,'Magento e-commerce software and platform'),(34,'TestFlight beta testing'),(35,'Socketbug'),(36,'Adobe Edge'),(37,'Google analytics'),(38,'Balsamiq wireframing tool'),(39,'Omnigraffle'),(40,'Git versioning system'),(41,'Litmus email testing');
+INSERT INTO `software` VALUES (8,'Adobe Dreamweaver'),(9,'Adobe Illustrator'),(15,'Adobe Photoshop'),(19,'Net Beans IDE'),(22,'Bare Tail log monitoring tool'),(23,'Wireshark network protocol analyser'),(24,'WURFL data repository'),(27,'SVN versioning system'),(28,'Adobe Video Encoders'),(30,'Jira'),(31,'Axure wireframing and prototying '),(32,'Eclipse IDE'),(33,'Magento e-commerce software and platform'),(34,'TestFlight beta testing'),(35,'Socketbug'),(36,'Adobe Edge'),(37,'Google analytics'),(38,'Balsamiq wireframing tool'),(39,'Omnigraffle'),(40,'Git versioning system'),(41,'Litmus email testing'),(42,'Karma Test Runner'),(43,'PhantomJS');
 /*!40000 ALTER TABLE `software` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1083,4 +1075,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-03-01 18:12:38
+-- Dump completed on 2016-03-02 15:39:31
