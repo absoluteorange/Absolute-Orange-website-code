@@ -25,3 +25,10 @@ p.top-link{
         @include font-size(13);
     }
 }
+
+.loading {
+    width: 100%;
+    height: 100%;
+    background-color: #e2dfdf!important;
+    background: url(/images/bg/loading.gif) no-repeat 50% 50%;
+}

@@ -96,7 +96,7 @@ class Site extends CI_Controller {
 	public function fileAPIUpload() {
 		$this->load->library(array('admin/form_validation', 'admin/common_methods'));
 		$fn = (isset($_SERVER['HTTP_X_FILENAME']) ? $_SERVER['HTTP_X_FILENAME'] : false);
-		if (isset($fn) AND $this->common_methods->validateFile($fn)):
+		if ($fn != false AND $this->common_methods->validateFile($fn)):
 			echo $fn;
 		endif;
 	}

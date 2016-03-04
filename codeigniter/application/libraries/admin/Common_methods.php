@@ -38,9 +38,12 @@ class Common_methods extends CI_Controller {
 					return TRUE;
 				endif;
 			else:
+                $imageData = file_get_contents('php://input');
+                $imageData = substr($imageData, 23);
+                $imageData = base64_decode($imageData);
 				file_put_contents(  
-					'images/publicUpload/' . $filename,  
-					file_get_contents('php://input')  
+					$_SERVER['DOCUMENT_ROOT'].'/images/publicUpload/' . $filename,  
+                    $imageData
 				);
 				return TRUE;
 			endif;  

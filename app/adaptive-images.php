@@ -151,15 +151,6 @@ if (file_exists($cache_file)) { // it exists cached at that size
 $file = generateImage($source_file, $cache_file, $resolution);
 sendImage($file, $browser_cache);
 
-
-
-
-
-
-
-
-
-
 /* helper function: Send headers and returns an image. */
 function sendImage($filename, $browser_cache) {
   $extension = strtolower(pathinfo($filename, PATHINFO_EXTENSION));

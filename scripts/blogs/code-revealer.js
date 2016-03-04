@@ -9,12 +9,15 @@ define(['jquery', 'lib/dom-ready'], function ($, domReady) {
             if (blogName === 'HTML5 Geolocation API') {
                 codeEvents = ['domReady', 'click', 'GeoLocator.subscribe', 'GeoLocator.subscribe', 'focus', 'click'];
                 eventElements = ['', '#findLocation', 'allow', 'deny', '#address', '#code_address'];
+            } else if (blogName === 'HTML5 File API') {
+                codeEvents = ['dragenter', 'dragover', 'drop', 'fileApi.subscribe'];
+                eventElements = ['#dropbpx', '#dropbox', '#dropbox', 'upload file'];
             }
             var getData = $.ajax({
                 dataType: 'json',
                 url: '/lab/getCode', 
                 data: {
-                    name: 'HTML5 Geolocation API'
+                    name: blogName
                 }
             });
             getData.complete(function(codeArray) {

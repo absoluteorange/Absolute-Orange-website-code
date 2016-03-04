@@ -74,7 +74,10 @@ class ProfileDisplay {
                 )
             )
         );
-        $labScripts = $arrLabImplementation[1];
+        $labScripts = '';
+        if (isset($arrLabImplementation[1])) {
+            $labScripts = $arrLabImplementation[1];
+        }
         $container=$this->_ci->templateparser->parseTemplate('layout/container.html', $data);
         $title = $name;
         $this->_ci->displaycontent->displayLab($container, $title, $labScripts);

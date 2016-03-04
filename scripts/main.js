@@ -5,7 +5,9 @@ define(['navigation',
     'showcase',
     'blogs/code-revealer', 
     'blogs/geoLocator',
-    'utils/InputClearer'
+    'utils/InputClearer',
+    'plugins/lightbox',
+    'blogs/FileAPI'
 
 	], function (Navigation,
 		MediaQuery,
@@ -14,7 +16,9 @@ define(['navigation',
         Showcase,
         CodeRevealer,
         GeoLocator,
-        InputClearer
+        InputClearer,
+        Lightbox,
+        FileAPI
 		) {
 
  	var myNavigation = new Navigation();

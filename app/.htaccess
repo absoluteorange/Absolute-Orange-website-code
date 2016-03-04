@@ -980,4 +980,4 @@ RewriteRule  ^(.*)$ /index.php/site/$1 [L]
 
 RewriteCond %{REQUEST_URI} !images/bg
 
-RewriteRule \.(?:jpe?g|gif|png)$ adaptive-images.php
+RewriteRule \.(?:jpe?g|gif|png|JPG)$ adaptive-images.php

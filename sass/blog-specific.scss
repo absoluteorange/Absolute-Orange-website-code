@@ -52,20 +52,22 @@ footer {
 
 /* file API */
 #dropbox, #uploadedImages {
-    height: 250px;
-    margin-bottom: 10px;
-    background-color: #bde2f4;
-    padding: 10px;
+    min-height: 250px;
+    background-color: #fff;
+    @include margin-bottom-match-gutter;
+    @include padding-match-gutter;
     overflow: hidden;
+    word-break: break-word;
     img {
       height: 100%;
     }
-    p {
-      color: #fff;
-    }
 }
 
-
+#dropbox {
+    img {
+        height: 250px;
+    }
+}
 /* map API */
 #map-canvas {
 	height: 40em;
