@@ -24,7 +24,7 @@ define(['navigation',
  	var myNavigation = new Navigation();
 	ModulesLayoutManager.addModule(tweets);
  	ModulesLayoutManager.init();
-    if (typeof GeoLocator !== 'undefined') {
+    if ((typeof GeoLocator !== 'undefined') &&  $('#lab').length > 0) {
         window.GeoLocator = GeoLocator;
         GeoLocator.init(GeoLocator.myLocation, "Absolute Orange's location");
     }

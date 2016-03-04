@@ -1,4 +1,4 @@
-define(['jquery', 'lib/dom-ready'], function ($, domReady) {
+define(['jquery', 'lib/dom-ready', 'blogs/fileAPI'], function ($, domReady, FileApi) {
      codeRevealer = function () {
         var codeEvents;
         var eventElements;
@@ -10,8 +10,8 @@ define(['jquery', 'lib/dom-ready'], function ($, domReady) {
                 codeEvents = ['domReady', 'click', 'GeoLocator.subscribe', 'GeoLocator.subscribe', 'focus', 'click'];
                 eventElements = ['', '#findLocation', 'allow', 'deny', '#address', '#code_address'];
             } else if (blogName === 'HTML5 File API') {
-                codeEvents = ['dragenter', 'dragover', 'drop', 'fileApi.subscribe'];
-                eventElements = ['#dropbpx', '#dropbox', '#dropbox', 'upload file'];
+                codeEvents = ['dragenter', 'dragover', 'drop', 'FileApi.subscribe'];
+                eventElements = ['#dropbpx', '#dropbox', '#dropbox', 'uploadFile'];
             }
             var getData = $.ajax({
                 dataType: 'json',

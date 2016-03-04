@@ -81,12 +81,10 @@ define(['lib/dom-ready', 'lib/signals', 'plugins/lightbox'], function (domReady,
         };
 
         var fileUpload = function (file, imgData) {
-            //var formData = new FormData();
-            //formData.append(file.name, imgData);
+            uploadFileSignal.dispatch($(this));
             var xhr = new XMLHttpRequest();
             xhr.open("POST", "/fileAPIUpload", true);
             xhr.setRequestHeader("X-FILENAME", file.name);
-            //xhr.setRequestHeader("Content-Type", "multipart/form-data");
             xhr.overrideMimeType('text/plain; charset=x-user-defined-binary');
             xhr.onload = function (e) {
                 if (this.status === 200)  {
@@ -121,7 +119,13 @@ define(['lib/dom-ready', 'lib/signals', 'plugins/lightbox'], function (domReady,
         dropbox.addEventListener("dragenter", dragEnter, false);
         dropbox.addEventListener("dragover", dragOver, false);
         dropbox.addEventListener("drop", drop, false);
+        
+        return {
+            subscribe: subscribe
+        }
     };
 
-    return new FileApi();
+    if ($('#lab').length > 0) {
+        return new FileApi();
+    }
 });

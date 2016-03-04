@@ -178,7 +178,7 @@ define(['lib/dom-ready', 'lib/signals'], function (domReady, Signals) {
             codeAddress: codeAddress
         }
     };
-    if (typeof google !== 'undefined' && typeof google.maps !== 'undefined') {
+    if ((typeof google !== 'undefined') && (typeof google.maps !== 'undefined' && $('#lab').length > 0)) {
         return new GeoLocator();
     }
 });
