@@ -12,17 +12,14 @@ define(['lib/dom-ready', 'lib/signals', 'plugins/lightbox'], function (domReady,
         "use strict";
 
         var droppedFile = null;
-
         var dragEnter = function (e) {
             e.stopPropagation();
             e.preventDefault();
         };
-
         var dragOver = function (e) {
             e.stopPropagation();
             e.preventDefault();
         };
-
         var drop = function (e) {
             e.stopPropagation();
             e.preventDefault();
@@ -34,23 +31,19 @@ define(['lib/dom-ready', 'lib/signals', 'plugins/lightbox'], function (domReady,
                 window.alert('Sorry you can only upload one image per session.');
             }
         };
-
         var handleDropFiles = function (files) {
             for (var i= 0, len=files.length; i<len; i++) {
                 var file = files[i],
                     imageType = /image.*/;
-
                 if (!file.type.match(imageType)) {
                     window.alert('This is not a valid image file.');
                     continue;
                 }
-
                 var img = document.createElement("img");
                 img.classList.add("obj");
                 img.id = 'dropped-image';
                 img.file = file;
                 dropbox.appendChild(img);
-
                 var reader = new FileReader();
                 reader.onload = (function(aImg, droppedFile) { 
                     return function(e) { 
@@ -79,7 +72,6 @@ define(['lib/dom-ready', 'lib/signals', 'plugins/lightbox'], function (domReady,
                 reader.readAsDataURL(file);
             }
         };
-
         var fileUpload = function (file, imgData) {
             uploadFileSignal.dispatch($(this));
             var xhr = new XMLHttpRequest();
@@ -119,12 +111,10 @@ define(['lib/dom-ready', 'lib/signals', 'plugins/lightbox'], function (domReady,
         dropbox.addEventListener("dragenter", dragEnter, false);
         dropbox.addEventListener("dragover", dragOver, false);
         dropbox.addEventListener("drop", drop, false);
-        
         return {
             subscribe: subscribe
         }
     };
-
     if ($('#lab').length > 0) {
         return new FileApi();
     }
