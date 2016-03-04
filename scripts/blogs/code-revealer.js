@@ -10,8 +10,8 @@ define(['jquery', 'lib/dom-ready', 'blogs/FileAPI'], function ($, domReady, File
                 codeEvents = ['domReady', 'click', 'GeoLocator.subscribe', 'GeoLocator.subscribe', 'focus', 'click'];
                 eventElements = ['', '#findLocation', 'allow', 'deny', '#address', '#code_address'];
             } else if (blogName === 'HTML5 File API') {
-                codeEvents = ['dragenter', 'dragover', 'drop', 'FileApi.subscribe'];
-                eventElements = ['#dropbpx', '#dropbox', '#dropbox', 'uploadFile'];
+                codeEvents = ['domReady', 'dragenter', 'dragover', 'drop', 'FileApi.subscribe'];
+                eventElements = ['', '#dropbox', '#dropbox', '#dropbox', 'uploadFile'];
             }
             var getData = $.ajax({
                 dataType: 'json',
