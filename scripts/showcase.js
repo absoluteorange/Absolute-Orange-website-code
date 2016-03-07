@@ -12,7 +12,6 @@ define(['jquery','lib/dom-ready', 'lib/signals'], function ($, domReady, Signals
         _showcaseClickedSignal.add(onClicked);
         function onClicked(element) {
             var eleListItem = element.parents('.detail-list');
-
             if (eleListItem.hasClass('selected') === false) {
                 var _showcase = eleListItem.find('h3').html();
                 $.ajax({
@@ -29,10 +28,8 @@ define(['jquery','lib/dom-ready', 'lib/signals'], function ($, domReady, Signals
                 eleListItem.removeClass('selected');
             }
         };
-
         domReady(this.init.bind(this));
     };
-
     return new showcase();
 });
 
