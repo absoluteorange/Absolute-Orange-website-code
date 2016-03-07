@@ -979,5 +979,6 @@ RewriteCond $1 !^(index\.php|images|icon|styles|user_guide|icons|cv|favicon.ico|
 RewriteRule  ^(.*)$ /index.php/site/$1 [L]
 
 RewriteCond %{REQUEST_URI} !images/bg
+RewriteCond %{REQUEST_URI} !icon/png
 
 RewriteRule \.(?:jpe?g|gif|png|JPG)$ adaptive-images.php

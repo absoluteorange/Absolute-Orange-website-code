@@ -8,14 +8,14 @@ module.exports = function(grunt) {
             },
             clean: {
                 options: {
-                clean:true
+                    clean:true
                 }
-                },
+            },
             dist: {
                 options: {
 
                 }
-                },
+            },
             dev: {
                 options: {
                     debugInfo: true,
@@ -40,14 +40,11 @@ module.exports = function(grunt) {
         copy: {
           scripts: {
             files: [
-             
               // makes all src relative to cwd
               {expand: true, cwd: 'scripts/', src: ['**/**'], dest: 'app/scripts'}
-
             ],
           },
         },
-
         uglify: {
             scripts: {
               files: [{
@@ -58,7 +55,6 @@ module.exports = function(grunt) {
               }]
             }
         },
-
         requirejs: {
           compile: {
             options: {
@@ -70,11 +66,9 @@ module.exports = function(grunt) {
               },
               out: "app/scripts/main.js",
               name:"main"           
-
             }
           }
         },             
-       
         watch: {
           sass: {
             files: ['sass/**'],
@@ -83,7 +77,6 @@ module.exports = function(grunt) {
               spawn: false,
               livereload: true,
             },
-
           },
            scripts: {
             files: ['scripts/**'],
@@ -99,11 +92,9 @@ module.exports = function(grunt) {
               spawn: false,
             },
           }
-        
         },
     });
-
-  grunt.loadNpmTasks('grunt-contrib-requirejs');
+    grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-grunticon');
@@ -111,26 +102,20 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-compass');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-concat');
-
     grunt.registerTask('prepare_scripts', [
         'copy:scripts'
     ]);
-
     grunt.registerTask('build', [
         'compass:dev',
         'prepare_scripts',
         'grunticon'
     ]);
-
     grunt.registerTask('dist', [
-       
        'compass:clean',
         'compass:dist',
         'prepare_scripts',
         'requirejs:compile',
-         'uglify:scripts',
+        'uglify:scripts',
         'grunticon'
-       
     ]);
-    
 };
