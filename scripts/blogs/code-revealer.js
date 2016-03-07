@@ -1,4 +1,4 @@
-define(['jquery', 'lib/dom-ready', 'blogs/FileAPI'], function ($, domReady, FileApi) {
+define(['jquery', 'lib/dom-ready', 'blogs/FileAPI', 'blogs/geoLocator'], function ($, domReady, FileApi, GeoLocator) {
      codeRevealer = function () {
         var codeEvents;
         var eventElements;

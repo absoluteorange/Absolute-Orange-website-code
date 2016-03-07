@@ -24,10 +24,11 @@ define(['navigation',
  	var myNavigation = new Navigation();
 	ModulesLayoutManager.addModule(tweets);
  	ModulesLayoutManager.init();
-    if ((typeof GeoLocator !== 'undefined') &&  $('#lab').length > 0) {
+    if (typeof GeoLocator !== 'undefined') {
         window.GeoLocator = GeoLocator;
         GeoLocator.init(GeoLocator.myLocation, "Absolute Orange's location");
     }
+    if (typeof FileAPI !== 'undefined') {
+        FileAPI.init();
+    }
  });
-
-

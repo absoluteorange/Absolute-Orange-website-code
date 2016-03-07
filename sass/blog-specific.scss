@@ -22,6 +22,9 @@
   h4.wrapper-head {
       color: #fff;
   }
+  p span {
+      @extend .extend-callToAction;
+  }
 }
 
 #code {

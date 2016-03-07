@@ -2,7 +2,7 @@ define(['lib/dom-ready', 'lib/signals'], function (domReady, Signals) {
     var GeoLocator = function () {
         var allowGeoLocatorSignal = new Signals.Signal()
         var denyGeoLocatorSignal = new Signals.Signal()
-        var subscribe=function(event,callback){
+        var subscribe=function(event, callback){
             switch(event){
                 case 'allow':
                     allowGeoLocatorSignal.add(callback);
@@ -32,7 +32,7 @@ define(['lib/dom-ready', 'lib/signals'], function (domReady, Signals) {
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
         var map = new google.maps.Map(document.getElementById('map-canvas'), myOptions);
-        var contentString = [img, "<p>This is Absolute Orange's location : <a href='javascript:void(0)' onclick='GeoLocator.getCurrentPos();' title='find your location' id='findLocation'>What's yours?</a></p>"].join("");
+        var contentString = [img, "<p>This is Absolute Orange's location : <span class='callToAction'>>> </span><a href='javascript:void(0)' onclick='GeoLocator.getCurrentPos();' title='find your location' id='findLocation'>Click to find yours</a></p>"].join("");
         function init () {
             var marker = addMarker(myLocation, "Absolute Orange's location");
             infowindow.setContent(contentString);
@@ -66,12 +66,19 @@ define(['lib/dom-ready', 'lib/signals'], function (domReady, Signals) {
         }
 
         function getCurrentPos () {
+            displayLoadingMessage();
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(showPosition, onError);
             }
         }
 
+        function displayLoadingMessage () {
+            var contentString = "" + img +"<p>Loading your location ...</p>";
+            infowindow.setContent(contentString);
+        }
+
         function codeAddress () {
+            displayLoadingMessage();
             var address = document.getElementById("address").value;
             if (typeof geocoder === 'undefined') {
                 var geocoder = new google.maps.Geocoder();
@@ -178,7 +185,8 @@ define(['lib/dom-ready', 'lib/signals'], function (domReady, Signals) {
             codeAddress: codeAddress
         }
     };
-    if ((typeof google !== 'undefined') && (typeof google.maps !== 'undefined' && $('#lab').length > 0)) {
+    var lab = document.getElementById('lab');
+    if ((typeof google !== 'undefined') && (typeof google.maps !== 'undefined') && (lab !== null)) {
         return new GeoLocator();
     }
 });

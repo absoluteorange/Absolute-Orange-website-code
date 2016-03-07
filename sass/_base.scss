@@ -79,12 +79,12 @@ strong {
 
 a {
 	&:link, &:visited, &:active, {
-		color: #535353;
+		color: #ff7c27;
 		text-decoration: none;
 	}
 	&:hover {
 		text-decoration: none;
-		color: #ff7c27;
+		color: #535353;
 	}	
 }
 

@@ -2,8 +2,23 @@
 	h2.wrapper-head,
     h2.wrapper-head a {
 		color: #e2dfe2;
-		margin-top:0.75em;
 	}
+    &.page-intro {
+        background-color: #e2dfe2;
+        @include margin-top-match-gutter;
+        @include margin-bottom-match-gutter;
+        @include padding-match-gutter;
+        h2.wrapper-head,
+        h2.wrapper-head a {
+            color: #535353;
+        }
+    }
+    p span {
+       @extend .extend-callToAction;
+    }
+    a.in-page-nav {
+        @extend .extend-inPageNav;
+    }
 }
 
 

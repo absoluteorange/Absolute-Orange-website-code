@@ -1,16 +1,22 @@
 define(['lib/dom-ready', 'lib/signals', 'plugins/lightbox'], function (domReady, Signals, Lightbox) {
-    var uploadFileSignal = new Signals.Signal()
-    var subscribe=function(event,callback){
-        switch(event){
-            case 'uploadFile':
-                uploadFileSignal.add(callback);
-                break;
-        }
-    };
     var FileApi = function () {
-
         "use strict";
-
+        function init () {
+            var dropbox = document.getElementById("dropbox");
+            if (dropbox !== null) {
+                dropbox.addEventListener("dragenter", dragEnter, false);
+                dropbox.addEventListener("dragover", dragOver, false);
+                dropbox.addEventListener("drop", drop, false);
+            }
+        }
+        var uploadFileSignal = new Signals.Signal()
+        var subscribe=function(event,callback){
+            switch(event){
+                case 'uploadFile':
+                    uploadFileSignal.add(callback);
+                    break;
+            }
+        };
         var droppedFile = null;
         var dragEnter = function (e) {
             e.stopPropagation();
@@ -107,15 +113,13 @@ define(['lib/dom-ready', 'lib/signals', 'plugins/lightbox'], function (domReady,
             };
             xhr.send(imgData);
         };
-        var dropbox = document.getElementById("dropbox");
-        dropbox.addEventListener("dragenter", dragEnter, false);
-        dropbox.addEventListener("dragover", dragOver, false);
-        dropbox.addEventListener("drop", drop, false);
         return {
-            subscribe: subscribe
+            subscribe: subscribe,
+            init: init
         }
     };
-    if ($('#lab').length > 0) {
+    var lab = document.getElementById('lab');
+    if (lab !== null) {
         return new FileApi();
     }
 });

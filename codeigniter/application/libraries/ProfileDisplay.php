@@ -67,6 +67,7 @@ class ProfileDisplay {
         $arrLabImplementation = explode("&&&", $labData['lab']->implementation, -1);
         $labData['lab']->htmlBody = $arrLabImplementation[0];
         $labData['employeeName'] = $employeeName;
+        $labData['employeeHomeUrl'] = site_url(str_replace(' ', '', $employeeName).'/labs');
         $data = array(
             'contentPanels' => array (
                 '0' => array(
@@ -113,6 +114,8 @@ class ProfileDisplay {
 		endforeach;
         $data['employeeName'] = $employeeName;
         $data['employeeUrl'] = $employeeUrl;
+        $nameArray = preg_split('#([A-Z][^A-Z]*)#', $employeeUrl, null, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY); 
+        $data['employeeCVUrl'] = $nameArray[0].'_'.$nameArray[1].'pdf';
 		return $this->_ci->templateparser->parseTemplate('showcases.html', $data);
 	}
 
