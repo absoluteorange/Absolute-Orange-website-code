@@ -20,7 +20,6 @@
 
 .drop-shadow {
 	display:block;
-    margin-bottom: margin-bottom-match-gutter;
 }
 
 .texture1 {
@@ -137,11 +136,27 @@
  
 .text-wrapper-style-c {
     div.define-term {
-        width: 19%;
+        @include media($group_1){
+            width: 100%;
+        }
+        @include media($group_2){
+            width: 27%;
+        }
+        @include media($group_3){
+            width: 19%;
+        }
         float: left;
     }
     div.define-description {
-        width: 81%;
+        @include media($group_1){
+            @include margin-left-match-gutter;
+        }
+        @include media($group_2){
+            width: 73%;
+        }
+        @include media($group_3){
+            width: 81%;
+        }
         display: inline-block;
     }
 	p.wrapper-body {
@@ -160,11 +175,27 @@
  
  .text-wrapper-style-d {
     div.define-term {
-        width: 20%;
+        @include media($group_1){
+            width: 100%;
+        }
+        @include media($group_2){
+            width: 30%;
+        }
+        @include media($group_3){
+            width: 20%;
+        }
         float: left;
     }
     div.define-description {
-        width: 80%;
+        @include media($group_1){
+            @include margin-left-match-gutter;
+        }
+        @include media($group_2){
+            width: 70%;
+        }
+        @include media($group_3){
+            width: 80%;
+        }
         display: inline-block;
     }
 	a.wrapper-body, p.wrapper-body {
