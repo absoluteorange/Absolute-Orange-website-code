@@ -115,7 +115,7 @@ class ProfileDisplay {
         $data['employeeName'] = $employeeName;
         $data['employeeUrl'] = $employeeUrl;
         $nameArray = preg_split('#([A-Z][^A-Z]*)#', $employeeUrl, null, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY); 
-        $data['employeeCVUrl'] = $nameArray[0].'_'.$nameArray[1].'pdf';
+        $data['employeeCVUrl'] = $nameArray[0].'_'.$nameArray[1].'.pdf';
 		return $this->_ci->templateparser->parseTemplate('showcases.html', $data);
 	}
 
