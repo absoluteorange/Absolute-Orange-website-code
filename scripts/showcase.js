@@ -36,7 +36,7 @@ define(['jquery','lib/dom-ready', 'lib/signals'], function ($, domReady, Signals
         };
         function openShowcase(html, eleListItem, showcase) {
             if (html === 'exists') {
-                eleListItem.addClass('selected');
+                $(eleListItem).addClass('selected');
             } else {
                 eleListItem.append(html).addClass('selected');
                 eleListItem.find('.widget-summary').removeClass(showcaseClosedIcon).addClass(showcaseOpenIcon);
@@ -51,7 +51,7 @@ define(['jquery','lib/dom-ready', 'lib/signals'], function ($, domReady, Signals
                 var arrShowcaseURL = arrCurrentURL[arrCurrentURL.length - 1].split('#');
                 var showcase = decodeURI(arrShowcaseURL[0]);
                 var arrShowcaseLinks = $('a[title="'+showcase+'"]');
-                var eleListItem = $(arrShowcaseLinks[0]).parent('li');
+                var eleListItem = $(arrShowcaseLinks[0]).parents('li')[0];
                 var html = 'exists';
                 openShowcase(html, eleListItem, showcase);
             }
@@ -62,9 +62,15 @@ define(['jquery','lib/dom-ready', 'lib/signals'], function ($, domReady, Signals
             var showcaseURL = encodeURI(showcase);
             switch (state) {
                 case 'add':
+                    var url;
+                    if (currentURL.indexOf('/work') > -1) {
+                        url = currentURL+"/"+showcaseURL+"#selected-content";
+                    } else {
+                        url = currentURL+"/work/"+showcaseURL+"#selected-content";
+                    }
                     window.history.pushState({"pageTitle": pageTitle},
                     pageTitle,
-                    currentURL+"/work/"+showcaseURL+"#selected-content");
+                    url);
                  break;
                  case 'remove':
                     var newURL = currentURL.substring(0, currentURL.indexOf("/work/"+showcaseURL));
