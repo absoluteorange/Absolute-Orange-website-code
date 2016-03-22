@@ -10,6 +10,7 @@ define(['jquery','lib/dom-ready', 'lib/signals'], function ($, domReady, Signals
                     showcaseClickedSignal.dispatch($(this));
                 });
             });
+            checkURL();
         };
         showcaseClickedSignal.add(onClicked);
         function onClicked(element) {
@@ -34,24 +35,39 @@ define(['jquery','lib/dom-ready', 'lib/signals'], function ($, domReady, Signals
             });
         };
         function openShowcase(html, eleListItem, showcase) {
-            eleListItem.append(html).addClass('selected');
-            eleListItem.find('.widget-summary').removeClass(showcaseClosedIcon).addClass(showcaseOpenIcon);
-            updateURL('add', showcase);
+            if (html === 'exists') {
+                eleListItem.addClass('selected');
+            } else {
+                eleListItem.append(html).addClass('selected');
+                eleListItem.find('.widget-summary').removeClass(showcaseClosedIcon).addClass(showcaseOpenIcon);
+                updateURL('add', showcase);
+            }
             updateAnchor('add', eleListItem);
-
-        }
+        };
+        function checkURL() {
+            var currentURL = window.location.href;
+            if (currentURL.indexOf('/work/') > -1) {
+                var arrCurrentURL = currentURL.split('/');
+                var arrShowcaseURL = arrCurrentURL[arrCurrentURL.length - 1].split('#');
+                var showcase = decodeURI(arrShowcaseURL[0]);
+                var arrShowcaseLinks = $('a[title="'+showcase+'"]');
+                var eleListItem = $(arrShowcaseLinks[0]).parent('li');
+                var html = 'exists';
+                openShowcase(html, eleListItem, showcase);
+            }
+        };
         function updateURL(state, showcase) {
             var pageTitle = document.title;
-            var currentURL = window.location.href;
+            var currentURL = window.location.href.replace('#tweets', '');
             var showcaseURL = encodeURI(showcase);
             switch (state) {
                 case 'add':
                     window.history.pushState({"pageTitle": pageTitle},
                     pageTitle,
-                    currentURL+"/"+showcaseURL+"#selected-content");
+                    currentURL+"/work/"+showcaseURL+"#selected-content");
                  break;
                  case 'remove':
-                    var newURL = currentURL.substring(0, currentURL.indexOf("/"+showcaseURL));
+                    var newURL = currentURL.substring(0, currentURL.indexOf("/work/"+showcaseURL));
                     window.history.pushState({"pageTitle": pageTitle},
                     pageTitle,
                     newURL);
