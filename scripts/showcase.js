@@ -2,7 +2,8 @@ define(['jquery','lib/dom-ready', 'lib/signals'], function ($, domReady, Signals
     var showcase = function() {
         var showcaseClosedIcon = 'icon-arrow-a';
         var showcaseOpenIcon = 'icon-arrow-a-selected';
-        var showcaseClickedSignal = new Signals.Signal()
+        var showcaseClickedSignal = new Signals.Signal();
+
         this.init=function(){
             $('.showcase , .showcase-image ').each(function(i) {
                 $(this).on('click', function(e) {
@@ -10,20 +11,22 @@ define(['jquery','lib/dom-ready', 'lib/signals'], function ($, domReady, Signals
                     showcaseClickedSignal.dispatch($(this));
                 });
             });
-            checkURL();
+            fixPageState();
         };
-        showcaseClickedSignal.add(onClicked);
-        function onClicked(element) {
+        showcaseClickedSignal.add(toggleShowcase);
+
+        function toggleShowcase(element) {
             var eleListItem = element.parents('.detail-list');
             var showcase = eleListItem.find('h3').html();
             if (eleListItem.hasClass('selected') === false) {
-                closeShowcase();
-                getShowcase(showcase, eleListItem);
+                closeShowcases();
+                getShowcaseData(showcase, eleListItem);
             } else {
-                closeShowcase(eleListItem, showcase);
+                closeShowcases();
             }
         };
-        function getShowcase(showcase, eleListItem) {
+
+        function getShowcaseData(showcase, eleListItem) {
             $.ajax({
                 dataType: 'html',
                 url: '/Showcase/getShowcase',
@@ -34,72 +37,64 @@ define(['jquery','lib/dom-ready', 'lib/signals'], function ($, domReady, Signals
                 openShowcase(html, eleListItem, showcase);
             });
         };
+
         function openShowcase(html, eleListItem, showcase) {
-            if (html === 'exists') {
-                $(eleListItem).addClass('selected');
-            } else {
-                eleListItem.append(html).addClass('selected');
-                eleListItem.find('.widget-summary').removeClass(showcaseClosedIcon).addClass(showcaseOpenIcon);
+            if (html !== 'exists') {
+                eleListItem.append(html);
                 updateURL('add', showcase);
             }
+            eleListItem.find('.widget-summary').removeClass(showcaseClosedIcon).addClass(showcaseOpenIcon);
+            $(eleListItem).addClass('selected');
             updateAnchor('add', eleListItem);
         };
-        function checkURL() {
+
+        function fixPageState() {
             var currentURL = window.location.href;
-            if (currentURL.indexOf('/work/') > -1) {
-                var arrCurrentURL = currentURL.split('/');
-                var arrShowcaseURL = arrCurrentURL[arrCurrentURL.length - 1].split('#');
-                var showcase = decodeURI(arrShowcaseURL[0]);
-                var arrShowcaseLinks = $('a[title="'+showcase+'"]');
-                var eleListItem = $(arrShowcaseLinks[0]).parents('li')[0];
+            var indexURLHash = currentURL.indexOf('#');
+            currentURL = currentURL.slice(0, indexURLHash);
+            var arrCurrentURL = currentURL.split('/');
+            if (arrCurrentURL.length === 6) {
+                var showcase = decodeURI(arrCurrentURL[6]);
+                var eleListItem = $('.widget-detail').parent('li');
                 var html = 'exists';
                 openShowcase(html, eleListItem, showcase);
             }
         };
+
         function updateURL(state, showcase) {
             var pageTitle = document.title;
             var currentURL = window.location.href.replace('#tweets', '');
             var showcaseURL = encodeURI(showcase);
             switch (state) {
                 case 'add':
-                    var url;
-                    if (currentURL.indexOf('/work') > -1) {
-                        url = currentURL+"/"+showcaseURL+"#selected-content";
-                    } else {
-                        url = currentURL+"/work/"+showcaseURL+"#selected-content";
-                    }
+                    var url = currentURL+"/"+showcaseURL+"#selected-content";
                     window.history.pushState({"pageTitle": pageTitle},
                     pageTitle,
                     url);
                  break;
                  case 'remove':
-                    var newURL = currentURL.substring(0, currentURL.indexOf("/work/"+showcaseURL));
+                    var url = currentURL.substring(0, currentURL.indexOf("/"+showcaseURL));
                     window.history.pushState({"pageTitle": pageTitle},
                     pageTitle,
-                    newURL);
+                    url);
                  break;
             }
         };
-        function closeShowcase(eleListItem, showcase) {
-            if (eleListItem === undefined) {
-                getOpenShowcases();
-                return;
-            }
-            eleListItem.find('.widget-detail').empty();
-            eleListItem.removeClass('selected');
-            eleListItem.find('.widget-summary').removeClass(showcaseOpenIcon).addClass(showcaseClosedIcon);
-            updateURL('remove', showcase);
-            updateAnchor('remove', eleListItem);
-        };
-        function getOpenShowcases() {
+
+        function closeShowcases() {
             $('.showcase').each(function(i) {
                 var parentListItem = $(this).parent('li');
                 if (parentListItem.hasClass('selected')) {
                     var showcase = parentListItem.find('.widget-body').attr('title');
-                    closeShowcase(parentListItem, showcase);
+                    parentListItem.find('.widget-detail').remove();
+                    parentListItem.removeClass('selected');
+                    parentListItem.find('.widget-summary').removeClass(showcaseOpenIcon).addClass(showcaseClosedIcon);
+                    updateURL('remove', showcase);
+                    updateAnchor('remove', parentListItem);
                 }
-            });
+            })
         };
+
         function updateAnchor(state, eleListItem) {
             switch (state) {
                 case 'add':
@@ -112,6 +107,7 @@ define(['jquery','lib/dom-ready', 'lib/signals'], function ($, domReady, Signals
                 break;
             }
         };
+
         domReady(this.init.bind(this));
     };
     return new showcase();

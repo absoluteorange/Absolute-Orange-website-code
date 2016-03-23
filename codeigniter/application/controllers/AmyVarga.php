@@ -24,12 +24,10 @@ class AmyVarga extends CI_Controller {
 	 * Displays home view
 	 */
 	public function index() {
-	    $this->displayHome();
+        $url = site_url('/AmyVarga/work');
+        header('Location: ' . $url, true, 301);
+	    $this->work();
 	}
-
-    public function displayHome() {
-        $this->profiledisplay->home($this->employeeName, $this->employeeId, $this->employeeUrl);
-    }
 
     public function work() {
         $this->profiledisplay->work($this->employeeName, $this->employeeId, $this->employeeUrl);
@@ -41,10 +39,6 @@ class AmyVarga extends CI_Controller {
     
     public function lab() {
         $this->profiledisplay->lab($this->employeeName);
-    }
-
-    public function jsonShowcase() {
-        echo($this->profiledisplay->getShowcase($_GET['name']));
     }
 
 }

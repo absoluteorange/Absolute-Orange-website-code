@@ -24,12 +24,10 @@ class JonReading extends CI_Controller {
 	 * Displays home view
 	 */
 	public function index() {
-	    $this->displayHome();
+        $url = site_url('/JonReading/work');
+        header('Location: ' . $url, true, 301);
+	    $this->work();
 	}
-
-    public function displayHome() {
-        $this->profiledisplay->home($this->employeeName, $this->employeeId, $this->employeeUrl);
-    }
 
     public function work() {
         $this->profiledisplay->work($this->employeeName, $this->employeeId, $this->employeeUrl);
