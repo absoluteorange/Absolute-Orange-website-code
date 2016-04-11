@@ -11,7 +11,7 @@ class Sitedisplay {
 		$CI =& get_instance();
 		$this->author = "Amy Varga";
 		$this->keywords = "Absolute Orange Ltd, Web development only better, London, United Kingdom, front end web developer";
-		$this->copyright = "&copy; 2006 - 2013 Absolute Orange Ltd All Rights Reserved";
+		$this->copyright = '&copy; 2006 - '.date('Y').' Absolute Orange Ltd All Rights Reserved';
 		$this->navigation=array();
     }
 	

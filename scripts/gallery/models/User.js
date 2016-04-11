@@ -50,8 +50,9 @@ define(['use!Backbone', 'Lang'], function(Backbone, Lang){
 			return re.test(password);
 		},
 		validateName: function (name) {
-			var re = /^[a-zA-Z ]+$/;
-			return re.test(name);
+			/*var re = /^[a-zA-Z ]+$/;
+			return re.test(name);*/
+            return name;
 		}
 	});
 	return user;

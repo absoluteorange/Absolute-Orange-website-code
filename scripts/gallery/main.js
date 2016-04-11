@@ -4,31 +4,31 @@ require.config ({
 		'text': 'plugins/text',
 		'order': 'plugins/order',
 		'globals': '../dynamicScripts/jsGlobals',
-		'utils': 'utils',
-		'features': 'features',
-		'isotope': 'jquery.isotope',
+		'utils': 'utils/utils',
+		'features': 'utils/features',
+		'isotope': 'lib/jquery.isotope',
 		'domready': 'plugins/domReady',
 		'unveil': 'plugins/jquery.unveil.min',
-		'lightbox': 'plugins/lightbox-2.6.min',
-		'jquery': 'libs/jquery-1.7.1.min',
-		'underscore': 'libs/underscore',
-		'Backbone': 'libs/backbone-min',
+		'lightbox': 'plugins/lightbox',
+		'jquery': 'lib/jquery-1.7.1.min',
+		'underscore': 'lib/underscore',
+		'Backbone': 'lib/backbone-min',
 		'Mustache': 'plugins/mustache',
-		'Photo': 'app/models/Photo',
-		'PhotoCollection': 'app/collections/PhotoCollection',
-		'PhotoListView': 'app/views/PhotoListView',
-		'PhotoItemView': 'app/views/PhotoItemView',
-		'PhotoItemBase64View': 'app/views/PhotoItemBase64View',
-		'Login': 'app/models/Login',
-		'LoginView': 'app/views/LoginView',
-		'User': 'app/models/User',
-		'RegisterView': 'app/views/RegisterView',
-		'ThankyouView': 'app/views/ThankyouView',
-		'Authenticate': 'app/models/Authenticate',
-		'Router': 'app/Router',
-		'AppView': 'app/appview',
+		'Photo': 'gallery/models/Photo',
+		'PhotoCollection': 'gallery/collections/PhotoCollection',
+		'PhotoListView': 'gallery/views/PhotoListView',
+		'PhotoItemView': 'gallery/views/PhotoItemView',
+		'PhotoItemBase64View': 'gallery/views/PhotoItemBase64View',
+		'Login': 'gallery/models/Login',
+		'LoginView': 'gallery/views/LoginView',
+		'User': 'gallery/models/User',
+		'RegisterView': 'gallery/views/RegisterView',
+		'ThankyouView': 'gallery/views/ThankyouView',
+		'Authenticate': 'gallery/models/Authenticate',
+		'Router': 'gallery/Router',
+		'AppView': 'gallery/appview',
 		'Lang': '../dynamicScripts/jsLanguage',
-		'templates': '../sharedTemplates/webapp'
+		'templates': '../sharedTemplates/gallery'
 	},
 	use: {
 		'underscore': {
@@ -78,4 +78,4 @@ require.config ({
 	urlArgs: 'v0.0.3'
 });
 
-require (['webapp'], function () {});
+require (['gallery/gallery'], function () {});

@@ -22,7 +22,7 @@ class Scripts extends CI_Controller {
 	public function jsGlobals() {
 	
 		$this->output->set_content_type('text/javascript');		
-		echo  $this->templateparser->parseTemplate('webapp/scripts/jsGlobals.html',array(
+		echo  $this->templateparser->parseTemplate('gallery/scripts/jsGlobals.html',array(
 			'domain'=> site_url()
 		));
 	}
@@ -33,6 +33,6 @@ class Scripts extends CI_Controller {
 				$messages[$key] = $value;
 		}
 		$this->output->set_content_type('text/javascript');
-		echo  $this->templateparser->parseTemplate('webapp/scripts/language/english/lang.js', $messages);
+		echo  $this->templateparser->parseTemplate('gallery/scripts/language/english/lang.js', $messages);
 	}
 }

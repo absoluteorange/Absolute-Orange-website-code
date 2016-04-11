@@ -1,10 +1,10 @@
-define(['globals', 'use!Backbone', 'Photo', 'text!app/templates/photoItem.html', 'use!features'], function(globals, Backbone, Photo, PhotoItemTemplate, Features){
+define(['globals', 'use!Backbone', 'Photo', 'text!gallery/templates/photoItem.html', 'use!features'], function(globals, Backbone, Photo, PhotoItemTemplate, Features){
 	var PhotoItemView = Backbone.View.extend ({
 		 tagName: 'div',
 		 template: _.template(PhotoItemTemplate),
 		 initialize:function () {
 			 this.deviceGroup = utils.getCookie('deviceGroup');
-			 this.siteUrl = globals.domain+'images/webapp';
+			 this.siteUrl = globals.domain+'images/gallery';
 		 },
 		 render:function (eventName) {
 			 if (this.deviceGroup == 'large' || this.deviceGroup == 'compact') {

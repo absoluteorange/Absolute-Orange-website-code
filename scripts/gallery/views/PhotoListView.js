@@ -12,7 +12,7 @@ define(['domready!', 'require', 'use!Backbone', 'use!features', 'Photo', 'PhotoI
 				 $('html, body').animate({ scrollTop: 0 }, 0);
 				 $(this.el).find('h1').html("This weekend a year ago");
 				 document.title = 'This weekend a year ago';
-				 if ($(this.el).find('#photoGallery').length == 0) {
+				 if ($(this.el).find('#photos img').length == 0) {
 					 var view = {};
 					 $(this.el).append(Mustache.render(this.template(), view));
 					 _.each(this.collection.models, function (photo) {
@@ -141,9 +141,9 @@ define(['domready!', 'require', 'use!Backbone', 'use!features', 'Photo', 'PhotoI
 				$closeButton = $('#close');
 				$photoContainer.removeClass('dropzone');
 				$('#form-helper').remove();
-				$dropbox.removeEventListener('dragenter');
-				$dropbox.removeEventListener('dragover');
-				$dropbox.removeEventListener('drop');
+				$dropbox.removeEventListener('dragenter', this.dragenter);
+				$dropbox.removeEventListener('dragover', this.dragover);
+				$dropbox.removeEventListener('drop', this.drop);
 				$closeButton.val('Add images').attr('class', 'btn btn-warning').attr('id', 'openLogin');
 				this.uploadImages = false;
 			 },

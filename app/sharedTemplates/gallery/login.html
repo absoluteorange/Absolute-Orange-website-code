@@ -1,4 +1,4 @@
-<section id="login" class="js-only">
+<section id="login" class="">
 	<div class="navigation">
 		<a href="{{galleryUrl}}" class="btn btn-warning btn-first" title="Gallery" id="openGallery">Gallery</a>
 		<a id="openRegister" href="{{registerUrl}}" title="Register" class="btn btn-warning">Register</a>
@@ -11,13 +11,13 @@
 	<form action="{{formUrl}}" method="post" accept-charset="utf-8" id="loginForm" class="form-horizontal">	
 		<input type="hidden" value="{{csrf}}" name="csrf_secure">
 		<div class="control-group" id="email">
-			<input type="text" name="email" value="" placeholder="{{#values}}{{email}}{{/values}}" maxlength="100" />		
+			<input type="text" name="email" value="" placeholder="{{#values}}{{email}}{{/values}}" />		
 			<span class="help-inline">
 				{{#errors}}{{email}}{{/errors}}
 			</span>
 		</div>
 	    <div class="control-group" id="password">
-			<input type="password" name="password" value="" placeholder="{{#values}}{{password}}{{/values}}" maxlength="100" />		
+			<input type="password" name="password" value="" placeholder="{{#values}}{{password}}{{/values}}" />	
 			<span class="help-inline">
 				{{#errors}}{{password}}{{/errors}}
 			</span>

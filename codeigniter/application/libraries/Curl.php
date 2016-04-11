@@ -257,7 +257,6 @@ class Curl {
 
 		$this->url = $url;
 		$this->session = curl_init($this->url);
-
 		return $this;
 	}
 
@@ -310,8 +309,8 @@ class Curl {
 			
 			$this->error_code = $errno;
 			$this->error_string = $error;
-			
-			return FALSE;
+
+            return FALSE;
 		}
 
 		// Request successful

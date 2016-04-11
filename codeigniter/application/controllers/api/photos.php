@@ -35,7 +35,7 @@ class Photos extends Validation_Controller {
 				$data = $_POST['data'];
 				$fileName = $_POST['name'];
 				$fileFormat = $_POST['format'];
-				$file = 'images/webapp/'.$fileName.'.'.$fileFormat;
+				$file = 'images/gallery/'.$fileName.'.'.$fileFormat;
 				$alt =  '';
 				$isSuccess = false;
 				switch ($fileFormat) {

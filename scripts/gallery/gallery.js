@@ -3,7 +3,7 @@ define(['use!Backbone', 'Router', 'globals'], function (Backbone, Router, global
 		window.location = globals.domain+'web#gallery';
 	}
 	var app = new Router();
-	Backbone.history.start({pushState: true, root: "/webApp/"});
+	Backbone.history.start({pushState: true, root: "/Gallery/"});
 	features.load;
 	if (features.list.matchMedia == false) {	
 	  var respond = require(['polyfills/respond']);

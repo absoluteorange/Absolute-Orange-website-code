@@ -76,6 +76,7 @@ define(['use!utils', 'use!Backbone', 'User', 'Login', 'text!templates/register.h
 					 Backbone.history.navigate(view, true);				
 				 }
 		 	});
+            return false;
 		 }
 	});
 	return RegisterView;

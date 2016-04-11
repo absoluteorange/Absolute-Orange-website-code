@@ -19,9 +19,12 @@ class Gallery extends CI_Controller {
 		$this->activeSession = '';
 		$this->urlCSS = '';
 		$this->session();
-		$this->registerUrl = site_url('/web/register');
-		$this->loginUrl = site_url('/web/login');
+		$this->registerUrl = site_url('/Gallery/register');
+		$this->loginUrl = site_url('/Gallery/login');
+		$this->galleryUrl = site_url('/Gallery/gallery');
 		$this->lang->load('form', 'english');
+		$this->lang->load('form_validation', 'english');
+		$this->lang->load('success', 'english');
 		$this->author = "Amy Varga";
 		$this->keywords = "Responsive web design, Web app protoype";
 		$this->copyright = '&copy; 2006 - '.date('Y').' Absolute Orange Ltd All Rights Reserved';
@@ -48,29 +51,34 @@ class Gallery extends CI_Controller {
 			$registerData['values'][$value] = 'Your '.$value;
 		}
 		if ($_POST) {
-			$this->curl->create('/api/users/register/format/json');
+			$this->curlCreate('/api/users/register/format/json');
 			$this->curl->options(array(CURLOPT_BUFFERSIZE => 10));
 			$this->curl->post($_POST);
 			$this->curl->execute();
 			$result = $this->curl->info['http_code'];
 			if ($result == 200) {
-				redirect(site_url('web/gallery'));
+				redirect($this->galleryUrl);
 			} else if ($result == 400) {
 				$registerData['response'] = array('result'=> $this->lang->line('registered'));
 			} else if ($result == 403) {
-				echo 'Post does not validate';
-				echo 'TO DO: retrieve errors strings from rest API';
+				$registerData['errors'] = array(
+                    'email'=> $this->lang->line('email_invalid'), 
+                    'password'=> $this->lang->line('password_invalid'),
+                    'username'=> $this->lang->line('username_invalid')
+                );
 			}
 			foreach ($formValues as $value) {
-				$registerData['values'][$value] = $_POST[$value];
+				if (!empty($_POST[$value])) {
+                    $registerData['values'][$value] = $_POST[$value];
+                }
 			}
 		}
 		$registerData['formUrl'] = $this->registerUrl;
 		$registerData['loginUrl'] = $this->loginUrl;
-		$registerData['passwordHelper'] = $this->lang->line('form_helper_password');
-		$registerData['usernameHelper'] = $this->lang->line('form_helper_username');
+		$registerData['passwordHelper'] = $this->lang->line('helper_password');
+		$registerData['usernameHelper'] = $this->lang->line('helper_username');
 		$registerData['csrf'] = $this->csrf();
-		$container=$this->templateparser->parseTemplate('webapp/register.html', $registerData, true);
+		$container=$this->templateparser->parseTemplate('gallery/register.html', $registerData, true);
 	    $this->displayContent($container);
 	}
 
@@ -85,32 +93,36 @@ class Gallery extends CI_Controller {
 			$loginData['values'][$value] = 'Your '.$value;
 		}
 		if ($_POST) {
-			$this->curl->create('/api/login/validate/format/json');
+			$this->curlCreate('/api/login/validate/format/json');
 			$this->curl->options(array(CURLOPT_BUFFERSIZE => 10));
 			$this->curl->post($_POST);
 			$this->curl->execute();
 			$result = $this->curl->info['http_code'];
 			if ($result == 200) {
-				redirect(site_url('web/gallery'));
+				redirect($this->galleryUrl);
 			} else if ($result == 400) {
-				$loginData['response'] = array('result'=> $this->lang->line('password_incorrect'));
+				$loginData['errors'] = array('password'=> $this->lang->line('password_incorrect'));
 			} else if ($result == 404) {
-				$loginData['response'] = array('result'=> $this->lang->line('email_not_recognised'));
+				$loginData['errors'] = array('email'=> $this->lang->line('email_not_recognised'));
 			} else if ($result == 403) {
-				echo 'Post does not validate';
-				echo 'TO DO: retrieve errors strings from rest API';
+				$loginData['errors'] = array(
+                    'email'=> $this->lang->line('email_invalid'), 
+                    'password'=> $this->lang->line('password_invalid')
+                );
 			}
 			foreach ($formValues as $value) {
-				echo $value;
-				$loginData['values'][$value] = $_POST[$value];
+				if (!empty($_POST[$value])) {
+                    $loginData['values'][$value] = $_POST[$value];
+                }
 			}
 		}
 		$loginData['formUrl'] = $this->loginUrl;
 		$loginData['registerUrl'] = $this->registerUrl;
-		$loginData['passwordHelper'] = $this->lang->line('form_helper_password');
-		$loginData['usernameHelper'] = $this->lang->line('form_helper_username');
+		$loginData['galleryUrl'] = $this->galleryUrl;
+		$loginData['passwordHelper'] = $this->lang->line('helper_password');
+		$loginData['usernameHelper'] = $this->lang->line('helper_username');
 		$loginData['csrf'] = $this->csrf();
-		$container=$this->templateparser->parseTemplate('webapp/login.html', $loginData, true);
+		$container=$this->templateparser->parseTemplate('Gallery/login.html', $loginData, true);
 	    $this->displayContent($container);
 	}
 	
