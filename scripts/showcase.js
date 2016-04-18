@@ -99,7 +99,7 @@ define(['jquery','lib/dom-ready', 'lib/signals'], function ($, domReady, Signals
             switch (state) {
                 case 'add':
                     var anchor = $(eleListItem).prev('a');
-                    if (typeof $anchor !== 'undefined') {
+                    if (typeof $anchor !== 'undefined') { 
                         $(anchor).attr('name', 'selected-content');
                         $(document).scrollTop( $(anchor).offset().top );
                     }
