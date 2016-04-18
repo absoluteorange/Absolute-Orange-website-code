@@ -1,0 +1,15 @@
+@import 'reset.sass';
+@import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap.scss';
+
+.header-form {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.form-inline, .header-form, .form-links {
+    @media (min-width: $screen-sm-min) { 
+        float: right;
+    }
+}
+.form-links {
+    clear: both;
+}

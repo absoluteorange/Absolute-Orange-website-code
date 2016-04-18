@@ -1,80 +1,52 @@
-define(['use!utils', 'use!Backbone', 'User', 'Login', 'text!templates/register.html', 'use!Mustache', 'Lang'], function(Utils, Backbone, User, Login, RegisterTemplate, Mustache, Lang){
+define(['use!utils', 'use!Backbone', 'Register', 'Login', 'text!templates/register.html', 'use!Mustache', 'Lang', 'Validation'], function(Utils, Backbone, Register, Login, RegisterTemplate, Mustache, Lang, Validation){
 	var RegisterView = Backbone.View.extend ({
 		 template:_.template(RegisterTemplate),
 		 initialize: function () {
 			 this.csrf = utils.getCookie('csrf');
 		 },
+         el: $('#registerForm'),
 		 render:function (eventName) {
-			 $('html, body').animate({ scrollTop: 0 }, 0);
-			 $(this.el).find('h1').html("Register");
 			 document.title = 'Register';
-			 if ($(this.el).find('#register').length == 0) {
+			 if (this.$el) {
+				 $('#register').fadeIn('fast');
+			 } else {
 				 var view = {
-					formUrl: '',
-					loginUrl: '',
 					csrf: this.csrf,
-					passwordHelper: Lang['helper_password'],
-					usernameHelper: Lang['helper_username'],
 				 	values: new Object ({email: Lang['email'], username: Lang['username'], password: Lang['password']})
 				 };
 				 this.htm = Mustache.render(this.template(), view);
-				 $(this.el).append(this.htm);
-			 } else {
-				 $('#register').fadeIn('fast');
+				 $('#subscribe').append(this.htm);
 			 }
 		 },
 		 events: {
 			 'click button#registerButton' : 'register',
-			 'click a#openLogin' : 'openView'
+			 'click a#login' : 'openView'
 		 },
 		 register: function () {
-			 var $submitButton = $(this.el).find('#registerButton');
-			 $submitButton.html('Loading...');
-			 var arr = $('#registerForm').serializeArray();
-			 var data = _(arr).reduce(function(acc, field) {
-			      acc[field.name] = field.value;
-			      return acc;
-			    }, {});
-			 
-			 var thisObj = this;
-			 this.options.registerModel.save(data, {
-				 error: function(model, errors) {
-					 for (var i in errors) {
-						 $('#'+i).addClass('error');
-						 $('#'+i).children('.help-inline').html(errors[i]);
-					 }
-					 if (errors.status != undefined && ($('.form-helpers'))) {
-						 $('#form-helper').remove();
-						 if (errors.status == '400') {
-							 $('#registerForm').append("<div id='form-helper'><p>"+Lang['registered']+"</p></div>");
-						 }
-						 if (errors.status == '403') {
-							 var formErrors = $.parseJSON(errors.responseText).error;
-							 for (var i in formErrors) {
-								 if (formErrors[i] != '') {
-									 $('#'+i).find('.help-inline').html(formErrors[i]);
-								 }	 
-							 }
-						 }
-					 }
-					 $submitButton.html('Submit');
-				 }, success: function(model) {
-					 thisObj.options.authenticateModel.fetch();
-					 thisObj.openView();
-				 }
+             Validation.disableButton($('#registerButton'));
+             var formValues = this.$el.serializeArray();
+			 var data = _(formValues).reduce(function(arrForm, field) {
+			     arrForm[field.name] = field.value;
+                 return arrForm;
 			 });
+             Validation.removeErrors(data);
+             var validationErrors = Validation.validate(data);
+			 if (_.isEmpty(validationErrors)) {
+                 this.model.save (data, {
+                     success: function(model) {
+                         thisObj.options.authenticateModel.fetch();
+                         thisObj.openView();
+                     }
+                 });
+             } else {
+                Validation.displayErrors(validationErrors);
+                Validation.enableButton($('#registerButton'), 'Register');
+             }
 			 return false;
 		 },
 		 openView: function (e) {
-			 var thisObj = this;
-			 $('#register').fadeOut('slow', function () {
-				 if (e == undefined) {
-					 thisObj.options.registerModel.set({newRegistration: 'true'}, {silent: true});
-					 Backbone.history.navigate('gallery', true);
-				 } else {
-					 var view = e.currentTarget.id.replace('open', '').toLowerCase();
-					 Backbone.history.navigate(view, true);				
-				 }
+			 this.$el.fadeOut('slow', function () {
+                 Backbone.history.navigate('login', true);				
 		 	});
             return false;
 		 }

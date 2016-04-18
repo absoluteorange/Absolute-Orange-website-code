@@ -99,8 +99,10 @@ define(['jquery','lib/dom-ready', 'lib/signals'], function ($, domReady, Signals
             switch (state) {
                 case 'add':
                     var anchor = $(eleListItem).prev('a');
-                    $(anchor).attr('name', 'selected-content');
-                    $(document).scrollTop( $(anchor).offset().top );
+                    if (typeof $anchor !== 'undefined') {
+                        $(anchor).attr('name', 'selected-content');
+                        $(document).scrollTop( $(anchor).offset().top );
+                    }
                 break;
                 case 'remove':
                     $(eleListItem).prev('a').attr('name', '');

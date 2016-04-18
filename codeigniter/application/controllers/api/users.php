@@ -13,23 +13,18 @@ class Users extends Validation_Controller {
 	}
     
 	public function register_post () {
-    	$fields = array('username', 'email', 'password', 'csrf_secure');
-    	if ($_POST) {
-    	} else {
-    		$_POST = $this->myformvalidator->processData($fields);
-    	}
-    	$registerData['errors'] = array();
     	if ($this->form_validation->run('register') == TRUE) {
-	    	$dbUser = $this->Usersmodel->get_user($_POST['email']);
-	    	if (empty($dbUser)) {
+	    	$user = $this->Usersmodel->get_user($_POST['email']);
+	    	if (empty($user)) {
 	    		$this->Usersmodel->create_user($_POST['username'], $_POST['email'], $this->encrypt->encode($_POST['password']));
 	    		$this->mycommonutilities->setSession(array('authenticated' => true));
-	    		$this->response(array('success' => '200'), 200);
+	    		$this->response(array('success' => 'registered'), 200);
 	    	} else {
-	    		$this->response(array('error' => '400'), 400);
+	    		$this->response(array('error' => 'already registered'), 400);
 	    	}
     	} else {
-    		$registerData['errors'] = $this->myformvalidator->sendErrors($registerData['errors'], $_POST);
+            $arrErrors = $this->myformvalidator->sendErrors();
+			$this->response(array('errors' => $arrErrors), 403);
     	}
     }
 }

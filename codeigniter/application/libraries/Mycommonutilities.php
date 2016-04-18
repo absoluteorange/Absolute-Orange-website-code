@@ -80,27 +80,4 @@ class Mycommonutilities {
 		}
 		return true;
 	}
-	
-	
-	
-	/******************************/
-	/*   Responsive UTILITIES    */
-	/****************************/
-	
-	/**
-	 * Sets device group
-	 * @param Integer $screenWidth
-	 * @return string $deviceGroup
-	 */
-	public function getDeviceGroup ($screenWidth) {
-		$deviceGroup = '';
-		if ($screenWidth >= 240 && $screenWidth <= 640) {
-			$deviceGroup = 'smart';
-		} else if ($screenWidth > 640 && $screenWidth < 960 ) {
-			$deviceGroup = 'smart';
-		} else if ($screenWidth >= 960) {
-			$deviceGroup = 'large';
-		}
-		return $deviceGroup;
-	}
 }

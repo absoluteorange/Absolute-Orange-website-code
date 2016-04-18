@@ -1,0 +1,16 @@
+<form action="{{formUrl}}" method="post" accept-charset="utf-8" id="loginForm" class="form-inline">	
+    <input type="hidden" value="{{csrf}}" name="csrf_secure">
+    <div id="email" class="form-group {{#errors}}{{#email}}has-error has-feedback{{/email}}{{/errors}}">
+        <input type="text" name="email" value="{{#values}}{{email}}{{/values}}" placeholder="{{#default}}{{email}}{{/default}}" class="form-control">
+        {{#errors}}{{#email}}<span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span></span>{{/email}}{{/errors}}
+    </div>
+    <div id="password" class="form-group {{#errors}}{{#password}}has-error has-feedback{{/password}}{{/errors}}">
+        <input type="password" name="password" value="{{#values}}{{password}}{{/values}}" placeholder="{{#default}}{{password}}{{/default}}" class="form-control" />	
+        {{#errors}}{{#password}}<span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span></span>{{/password}}{{/errors}}
+    </div>
+    <button type="submit" id="loginButton" class="btn btn-default">Login</button>
+</form>
+<div class="form-links">
+    <a id="openRegister" href="{{registerUrl}}">Register</a>
+    <!--<a id="forgottenPassword" href="{{forgottenPasswordUrl}}">Forgotten Password</a>-->
+</div>

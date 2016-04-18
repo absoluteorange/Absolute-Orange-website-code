@@ -1,22 +1,9 @@
 <body>
 	<div class="backgroundImg"></div>
-	<script type="text/javascript">
-		{{#activeSession}}
-			var activeSession = true;
-		{{/activeSession}}
-		{{^activeSession}}
-			var activeSession = false;
-		{{/activeSession}}
-		if (activeSession === false ) {
-			document.getElementsByTagName('body')[0].className+='js no-session';
-		} else {
-			document.getElementsByTagName('body')[0].className+='js session';
-		}
-		if (cookieEnabled === false) {
-			document.getElementsByTagName('body')[0].className='js no-cookie';
-		}
-	</script>
-	<div id="contentContainer">
-		<header>
+	<div id="contentContainer" class="container-fluid row">
+		<header class="col-xs-12 col-sm-3 col-md-3">
 			<h1>{{heading}}</h1>
 		</header>
+        <section id="subscribe" class="header-form col-xs-12 col-sm-9 col-md-9">
+            {{{subscribe}}}
+        </section>

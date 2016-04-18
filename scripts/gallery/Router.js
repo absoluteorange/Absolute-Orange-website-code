@@ -1,17 +1,15 @@
-define(['use!Backbone', 'PhotoCollection', 'PhotoListView', 'Login', 'User', 'Authenticate', 'LoginView', 'RegisterView', 'ThankyouView'], function(Backbone, PhotoCollection, PhotoListView, Login, User, Authenticate, LoginView, RegisterView, ThankyouView){
+define(['use!Backbone', 'PhotoCollection', 'PhotoListView', 'Login', 'Register', 'Authenticate', 'LoginView', 'RegisterView'], function(Backbone, PhotoCollection, PhotoListView, Login, Register, Authenticate, LoginView, RegisterView){
 	var AppRouter = Backbone.Router.extend({
 	routes:{
-	        "gallery":"list",
+	        "gallery":"gallery",
 	        "login":"login",
-	        "register":"register", 
-	        "thankyou":"thankyou"
+	        "register":"register"
 	},
 	initialize: function () {
 		this.myAuthenticate = new Authenticate();
 		this.myAuthenticate.fetch();
 		this.myLogin = new Login();
-		this.myUser = new User();
-		this.myUser.set({newRegistration: 'false'}, {silent: true});
+		this.myRegister = new Register();
 	},
 	list: function () {
 	    this.photoList = new PhotoCollection();
@@ -19,16 +17,12 @@ define(['use!Backbone', 'PhotoCollection', 'PhotoListView', 'Login', 'User', 'Au
 	    this.photoList.fetch();
 	},
 	login: function () {
-		this.loginView = new LoginView({el: $('#contentContainer'), registerModel: this.myUser, loginModel: this.myLogin, authenticateModel: this.myAuthenticate});
+		this.loginView = new LoginView({model: this.myLogin});
 		this.loginView.render();
 	},
 	register: function () {
-		this.registerView = new RegisterView({el: $('#contentContainer'), registerModel: this.myUser, authenticateModel: this.myAuthenticate});
+		this.registerView = new RegisterView({model: this.myRegister});
 		this.registerView.render();
-	},
-	thankyou: function () {
-		this.thankyouView = new ThankyouView({el: $('#contentContainer')});
-		this.thankyouView.render();
 	},
 	getPhotoListView: function () {
 		var photoListView;

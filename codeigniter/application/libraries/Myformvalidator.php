@@ -30,16 +30,15 @@ class Myformvalidator {
 	 * @param array $array
 	 *
 	 */
-	public function sendErrors($array) {
-		foreach ($_POST as $index => $value) {
-			if (form_error($index) != '') {
-				$array[$index] = form_error($index);
+	public function sendErrors() {
+        $arrErrors = array();
+		foreach ($_POST as $key => $value) {
+			if (form_error($key) != '') {
+				$arrErrors[$key] = form_error($key);
 			}
 		}
-		if (!empty($array)) {
-			$this->_ci->response(array('error' => $array), 403);
-		} else {
-			$this->_ci->response(array('error' => '403'), 403);
-		}
+		if (!empty($arrErrors)) {
+			return $arrErrors;
+		} 
 	}
 }
