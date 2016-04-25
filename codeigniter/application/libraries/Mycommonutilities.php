@@ -40,7 +40,6 @@ class Mycommonutilities {
 			$sessionArray[$key] = $value;
 		}
 		$this->_ci->session->set_userdata($sessionArray);
-		
 		return true;
 	}
 	

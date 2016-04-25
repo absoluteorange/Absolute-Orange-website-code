@@ -298,7 +298,6 @@ class Curl {
 		$this->response = curl_exec($this->session);
 		$this->info = curl_getinfo($this->session);
 //var_dump($this->response);
-//die();
         // Request failed
 		if ($this->response === FALSE)
 		{
@@ -310,6 +309,7 @@ class Curl {
 			
 			$this->error_code = $errno;
 			$this->error_string = $error;
+//var_dump($error);
             return FALSE;
 		}
 

@@ -9,15 +9,12 @@ class Login extends Validation_Controller {
 		$this->load->model('webapp/Usersmodel');
 		$this->load->library('encrypt');
 		$this->load->library('form_validation');
-		$this->load->library('session');
-		$this->load->helper('cookie');
 		$this->load->library('myformvalidator');
 		$this->load->library('mycommonutilities');
 	}
 	
 	public function validate_post() {
 		if ($this->form_validation->run('login') == TRUE) {
-            echo('has validated');
 			$user = $this->Usersmodel->get_user($_POST['email']);
 			if (empty($user)) {
 				$this->response(array('error' => 'user does not exist'), 404);
@@ -31,7 +28,7 @@ class Login extends Validation_Controller {
 			}
 		} else {
             $arrErrors = $this->myformvalidator->sendErrors();
-			$this->response(array('error' => $arrErrors));
+			$this->response(array('error' => $arrErrors), 403);
     	}
     }  
 }

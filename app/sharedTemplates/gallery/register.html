@@ -1,48 +1,58 @@
-<section id="subscribe">
-    <form action="{{formUrl}}" method="post" accept-charset="utf-8" id="loginForm" class="form-inline">	
+<section id="subscribe" class="row">
+    <form action="{{formUrl}}" method="post" accept-charset="utf-8" id="loginForm" class="form-horizontal">	
         <input type="hidden" value="{{csrf}}" name="csrf_secure">
-        <div id="username" class="form-group {{#errors}}{{#username}}has-error has-feedback{{/username}}{{/errors}}">
-            <input type="text" name="username" placeholder="{{#default}}{{username}}{{/default}}" value="{{#values}}{{username}}{{/values}}" class="form-control">		
-            {{#errors}}{{#username}}
-                <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span></span>
-                <span id="inputError2Status" class="sr-only">(error)</span> 
-            {{/email}}{{/username}}
-            {{#errors}}
-                <span class="help-block">
-                    {{username}}
-                </span>
-            {{/errors}}
+        <div id="username" class="form-group {{#errors}}{{#username}}has-error has-feedback{{/username}}{{/errors}} col-md-8">
+            <label for="username" class="col-sm-2 control-label">Username</label>
+            <div class="col-sm-10 col-md-6">
+                <input type="text" name="username" placeholder="{{#default}}{{username}}{{/default}}" value="{{#values}}{{username}}{{/values}}" class="form-control">		
+                {{#errors}}{{#username}}
+                    <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span></span>
+                    <span id="inputError2Status" class="sr-only">(error)</span> 
+                {{/username}}{{/errors}}
+                {{#errors}}
+                    <span class="help-block">
+                        {{{username}}}
+                    </span>
+                {{/errors}}
+            </div>
         </div>
-        <div id="email" class="form-group {{#errors}}{{#email}}has-error has-feedback{{/email}}{{/errors}}">
-            <input type="text" name="email" value="{{#values}}{{email}}{{/values}}" placeholder="{{#default}}{{email}}{{/default}}" class="form-control" />		
-            {{#errors}}{{#email}}
-                <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span></span>
-                <span id="inputError2Status" class="sr-only">(error)</span> 
-            {{/email}}{{/errors}}
-            {{#errors}}
-                <span class="help-block">
-                    {{email}}
-                </span>
-            {{/errors}}
+        <div id="email" class="form-group {{#errors}}{{#email}}has-error has-feedback{{/email}}{{/errors}} col-md-8">
+            <label for="email" class="col-sm-2 control-label">Email</label>
+            <div class="col-sm-10 col-md-6">
+                <input type="text" name="email" value="{{#values}}{{email}}{{/values}}" placeholder="{{#default}}{{email}}{{/default}}" class="form-control" />		
+                {{#errors}}{{#email}}
+                    <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span></span>
+                    <span id="inputError2Status" class="sr-only">(error)</span> 
+                {{/email}}{{/errors}}
+                {{#errors}}
+                    <span class="help-block">
+                        {{{email}}}
+                    </span>
+                {{/errors}}
+            </div>
         </div>
-        <div id="password" class="form-group {{#errors}}{{#password}}has-error has-feedback{{/password}}{{/errors}}">
-            <input type="password" name="password" value="{{#values}}{{password}}{{/values}}" placeholder="{{#default}}{{password}}{{/default}}" class="form-control" />	
-            {{#errors}}{{#password}}
-                <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
-                <span id="inputError2Status" class="sr-only">(error)</span> 
-            {{/password}}{{/errors}}
-            {{#errors}}
-                <span class="help-block">
-                    {{password}}
-                </span>
-            {{/errors}}
+        <div id="password" class="form-group {{#errors}}{{#password}}has-error has-feedback{{/password}}{{/errors}} col-md-8">
+            <label for="password" class="col-sm-2 control-label">Password</label>
+            <div class="col-sm-10 col-md-6">
+                <input type="password" name="password" value="{{#values}}{{password}}{{/values}}" placeholder="{{#default}}{{password}}{{/default}}" class="form-control" />	
+                {{#errors}}{{#password}}
+                    <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                    <span id="inputError2Status" class="sr-only">(error)</span> 
+                {{/password}}{{/errors}}
+                {{#errors}}
+                    <span class="help-block">
+                        {{{password}}}
+                    </span>
+                {{/errors}}
+            </div>
         </div>
-        <div class="form-group">
-            <button type="submit" id="loginButton" class="btn btn-default">Login</button>
+        <div class="form-group col-md-8">
+            <div class="col-sm-offset-2 col-sm-10 col-md-offset-2 col-md-6">
+                <button type="submit" id="registerButton" class="btn btn-default">Register</button>
+                <span class="form-links">
+                    <a id="openLogin" href="{{loginUrl}}">Login</a>
+                </span>
+            </div>
         </div>
     </form>
-    <div class="form-links">
-        <a id="openRegister" href="{{registerUrl}}">Register</a>
-        <!--<a id="forgottenPassword" href="{{forgottenPasswordUrl}}">Forgotten Password</a>-->
-    </div>
 </section>

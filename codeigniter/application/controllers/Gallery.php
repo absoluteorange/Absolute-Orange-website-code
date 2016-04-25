@@ -14,12 +14,14 @@ class Gallery extends CI_Controller {
         parent::__construct();
         $this->load->library('templateparser');
         $this->load->library(array('session', 'curl', 'mycommonutilities', 'form_validation', 'myformvalidator'));
+		$this->load->model('webapp/Usersmodel');
 		$this->load->helper(array('url', 'cookie', 'security'));
 		$this->form_validation->set_error_delimiters('','');
 
         $this->authenticated = false;
         $this->typeHeaderSubscribeForm = 'login';
         $this->headerSubscribeForm = '';
+        $this->welcomeHeading = '';
         
         $this->registerFields = array('username', 'email', 'password');
         $this->registerData['errors'] = array();
@@ -49,6 +51,8 @@ class Gallery extends CI_Controller {
 		$this->version='1.0';
         //TODO: Need to open port 8080
         $this->localhostURL='http://localhost:80';
+		
+        $this->setSession();
 	}
 
 	public function index() {
@@ -56,13 +60,16 @@ class Gallery extends CI_Controller {
 	}
     
    public function gallery() {
-		$this->setSession();
-        echo($this->authenticated);
+        $this->heading = 'Gallery';
+        $this->isAuthenticated();
         if (! $this->authenticated) {
-            echo ($this->typeHeaderSubscribeForm);
             $this->setHeaderSubscribeForm($this->typeHeaderSubscribeForm);
-        }
-		$this->heading = 'Gallery';
+        } else {
+            $user = $this->mycommonutilities->getSessionData();
+	    	$user = $this->Usersmodel->get_user($_POST['email']);
+            $welcomeHeader['welcomeText'] = 'Welcome '.$user[0]['name'];
+            $this->welcomeHeading = $this->templateparser->parseTemplate('gallery/welcomeHeader.html', $welcomeHeader, true);
+        } 
         $this->executeCurl('/api/photos/photo/format/json');
 		$result = $this->curl->execute();
 		$galleryData['photos'] = json_decode($result);
@@ -82,7 +89,8 @@ class Gallery extends CI_Controller {
         );
         $commonBodyData = array(
         	'heading' => $this->heading,
-            'subscribe' => $this->headerSubscribeForm
+            'subscribe' => $this->headerSubscribeForm,
+            'welcomeHeading' => $this->welcomeHeading
         );
         $footerData['copyright']= $this->copyright;
         $header=$this->templateparser->parseTemplate('gallery/head.html', $headerData, true);
@@ -101,8 +109,7 @@ class Gallery extends CI_Controller {
     }
 
     private function setHeaderSubscribeForm() {
-        echo($this->typeHeaderSubscribeForm);
-		$this->heading = 'Welcome';
+		$this->heading = 'Gallery';
         if ($this->typeHeaderSubscribeForm == 'login') {
             $this->setDefaultFormValues($this->loginFields, 'login');
             $this->loginData['csrf'] = $this->getCsrfHash();
@@ -115,28 +122,31 @@ class Gallery extends CI_Controller {
     }
 
     public function register() {
+        $form = 'register';
         if ($_POST) {
-            $this->saveUserData($this->registerFields, 'register');
+            $this->saveUserData($this->registerFields, $form);
             if ($this->checkFieldsEmpty($this->registerFields)) {
-                $this->setEmptyMessages($this->registerFields, 'register');
+                $this->setEmptyMessages($this->registerFields, $form);
                 $this->typeHeaderSubscribeForm = 'register';
                 $this->gallery();
             } else {
                 $this->executeCurl('/api/users/register/format/json');
                 $this->curl->post($_POST);
-                $errors = $this->curl->execute();
+                $this->curl->execute();
                 $httpCode = $this->curl->info['http_code'];
                 switch ($httpCode) {
                     case 200:
+                        $this->setSessionAuthenticated();
                         $this->gallery();
                         break;
                     case 400:
-                        $this->registerData['response']['result'] = $this->lang->line('registered');
+                        $this->registerData['errors']['email'] = $this->lang->line('registered');
                         $this->displayRegisterPage();
                         break;
                     case 403:
-                        echo('TODO: get error messages from curl response');
-                        echo('display login page with errors');
+                        $errors = $this->myformvalidator->SendErrors();
+                        $this->setValidationErrors($errors, $form);
+                        $this->displayRegisterPage();
                         break;
                 }
             }
@@ -147,31 +157,34 @@ class Gallery extends CI_Controller {
     }
 
     public function login() {
+        $form = 'login';
         if ($_POST) {
-            $this->saveUserData($this->loginFields, 'login');
+            $this->saveUserData($this->loginFields, $form);
             if ($this->checkFieldsEmpty($this->loginFields)) {
-                $this->setEmptyMessages($this->loginFields, 'login');
+                $this->setEmptyMessages($this->loginFields, $form);
                 $this->gallery();
             } else {
                 $this->executeCurl('/api/login/validate/format/json');
                 $this->curl->post($_POST);
-                $errors = $this->curl->execute();
+                $this->curl->execute();
                 $httpCode = $this->curl->info['http_code'];
                 switch ($httpCode) {
                     case 200:
+                        $this->setSessionAuthenticated();
                         $this->gallery();
                         break;
                     case 400:
-                        $this->loginData['error']['password'] = $this->lang->line('password_incorrect');
+                        $this->loginData['errors']['password'] = $this->lang->line('password_incorrect');
                         $this->displayLoginPage();
                         break;
                     case 404:
-                        $this->loginData['error']['email'] = $this->lang->line('email_not_recognised');
+                        $this->loginData['errors']['email'] = $this->lang->line('email_not_recognised');
                         $this->displayLoginPage();
                         break;
                     case 403:
-                        echo('TODO: get error messages from curl response');
-                        echo('display login page with errors');
+                        $errors = $this->myformvalidator->SendErrors();
+                        $this->setValidationErrors($errors, $form);
+                        $this->displayLoginPage();
                         break;
                 }
             }
@@ -179,20 +192,20 @@ class Gallery extends CI_Controller {
             $this->gallery();
         }
     }
-    
+
     public function displayLoginPage() {
         $this->headerSubscribeForm = '';
 		$this->heading = 'Login';
-		$registerData['csrf'] = $this->csrf();
-		$bodyContent =  $this->templateparser->parseTemplate('gallery/login.html', $registerData, true);
+		$loginData['csrf'] = $this->getCsrfHash();
+		$bodyContent =  $this->templateparser->parseTemplate('gallery/login.html', $this->loginData, true);
 	    $this->displayContent($bodyContent);
     }
 
     public function displayRegisterPage() {
         $this->headerSubscribeForm = '';
 		$this->heading = 'Register';
-		$registerData['csrf'] = $this->csrf();
-		$bodyContent =  $this->templateparser->parseTemplate('gallery/register.html', $registerData, true);
+		$registerData['csrf'] = $this->getCsrfHash();
+		$bodyContent =  $this->templateparser->parseTemplate('gallery/register.html', $this->registerData, true);
 	    $this->displayContent($bodyContent);
     }
 
@@ -207,6 +220,16 @@ class Gallery extends CI_Controller {
         return true;
     }
 
+    public function setValidationErrors($errors, $form) {
+        foreach ($errors as $field => $error) {
+            if ($form == 'login') {
+                $this->loginData['errors'][$field] = $error;
+            } else {
+                $this->registerData['errors'][$field] = $error;
+            }
+        }
+    }
+    
    private function checkFieldsEmpty ($fields) {
         foreach ($fields as $field) {
             if (empty($_POST[$field])) {
@@ -281,18 +304,27 @@ class Gallery extends CI_Controller {
         return $this->mycommonutilities->getSessionData('csrf');
     }
 
+    private function setSessionAuthenticated() {
+        $user = $this->Usersmodel->get_user($_POST['email']);
+        $sessionData = array('user-name' => $user[0]['name'], 'authenticated' => true);
+        $this->mycommonutilities->setSession($sessionData);
+        return true;
+    }
+
     private function setSession() {
-        if (! $this->mycommonutilities->getSessionData('csrf')) {
+        if (empty($this->mycommonutilities->getSessionData('csrf'))) {
             $csrf_hash = md5(uniqid(rand(), TRUE));
             $sessionData = array('csrf' => $csrf_hash);
-            $this->mycommonutilities->setSession($sessionData);
             $this->mycommonutilities->setCookies($sessionData);
+            $sessionData = array('csrf' => $csrf_hash, 'authenticated' => false);
+            $this->mycommonutilities->setSession($sessionData);
         }
     }	
-	
-	private function authenticate() {
-        $this->authenticated = true;
-        $this->mycommonutilities->setSession(array('authenticated' => true));
-	}
+
+    private function isAuthenticated() {
+        if ($this->mycommonutilities->getSessionData('authenticated') == true){
+            $this->authenticated = true; 
+        }
+    }
 	
 }

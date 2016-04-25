@@ -10,6 +10,7 @@ class Users extends Validation_Controller {
 		$this->load->library('encrypt');
 		$this->load->library('form_validation');
 		$this->load->library('myformvalidator');	
+		$this->load->library('mycommonutilities');
 	}
     
 	public function register_post () {
@@ -17,7 +18,6 @@ class Users extends Validation_Controller {
 	    	$user = $this->Usersmodel->get_user($_POST['email']);
 	    	if (empty($user)) {
 	    		$this->Usersmodel->create_user($_POST['username'], $_POST['email'], $this->encrypt->encode($_POST['password']));
-	    		$this->mycommonutilities->setSession(array('authenticated' => true));
 	    		$this->response(array('success' => 'registered'), 200);
 	    	} else {
 	    		$this->response(array('error' => 'already registered'), 400);
