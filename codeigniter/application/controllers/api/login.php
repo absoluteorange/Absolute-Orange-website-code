@@ -20,7 +20,6 @@ class Login extends Validation_Controller {
 				$this->response(array('error' => 'user does not exist'), 404);
 			} else {
 				if ($_POST['password'] == $this->encrypt->decode($user[0]['password'])) {
-					$this->mycommonutilities->setSession(array('authenticated' => true));
 					$this->response(array('success' => 'registered'), 200);
 				} else {
 					$this->response(array('error', 'incorrect password'), 400);

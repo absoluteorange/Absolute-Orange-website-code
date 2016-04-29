@@ -1,4 +1,4 @@
-define(['use!Backbone', 'Validation'], function(Backbone, Validation){
+define(['Backbone', 'validatorHelper'], function(Backbone, validatorHelper){
 	var user = Backbone.Model.extend ({
 		urlRoot: "/api/users/register/format/json",
 		defaults: {

@@ -1,11 +1,11 @@
-define(['Lang'], function(Lang){
-	var Validation = function () {
+define(['lang'], function(lang){
+	var validatorHelper = function () {
         var errors = {};
 		function validate (formData) {
             this.errors = {};
             if (!this.formEmpty(formData)) {
                 if ( !this.validateEmail(formData['email']) ) {
-                    this.errors.email = Lang['email_invalid'];
+                    this.errors.email = lang['email_invalid'];
                 }
             }
             return this.errors;
@@ -13,7 +13,7 @@ define(['Lang'], function(Lang){
         function formEmpty (formData) {
 			for (var field in formData) {
 				if (formData[field].toLowerCase() === '' || formData[field].toLowerCase().indexOf('your') !== -1) {
-					this.errors[field] = Lang['default_value'] + field;
+					this.errors[field] = lang['default_value'] + field;
 				}
 			}
             return !_.isEmpty(this.errors)
@@ -61,5 +61,5 @@ define(['Lang'], function(Lang){
             serialiseFormData: serialiseFormData
         }
 	};
-    return Validation();
+    return validatorHelper();
 });

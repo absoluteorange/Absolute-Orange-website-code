@@ -1,8 +1,8 @@
-define(['use!utils', 'use!Backbone', 'Register', 'Login', 'text!templates/register.html', 'use!Mustache', 'Lang', 'Validation'], function(Utils, Backbone, Register, Login, RegisterTemplate, Mustache, Lang, Validation){
+define(['Backbone', 'Register', 'Login', 'text!templates/register.html', 'Mustache', 'lang', 'validatorHelper'], function(Backbone, Register, Login, RegisterTemplate, Mustache, lang, validatorHelper){
 	var RegisterView = Backbone.View.extend ({
 		 template:_.template(RegisterTemplate),
 		 initialize: function () {
-			 this.csrf = utils.getCookie('csrf');
+			 //TO DO: no longer using utils this.csrf = utils.getCookie('csrf');
 		 },
          el: $('#registerForm'),
 		 render:function (eventName) {
@@ -23,14 +23,14 @@ define(['use!utils', 'use!Backbone', 'Register', 'Login', 'text!templates/regist
 			 'click a#login' : 'openView'
 		 },
 		 register: function () {
-             Validation.disableButton($('#registerButton'));
+             validatorHelper.disableButton($('#registerButton'));
              var formValues = this.$el.serializeArray();
 			 var data = _(formValues).reduce(function(arrForm, field) {
 			     arrForm[field.name] = field.value;
                  return arrForm;
 			 });
-             Validation.removeErrors(data);
-             var validationErrors = Validation.validate(data);
+             validatorHelper.removeErrors(data);
+             var validationErrors = validatorHelper.validate(data);
 			 if (_.isEmpty(validationErrors)) {
                  this.model.save (data, {
                      success: function(model) {
@@ -39,14 +39,14 @@ define(['use!utils', 'use!Backbone', 'Register', 'Login', 'text!templates/regist
                      }
                  });
              } else {
-                Validation.displayErrors(validationErrors);
-                Validation.enableButton($('#registerButton'), 'Register');
+                validatorHelper.displayErrors(validationErrors);
+                validatorHelper.enableButton($('#registerButton'), 'Register');
              }
 			 return false;
 		 },
 		 openView: function (e) {
 			 this.$el.fadeOut('slow', function () {
-                 Backbone.history.navigate('login', true);				
+                 Backbone.history.navigate('login', true);
 		 	});
             return false;
 		 }

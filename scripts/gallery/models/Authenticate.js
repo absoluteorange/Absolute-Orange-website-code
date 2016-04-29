@@ -1,4 +1,4 @@
-define(['use!Backbone'], function(Backbone){
+define(['Backbone'], function(Backbone){
 	var authenticate = Backbone.Model.extend ({
 		urlRoot: "/api/authentication/authenticate/format/json",
 		defaults:{

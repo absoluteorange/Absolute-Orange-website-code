@@ -1,10 +1,12 @@
-define(['use!Backbone'], function(Backbone){
+define(['Backbone', 'lang', 'Utils', 'globals'], function(Backbone, lang, Utils, globals){
     var Login = Backbone.Model.extend ({
 		urlRoot: "/api/login/validate/format/json",
 		defaults: {
-			'email': '',
-			'password': '',
-			'csrf_secure': ''
+			'values': { 'email': lang['email'], 'password': lang['password'] },
+			'csrf': utils.getCookie('csrf'),
+            'default': {},
+            'errors': {},
+            'registerUrl': globals.registerUrl
 		},
 	});
 	return Login;

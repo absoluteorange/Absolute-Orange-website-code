@@ -23,7 +23,9 @@ class Scripts extends CI_Controller {
 	
 		$this->output->set_content_type('text/javascript');		
 		echo  $this->templateparser->parseTemplate('gallery/scripts/jsGlobals.html',array(
-			'domain'=> site_url()
+			'domain'=> site_url(),
+            'registerUrl' => site_url('/register'),
+            'loginUrl' => site_url('/login')
 		));
 	}
 	

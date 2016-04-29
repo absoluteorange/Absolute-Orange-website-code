@@ -1,4 +1,4 @@
-define(['use!Backbone', 'Lang'], function(Backbone, Lang){
+define(['Backbone', 'lang'], function(Backbone, lang){
 	var data = Backbone.Model.extend ({
 		urlRoot: "/api/photos/photo",
 		defaults: {
@@ -9,7 +9,7 @@ define(['use!Backbone', 'Lang'], function(Backbone, Lang){
 			'file': '',
 			'format': '',
 			'csrf_secure': ''
-		}, 
+		},
 		sync: function (method, model, options) {
 			if (method == 'create') {
 				var data = new FormData();
@@ -41,7 +41,7 @@ define(['use!Backbone', 'Lang'], function(Backbone, Lang){
 				sOutput = nApprox.toFixed(3) + " " + aMultiples[nMultiple] + " (" + nBytes + " bytes)";
 			}
 			if (nBytes > 13500000) {
-				errors.size = Lang['photo_invalid_size'];
+				errors.size = lang['photo_invalid_size'];
 				failed = true;
 			}
 			if (failed == true) {

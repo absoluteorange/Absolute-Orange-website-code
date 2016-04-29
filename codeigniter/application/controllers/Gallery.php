@@ -67,7 +67,7 @@ class Gallery extends CI_Controller {
         } else {
             $userName = $this->mycommonutilities->getSessionData('user-name');
             $welcomeHeader['welcomeText'] = 'Welcome '.$userName;
-            $this->welcomeHeading = $this->templateparser->parseTemplate('gallery/welcomeHeader.html', $welcomeHeader, true);
+            $this->welcomeHeading = $this->templateparser->parseTemplate('gallery/headerWelcome.html', $welcomeHeader, true);
         } 
         $this->executeCurl('/api/photos/photo/format/json');
 		$result = $this->curl->execute();

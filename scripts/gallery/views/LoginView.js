@@ -1,55 +1,68 @@
-define(['use!utils', 'use!Backbone', 'Login', 'text!templates/login.html', 'use!Mustache', 'Lang', 'Validation'], function(Utils, Backbone, Login, LoginTemplate, Mustache, Lang, Validation){
+define(['Utils', 
+    'globals',
+    'Backbone', 
+    'Login', 
+    'text!templates/headerLogin.html', 
+    'text!templates/headerWelcome.html', 
+    'text!templates/headerRegister.html', 
+    'Mustache', 
+    'lang', 
+    'validatorHelper'], 
+    function(Utils, 
+        globals,
+        Backbone, 
+        Login, 
+        templateHeaderLogin,
+        templateHeaderRegister,
+        templateHeaderWelcome,
+        Mustache, 
+        lang, 
+        validatorHelper){
 	var LoginView = Backbone.View.extend ({
-		 template: _.template(LoginTemplate),
+		 template: _.template(templateHeaderLogin),
 		 initialize: function () {
-			 this.csrf = utils.getCookie('csrf');
+             this.view = {
+                'default': { 'email': lang['email'], 'password': lang['password'] },
+                'csrf': utils.getCookie('csrf'),
+                'values': {},
+                'errors': {},
+                'registerUrl': globals.registerUrl
+             }
 		 },
-         el: $('#loginForm'),
-		 render: function (eventName) {
-			 document.title = 'Login';
-			 if (this.$el) {
-				 this.$el.fadeIn('fast');	
-			 } else {
-				 var view = {
-					csrf: this.csrf,					
-				 	values: new Object ({email: Lang['email'], password: Lang['password']}),
-				 };
-				 this.htm = Mustache.render(this.template(), view);
-				 $('#subscribe').append(this.htm);
-			 } 
+         el: $('#subscribe'),
+		 render: function () {
+             this.$el.html(Mustache.render(this.template(), this.view));
 		 },
 		 events: {
 			 'click button#loginButton' : 'login',
-			 'click a#forgottenPassword' : 'openView',
-			 'click a#register' : 'openView'
+			 'click a#register' : 'register'
 		 },
 		 login: function () {
-             Validation.disableButton($('#loginButton'));
-             var data = {};
+             var formValues = {};
+             var errors = {};
+             var thisObj = this;
+             validatorHelper.disableButton($('#loginButton'));
              this.$el.find('input').each( function () {
-                 data[$(this).attr('name')] = $(this).val();
+                 formValues[$(this).attr('name')] = $(this).val();
              });
-             Validation.removeErrors(data);
-             var validationErrors = Validation.validate(data);
-			 if (_.isEmpty(validationErrors)) {
-                 this.model.save (data, {
+             errors = validatorHelper.validate(formValues);
+			 if (_.isEmpty(errors)) {
+                 this.model.save (formValues, {
                      success: function(model) {
                          thisObj.options.authenticateModel.fetch();
-                         thisObj.openView();
+                         thisObj.$el.remove();
                      }
                  });
              } else {
-                Validation.displayErrors(validationErrors);
-                Validation.enableButton($('#loginButton'), 'Login');
+                this.view.errors = errors;
+                this.view.values = formValues;
              }
+             this.render();
 			 return false;
          },
-		 openView: function (e) {
-			 this.$el.fadeOut('slow', function () {
-                 var view = e.currentTarget.id.replace('open', '').toLowerCase();
-                 Backbone.history.navigate(view, true);
-				 return false;
-			 });
+		 register: function () {
+             Backbone.history.navigate('register', true);
+             return false;
 		 }
 	});
 	return LoginView;

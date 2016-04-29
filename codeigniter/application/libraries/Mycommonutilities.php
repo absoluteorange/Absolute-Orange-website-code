@@ -35,11 +35,7 @@ class Mycommonutilities {
 	 * @return boolean
 	 */
 	public function setSession ($sessionData) {
-		$sessionArray = array();
-		foreach ($sessionData as $key=>$value) {
-			$sessionArray[$key] = $value;
-		}
-		$this->_ci->session->set_userdata($sessionArray);
+		$this->_ci->session->set_userdata($sessionData);
 		return true;
 	}
 	
