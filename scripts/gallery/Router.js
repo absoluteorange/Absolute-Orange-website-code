@@ -15,6 +15,7 @@ define(['Backbone',
         LoginView, 
         RegisterView){
 	var AppRouter = Backbone.Router.extend({
+        deferred: {},
         routes:{
                 "gallery":"gallery",
                 "login":"login",
@@ -22,23 +23,26 @@ define(['Backbone',
         },
         initialize: function () {
             this.myAuthenticate = new Authenticate();
-            this.myAuthenticate.fetch();
+            deferred = this.myAuthenticate.fetch();
             this.myLogin = new Login();
             this.myRegister = new Register();
         },
         gallery: function () {
             this.photoList = new PhotoCollection();
             this.photoListView =  new PhotoListView({collection: this.photoList, authenticateModel: this.myAuthenticate});
-            //this.photoListView.render();
             this.photoList.fetch({reset: true});
+            $.when(deferred).done(this.initialiseLogin.bind(this));
         },
         login: function () {
-            this.loginView = new LoginView({model: this.myLogin});
-            this.loginView.render();
+            $.when(deferred).done(this.initialiseLogin.bind(this));
         },
         register: function () {
             this.registerView = new RegisterView({model: this.myRegister});
             this.registerView.render();
+        },
+        initialiseLogin: function () {
+            this.loginView = new LoginView({model: this.myLogin, authenticateModel: this.myAuthenticate});
+            this.loginView.render();
         }
     });
 	return AppRouter;

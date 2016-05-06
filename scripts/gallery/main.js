@@ -5,7 +5,6 @@ require.config ({
 		'text': 'lib/text',
         'Utils': 'utils/utils',
 		'globals': '../dynamicScripts/jsGlobals',
-
 		'domready': 'lib/dom-ready',
 		'unveil': 'plugins/jquery.unveil',
 		'lightbox': 'plugins/lightbox',
@@ -38,7 +37,6 @@ require.config ({
 	        deps: ["underscore", "jquery"],
 	        exports: 'Backbone'
 		},
-		'Utils': ['underscore'],
 		'mustache': {
 			exports: 'Mustache'
 		},

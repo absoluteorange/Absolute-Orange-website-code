@@ -66,7 +66,8 @@ class Gallery extends CI_Controller {
             $this->setHeaderSubscribeForm($this->typeHeaderSubscribeForm);
         } else {
             $userName = $this->mycommonutilities->getSessionData('user-name');
-            $welcomeHeader['welcomeText'] = 'Welcome '.$userName;
+            $this->mycommonutilities->setCookies(array('user-name' => $userName));
+            $welcomeHeader['user'] = $userName;
             $this->welcomeHeading = $this->templateparser->parseTemplate('gallery/headerWelcome.html', $welcomeHeader, true);
         } 
         $this->executeCurl('/api/photos/photo/format/json');
@@ -305,6 +306,9 @@ class Gallery extends CI_Controller {
 
     private function setSessionAuthenticated() {
         $user = $this->Usersmodel->get_user($_POST['email']);
+        $csrf_hash = $this->getCsrfHash();
+        $cookieData = array('csrf' => $csrf_hash, 'authenticated' => 'true');
+        $this->mycommonutilities->setCookies($cookieData);
         $sessionData = array('user-name' => $user[0]['name'], 'authenticated' => true);
         $this->mycommonutilities->setSession($sessionData);
         return true;
@@ -313,11 +317,12 @@ class Gallery extends CI_Controller {
     private function setSession() {
         if (empty($this->mycommonutilities->getSessionData('csrf'))) {
             $csrf_hash = md5(uniqid(rand(), TRUE));
-            $sessionData = array('csrf' => $csrf_hash);
-            $this->mycommonutilities->setCookies($sessionData);
+            $cookieData = array('csrf' => $csrf_hash, 'authenticated' => 'false');
+            $this->mycommonutilities->setCookies($cookieData);
             $sessionData = array('csrf' => $csrf_hash, 'authenticated' => false);
             $this->mycommonutilities->setSession($sessionData);
         }
+        return true;
     }	
 
     private function isAuthenticated() {

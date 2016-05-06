@@ -1,13 +1,11 @@
-define(['Backbone', 'lang', 'Utils', 'globals'], function(Backbone, lang, Utils, globals){
+define(['Backbone', 'Utils', 'validatorHelper'], function(Backbone, Utils, validatorHelper){
     var Login = Backbone.Model.extend ({
 		urlRoot: "/api/login/validate/format/json",
-		defaults: {
-			'values': { 'email': lang['email'], 'password': lang['password'] },
-			'csrf': utils.getCookie('csrf'),
-            'default': {},
-            'errors': {},
-            'registerUrl': globals.registerUrl
-		},
+		attributes: {
+			'email': '', 
+            'password': '',
+			'csrf_secure': Utils.getCookie('csrf')
+		}
 	});
 	return Login;
 });

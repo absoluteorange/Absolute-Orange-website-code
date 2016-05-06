@@ -1,6 +1,5 @@
 define(['require', 
     'Backbone', 
-    'Utils',
     'Photo', 
     'PhotoItemView', 
     'PhotoItemBase64View', 
@@ -11,7 +10,6 @@ define(['require',
     'lightbox'
     ], function (require, 
         Backbone,
-        Utils,
         Photo, 
         PhotoItemView, 
         PhotoItemBase64View, 
@@ -26,7 +24,6 @@ define(['require',
          uploadImages: false,	 
          initialize:function () {
              this.collection.bind("reset", this.render, this);
-             this.csrf = utils.getCookie('csrf');
              $('.photo').remove();
          },
          el: $('#photoContainer'),
