@@ -13,10 +13,10 @@ abstract class Validation_Controller extends REST_Controller {
 		parent::__construct();
 		$this->_ci =& get_instance();
 		$this->_ci->load->library('myformvalidator');
-		$this->_ci->load->library('mycommonutilities');		
+		$this->_ci->load->library('mycommonutilities');
 		$this->_ci->lang->load('form_validation', 'english');
 	}
-	
+
 	/**
 	 * Validates the password
 	 * @param string $password
@@ -30,7 +30,7 @@ abstract class Validation_Controller extends REST_Controller {
 			return false;
 		}
 	}
-	
+
 	/**
 	 * Checks form value is not a default value
 	 * @param String $str form value
@@ -44,7 +44,7 @@ abstract class Validation_Controller extends REST_Controller {
 			return true;
 		}
 	}
-	
+
 	/**
 	 * Validates csrf number
 	 * @param int $integer
@@ -60,7 +60,7 @@ abstract class Validation_Controller extends REST_Controller {
 		}*/
 		return true;
 	}
-	
+
 	/***************************/
 	/*   DATA VALIDATION      */
 	/*************************/
@@ -68,7 +68,7 @@ abstract class Validation_Controller extends REST_Controller {
 	 * Validates base64 encoded data for mime type and filesize
 	 * @param base64 encoded data $data
 	 * @return Boolean
-	 * 
+	 *
 	 */
 	public function dataValidate ($data) {
 		$f = finfo_open();
@@ -88,12 +88,12 @@ abstract class Validation_Controller extends REST_Controller {
 		}
 		return true;
 	}
-	
+
 	/**
 	 * Validates base64 decoded data
 	 * @param base64 decoded data $data
 	 * @return Boolean
-	 * 
+	 *
 	 */
 	public function data_validate_decoded ($data) {
 		/*if ($this->_ci->security->xss_clean($data, TRUE)) {
@@ -104,7 +104,7 @@ abstract class Validation_Controller extends REST_Controller {
 		}*/
 		return true;
 	}
-	
+
 	/**
 	 * Validates filename
 	 * @param string $filename
@@ -119,5 +119,5 @@ abstract class Validation_Controller extends REST_Controller {
 			$this->_ci->response(array('error' => '111'), 111);
 			return false;
 		}
-	}	
+	}
 }

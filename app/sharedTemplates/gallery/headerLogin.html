@@ -1,0 +1,21 @@
+<section id="subscribe" class="header-form col-xs-12 col-sm-12 col-md-9 col-lg-10">
+    <form action="{{formUrl}}" method="post" accept-charset="utf-8" id="loginForm" class="form-inline">	
+        <input type="hidden" value="{{csrf}}" name="csrf_secure">
+        <div id="email" class="form-group {{#errors}}{{#email}}has-error has-feedback{{/email}}{{/errors}}">
+            <input type="text" name="email" value="{{#values}}{{email}}{{/values}}" placeholder="{{#default}}{{email}}{{/default}}" class="form-control">
+            {{#errors}}{{#email}}
+                <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span></span>{{/email}}{{/errors}}
+        </div>
+        <div id="password" class="form-group {{#errors}}{{#password}}has-error has-feedback{{/password}}{{/errors}}">
+            <input type="password" name="password" value="{{#values}}{{password}}{{/values}}" placeholder="{{#default}}{{password}}{{/default}}" class="form-control" />	
+            {{#errors}}{{#password}}
+                <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span></span>{{/password}}{{/errors}}
+        </div>
+        <div class="form-group">
+            <button type="submit" id="loginButton" class="btn btn-default">Login</button>
+        </div>
+    </form>
+    <div class="form-links col-md-offset-9 col-md-1 col-lg-offset-9 col-lg-1">
+        <a id="openRegister" href="{{registerUrl}}">Register</a>
+    </div>
+</section>

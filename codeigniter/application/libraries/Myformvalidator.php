@@ -6,7 +6,7 @@ class Myformvalidator {
 	
 	public function __construct() {
 		$this->_ci =& get_instance();
-		$this->_ci->load->library('session');
+		$this->_ci->load->library('form_validation', 'session');
 		$this->_ci->lang->load('form_validation', 'english');
 	}
 	
@@ -30,16 +30,17 @@ class Myformvalidator {
 	 * @param array $array
 	 *
 	 */
-	public function sendErrors($array) {
-		foreach ($_POST as $index => $value) {
-			if (form_error($index) != '') {
-				$array[$index] = form_error($index);
-			}
-		}
-		if (!empty($array)) {
-			$this->_ci->response(array('error' => $array), 403);
-		} else {
-			$this->_ci->response(array('error' => '403'), 403);
-		}
+	public function sendErrors() {
+		if ($this->_ci->form_validation->run('login') == FALSE) {
+            $arrErrors = array();
+            foreach ($_POST as $key => $value) {
+                if (form_error($key) != '') {
+                    $arrErrors[$key] = form_error($key);
+                }
+            }
+            if (!empty($arrErrors)) {
+                return $arrErrors;
+            } 
+        }
 	}
 }

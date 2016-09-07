@@ -297,8 +297,8 @@ class Curl {
 		// Execute the request & and hide all output
 		$this->response = curl_exec($this->session);
 		$this->info = curl_getinfo($this->session);
-		
-		// Request failed
+//var_dump($this->response);
+        // Request failed
 		if ($this->response === FALSE)
 		{
 			$errno = curl_errno($this->session);
@@ -309,7 +309,7 @@ class Curl {
 			
 			$this->error_code = $errno;
 			$this->error_string = $error;
-
+//var_dump($error);
             return FALSE;
 		}
 

@@ -1,19 +1,17 @@
 require.config ({
+	baseUrl: '/scripts/',
+	urlArgs: 'v0.0.3',
 	paths: {
-		'use': 'plugins/use',
-		'text': 'plugins/text',
-		'order': 'plugins/order',
+		'text': 'lib/text',
+        'Utils': 'utils/utils',
 		'globals': '../dynamicScripts/jsGlobals',
-		'utils': 'utils/utils',
-		'features': 'utils/features',
-		'isotope': 'lib/jquery.isotope',
-		'domready': 'plugins/domReady',
-		'unveil': 'plugins/jquery.unveil.min',
+		'domready': 'lib/dom-ready',
+		'unveil': 'plugins/jquery.unveil',
 		'lightbox': 'plugins/lightbox',
 		'jquery': 'lib/jquery-1.7.1.min',
-		'underscore': 'lib/underscore',
+		'underscore': 'lib/underscore.min',
 		'Backbone': 'lib/backbone-min',
-		'Mustache': 'plugins/mustache',
+		'Mustache': 'lib/mustache.min',
 		'Photo': 'gallery/models/Photo',
 		'PhotoCollection': 'gallery/collections/PhotoCollection',
 		'PhotoListView': 'gallery/views/PhotoListView',
@@ -21,61 +19,40 @@ require.config ({
 		'PhotoItemBase64View': 'gallery/views/PhotoItemBase64View',
 		'Login': 'gallery/models/Login',
 		'LoginView': 'gallery/views/LoginView',
-		'User': 'gallery/models/User',
+		'Register': 'gallery/models/Register',
 		'RegisterView': 'gallery/views/RegisterView',
 		'ThankyouView': 'gallery/views/ThankyouView',
 		'Authenticate': 'gallery/models/Authenticate',
+		'validatorHelper': 'utils//validatorHelper',
 		'Router': 'gallery/Router',
 		'AppView': 'gallery/appview',
-		'Lang': '../dynamicScripts/jsLanguage',
+		'lang': '../dynamicScripts/jsLanguage',
 		'templates': '../sharedTemplates/gallery'
 	},
-	use: {
+	shim: {
 		'underscore': {
-	        attach: "_"
+	        exports: "_"
 		},
-		'Backbone': {
-	        deps: ["use!underscore", "jquery"],
-	        attach: function(_, $) {
-	          return Backbone;
-	        }
+		'backbone': {
+	        deps: ["underscore", "jquery"],
+	        exports: 'Backbone'
 		},
-		'utils': {
-			deps: ['use!underscore', 'use!Backbone'],
-			attach: function (_, Backbone) {
-				return utils;
-			}
-		},
-		'features': { 
-			deps: ['use!utils'],
-			attach:  function (utils) {
-				return features;
-			}
-		},
-		'Mustache': {
-			attach: 'Mustache'
+		'mustache': {
+			exports: 'Mustache'
 		},
 		'unveil': {
 			deps: ['jquery'],
-	        attach: function($) {
+	        init: function($) {
 	          return $;
-	        }
-		},
-		'isotope': {
-			deps: ['jquery'],
-	        attach: function($) {
-	          return window.$.Isotope;
 	        }
 		},
 		'lightbox': {
 			deps: ['jquery'],
-	        attach: function($) {
+	        init: function($) {
 	          return $;
 	        }
 		}
-	},
-	baseUrl: '/scripts/',
-	urlArgs: 'v0.0.3'
+	}
 });
 
 require (['gallery/gallery'], function () {});

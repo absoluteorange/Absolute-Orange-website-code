@@ -1,0 +1,52 @@
+@import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
+
+.no-js .addImages{
+    display: none;
+}
+
+.js .addImages{
+    display: block;
+}
+
+#contentContainer {
+    max-width: 976px;
+    position: relative;
+}
+
+.header-form form {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    @media (min-width: $screen-lg-min) { 
+        float: right;
+        margin-top: 20px;
+        margin-bottom: 0;
+    }
+}
+
+div.form-links {
+    float: right;
+    padding-right: 0;
+    text-align: right;
+}
+
+.form-horizontal {
+    @media (min-width: $screen-lg-min) { 
+        margin-top: 30px;
+    }
+    span.form-links {
+        margin-left: 15px;
+    }
+}
+
+footer {
+    margin-top: 30px;
+}
+
+header { 
+    margin-bottom: 15px;
+    .welcome {
+        @media (min-width: $screen-md-min) { 
+            margin-top: 25px;
+        }
+    }
+}

@@ -9,34 +9,33 @@ class Login extends Validation_Controller {
 		$this->load->model('webapp/Usersmodel');
 		$this->load->library('encrypt');
 		$this->load->library('form_validation');
-		$this->load->library('session');
-		$this->load->helper('cookie');
 		$this->load->library('myformvalidator');
 		$this->load->library('mycommonutilities');
 	}
 	
 	public function validate_post() {
-		$fields = array('email', 'password', 'csrf_secure');
-		if ($_POST) {
-		} else {
-			$_POST = $this->myformvalidator->processData($fields);
-		}
-		$loginData['errors'] = array();
+        if (!$_POST){
+            $fields = array('email', 'password', 'csrf_secure');
+            $this->myformvalidator->processData($fields);
+        }
 		if ($this->form_validation->run('login') == TRUE) {
-			$dbUser = $this->Usersmodel->get_user($_POST['email']);
-			if (!empty($dbUser)) {
-				$storedPassword = $this->encrypt->decode($dbUser[0]['password']);
-				if ($_POST['password'] == $storedPassword) {
-					$this->mycommonutilities->setSession(array('authenticated' => true));
-					$this->response(NULL, 200);
-				} else {
-					$this->response(NULL, 400);
-				}
+			$user = $this->Usersmodel->get_user($_POST['email']);
+			if (empty($user)) {
+				$this->response(array('error' => 'user does not exist'), 404);
 			} else {
-				$this->response(NULL, 404);
+				if ($_POST['password'] == $this->encrypt->decode($user[0]['password'])) {
+                    $sessionData = array('user-name' => $user[0]['name'], 'authenticated' => true);
+                    $this->mycommonutilities->setSession($sessionData);
+                    $cookieData = array('user-name' => $user[0]['name'], 'authenticated' => 'true');
+                    $this->mycommonutilities->setCookies($cookieData);
+					$this->response(array('success', 200));
+				} else {
+					$this->response(array('error', 'incorrect password'), 400);
+				}
 			}
 		} else {
-			$loginData['errors'] = $this->myformvalidator->sendErrors($loginData['errors'], $_POST);
+            $arrErrors = $this->myformvalidator->sendErrors();
+			$this->response(array('error' => $arrErrors), 403);
     	}
     }  
 }

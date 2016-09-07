@@ -1,35 +1,58 @@
-<section id="register" class="">
-	<div class="navigation">
-		<a id="openLogin" href="{{loginUrl}}" class="btn btn-warning" title="Login">Login</a>
-	</div>
-	<form action="{{formUrl}}" method="post" accept-charset="utf-8" id="registerForm" class="form-horizontal">	
-		<input type="hidden" value="{{csrf}}" name="csrf_secure">
-		<div class="control-group" id="username">
-			<input type="text" name="username" placeholder="{{#values}}{{username}}{{/values}}" value="" />		
-			<span class="help-inline">
-			{{#errors}}{{username}}{{/errors}}
-			</span>
-			<p class="form-help">{{usernameHelper}}</p>
-		</div>
-		<div class="control-group" id="email">
-			<input type="text" name="email" placeholder="{{#values}}{{email}}{{/values}}" value="" />		
-			<span class="help-inline">
-				{{#errors}}{{email}}{{/errors}}
-			</span>
-		</div>
-	    <div class="control-group" id="password">
-			<input type="password" name="password" placeholder="{{#values}}{{password}}{{/values}}" value="" />		
-			<span class="help-inline">
-				{{#errors}}{{{password}}}{{/errors}}
-			</span>
-			<p class="form-help">{{passwordHelper}}</p>
-		</div>
-		<button type="submit" class="btn btn-success btn-first" data-toggle="button" id="registerButton">Submit</button>
-		
-		{{#response}}
-			<div class="form-helper">
-				<p>{{{result}}}</p>
-			</div>
-		{{/response}}
-	</form>
+<section id="subscribe" class="row">
+    <form action="{{formUrl}}" method="post" accept-charset="utf-8" id="loginForm" class="form-horizontal">	
+        <input type="hidden" value="{{csrf}}" name="csrf_secure">
+        <div id="username" class="form-group {{#errors}}{{#username}}has-error has-feedback{{/username}}{{/errors}} col-md-8">
+            <label for="username" class="col-sm-2 control-label">Username</label>
+            <div class="col-sm-10 col-md-6">
+                <input type="text" name="username" placeholder="{{#default}}{{username}}{{/default}}" value="{{#values}}{{username}}{{/values}}" class="form-control">		
+                {{#errors}}{{#username}}
+                    <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span></span>
+                    <span id="inputError2Status" class="sr-only">(error)</span> 
+                {{/username}}{{/errors}}
+                {{#errors}}
+                    <span class="help-block">
+                        {{{username}}}
+                    </span>
+                {{/errors}}
+            </div>
+        </div>
+        <div id="email" class="form-group {{#errors}}{{#email}}has-error has-feedback{{/email}}{{/errors}} col-md-8">
+            <label for="email" class="col-sm-2 control-label">Email</label>
+            <div class="col-sm-10 col-md-6">
+                <input type="text" name="email" value="{{#values}}{{email}}{{/values}}" placeholder="{{#default}}{{email}}{{/default}}" class="form-control" />		
+                {{#errors}}{{#email}}
+                    <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span></span>
+                    <span id="inputError2Status" class="sr-only">(error)</span> 
+                {{/email}}{{/errors}}
+                {{#errors}}
+                    <span class="help-block">
+                        {{{email}}}
+                    </span>
+                {{/errors}}
+            </div>
+        </div>
+        <div id="password" class="form-group {{#errors}}{{#password}}has-error has-feedback{{/password}}{{/errors}} col-md-8">
+            <label for="password" class="col-sm-2 control-label">Password</label>
+            <div class="col-sm-10 col-md-6">
+                <input type="password" name="password" value="{{#values}}{{password}}{{/values}}" placeholder="{{#default}}{{password}}{{/default}}" class="form-control" />	
+                {{#errors}}{{#password}}
+                    <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                    <span id="inputError2Status" class="sr-only">(error)</span> 
+                {{/password}}{{/errors}}
+                {{#errors}}
+                    <span class="help-block">
+                        {{{password}}}
+                    </span>
+                {{/errors}}
+            </div>
+        </div>
+        <div class="form-group col-md-8">
+            <div class="col-sm-offset-2 col-sm-10 col-md-offset-2 col-md-6">
+                <button type="submit" id="registerButton" class="btn btn-default">Register</button>
+                <span class="form-links">
+                    <a id="openLogin" href="{{loginUrl}}">Login</a>
+                </span>
+            </div>
+        </div>
+    </form>
 </section>

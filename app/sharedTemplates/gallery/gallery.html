@@ -1,24 +1,20 @@
-<section id="photoGallery">
-	<div class="navigation">
-		<input type="button" class="btn btn-warning js-only" id="openLogin" value="Add images">
+<section id="photoGallery" class="row">
+    <div class="col-xs-12">
+        <h2>Images to inspire</h2>
+    </div>
+	<div class="addImages col-xs-12">
+		<input type="button" id="addImage" class="btn btn-default" value="Add images">
 	</div>
-	<div id="photoContainer">
-		<div id="photos" class="fluid clearfix">
-			{{#photos}}
-				<div class="item">
-					<script type="text/javascript">
-						if (cookieEnabled === false) {
-							document.write('<img src="{{imageUrl}}/{{scale}}/{{name}}.{{format}}" title="{{alt}}" alt="{{alt}}" />');
-						}
-					</script>
-					<a class="js-only" href="{{imageUrl}}/xlarge/{{name}}.{{format}}" data-lightbox="wedding">
-				    	<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{imageUrl}}/{{scale}}/{{name}}.{{format}}" title="{{alt}}" alt="{{alt}}" />
-				    </a>
-					<noscript>
-						<img src="{{imageUrl}}/{{scale}}/{{name}}.{{format}}" title="{{alt}}" alt="{{alt}}" />
-					</noscript>
-				</div>
-			{{/photos}}
-		</div>
+	<div id="photoContainer" class="row">
+        {{#photos}}
+            <div class="photo">
+                <a href="{{imageUrl}}/xlarge/{{name}}.{{format}}" data-lightbox="gallery">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{imageUrl}}/xlarge/{{name}}.{{format}}" alt="{{alt}}" class="img-responsive center-block">
+                </a>
+                <noscript>
+                    <img src="{{imageUrl}}/xlarge/{{name}}.{{format}}" alt="{{alt}}" class="img-responsive center-block">
+                </noscript>
+            </div>
+        {{/photos}}
 	</div>
 </section>

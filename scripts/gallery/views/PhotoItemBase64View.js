@@ -1,10 +1,10 @@
-define(['use!Backbone', 'Photo', 'text!gallery/templates/photoItemBase64.html'], function(Backbone, Photo, PhotoTemplate){
+define(['Backbone', 'Photo', 'text!gallery/templates/photoItemBase64.html'], function(Backbone, Photo, PhotoTemplate){
 	var PhotoItemBase64View = Backbone.View.extend ({
 		 tagName: 'div',
 		 template: _.template(PhotoTemplate),
 		 render:function (eventName) {
 			 $(this.el).addClass('item');
-			 $(this.el).html(this.template(this.model.toJSON())); 
+			 $(this.el).html(this.template(this.model.toJSON()));
 			return this;
 		 }
 	});

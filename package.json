@@ -10,5 +10,12 @@
     "grunt-contrib-concat": "~0.5.1",
     "grunt-contrib-uglify": "~0.11.0",
     "grunt-contrib-requirejs": "~0.4.4"
+  },
+  "dependencies": {
+    "bootstrap-sass": "~3.3.6",
+    "isotope-layout": "~2.2.2",
+    "text": "git://github.com/requirejs/text",
+    "mustache": "~2.2.1",
+    "masonry-layout": "~4.0.0"
   }
 }

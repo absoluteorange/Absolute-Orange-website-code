@@ -5,10 +5,9 @@ define([],function() {
   */
   
  var globals={
-    /**
-    *  {String} domain
-    */
-   domain: '{{domain}}'
+   domain: '{{domain}}',
+   registerUrl: '{{registerUrl}}',
+   loginUrl: '{{loginUrl}}
  };
  return globals;
 });

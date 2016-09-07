@@ -286,7 +286,7 @@
 				array(
 						'field' => 'username',
 						'label' => 'username',
-						'rules' => 'required|callback_checkDefault|alpha_numeric'
+						'rules' => 'required|callback_checkDefault'
 				), 
 				array (
 						'field' => 'email',
@@ -296,7 +296,7 @@
 				array (
 						'field' => 'password',
 						'label' => 'password',
-						'rules' => 'required|callback_checkDefault|callback_checkPassword'
+						'rules' => 'required|callback_checkDefault'
 				), 
 				array (
 						'field' => 'csrf_secure',
@@ -313,7 +313,7 @@
 				array (
 						'field' => 'password',
 						'label' => 'password',
-						'rules' => 'required|callback_checkDefault|callback_checkPassword'
+						'rules' => 'required|callback_checkDefault'
 				),
 				array (
 						'field' => 'csrf_secure',
