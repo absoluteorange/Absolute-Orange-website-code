@@ -12,7 +12,7 @@
     "grunt-contrib-requirejs": "~0.4.4"
   },
   "dependencies": {
-    "bootstrap-sass": "~3.3.6",
+    "bootstrap-sass": "~3.4.1",
     "isotope-layout": "~2.2.2",
     "text": "git://github.com/requirejs/text",
     "mustache": "~2.2.1",
