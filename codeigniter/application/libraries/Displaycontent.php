@@ -15,7 +15,7 @@ class DisplayContent {
             'CDNPath'=>$this->_ci->config->item('CDNPath')
         );
         $this->contactData=array(
-            'email'=>'info@absoluteorange.com',
+            'email'=>'hello.absoluteorange@gmail.com',
             'tel'=>'+44 (0)75322 75 361',
             'twitter' => 'absolute_orange'
         );
@@ -24,7 +24,7 @@ class DisplayContent {
             'homeUrl' => site_url(''),
             'displayTweets' => true
         );
-        $this->footerData['copy']='&copy; 2006 - '.date('Y').' Absolute Orange Ltd, all rights reserved';
+        $this->footerData['copy']='&copy; 2009 - '.date('Y').' Absolute Orange Ltd, all rights reserved';
 	    $this->arrDevelopers  = $this->_ci->profiles->getEmployeeNames();
         $this->navMain=array(
             'home' => array(
