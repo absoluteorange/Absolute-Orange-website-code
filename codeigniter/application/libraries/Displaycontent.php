@@ -17,7 +17,7 @@ class DisplayContent {
         $this->contactData=array(
             'email'=>'hello.absoluteorange@gmail.com',
             'tel'=>'+44 (0)75322 75 361',
-            'twitter' => 'absolute_orange'
+            'twitter' => 'https://twitter.com/absolute_orange'
         );
         $this->headerData=array(
             'heading'=>'absolute orange',
